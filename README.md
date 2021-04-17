@@ -6,6 +6,8 @@
 
 **Objectives**: Gain hands-on, code-first experience with deep learning theories, models, and skills that are useful for applications and for advancing science. We focus on how to decide which problems can be tackled with deep learning, how to determine what model is best, how to best implement a model, how to visualize / justify findings, and how neuroscience can inspire deep learning. And throughout we emphasize the ethical use of DL. 
 
+Please check out [expected prerequisites here](https://github.com/NeuromatchAcademy/precourse-dl)!
+
 **Confirmed speakers**: 
 
 [Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
