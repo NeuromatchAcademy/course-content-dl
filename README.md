@@ -10,14 +10,14 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 
 **Confirmed speakers**: 
 
-[Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
-[Yoshua Bengio (MILA)](https://yoshuabengio.org/)
-[Yann LeCun (Facebook)](http://yann.lecun.com/)
-[Kyunghyun Cho (NYU)](https://kyunghyuncho.me/)
-[Chelsea Finn (Stanford)](https://ai.stanford.edu/~cbfinn/)
-[Amita Kapoor (U Delhi)](https://www.dramitakapoor.com/)
-[Emily Danton (Google)](https://cephaloponderer.com/)
-[Joao Sedoc (NYU)](https://scholar.google.com/citations?user=vv355NgAAAAJ&hl=en)
+* [Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
+* [Yoshua Bengio (MILA)](https://yoshuabengio.org/)
+* [Yann LeCun (Facebook)](http://yann.lecun.com/)
+* [Kyunghyun Cho (NYU)](https://kyunghyuncho.me/)
+* [Chelsea Finn (Stanford)](https://ai.stanford.edu/~cbfinn/)
+* [Amita Kapoor (U Delhi)](https://www.dramitakapoor.com/)
+* [Emily Danton (Google)](https://cephaloponderer.com/)
+* [Joao Sedoc (NYU)](https://scholar.google.com/citations?user=vv355NgAAAAJ&hl=en)
 
 # Course materials
 
@@ -111,7 +111,7 @@ Coming soon... stay tuned...
 
 ### Fri, August 13, 2021: Generative models (VAEs & GANs)
 
-*coordinated by TBD*
+*coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en)*
 
 **Description** Variational auto-encoders (VAEs) and Generative Adversarial Networks (GANs) as methods for representing latent data statistics
 
