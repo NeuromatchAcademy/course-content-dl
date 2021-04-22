@@ -18,6 +18,7 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 * [Amita Kapoor (U Delhi)](https://www.dramitakapoor.com/)
 * [Emily Danton (Google)](https://cephaloponderer.com/)
 * [Joao Sedoc (NYU)](https://scholar.google.com/citations?user=vv355NgAAAAJ&hl=en)
+* [Anima Anandkumar (Caltech)](http://tensorlab.cms.caltech.edu/users/anima/)
 
 # Course materials
 
