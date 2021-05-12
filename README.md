@@ -13,6 +13,7 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 * [Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
 * [Yoshua Bengio (MILA)](https://yoshuabengio.org/)
 * [Yann LeCun (Facebook)](http://yann.lecun.com/)
+* [Melanie Mitchell (Portland State U)](https://melaniemitchell.me/)
 * [Kyunghyun Cho (NYU)](https://kyunghyuncho.me/)
 * [Chelsea Finn (Stanford)](https://ai.stanford.edu/~cbfinn/)
 * [Amita Kapoor (U Delhi)](https://www.dramitakapoor.com/)
