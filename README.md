@@ -112,7 +112,7 @@ Coming soon... stay tuned...
 
 ### Fri, August 13, 2021: Generative models (VAEs & GANs)
 
-*coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en)*
+*coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en) and [Akash Srivastava (MIT-IBM)](http://akashgit.github.io/)*
 
 **Description** Variational auto-encoders (VAEs) and Generative Adversarial Networks (GANs) as methods for representing latent data statistics
 
