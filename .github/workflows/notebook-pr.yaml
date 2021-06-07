@@ -1,11 +1,12 @@
 name: notebook-pr
-on: 
+on:
   pull_request:
     branches: main
     paths: '**/*.ipynb'
 
 env:
   NB_KERNEL: python
+  NMA_REPO: course-content-dl
   NMA_MAIN_BRANCH: main
 
 jobs:
