@@ -78,9 +78,9 @@ jobs:
         with:
           path: comment.txt
 
-      # - name: Update READMEs
-      #   if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-      #   run: python ci/generate_tutorial_readmes.py
+      - name: Update READMEs
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: python ci/generate_tutorial_readmes.py
 
       - name: Remove unreferenced derivatives
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && success()"
