@@ -11,20 +11,20 @@ def tensor_creation(Z):
     C : a tensor with the same number of elements as A but with values ∼U(0,1)
     D : a 1D tensor containing the even numbers between 4 and 40 inclusive.
   """
-    #################################################
+  #################################################
   ## TODO for students: fill in the missing code
   ## from the first expression
   #raise NotImplementedError("Student exercise: say what they should have done")
   #################################################
-  A = torch.ones(20,21)
+  A = torch.ones(20, 21)
   B = torch.tensor(Z)
   C = torch.rand_like(A)
-  D = torch.arange(4,41,step=2)
+  D = torch.arange(4, 41, step=2)
 
   return A, B, C, D
 
 # numpy array to copy later
-Z = np.vander([1,2,3], 4)
+Z = np.vander([1, 2, 3], 4)
 
 # Uncomment below to check your function!
 A, B, C, D = tensor_creation(Z)
