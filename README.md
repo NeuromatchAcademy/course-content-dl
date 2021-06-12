@@ -91,7 +91,7 @@ Coming soon... stay tuned...
 
 *coordinated by [Alexander Ecker (U Goettingen)](https://eckerlab.org/)*
 
-**Description** Transfer learning, continual learning, and reply and why they're essential
+**Description** Modern convolutional neural nets and how to use them for transfer learning
 
 ----
 
