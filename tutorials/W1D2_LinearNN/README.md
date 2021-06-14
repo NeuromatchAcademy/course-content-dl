@@ -1,4 +1,4 @@
-# W1D2 - Linear DL
+# W1D2 - PyTorch and Deep Linear Neural Networks
 
 ## Instructor notebooks
 
