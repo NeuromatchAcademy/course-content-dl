@@ -15,7 +15,7 @@
 
 
 
-## W1D2 - Linear N N
+## W1D2 - Linear DL
 
 |   | Run | View |
 | - | --- | ---- |
