@@ -1,4 +1,4 @@
-# W1D2 - Linear Deep Learning
+# W1D2 - Linear N N
 
 ## Instructor notebooks
 
