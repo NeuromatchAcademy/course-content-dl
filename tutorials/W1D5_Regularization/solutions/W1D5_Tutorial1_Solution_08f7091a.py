@@ -4,9 +4,11 @@ def early_stopping_main(args, model, train_loader, val_loader, test_data):
   device = torch.device('cuda' if use_cuda else 'cpu')
 
   model = model.to(device)
-  optimizer = optim.SGD(model.parameters(), lr=args['lr'], momentum=args['momentum'])
+  optimizer = optim.SGD(model.parameters(),
+                        lr=args['lr'],
+                        momentum=args['momentum'])
 
-  best_acc  = 0.0
+  best_acc = 0.0
   best_epoch = 0
 
   # Number of successive epochs that you want to wait before stopping training process
@@ -31,7 +33,7 @@ def early_stopping_main(args, model, train_loader, val_loader, test_data):
     else:
       wait += 1
     if (wait > patience):
-      print('early stopped on epoch:',epoch)
+      print(f'early stopped on epoch:{epoch}')
       break
     train_acc_list.append(train_acc)
     val_acc_list.append(val_acc)
