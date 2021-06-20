@@ -1,11 +1,13 @@
 def convolution2d(image, kernel):
     """
-    Convolves the provided image (a greyscale image with each entry ranging from 0 to 255)
+    Convolves the provided image (a greyscale image with each entry
+                                  ranging from 0 to 255)
     with the provided kernel.
 
     arguments:
-      image: A numpy matrix, which is (a list (column) of lists (rows) of pixels)
-      kernel: A numpy matrix, which is (a list (column) of lists (rows) of pixels)
+
+    image: A numpy matrix, which is (a list (column) of lists (rows) of pixels)
+    kernel: A numpy matrix, which is (a list (column) of lists (rows) of pixels)
     outputs: A numpy matrix, the result of convolving the kernel over the image
     """
     im_y, im_x = image.shape
@@ -20,7 +22,8 @@ def convolution2d(image, kernel):
     convolved_image = np.zeros((out_y, out_x))
     for i in range(out_y):
         for j in range(out_x):
-            convolved_image[i][j] = np.sum(image[i:i+ker_y, j:j+ker_x]*kernel) # TODO now perform the actual convolution
+            # TODO now perform the actual convolution
+            convolved_image[i][j] = np.sum(image[i:i+ker_y, j:j+ker_x]*kernel)
 
     return convolved_image
 

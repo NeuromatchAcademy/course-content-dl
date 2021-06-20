@@ -21,5 +21,6 @@ class EMNIST_Net(nn.Module):
 
 
 emnist_net = EMNIST_Net().to(device)
-print("Total Parameters in Network {:10d}".format(sum(p.numel() for p in emnist_net.parameters())))
+print("Total Parameters in Network {:10d}".format(\
+                             sum(p.numel() for p in emnist_net.parameters())))
 train(emnist_net, device, train_loader, 1)
