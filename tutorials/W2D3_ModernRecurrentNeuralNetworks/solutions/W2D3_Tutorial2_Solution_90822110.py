@@ -47,3 +47,8 @@ class AttentionModel(torch.nn.Module):
     logits = self.fc1(final_output)
 
     return logits
+
+
+# Uncomment to check AttentionModel class
+attention_model = AttentionModel(32, 2, 16, 20, 200, TEXT.vocab.vectors)
+print(attention_model)
