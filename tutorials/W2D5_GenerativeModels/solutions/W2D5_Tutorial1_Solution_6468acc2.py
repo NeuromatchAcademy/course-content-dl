@@ -24,8 +24,12 @@ def train_autoencoder(autoencoder, dataset, epochs=20, batch_size=250):
   autoencoder.to(DEVICE)
   optim = torch.optim.Adam(autoencoder.parameters(), lr=1e-3, weight_decay=1e-5)
   loss_fn = nn.MSELoss()
+  g = torch.Generator()
+  g.manual_seed(2021)
   loader = DataLoader(dataset, batch_size=batch_size, shuffle=True,
-                      pin_memory=True, num_workers=2)
+                      pin_memory=True, num_workers=2,
+                      worker_init_fn=seed_worker,
+                      generator=g)
   mse_loss = torch.zeros(epochs * len(dataset) // batch_size, device=DEVICE)
   i = 0
   for epoch in trange(epochs, desc='Epoch'):
