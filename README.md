@@ -111,7 +111,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Fri, August 13, 2021: Generative models (VAEs & GANs)
+### Fri, August 13, 2021: Generative Models (VAEs & GANs)
 
 *coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en) and [Akash Srivastava (MIT-IBM)](http://akashgit.github.io/)*
 
@@ -123,7 +123,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Mon, August 16, 2021:  Unsupervised and Self-supervised learning 
+### Mon, August 16, 2021:  Unsupervised and Self-supervised Learning 
 
 *coordinated by [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home) and [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/)*
 
@@ -147,7 +147,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Thu, August 19, 2021: Continual learning / Causality / Future stuff
+### Thu, August 19, 2021: Continual Learning / Causality / Future stuff
 
 *coordinated by [Joshua T. Vogelstein (Johns Hopkins)](https://jovo.me/) and [Vincenzo Lomonaco (U Pisa)](https://www.vincenzolomonaco.com/)*
 
