@@ -91,7 +91,7 @@ Coming soon... stay tuned...
 
 *coordinated by [Alexander Ecker (U Goettingen)](https://eckerlab.org/)*
 
-**Description** Modern Convolutional Neural Nets and how to use them for transfer learning
+**Description** Modern Convolutional Neural Nets and how to use them for Transfer Learning
 
 ----
 
