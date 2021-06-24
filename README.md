@@ -1,4 +1,4 @@
-# Neuromatch Academy (NMA) Deep Learning syllabus
+# Neuromatch Academy Deep Learning (NMA-DL) syllabus
 
 ----
 
@@ -31,7 +31,7 @@ Coming soon... stay tuned...
 
 ----
 
-## Week 1: the basics
+## Week 1: The basics
 
 ----
 
@@ -43,7 +43,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Tue, August 3, 2021: Linear DL 
+### Tue, August 3, 2021: Linear DL
 
 *coordinated by [Andrew Saxe (Oxford)](https://www.saxelab.org/)*
 
@@ -75,15 +75,15 @@ Coming soon... stay tuned...
 
 ----
 
-## Week 2: doing more with fewer parameters
+## Week 2: Doing more with fewer parameters
 
 ----
 
-### Mon, August 9, 2021:  Parameter sharing: Convnets and recurrent neural networks (RNNs )
+### Mon, August 9, 2021:  Parameter sharing: Convnets and RNNs
 
 *coordinated by [Alona Fyshe (U Alberta)](https://webdocs.cs.ualberta.ca/~alona/)*
 
-**Description** How the number of parameters affects generalization, and what convolutional neural networks (Convnets) and RNNs can do for you to help
+**Description** How the number of parameters affects generalization, and what Convolutional Neural Networks (Convnets) and Recurrent Neural Networks (RNNs) can do for you to help
 
 ----
 
@@ -91,7 +91,7 @@ Coming soon... stay tuned...
 
 *coordinated by [Alexander Ecker (U Goettingen)](https://eckerlab.org/)*
 
-**Description** Modern convolutional neural nets and how to use them for transfer learning
+**Description** Modern Convolutional Neural Nets and how to use them for transfer learning
 
 ----
 
@@ -115,7 +115,7 @@ Coming soon... stay tuned...
 
 *coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en) and [Akash Srivastava (MIT-IBM)](http://akashgit.github.io/)*
 
-**Description** Variational auto-encoders (VAEs) and Generative Adversarial Networks (GANs) as methods for representing latent data statistics
+**Description** Variational Auto-Encoders (VAEs) and Generative Adversarial Networks (GANs) as methods for representing latent data statistics
 
 ----
 
@@ -123,7 +123,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Mon, August 16, 2021:  Unsupervised and self-supervised learning 
+### Mon, August 16, 2021:  Unsupervised and Self-supervised learning 
 
 *coordinated by [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home) and [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/)*
 
@@ -147,7 +147,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Thu, August 19, 2021: Continual learning /  Causality /  future stuff
+### Thu, August 19, 2021: Continual learning / Causality / Future stuff
 
 *coordinated by [Joshua T. Vogelstein (Johns Hopkins)](https://jovo.me/) and [Vincenzo Lomonaco (U Pisa)](https://www.vincenzolomonaco.com/)*
 
