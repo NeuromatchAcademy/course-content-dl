@@ -22,3 +22,15 @@ def ratio_disc(disc, x_real, x_fake):
   p_over_q = p_over_pplusq / q_over_pplusq
 
   return p_over_q
+
+
+disc = OptimalDisc()
+gen = DummyGen()
+
+x_real = get_data(1_000)
+x_fake = gen.sample(1_000)
+
+## Uncomment below to check your function
+ratio = ratio_disc(disc, x_real, x_fake)
+with plt.xkcd():
+  plotting_ratio(x_real, x_fake, ratio)

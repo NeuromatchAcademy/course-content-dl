@@ -19,3 +19,15 @@ def loss_disc(disc, x_real, x_fake):
   loss_fake = (1 - label_fake) * torch.log(1 - disc.classify(x_fake))
 
   return torch.cat([loss_real, loss_fake])
+
+
+disc = DummyDisc()
+gen = DummyGen()
+
+x_real = get_data()
+x_fake = gen.sample()
+
+## Uncomment to check your function
+ld = loss_disc(disc, x_real, x_fake)
+with plt.xkcd():
+  plotting_ld(ld)

@@ -14,3 +14,13 @@ def loss_gen(disc, x_fake):
   loss_fake = label_fake * torch.log(disc.classify(x_fake))
 
   return loss_fake
+
+
+disc = DummyDisc()
+gen = DummyGen()
+
+x_fake = gen.sample()
+## Uncomment below to check your function
+lg = loss_gen(disc, x_fake)
+with plt.xkcd():
+  plotting_lg(lg)

@@ -15,7 +15,7 @@ def train_gan_iter(data, disc, gen):
   # The data is the real samples
   x_real = data
 
-  ## Discriminator trianing
+  ## Discriminator training
 
   # Ask the generator to generate some fake samples
   x_fake = gen.sample(num_samples)
@@ -29,7 +29,7 @@ def train_gan_iter(data, disc, gen):
   # Update the discriminator
   update(disc, disc_grad)
 
-  ## Generator trianing
+  ## Generator training
 
   # Ask the generator to generate some fake samples
   x_fake = gen.sample(num_samples)
@@ -42,3 +42,12 @@ def train_gan_iter(data, disc, gen):
 
   # Update the generator
   update(gen, gen_grad)
+
+  print("Your implementation passes the check!")
+
+
+data = get_data()
+disc = Disc()
+gen = Gen()
+## Uncomment below to check your function
+train_gan_iter(data, disc, gen)
