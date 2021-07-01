@@ -22,7 +22,6 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 * [Yann LeCun (Facebook)](http://yann.lecun.com/)
 * [Yoshua Bengio (MILA)](https://yoshuabengio.org/)
 
-
 # Course materials
 
 ----
