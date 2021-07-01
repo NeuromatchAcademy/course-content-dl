@@ -10,16 +10,18 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 
 **Confirmed speakers**: 
 
-* [Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
-* [Yoshua Bengio (MILA)](https://yoshuabengio.org/)
-* [Yann LeCun (Facebook)](http://yann.lecun.com/)
-* [Melanie Mitchell (Santa Fe Institute)](https://melaniemitchell.me/)
-* [Kyunghyun Cho (NYU)](https://kyunghyuncho.me/)
-* [Chelsea Finn (Stanford)](https://ai.stanford.edu/~cbfinn/)
 * [Amita Kapoor (U Delhi)](https://www.dramitakapoor.com/)
-* [Emily Denton (Google)](https://cephaloponderer.com/)
-* [Joao Sedoc (NYU)](https://scholar.google.com/citations?user=vv355NgAAAAJ&hl=en)
 * [Anima Anandkumar (Caltech)](http://tensorlab.cms.caltech.edu/users/anima/)
+* [Aude Oliva (MIT)](http://olivalab.mit.edu/audeoliva.html)
+* [Chelsea Finn (Stanford)](https://ai.stanford.edu/~cbfinn/)
+* [Emily Denton (Google)](https://cephaloponderer.com/)
+* [Geoffrey Hinton (University of Toronto)](http://www.cs.toronto.edu/~hinton/)
+* [Joao Sedoc (NYU)](https://scholar.google.com/citations?user=vv355NgAAAAJ&hl=en)
+* [Kyunghyun Cho (NYU)](https://kyunghyuncho.me/)
+* [Melanie Mitchell (Santa Fe Institute)](https://melaniemitchell.me/)
+* [Yann LeCun (Facebook)](http://yann.lecun.com/)
+* [Yoshua Bengio (MILA)](https://yoshuabengio.org/)
+
 
 # Course materials
 
