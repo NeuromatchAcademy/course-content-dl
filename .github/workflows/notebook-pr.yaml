@@ -67,7 +67,7 @@ jobs:
         run: |
           branch=${{ github.event.pull_request.head.ref }}
           nbs=`python ci/select_notebooks.py ${{ steps.changes.outputs.files }}`
-          if ["contains(env.COMMIT_MESSAGE, 'execute notebook ci')"]; then
+          if ["contains(env.COMMIT_MESSAGE, 'ci:execute')"]; then
             python ci/process_notebooks.py $nbs --execute
           else
             python ci/process_notebooks.py $nbs --check-execution
