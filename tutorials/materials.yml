@@ -1,0 +1,23 @@
+- day: W1D1
+  category: Intro to Modeling
+  intro: https://www.youtube.com/watch?v=KxldhMR5PxA
+  intro_bilibili: https://www.bilibili.com/video/BV1HT4y1E7U4/
+  name: Basics and Pytorch
+  outro_bilibili: 
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18ObAiSOZ42YBwOQIKNvspeI
+  qa:
+  - https://www.youtube.com/watch?v=FwsKmunwzUA
+  - https://www.youtube.com/watch?v=h63bKG0-h_w
+  - https://www.youtube.com/watch?v=8h0X9lxY8Bs
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rbx2a/?direct%26mode=render%26action=download%26mode=render
+    title: Intro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6dxwe/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorials
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/9hkg2/?direct%26mode=render%26action=download%26mode=render
+    title: Outro
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2esh5/?direct%26mode=render%26action=download%26mode=render
+    title: Reading
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5vj73/?direct%26mode=render%26action=download%26mode=render
+    title: TA
+  tutorials: 3
