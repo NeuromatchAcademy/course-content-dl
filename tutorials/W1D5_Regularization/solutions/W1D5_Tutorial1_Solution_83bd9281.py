@@ -1,4 +1,4 @@
-def Visualize_data(dataloader):
+def visualize_data(dataloader):
 
   for idx, (data,label) in enumerate(dataloader):
     plt.figure(idx)
@@ -21,5 +21,7 @@ def Visualize_data(dataloader):
 
   plt.show()
 
-# # uncomment to run the function
-Visualize_data(rand_train_loader)
+
+## uncomment to run the function
+with plt.xkcd():
+  visualize_data(rand_train_loader)
