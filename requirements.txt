@@ -1,0 +1,11 @@
+requests
+numpy
+scipy
+matplotlib
+scikit-learn
+torch
+ipywidgets
+tqdm
+random
+time
+ipython
