@@ -42,7 +42,6 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
       - name: Install dependencies
-        if: "contains(env.COMMIT_MESSAGE, 'make book') && !contains(env.COMMIT_MESSAGE, 'skip ci') and contains(env.COMMIT_MESSAGE, 'ci:execute')"
         run: |
           pip install -r requirements.txt
           pip install jupyter-book==0.10.2 ghp-import
