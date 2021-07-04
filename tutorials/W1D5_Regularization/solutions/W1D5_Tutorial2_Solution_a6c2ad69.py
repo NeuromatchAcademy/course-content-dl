@@ -11,6 +11,7 @@ def l1_reg(model):
   return l1
 
 
-# # uncomment to test
+set_seed(seed=SEED)
+## uncomment to test
 net = nn.Linear(20, 20)
 print(f'L1 norm of the model: {l1_reg(net)}')

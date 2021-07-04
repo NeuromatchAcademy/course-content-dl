@@ -1,4 +1,4 @@
-def early_stopping_main(args, model, train_loader, val_loader, test_data):
+def early_stopping_main(args, model, train_loader, val_loader):
 
   use_cuda = not args['no_cuda'] and torch.cuda.is_available()
   device = torch.device('cuda' if use_cuda else 'cpu')
@@ -19,12 +19,16 @@ def early_stopping_main(args, model, train_loader, val_loader, test_data):
 
   val_acc_list, train_acc_list = [], []
   for epoch in tqdm(range(args['epochs'])):
+
     # train the model
-    train(args, model, device, train_loader, optimizer, epoch)
+    train(args, model, device, train_loader, optimizer)
+
     # calculate training accuracy
-    train_acc = test(model, device, train_loader, 'Train')
+    train_acc = test(model, device, train_loader)
+
     # calculate validation accuracy
-    val_acc = test(model, device, val_loader, 'Val')
+    val_acc = test(model, device, val_loader)
+
     if (val_acc > best_acc):
       best_acc = val_acc
       best_epoch = epoch
@@ -32,10 +36,28 @@ def early_stopping_main(args, model, train_loader, val_loader, test_data):
       wait = 0
     else:
       wait += 1
+
     if (wait > patience):
-      print(f'early stopped on epoch:{epoch}')
+      print(f'early stopped on epoch: {epoch}')
       break
+
     train_acc_list.append(train_acc)
     val_acc_list.append(val_acc)
 
   return val_acc_list, train_acc_list, best_model, best_epoch
+
+
+args = {
+    'epochs': 200,
+    'lr': 5e-4,
+    'momentum': 0.99,
+    'no_cuda': False,
+}
+
+model = AnimalNet()
+
+## Uncomment to test
+val_acc_earlystop, train_acc_earlystop, _, best_epoch = early_stopping_main(args, model, train_loader, val_loader)
+print(f'Maximum Validation Accuracy is reached at epoch: {best_epoch:2d}')
+with plt.xkcd():
+  early_stop_plot(train_acc_earlystop, val_acc_earlystop, best_epoch)
