@@ -42,7 +42,7 @@
 
   tutorials: 1
   
-  - day: W1D5
+- day: W1D5
   category: The Basics
   name: Regularization
   playlist: https://www.youtube.com/playlist?list=PLYgyoWurxA_9xZFO4S3MzAMe-Gfs9cXyR
@@ -64,7 +64,7 @@
 
   tutorials: 3
   
-  - day: W2D2
+- day: W2D2
   category: Doing more with fewer parameters
   name: Modern Convnets
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OKsouNW03Wx-eqwnii7qoJ
@@ -86,7 +86,7 @@
 
   tutorials: 2
   
-  - day: W2D4
+- day: W2D4
   category: Doing more with fewer parameters
   name: Attention and Transformers
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
@@ -108,7 +108,7 @@
 
   tutorials: 3
   
-  - day: W3D1
+- day: W3D1
   category: Advanced methods
   name: Supervised and Self-supervised learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NnHJ5W9jkkt-6meUnj97vz
@@ -130,7 +130,7 @@
 
   tutorials: 1
   
-  - day: W3D3
+- day: W3D3
   category: Advanced methods
   name: RL for games
   playlist:

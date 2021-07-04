@@ -46,6 +46,7 @@ jobs:
           pip install -r requirements.txt
           pip install jupyter-book==0.10.2 ghp-import
       - name: Build the book
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           python ci/generate_book.py
           ln -s ../tutorials book/tutorials
@@ -53,12 +54,14 @@ jobs:
           jupyter-book build book
           python ci/parse_html_for_errors.py
       - name: Commit book
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           ghp-import -n -c "deeplearning.neuromatch.io" -m "Update course book" book/_build/html
           git checkout -f gh-pages
       - name: Publish to gh-pages
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
