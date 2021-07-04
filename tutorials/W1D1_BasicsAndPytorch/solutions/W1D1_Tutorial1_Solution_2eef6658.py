@@ -1,4 +1,3 @@
-
 X_samples = X[0:5]
 print("Sample input:", X_samples)
 
