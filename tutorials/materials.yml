@@ -20,7 +20,7 @@
 
   tutorials: 3
   
-  - day: W1D3
+- day: W1D3
   category: The Basics
   name: Multilayer Perceptrons
   playlist: https://youtube.com/playlist?list=PLYgyoWurxA_9PtDrZSa_hh2vYxe0kLrqq
@@ -95,7 +95,7 @@
   - link: https://docs.google.com/presentation/d/1w9Quvq0J_FBHJFvZ9QhmMNd-LNIEJHpTYxQUAjQamFE/embed?start=false&loop=false&delayms=3000
     title: Tutorials
 
-  tutorials: 2
+  tutorials: 1
 
 - day: W2D5
   category: Doing more with fewer parameters
@@ -128,7 +128,7 @@
   - link: https://docs.google.com/presentation/d/1SspkoRiILE1xGUE0_iRboo-ALqXJVEZCt8IlgWOKgGo/embed?start=false&loop=false&delayms=3000
     title: Tutorials
 
-  tutorials: 3
+  tutorials: 1
   
   - day: W3D3
   category: Advanced methods
