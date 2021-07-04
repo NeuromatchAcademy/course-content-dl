@@ -46,6 +46,12 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
 
+      - name: Install dependencies
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && contains(env.COMMIT_MESSAGE, 'ci:execute')"
+        run: |
+          python -m pip install --upgrade pip wheel
+          pip install -r requirements.txt
+
       - name: Install XKCD fonts
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         run: |
@@ -62,12 +68,17 @@ jobs:
           output: " "
 
       - name: Process notebooks
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')" 
         id: process_notebooks
         run: |
           branch=${{ github.event.pull_request.head.ref }}
           nbs=`python ci/select_notebooks.py ${{ steps.changes.outputs.files }}`
-          python ci/process_notebooks.py $nbs --check-execution
+          if ${{ contains(env.COMMIT_MESSAGE, 'ci:execute') }}; then
+            execflag="--execute";
+          else
+            execflag="--check-execution";
+          fi
+          python ci/process_notebooks.py $nbs $execflag
           python ci/verify_exercises.py $nbs --c "$COMMIT_MESSAGE"
           python ci/make_pr_comment.py $nbs --branch $branch --o comment.txt
 
