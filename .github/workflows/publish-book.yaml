@@ -17,14 +17,12 @@ jobs:
   build-and-deploy-book:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-          
       - name: Get commit message
         run: |
           readonly local msg=$(git log -1 --pretty=format:"%s")
@@ -33,7 +31,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
-
       - name: Install CI tools
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
         run: |
@@ -45,6 +42,7 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
       - name: Install dependencies
+        if: "contains(env.COMMIT_MESSAGE, 'make book') && !contains(env.COMMIT_MESSAGE, 'skip ci') and contains(env.COMMIT_MESSAGE, 'ci:execute')"
         run: |
           pip install -r requirements.txt
           pip install jupyter-book==0.10.2 ghp-import
