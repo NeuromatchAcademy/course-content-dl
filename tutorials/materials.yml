@@ -1,6 +1,6 @@
 - day: W1D1
   category: The Basics
-  name: Basics and Pytorch
+  name: Basics And Pytorch
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ
 
   slides:
@@ -22,7 +22,7 @@
   
 - day: W1D3
   category: The Basics
-  name: Multilayer Perceptrons
+  name: Multi Layer Perceptrons
   playlist: https://youtube.com/playlist?list=PLYgyoWurxA_9PtDrZSa_hh2vYxe0kLrqq
 
   slides:
@@ -55,7 +55,7 @@
 
 - day: W2D1
   category: Doing more with fewer parameters
-  name: Convnets and Recurrent Neural Networks
+  name: Convnets And Recurrent Neural Networks
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NfrtDj1KyFm0AMDjph4knd
 
   slides:
@@ -77,7 +77,7 @@
 
 - day: W2D3
   category: Doing more with fewer parameters
-  name: Modern RNNs
+  name: Modern Recurrent Neural Networks
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NlxbV2k80qMaogAFnOHS_u
 
   slides:
@@ -88,7 +88,7 @@
   
 - day: W2D4
   category: Doing more with fewer parameters
-  name: Attention and Transformers
+  name: Attention And Transformers
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
 
   slides:
@@ -99,7 +99,7 @@
 
 - day: W2D5
   category: Doing more with fewer parameters
-  name: Generative models (VAEs & GANs)
+  name: Generative Models
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
   slides:
@@ -110,7 +110,7 @@
   
 - day: W3D1
   category: Advanced methods
-  name: Supervised and Self-supervised learning
+  name: Unsupervised And Self Supervised Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NnHJ5W9jkkt-6meUnj97vz
 
   slides:
@@ -132,7 +132,7 @@
   
 - day: W3D3
   category: Advanced methods
-  name: RL for games
+  name: Reinforcement Learning For Games
   playlist:
 
   slides:
