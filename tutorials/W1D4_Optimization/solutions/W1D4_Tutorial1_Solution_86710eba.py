@@ -17,3 +17,15 @@ def gradient_update(loss, params, lr=1e-1):
     # Here we work with the 'data' attribute of the parameter rather than the
     # parameter itself.
     par.data -= lr * par.grad.data
+
+
+set_seed(2021)
+model = MLP(in_dim=784, out_dim=10, hidden_dims=[])
+print('\n The model parameters before the update are: \n')
+print_params(model)
+loss = loss_fn(model(X), y).to(DEVICE)
+
+## Uncomment below to test your function
+gradient_update(loss, list(model.parameters()), lr=1e-2)
+print('\n The model parameters after the update are: \n')
+print_params(model)

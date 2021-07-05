@@ -17,3 +17,8 @@ def sample_minibatch(input_data, target_data, num_points=100):
   batch_targets = target_data[batch_indices]
 
   return batch_inputs, batch_targets
+
+
+## Uncomment to test your function
+x_batch, y_batch = sample_minibatch(X, y, num_points=100)
+print(f"The input shape is {x_batch.shape} and the target shape is: {y_batch.shape}")

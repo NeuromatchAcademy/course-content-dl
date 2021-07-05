@@ -19,3 +19,16 @@ def rmsprop_update(loss, params, grad_sq, lr=1e-1, alpha=0.8):
     gsq.data = alpha * gsq.data + (1-alpha) * par.grad**2
     # Update parameters
     par.data -=  lr * (par.grad / (1e-8 + gsq.data)**0.5)
+
+
+set_seed(2021)
+model = MLP(in_dim=784, out_dim=10, hidden_dims=[])
+print('\n The model parameters before the update are: \n')
+print_params(model)
+loss = loss_fn(model(X), y).to(DEVICE)
+grad_sq = [0.0001*i for i in list(model.parameters())]
+
+## Uncomment below to test your function
+rmsprop_update(loss, list(model.parameters()), grad_sq=grad_sq, lr=1e-2)
+print('\n The model parameters after the update are: \n')
+print_params(model)
