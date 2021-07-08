@@ -1,13 +1,8 @@
 class AttentionModel(torch.nn.Module):
-  def __init__(self, batch_size, output_size, hidden_size, vocab_size, embedding_length, weights):
+  def __init__(self, batch_size, output_size, hidden_size, vocab_size,
+               embedding_length, weights):
     super(AttentionModel, self).__init__()
-
-    self.batch_size = batch_size
-    self.output_size = output_size
     self.hidden_size = hidden_size
-    self.vocab_size = vocab_size
-    self.embedding_length = embedding_length
-
     self.word_embeddings = nn.Embedding(vocab_size, embedding_length)
     self.word_embeddings.weights = nn.Parameter(weights, requires_grad=False)
     self.lstm = nn.LSTM(embedding_length, hidden_size)

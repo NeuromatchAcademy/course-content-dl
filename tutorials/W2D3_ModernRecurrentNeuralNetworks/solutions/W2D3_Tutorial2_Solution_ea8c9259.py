@@ -1,17 +1,20 @@
 class LSTM(nn.Module):
-  def __init__(self, layers, output_size, hidden_size, vocab_size, embed_size):
+  def __init__(self, layers, output_size, hidden_size, vocab_size, embed_size,
+               device):
     super(LSTM, self).__init__()
-
+    self.n_layers = layers
     self.output_size = output_size
     self.hidden_size = hidden_size
-    self.vocab_size = vocab_size
-    self.embed_size = embed_size
-    self.n_layers = layers
-
+    self.device = device
+    # Define the word embeddings
     self.word_embeddings = nn.Embedding(vocab_size, embed_size)
+    # Define the dropout layer
     self.dropout = nn.Dropout(0.5)
+    # Define the lstm layer
     self.lstm = nn.LSTM(embed_size, hidden_size, num_layers=self.n_layers)
+    # Define the fully-connected layer
     self.fc = nn.Linear(self.n_layers*self.hidden_size, output_size)
+
 
   def forward(self, input_sentences):
     # Embeddings
@@ -19,9 +22,9 @@ class LSTM(nn.Module):
     input = self.word_embeddings(input_sentences).permute(1, 0, 2)
 
     hidden = (torch.randn(self.n_layers, input.shape[1],
-                          self.hidden_size).to(device),
+                          self.hidden_size).to(self.device),
               torch.randn(self.n_layers, input.shape[1],
-                          self.hidden_size).to(device))
+                          self.hidden_size).to(self.device))
     # Dropout for regularization
     input = self.dropout(input)
     # LSTM
@@ -35,5 +38,6 @@ class LSTM(nn.Module):
     return logits
 
 
-sampleLSTM = LSTM(3, 10, 100, 1000, 300)
+## Uncomment to run
+sampleLSTM = LSTM(3, 10, 100, 1000, 300, DEVICE)
 print(sampleLSTM)
