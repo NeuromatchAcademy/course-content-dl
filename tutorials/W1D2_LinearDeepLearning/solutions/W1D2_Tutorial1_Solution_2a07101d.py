@@ -1,19 +1,15 @@
 class SimpleGraph:
-  def __init__(self, w=None, b=None):
+  def __init__(self, w, b):
     """Initializing the SimpleGraph
 
     Args:
       w (float): initial value for weight
       b (float): initial value for bias
     """
-    if w is None:
-      self.w = torch.randn(1, requires_grad=True)
-    else:
-      self.w = torch.tensor([w], requires_grad=True)
-    if b is None:
-      self.b = torch.randn(1, requires_grad=True)
-    else:
-      self.b = torch.tensor([b], requires_grad=True)
+    assert isinstance(w, float)
+    assert isinstance(b, float)
+    self.w = torch.tensor([w], requires_grad=True)
+    self.b = torch.tensor([b], requires_grad=True)
 
   def forward(self, x):
     """Forward pass
@@ -34,7 +30,7 @@ def sq_loss(y_true, y_prediction):
 
   Args:
     y_true (torch.Tensor): 1D tensor of target labels
-    y_true (torch.Tensor): 1D tensor of predictions
+    y_prediction (torch.Tensor): 1D tensor of predictions
 
   Returns:
     torch.Tensor: L2-loss (squared error)
@@ -51,7 +47,6 @@ target = torch.tensor([7])  # target tensor
 simple_graph = SimpleGraph(-0.5, 0.5)
 print("initial weight = {} \ninitial bias = {}".format(simple_graph.w.item(),
                                                         simple_graph.b.item()))
-
 prediction = simple_graph.forward(feature)
 square_loss = sq_loss(target, prediction)
 
