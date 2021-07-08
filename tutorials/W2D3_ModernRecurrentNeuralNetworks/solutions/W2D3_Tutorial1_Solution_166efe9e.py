@@ -1,15 +1,11 @@
 class NeuralNet(nn.Module):
-  def __init__(self, batch_size, output_size, hidden_size, vocab_size, embedding_length, word_embeddings):
+  def __init__(self, batch_size, output_size, hidden_size, vocab_size,
+               embedding_length, word_embeddings):
     super(NeuralNet, self).__init__()
 
-    self.batch_size = batch_size
-    self.output_size = output_size
-    self.hidden_size = hidden_size
-    self.vocab_size = vocab_size
-    self.embedding_length = embedding_length
-
     self.word_embeddings = nn.Embedding(vocab_size, embedding_length)
-    self.word_embeddings.weight = nn.Parameter(word_embeddings, requires_grad=False)
+    self.word_embeddings.weight = nn.Parameter(word_embeddings,
+                                               requires_grad=False)
     self.fc1 = nn.Linear(embedding_length, hidden_size)
     self.fc2 = nn.Linear(hidden_size, output_size)
 
