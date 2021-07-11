@@ -4,9 +4,9 @@ def plot_loss(num_epochs, seed):
   set_seed(seed)
 
   # train classifier on the randomly encoded images
-  print("Training a classifier on the untrained encoder representations...")
-  _, untrained_loss_array, _, _ = models.train_classifier(
-      encoder=untrained_encoder,
+  print("Training a classifier on the random encoder representations...")
+  _, random_loss_array, _, _ = models.train_classifier(
+      encoder=random_encoder,
       dataset=dSprites_torchdataset,
       train_sampler=train_sampler,
       test_sampler=test_sampler,
@@ -16,16 +16,16 @@ def plot_loss(num_epochs, seed):
       )
   # EXERCISE: Plot the loss array
   fig, ax = plt.subplots()
-  ax.plot(untrained_loss_array)
-  ax.set_title("Loss of classifier trained on an untrained encoder.")
+  ax.plot(random_loss_array)
+  ax.set_title("Loss of classifier trained on a random encoder.")
   ax.set_xlabel("Epoch number")
   ax.set_ylabel("Training loss")
 
-  return untrained_loss_array
+  return random_loss_array
 
 
 # EXERCISE: Set a reasonable number of training epochs
 num_epochs = 25
 ## Uncomment below to test your plot
 with plt.xkcd():
-  untrained_loss_array = plot_loss(num_epochs=num_epochs, seed=SEED)
+  random_loss_array = plot_loss(num_epochs=num_epochs, seed=SEED)

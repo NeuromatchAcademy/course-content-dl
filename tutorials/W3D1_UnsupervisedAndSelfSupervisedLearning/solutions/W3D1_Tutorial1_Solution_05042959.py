@@ -16,7 +16,7 @@ def vae_train_loss(num_epochs, seed):
   # EXERCISE: Plot the VAE classifier training loss.
   fig, ax = plt.subplots()
   ax.plot(vae_loss_array)
-  ax.set_title("Loss of classifier trained on a VAE encoder.")
+  ax.set_title("Loss of classifier trained on a VAE encoder")
   ax.set_xlabel("Epoch number")
   ax.set_ylabel("Training loss")
 
