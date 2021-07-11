@@ -173,6 +173,7 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1SspkoRiILE1xGUE0_iRb
 
 ## W3D3 - Reinforcement Learning For Games
 
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X)
 
 Slides: [Tutorials](https://docs.google.com/presentation/d/1AkCj22vFM-i7u0H5EZd1_WNonCI7CilpD1Y9OxG1FYA/embed?start=false&loop=false&delayms=3000)
 
