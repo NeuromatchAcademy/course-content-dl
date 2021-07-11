@@ -12,12 +12,13 @@ def train_supervised_encoder(num_epochs, seed):
       dataset=dSprites_torchdataset,
       train_sampler=train_sampler,
       test_sampler=test_sampler,
-      freeze_features=False, # we train the encoder, along with the classifier layer
+      freeze_features=False,
       num_epochs=num_epochs,
       verbose=True # print results
       )
 
   return supervised_encoder
+
 
 num_epochs = 10 # Proposed number of training epochs
 ## Uncomment below to test your function
