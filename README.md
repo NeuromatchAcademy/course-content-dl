@@ -134,7 +134,7 @@ Coming soon... stay tuned...
 
 ### Tue, August 17, 2021: Basic Reinforcement Learning (RL) ideas 
 
-*coordinated by [Jane Wang (Google DeepMind)](http://www.janexwang.com/)*
+*coordinated by [Jane Wang (Google DeepMind)](http://www.janexwang.com/) and [Feryal Behbahani (Google DeepMind)](https://feryal.github.io/)*
 
 **Description** How RL can help solve DL problems
 
