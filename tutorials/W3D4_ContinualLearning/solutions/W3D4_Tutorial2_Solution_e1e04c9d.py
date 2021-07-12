@@ -27,7 +27,6 @@ class ConvSiameseNet(nn.Module):
   def forward(self, x1, x2):
     x1_fv = self.model(x1)
     x2_fv = self.model(x2)
-
     # Calculate L1 distance (as l1_distance) between x1_fv and x2_fv
     l1_distance = torch.abs(x1_fv - x2_fv)
 
