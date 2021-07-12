@@ -52,6 +52,9 @@ class QLearningAgent(acme.Actor):
     self._action = a
     self._next_state = next_s
     # TODO complete the line below to compute the temporal difference error
+    # HINT: This is very similar to what we did for SARSA, except keep in mind
+    # that we're now taking a max over the q-values (see lecture footnotes above).
+    # You will find the function np.max() useful.
     self._td_error = r + g * np.max(self._q[next_s]) - self._q[s, a]
 
   def update(self):
@@ -60,6 +63,7 @@ class QLearningAgent(acme.Actor):
     a = self._action
     # Update the Q-value table value at (s, a).
     # TODO: Update the Q-value table value at (s, a).
+    # HINT: see step 6 in the pseudocode above, remember that alpha = step_size!
     self._q[s, a] += self._step_size * self._td_error
     # Update the current state.
     self._state = self._next_state

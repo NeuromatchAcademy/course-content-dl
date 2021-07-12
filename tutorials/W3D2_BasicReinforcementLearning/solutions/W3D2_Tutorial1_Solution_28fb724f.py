@@ -3,6 +3,10 @@ class PolicyGradientNet(nn.Module):
     super(PolicyGradientNet, self).__init__()
     self.state_space = env.observation_space.shape[0]
     self.action_space = env.action_space.n
+    # HINT: you can construct linear layers using nn.Linear(); what are the
+    # sizes of the inputs and outputs of each of the layers? Also remember
+    # that you need to use hidden_neurons (see hyperparameters section above).
+    #   https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
     self.l1 = nn.Linear(self.state_space, hidden_neurons, bias=False)
     self.l2 = nn.Linear(hidden_neurons, self.action_space, bias=False)
     self.gamma = gamma

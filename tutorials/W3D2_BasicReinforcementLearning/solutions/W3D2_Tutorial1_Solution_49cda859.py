@@ -6,7 +6,9 @@ class RandomAgent(acme.Actor):
 
   def select_action(self, observation):
     """Selects an action uniformly at random."""
-    # TODO return a random integer
+    # TODO return a random integer beween 0 and self._num_actions.
+    # HINT: see the reference for how to sample a random integer in numpy:
+    #   https://numpy.org/doc/1.16/reference/routines.random.html
     action = np.random.randint(self._num_actions)
     return action
 

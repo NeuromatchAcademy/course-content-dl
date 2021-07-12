@@ -73,7 +73,11 @@ class NeuralFittedQAgent(acme.Actor):
 
     # Gather the Q-value corresponding to each action in the batch.
     q_s_a = q_s.gather(1, a.view(-1,1)).squeeze(0)
-    # TODO Average the squared TD errors over the entire batch (axis=0).
+    # TODO Average the squared TD errors over the entire batch using
+    # self._loss_fn, which is defined above as nn.MSELoss()
+    # HINT: Take a look at the reference for nn.MSELoss here:
+    #  https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html
+    #  What should you put for the input and the target?
     loss = self._loss_fn(target_q_value, q_s_a)
 
     # Compute the gradients of the loss with respect to the q_network variables.
