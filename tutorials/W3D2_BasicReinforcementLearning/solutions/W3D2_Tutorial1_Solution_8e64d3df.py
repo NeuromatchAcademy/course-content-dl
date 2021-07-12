@@ -14,7 +14,11 @@ class DQN(acme.Actor):
     self._epsilon = epsilon
     self._batch_size = batch_size
     self._q_network = q_network
+
+    # create a second q net with the same structure and initial values, which
+    # we'll be updating separately from the learned q-network.
     self._target_network = copy.deepcopy(self._q_network)
+
     # Container for the computed loss (see run_loop implementation above).
     self.last_loss = 0.0
 
@@ -66,11 +70,11 @@ class DQN(acme.Actor):
 
     # Compute the Q-values at next states in the transitions.
     with torch.no_grad():
-      # TODO get the value of the next states evaluated by the target network
+      #TODO get the value of the next states evaluated by the target network
+      #HINT: use self._target_network, defined above.
       q_next_s = self._target_network(next_s)  # Shape [batch_size, num_actions].
       max_q_next_s = q_next_s.max(axis=-1)[0]
       # Compute the TD error and then the losses.
-      # TODO compute the target value
       target_q_value = r + d * max_q_next_s
 
     # Compute the Q-values at original state.
@@ -78,10 +82,8 @@ class DQN(acme.Actor):
 
     # Gather the Q-value corresponding to each action in the batch.
     q_s_a = q_s.gather(1, a.view(-1,1)).squeeze(0)
-    # Compute the TD errors.
-    #td_error = target_q_value - q_s_a
 
-    # Average the squared TD errors over the entire batch (axis=0).
+    # Average the squared TD errors over the entire batch
     loss = self._loss_fn(target_q_value, q_s_a)
 
     # Compute the gradients of the loss with respect to the q_network variables.

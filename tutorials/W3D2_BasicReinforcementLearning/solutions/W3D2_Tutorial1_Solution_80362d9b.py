@@ -45,7 +45,11 @@ class SarsaAgent(acme.Actor):
     # Compute the on-policy Q-value update.
     self._action = a
     self._next_state = next_s
+    # Compute the on-policy Q-value update.
+    self._action = a
+    self._next_state = next_s
     # TODO complete the line below to compute the temporal difference error
+    # HINT: see step 5 in the pseudocode above.
     self._td_error = r + g * self._q[next_s, next_a] - self._q[s, a]
 
   def update(self):
@@ -54,6 +58,7 @@ class SarsaAgent(acme.Actor):
     a = self._action
     # Update the Q-value table value at (s, a).
     # TODO: Update the Q-value table value at (s, a).
+    # HINT: see step 6 in the pseudocode above, remember that alpha = step_size!
     self._q[s, a] += self._step_size * self._td_error
     # Update the current state.
     self._state = self._next_state

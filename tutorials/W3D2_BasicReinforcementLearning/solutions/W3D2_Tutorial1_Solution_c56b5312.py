@@ -1,17 +1,21 @@
 class PolicyEvalAgent(acme.Actor):
 
-  def __init__(self, number_of_states, number_of_actions, evaluated_policy,
+  def __init__(self, environment_spec, evaluated_policy,
                behaviour_policy=random_policy, step_size=0.1):
 
     self._state = None
-    self._number_of_states = number_of_states
-    self._number_of_actions = number_of_actions
+    # Get number of states and actions from the environment spec.
+    self._number_of_states = environment_spec.observations.num_values
+    self._number_of_actions = environment_spec.actions.num_values
     self._step_size = step_size
     self._behaviour_policy = behaviour_policy
     self._evaluated_policy = evaluated_policy
-    # (this is a table of state and action pairs)
-    # Note: this can be random, but the code was tested w/ zero-initialization
-    self._q = np.zeros((number_of_states, number_of_actions))
+    # TODO Initialize the Q-values to be all zeros.
+    # (Note: can also be random, but we use zeros here for reproducibility)
+    # HINT: This is a table of state and action pairs, so needs to be a 2-D
+    #   array. See the reference for how to create this in numpy:
+    #   https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
+    self._q = np.zeros((self._number_of_states, self._number_of_actions))
     self._action = None
     self._next_state = None
 
@@ -33,7 +37,13 @@ class PolicyEvalAgent(acme.Actor):
     r = next_timestep.reward
     g = next_timestep.discount
     next_s = next_timestep.observation
+
     # Compute TD-Error.
+    self._action = a
+    self._next_state = next_s
+    # TODO Select the next action from the evaluation policy
+    # HINT: Refer to step 4 of the algorithm above.
+    next_a = self._evaluated_policy(self._q[next_s])
     self._td_error = r + g * self._q[next_s, next_a] - self._q[s, a]
 
   def update(self):
