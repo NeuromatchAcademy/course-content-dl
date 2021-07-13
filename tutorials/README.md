@@ -19,11 +19,10 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1x_619dh5wCJbPiG3Ix2T
 
 
 
+[Further Reading](https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D1_BasicsAndPytorch/further_reading.md))
+
+
 ## W1D2 - Linear Deep Learning
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18N9cIgTcnBg6IEARrg-hvBb)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1kfWWYhSIkczYfjebhMaqQILTCu7g94Q-o_ZcWb1QAKs/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -36,10 +35,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1kfWWYhSIkczYfjebhMaq
 
 ## W1D3 - Multi Layer Perceptrons
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLYgyoWurxA_9PtDrZSa_hh2vYxe0kLrqq)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1bGZOH4BlcYNf_mYJHGyG_0wtP7_q7RSFRgBCGR0yews/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.ipynb?flush_cache=true) |
@@ -50,10 +45,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1bGZOH4BlcYNf_mYJHGyG
 
 ## W1D4 - Optimization
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18OFLZiurcZA4FKvG-mjA8pw)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1dkvaSDB-0PeaVHWKW7xHd6z2pIqjNUN2JG_EQ6P0L9o/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D4_Optimization/student/W1D4_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D4_Optimization/student/W1D4_Tutorial1.ipynb?flush_cache=true) |
@@ -62,10 +53,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1dkvaSDB-0PeaVHWKW7xH
 
 
 ## W1D5 - Regularization
-
-[YouTube Playlist](https://www.youtube.com/playlist?list=PLYgyoWurxA_9xZFO4S3MzAMe-Gfs9cXyR)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1iSpOl30q1DvQ-rwP80IiIZS4LG5d0D3K/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -76,10 +63,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1iSpOl30q1DvQ-rwP80Ii
 
 
 ## W2D1 - Convnets And Recurrent Neural Networks
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NfrtDj1KyFm0AMDjph4knd)
-
-Slides: [Tutorials](https://drive.google.com/file/d/1leSVzZ66Wpd2fhfZkoHhQGeCKUndNUFd/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -92,10 +75,6 @@ Slides: [Tutorials](https://drive.google.com/file/d/1leSVzZ66Wpd2fhfZkoHhQGeCKUn
 
 ## W2D2 - Modern Convnets
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18OKsouNW03Wx-eqwnii7qoJ)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1R8KxHw5CHEjTuInXIMlZ9lx0nQBZ8lqW/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D2_ModernConvnets/student/W2D2_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D2_ModernConvnets/student/W2D2_Tutorial1.ipynb?flush_cache=true) |
@@ -104,10 +83,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1R8KxHw5CHEjTuInXIMlZ
 
 
 ## W2D3 - Modern Recurrent Neural Networks
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NlxbV2k80qMaogAFnOHS_u)
-
-Slides: [Tutorials](None)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -119,10 +94,6 @@ Slides: [Tutorials](None)
 
 ## W2D4 - Attention And Transformers
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1w9Quvq0J_FBHJFvZ9QhmMNd-LNIEJHpTYxQUAjQamFE/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D4_AttentionAndTransformers/student/W2D4_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D4_AttentionAndTransformers/student/W2D4_Tutorial1.ipynb?flush_cache=true) |
@@ -131,10 +102,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1w9Quvq0J_FBHJFvZ9Qhm
 
 
 ## W2D5 - Generative Models
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1_Nsq8OHIpls5iPlbA0WF53J1Ypqp02BGBGVj0zgec3c/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -147,10 +114,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1_Nsq8OHIpls5iPlbA0WF
 
 ## W3D1 - Unsupervised And Self Supervised Learning
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NnHJ5W9jkkt-6meUnj97vz)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1Wa9-SfwfM0r2jFwZego892K_u_Z7dgr0RQI00i5Nzpc/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.ipynb?flush_cache=true) |
@@ -159,10 +122,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1Wa9-SfwfM0r2jFwZego8
 
 
 ## W3D2 - Basic Reinforcement Learning
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1SspkoRiILE1xGUE0_iRboo-ALqXJVEZCt8IlgWOKgGo/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -173,10 +132,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1SspkoRiILE1xGUE0_iRb
 
 ## W3D3 - Reinforcement Learning For Games
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1AkCj22vFM-i7u0H5EZd1_WNonCI7CilpD1Y9OxG1FYA/embed?start=false&loop=false&delayms=3000)
-
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.ipynb?flush_cache=true) |
@@ -185,10 +140,6 @@ Slides: [Tutorials](https://docs.google.com/presentation/d/1AkCj22vFM-i7u0H5EZd1
 
 
 ## W3D4 - Continual Learning
-
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18Mvz847jPl2T2bkXrfYyIC2)
-
-Slides: [Tutorials](https://docs.google.com/presentation/d/1PLmrRvwJn2nCeQ26fJGhVAAhOC623bNzRAKzcMpa-iA/embed?start=false&loop=false&delayms=3000)
 
 |   | Run | View |
 | - | --- | ---- |
