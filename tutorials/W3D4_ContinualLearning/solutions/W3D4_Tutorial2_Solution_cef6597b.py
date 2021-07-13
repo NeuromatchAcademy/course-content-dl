@@ -24,7 +24,7 @@ class Multi_task_model(nn.Module):
           nn.Softmax(dim=1),
       ))
 
-    self.fcs_temp = nn.Sequential(*self.fcs)
+    self.fcs = nn.ModuleList(self.fcs)
 
   def forward(self, x):
     x = self.backbone(x)
