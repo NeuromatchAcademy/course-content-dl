@@ -33,3 +33,6 @@ access to Google Colab, you can use Kaggle as a substitute for launching an inte
 Once your phone number has been verified, on the left sidebar under **Settings** panel, select **Accelerator** to **GPU** from **None** using the drop down menu.
 
 ![Step 6.2](../static/kaggle_step6_2.png)
+
+
+>**NOTE:-** In case that you inspect an error asocociated with `pip install` then follow [this workaround](https://www.kaggle.com/product-feedback/63544).
