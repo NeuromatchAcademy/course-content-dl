@@ -17,13 +17,13 @@ Do not install jupyter-book 0.11 or later at this point, as there are breaking
 changes in how it handles the table of contents file we generate.
 
 2. Create a symlink in the book dir to the tutorials dir. From the repo root
-directory:
+directory (`course-content-dl`):
    
 `ln -s ../tutorials book/tutorials`
 
 3. Prepare repo for book building
 
-`python ci/generate_book.py`
+`python ../nmaci/scripts/generate_book.py`
 
 This will use the tutorials/materials.yml to create the _toc.yml file in the
 book directory. It will also be responsible for creating any additional markdown
@@ -33,4 +33,4 @@ files or modifying any tutorial notebooks specifically for book generation.
 
 4. Build the book
 
-`jupyer-book build book`
+`jupyter-book build book`
