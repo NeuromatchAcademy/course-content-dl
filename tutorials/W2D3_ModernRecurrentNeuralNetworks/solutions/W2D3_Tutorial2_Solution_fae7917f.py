@@ -15,7 +15,7 @@ class AttentionModel(torch.nn.Module):
     """
     # permute the output to get the shape (batch_size, num_seq, hidden_size)
     # Get the attention weights
-    # use torch.bmm to compute the attention weights between each output and hast hidden state
+    # use torch.bmm to compute the attention weights between each output and last hidden state
     # pay attention to the tensor shapes, you may have to use squeeze and unsqueeze functions
     # softmax the attention weights
     # Get the new hidden state, use torch.bmm to get the weighted lstm output

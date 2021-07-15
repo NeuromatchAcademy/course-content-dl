@@ -23,9 +23,7 @@ class Seq2SeqEncoder(d2l.Encoder):
 
 
 X = torch.zeros((4, 7), dtype=torch.long)
-
-encoder = Seq2SeqEncoder(vocab_size=10, embed_size=8,
-                         num_hiddens=16, num_layers=2)
+encoder = Seq2SeqEncoder(vocab_size=10, embed_size=8, num_hiddens=16, num_layers=2)
 encoder.eval()
 output, state = encoder(X)
 print(output.shape)
