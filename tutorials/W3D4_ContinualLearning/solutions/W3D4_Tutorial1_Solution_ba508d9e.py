@@ -14,7 +14,7 @@ the original digit displayed in the image).
 
 Another way to motivate that this problem is an example of domain-incremental
 learning, is to say that in both task 1 (normal MNIST) and task 2 (MNIST with
-permuted input images), the 'type of problem' is the same (i.e., identify the
+permuted input images), the 'type of problem' is the same (i.e., to identify the
 digit displayed in the original image), but the 'context' is changing (i.e.,
 the order in which the image pixels are presented).
 ''';
