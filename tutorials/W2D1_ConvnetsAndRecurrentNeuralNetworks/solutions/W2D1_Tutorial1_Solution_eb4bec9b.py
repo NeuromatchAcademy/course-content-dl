@@ -16,8 +16,8 @@ class Net3(nn.Module):
 
     # third kernel - other diagonal
     kernel_3 = torch.Tensor([[[-1, -1, 1],
-                            [-1, 1, -1],
-                            [1, -1, -1]]])
+                              [-1, 1, -1],
+                              [1, -1, -1]]])
 
     multiple_kernels = torch.stack([kernel_1, kernel_2, kernel_3], dim=0)
 
