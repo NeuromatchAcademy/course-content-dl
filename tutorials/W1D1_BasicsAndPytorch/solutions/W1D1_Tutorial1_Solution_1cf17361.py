@@ -39,7 +39,19 @@ def functionB(C):
 
 
 def functionC(D, E):
+  """
+  This function takes in two 2D tensors D and E . If the dimensions allow it,
+  this function returns the elementwise sum of D-shaped E, and D;
+  else this function returns a 1D tensor that is the concatenation of the
+  two tensors.
 
+  Args:
+    D: torch.Tensor
+    E: torch.Tensor
+  Retuns:
+    output: torch.Tensor
+      Concatenated tensor.
+  """
   # TODO check we can reshape E into the shape of D
   if torch.numel(D) == torch.numel(E):
     # TODO reshape E into the shape of D
