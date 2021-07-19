@@ -16,9 +16,9 @@ def rmsprop_update(loss, params, grad_sq, lr=1e-1, alpha=0.8):
 
   for (par, gsq) in zip(params, grad_sq):
     # Update estimate of gradient variance
-    gsq.data = alpha * gsq.data + (1-alpha) * par.grad**2
+    gsq.data = alpha * gsq.data + (1-alpha) * par.grad.data**2
     # Update parameters
-    par.data -=  lr * (par.grad / (1e-8 + gsq.data)**0.5)
+    par.data -=  lr * (par.grad.data / (1e-8 + gsq.data)**0.5)
 
 
 set_seed(2021)
