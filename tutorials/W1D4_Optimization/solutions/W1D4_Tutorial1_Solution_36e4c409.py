@@ -3,7 +3,7 @@ def sample_minibatch(input_data, target_data, num_points=100):
 
   Args:
     input_data (tensor): Multi-dimensional tensor containing the input data
-    input_data (tensor): 1D tensor containing the class labels
+    target_data (tensor): 1D tensor containing the class labels
     num_points (int): Number of elements to be included in minibatch
 
   Returns:
