@@ -4,7 +4,124 @@
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ
 
   slides:
-  - link: https://docs.google.com/presentation/d/1x_619dh5wCJbPiG3Ix2TFLavWstWYC1JFtAeMGmmUBI/embed?start=false&loop=false&delayms=3000
-    title: Tutorials
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wcjrv/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
 
   tutorials: 1
+  
+- day: W1D2
+  category: The Basics
+  name: Linear Deep Learning
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18N9cIgTcnBg6IEARrg-hvBb
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3qevp/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3qevp/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3qevp/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_3
+
+  tutorials: 3
+
+- day: W1D3
+  category: The Basics
+  name: Multi Layer Perceptrons
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ed65b/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ed65b/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+
+  tutorials: 2
+
+- day: W1D4
+  category: The Basics
+  name: Optimization
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OFLZiurcZA4FKvG-mjA8pw
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ft2sz/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+
+  tutorials: 1
+
+- day: W1D5
+  category: The Basics
+  name: Regularization
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Pp3kLoTZ8G8eB5GY16e12j
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+ 
+  tutorials: 2
+  
+- day: W2D1
+  category: Doing more with fewer parameters
+  name: Convnets And Recurrent Neural Networks
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/a95k2/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/a95k2/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/a95k2/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_3
+  
+  tutorials: 3
+
+- day: W2D2
+  category: Doing more with fewer parameters
+  name: Modern Convnets
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  
+  tutorials: 1
+
+- day: W2D3
+  category: Doing more with fewer parameters
+  name: Modern Recurrent Neural Networks
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NlxbV2k80qMaogAFnOHS_u
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+  
+  tutorials: 2
+
+- day: W2D4
+  category: Doing more with fewer parameters
+  name: Attention And Transformers
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  
+  tutorials: 1
+
+- day: W2D5
+  category: Doing more with fewer parameters
+  name: Generative Models
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/dftym/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_3
+  
+  tutorials: 3
