@@ -4,7 +4,7 @@ def shuffle_and_split_data(X, y):
   N = X.shape[0]
 
   # Shuffle data
-  shuffled_indices = torch.randperm(N)   # get indices to shuffle data
+  shuffled_indices = torch.randperm(N)   # get indices to shuffle data, could use torch.randperm
   X = X[shuffled_indices]
   y = y[shuffled_indices]
 

@@ -1,3 +1,4 @@
+
 def approximate_function(x_train, y_train):
 
   # Number of relus
@@ -36,13 +37,12 @@ def approximate_function(x_train, y_train):
 
   return y_hat, relu_acts, x
 
-
 # Make training data from sine function
 N_train = 10
 x_train = torch.linspace(0, 2*np.pi, N_train).view(-1, 1)
 y_train = torch.sin(x_train)
 
-### uncomment the lines below to test your function approximation
+## uncomment the lines below to test your function approximation
 y_hat, relu_acts, x = approximate_function(x_train, y_train)
 with plt.xkcd():
   plot_function_approximation(x, relu_acts, y_hat)
