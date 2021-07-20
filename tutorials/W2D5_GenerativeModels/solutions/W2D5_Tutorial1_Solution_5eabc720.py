@@ -26,10 +26,10 @@ class LinearAutoEncoder(nn.Module):
     return self.decode(h).view(x.size())
 
 
-# # Uncomment to test your code
-# # Pick your own K
+# Pick your own K
 K = 20
-set_seed(2021)
+set_seed(seed=SEED)
+## Uncomment to test your code
 lin_ae = LinearAutoEncoder(my_dataset_dim, K)
 lin_losses = train_autoencoder(lin_ae, my_dataset)
 with plt.xkcd():
