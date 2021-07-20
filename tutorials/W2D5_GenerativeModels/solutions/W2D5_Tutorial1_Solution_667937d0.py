@@ -11,9 +11,9 @@ def rsample(phi, n_samples):
   return eps * sig.view(b, 1, 1) + mu.view(b, 1, k)
 
 
-# # Uncomment below to test your code
 phi = torch.randn(4, 3, device=DEVICE)
-set_seed(2021)
+set_seed(seed=SEED)
+## Uncomment below to test your code
 zs = rsample(phi, 100)
 assert zs.size() == (4, 100, 2), "rsample size is incorrect!"
 assert zs.device == phi.device, "rsample device doesn't match phi device!"

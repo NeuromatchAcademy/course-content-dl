@@ -70,9 +70,9 @@ class ConvAutoEncoder(nn.Module):
     return self.decode(self.encode(x))
 
 
-# # Uncomment to test your solution
 K = 20
-set_seed(2021)
+set_seed(seed=SEED)
+## Uncomment to test your solution
 conv_ae = ConvAutoEncoder(my_dataset_size, K)
 assert conv_ae.encode(my_dataset[0][0].unsqueeze(0)).numel() == K, "Encoder output size should be K!"
 conv_losses = train_autoencoder(conv_ae, my_dataset)
