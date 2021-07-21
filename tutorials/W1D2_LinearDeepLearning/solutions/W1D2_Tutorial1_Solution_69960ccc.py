@@ -43,14 +43,11 @@ def sq_loss(y_true, y_prediction):
 
 feature = torch.tensor([1])  # input tensor
 target = torch.tensor([7])  # target tensor
-
+## Uncomment to run
 simple_graph = SimpleGraph(-0.5, 0.5)
-print("initial weight = {} \ninitial bias = {}".format(simple_graph.w.item(),
-                                                        simple_graph.b.item()))
+print(f"initial weight = {simple_graph.w.item()}, "
+      f"\ninitial bias = {simple_graph.b.item()}")
 prediction = simple_graph.forward(feature)
 square_loss = sq_loss(target, prediction)
-
-print("for x={} and y={}, prediction={} and L2 Loss = {}".format(feature.item(),
-                                                                 target.item(),
-                                                                 prediction.item(),
-                                                                 square_loss.item()))
+print(f"for x={feature.item()} and y={target.item()}, "
+      f"prediction={prediction.item()}, and L2 Loss = {square_loss.item()}")

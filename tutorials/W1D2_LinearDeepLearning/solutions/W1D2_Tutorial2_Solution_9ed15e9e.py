@@ -1,7 +1,7 @@
 class ShallowNarrowExercise:
   """Shallow and narrow (one neuron per layer) linear neural network
   """
-  def __init__(self, init_weights: list):
+  def __init__(self, init_weights):
     """
     Args:
       init_weights (list): initial weights
@@ -12,7 +12,7 @@ class ShallowNarrowExercise:
     self.w2 = init_weights[1]
 
 
-  def forward(self, x: np.ndarray) -> np.ndarray:
+  def forward(self, x):
     """The forward pass through netwrok y = x * w1 * w2
 
     Args:
@@ -25,7 +25,7 @@ class ShallowNarrowExercise:
     return y
 
 
-  def dloss_dw(self, x: np.ndarray, y_true: np.ndarray):
+  def dloss_dw(self, x, y_true):
     """Gradient of loss with respect to weights
 
     Args:
@@ -42,7 +42,7 @@ class ShallowNarrowExercise:
     return dloss_dw1, dloss_dw2
 
 
-  def train(self, x: np.ndarray, y_true: np.ndarray, lr: float, n_ep: int):
+  def train(self, x, y_true, lr, n_ep):
     """Training with Gradient descent algorithm
 
     Args:
@@ -71,7 +71,7 @@ class ShallowNarrowExercise:
     return loss_records, weight_records
 
 
-def loss(y_prediction: np.ndarray, y_true: np.ndarray):
+def loss(y_prediction, y_true):
   """Mean squared error
 
   Args:
@@ -90,13 +90,11 @@ set_seed(seed=SEED)
 n_epochs = 211
 learning_rate = 0.02
 initial_weights = [1.4, -1.6]
-x_train, y_train = gen_samples(n=73, a=2.0, σ=0.2)
+x_train, y_train = gen_samples(n=73, a=2.0, sigma=0.2)
 x_eval = np.linspace(0.0, 1.0, 37, endpoint=True)
-
 ## Uncomment to run
 sn_model = ShallowNarrowExercise(initial_weights)
 loss_log, weight_log = sn_model.train(x_train, y_train, learning_rate, n_epochs)
 y_eval = sn_model.forward(x_eval)
-
 with plt.xkcd():
   plot_x_y_(x_train, y_train, x_eval, y_eval, loss_log, weight_log)

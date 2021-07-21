@@ -15,4 +15,5 @@ def ex_net_svd(model, in_dim):
   return U, Σ, V
 
 
-test_net_svd_ex()
+## Uncomment and run
+test_net_svd_ex(SEED)

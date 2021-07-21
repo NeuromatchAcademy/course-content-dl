@@ -11,4 +11,5 @@ def ex_net_rsm(h):
   return rsm
 
 
-test_net_rsm_ex()
+## Uncomment and run
+test_net_rsm_ex(SEED)
