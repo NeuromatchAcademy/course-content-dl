@@ -4,14 +4,16 @@ def generate_images(autoencoder, K, n_images=1):
 
   returns (n_images, channels, height, width) tensor of images
   """
+
   # Concatenate tuples to get (n_images, channels, height, width)
   output_shape = (n_images,) + my_dataset_size
-  with torch.no_grad():
-    # sample z, pass through autoencoder.decode(), and reshape output.
-    z = torch.randn(n_images, K)
-    x = autoencoder.decode(z).reshape(output_shape)
 
-    return x
+  with torch.no_grad():
+    # sample z, pass through autoencoder.decode()
+    z = torch.randn(n_images, K)
+    x = autoencoder.decode(z)
+
+    return x.reshape(output_shape)
 
 
 K = 20
