@@ -26,5 +26,7 @@ def fun_dz(x, y):
   dz_dy = 2 * y * np.cos(x**2 + y**2)
   return (dz_dx, dz_dy)
 
+
+## Uncomment to run
 with plt.xkcd():
   ex1_plot(fun_z, fun_dz)

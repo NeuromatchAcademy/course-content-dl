@@ -28,6 +28,7 @@ def train(features, labels, model, loss_fun, optimizer, n_epochs):
 
 set_seed(seed=2021)
 epochs = 1847 # Cauchy, Exercices d'analyse et de physique mathematique (1847)
+## Uncomment to run
 losses = train(inputs, targets, wide_net, loss_function, sgd_optimizer, epochs)
 with plt.xkcd():
   ex3_plot(wide_net, inputs, targets, epochs, losses)

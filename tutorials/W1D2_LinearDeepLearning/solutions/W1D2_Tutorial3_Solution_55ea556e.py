@@ -27,5 +27,5 @@ Y_train = W_true @ X_train + noise
 
 ## Uncomment and run
 W_estimate = linear_regression(X_train, Y_train)
-print("True weights:\n", W_true)
-print("\nEstimated weights:\n", np.round(W_estimate, 1))
+print(f"True weights:\n {W_true}")
+print(f"\nEstimated weights:\n {np.round(W_estimate, 1)}")
