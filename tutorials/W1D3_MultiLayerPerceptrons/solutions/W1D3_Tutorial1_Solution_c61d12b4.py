@@ -1,4 +1,3 @@
-
 def approximate_function(x_train, y_train):
 
   # Number of relus
@@ -36,6 +35,7 @@ def approximate_function(x_train, y_train):
   y_hat = combination_weights @ relu_acts
 
   return y_hat, relu_acts, x
+
 
 # Make training data from sine function
 N_train = 10
