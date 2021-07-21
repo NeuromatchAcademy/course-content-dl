@@ -47,16 +47,3 @@
     title: Tutorial_1
 
   tutorials: 1
-
-- day: W1D5
-  category: The Basics
-  name: Regularization
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Pp3kLoTZ8G8eB5GY16e12j
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial_1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial_2
- 
-  tutorials: 2
