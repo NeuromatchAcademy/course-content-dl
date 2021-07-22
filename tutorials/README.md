@@ -95,6 +95,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/a95k2/?di
 
 ## W2D2 - Modern Convnets
 
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D2_ModernConvnets/student/W2D2_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D2_ModernConvnets/student/W2D2_Tutorial1.ipynb?flush_cache=true) |

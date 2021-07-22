@@ -20,6 +20,7 @@ class NeuralNet(nn.Module):
     # Pass the embeddings through the neural net
     # A fully-connected layer
     x = self.fc1(pooled)
+
     # ReLU activation
     x = F.relu(x)
     # Another fully-connected layer
