@@ -86,3 +86,16 @@
     title: Tutorial_1
  
   tutorials: 1
+
+- day: W2D3
+  category: Doing more with fewer parameters
+  name: Modern Recurrent Neural Networks
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+  
+  tutorials: 2
