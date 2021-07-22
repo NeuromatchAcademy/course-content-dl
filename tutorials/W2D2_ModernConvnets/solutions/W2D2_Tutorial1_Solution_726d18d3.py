@@ -37,6 +37,8 @@ set_seed(seed=2021)
 # get batch of images
 dataiter = iter(imagenette_val_loader)
 images, labels = dataiter.next()
-# retrieve top 5 predictions
+
+## Uncomment to test your function
+## retrieve top 5 predictions
 top5_names, top5_probs = predict_top5(images, DEVICE)
 print(top5_names[1])
