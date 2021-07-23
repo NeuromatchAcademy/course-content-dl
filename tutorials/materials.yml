@@ -147,3 +147,14 @@
     title: Tutorial_1
   
   tutorials: 1
+  
+- day: W3D3
+  category: Advanced topics
+  name: Reinforcement Learning For Games
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+
+  tutorials: 1
