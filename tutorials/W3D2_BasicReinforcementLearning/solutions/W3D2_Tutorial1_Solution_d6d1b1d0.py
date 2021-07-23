@@ -30,7 +30,7 @@ class DQN(acme.Actor):
     # How often to update the target network
     self._target_update_frequency = target_update_frequency
     # Setup optimizer that will train the network to minimize the loss.
-    self._optimizer = torch.optim.Adam(self._q_network.parameters(),lr = learning_rate)
+    self._optimizer = torch.optim.Adam(self._q_network.parameters(), lr=learning_rate)
     self._loss_fn = nn.MSELoss()
 
   def select_action(self, observation):
