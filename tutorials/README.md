@@ -39,7 +39,7 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/3qevp/?di
 
 ## W1D3 - Multi Layer Perceptrons
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ)
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NXk6yzEhjBJb92b6H0BNMw)
 
 Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/ed65b/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/ed65b/?direct%26mode=render%26action=download%26mode=render)
 
@@ -189,6 +189,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?di
 
 
 ## W3D4 - Continual Learning
+
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18Mvz847jPl2T2bkXrfYyIC2)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/ejywm/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/dqnm6/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
