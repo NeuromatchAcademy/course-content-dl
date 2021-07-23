@@ -73,8 +73,8 @@ class ConvAutoEncoder(nn.Module):
 K = 20
 set_seed(seed=SEED)
 ## Uncomment to test your solution
-conv_ae = ConvAutoEncoder(my_dataset_size, K)
-assert conv_ae.encode(my_dataset[0][0].unsqueeze(0)).numel() == K, "Encoder output size should be K!"
-conv_losses = train_autoencoder(conv_ae, my_dataset, device=DEVICE, seed=SEED)
+trained_conv_AE = ConvAutoEncoder(data_shape, K)
+assert trained_conv_AE.encode(train_set[0][0].unsqueeze(0)).numel() == K, "Encoder output size should be K!"
+conv_losses = train_autoencoder(trained_conv_AE, train_set, device=DEVICE, seed=SEED)
 with plt.xkcd():
   plot_conv_ae(lin_losses, conv_losses)

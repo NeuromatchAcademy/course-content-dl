@@ -7,9 +7,9 @@ class LinearAutoEncoder(nn.Module):
       h_dim (int): hidden dimension, bottleneck dimension, K
     """
     super().__init__()
-    # encoder layer
+    # encoder layer (a linear mapping from x_dim to K)
     self.enc_lin = nn.Linear(x_dim, h_dim)
-    # decoder layer
+    # decoder layer (a linear mapping from K to x_dim)
     self.dec_lin = nn.Linear(h_dim, x_dim)
 
   def encode(self, x):
@@ -30,7 +30,7 @@ class LinearAutoEncoder(nn.Module):
 K = 20
 set_seed(seed=SEED)
 ## Uncomment to test your code
-lin_ae = LinearAutoEncoder(my_dataset_dim, K)
-lin_losses = train_autoencoder(lin_ae, my_dataset, device=DEVICE, seed=SEED)
+lin_ae = LinearAutoEncoder(data_size, K)
+lin_losses = train_autoencoder(lin_ae, train_set, device=DEVICE, seed=SEED)
 with plt.xkcd():
   plot_linear_ae(lin_losses)
