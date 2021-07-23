@@ -151,6 +151,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?di
 
 ## W3D1 - Unsupervised And Self Supervised Learning
 
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NYb71nfD5gwwnZY4DPMCXu)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.ipynb?flush_cache=true) |
