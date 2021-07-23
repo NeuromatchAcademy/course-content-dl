@@ -4,6 +4,9 @@ on:
 
   workflow_dispatch:
 
+  push:
+    branches: main
+
 env:
   NB_KERNEL: python
   NMA_REPO: course-content-dl
