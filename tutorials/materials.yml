@@ -125,3 +125,14 @@
     title: Tutorial_3
   
   tutorials: 3
+  
+- day: W3D1
+  category: Advanced topics
+  name: Unsupervised And Self Supervised Learning
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NYb71nfD5gwwnZY4DPMCXu
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  
+  tutorials: 1
