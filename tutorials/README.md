@@ -97,7 +97,7 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/a95k2/?di
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX)
 
-Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
@@ -109,6 +109,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?di
 
 ## W2D3 - Modern Recurrent Neural Networks
 
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial1.ipynb?flush_cache=true) |
@@ -118,6 +122,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?di
 
 
 ## W2D4 - Attention And Transformers
+
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
