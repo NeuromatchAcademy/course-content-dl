@@ -164,6 +164,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?di
 
 ## W3D2 - Basic Reinforcement Learning
 
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render)
+
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.ipynb?flush_cache=true) |
@@ -172,6 +176,10 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?di
 
 
 ## W3D3 - Reinforcement Learning For Games
+
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X)
+
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
