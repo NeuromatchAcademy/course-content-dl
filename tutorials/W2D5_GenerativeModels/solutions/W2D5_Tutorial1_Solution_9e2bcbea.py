@@ -31,6 +31,6 @@ K = 20
 set_seed(seed=SEED)
 ## Uncomment to test your code
 lin_ae = LinearAutoEncoder(my_dataset_dim, K)
-lin_losses = train_autoencoder(lin_ae, my_dataset)
+lin_losses = train_autoencoder(lin_ae, my_dataset, device=DEVICE, seed=SEED)
 with plt.xkcd():
   plot_linear_ae(lin_losses)
