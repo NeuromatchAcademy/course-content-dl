@@ -158,3 +158,16 @@
     title: Tutorial_1
 
   tutorials: 1
+  
+- day: W3D4
+  category: Advanced topics
+  name: Continual Learning
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Mvz847jPl2T2bkXrfYyIC2
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ejywm/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/dqnm6/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_2
+    
+  tutorials: 2
