@@ -37,6 +37,7 @@ def get_data_loaders(batch_size, seed):
 
 
 batch_size = 64
+set_seed(seed=SEED)
 ## Uncomment below to test your function
 img_train_loader, img_test_loader = get_data_loaders(batch_size, SEED)
 ## get some random training images

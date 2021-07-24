@@ -19,9 +19,6 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/wcjrv/?di
 
 
 
-[Further Reading](https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D1_BasicsAndPytorch/further_reading.md))
-
-
 ## W1D2 - Linear Deep Learning
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18N9cIgTcnBg6IEARrg-hvBb)
