@@ -84,8 +84,10 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial_1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_1
  
-  tutorials: 1
+  tutorials: 2
 
 - day: W2D3
   category: Doing more with fewer parameters
