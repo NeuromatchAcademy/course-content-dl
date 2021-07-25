@@ -31,8 +31,7 @@ class ValueNetwork(NeuralNet):
 
           # compute output
           _, out_v = self.nnet(boards)
-          l_v = self.loss_v(target_vs, out_v)
-          total_loss = l_v
+          l_v = self.loss_v(target_vs, out_v)  # total loss
 
           # record loss
           v_losses.append(l_v.item())
@@ -40,11 +39,11 @@ class ValueNetwork(NeuralNet):
 
           # compute gradient and do SGD step
           optimizer.zero_grad()
-          total_loss.backward()
+          l_v.backward()
           optimizer.step()
 
   def predict(self, board):
-    """
+    """# Mean squared error (MSE)
     board: np array with board
     """
     # timing

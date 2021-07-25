@@ -12,6 +12,7 @@ def functionA(A, B):
   """
   # TODO multiplication the sum of the tensors
   output = A.sum(axis=0) * B.sum()
+
   return output
 
 
@@ -34,7 +35,6 @@ def functionB(C):
   # TODO concatenate the two tensors
   output = torch.cat([idx_tensor.unsqueeze(1), C.unsqueeze(1)], axis=1)
 
-  output = torch.zeros(1)
   return output
 
 

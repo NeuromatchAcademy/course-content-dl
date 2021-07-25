@@ -35,7 +35,6 @@ class PolicyNetwork(NeuralNet):
           # compute output
           out_pi, _ = self.nnet(boards)
           l_pi = self.loss_pi(target_pis, out_pi)
-          total_loss = l_pi
 
           # record loss
           pi_losses.append(l_pi.item())
@@ -63,7 +62,7 @@ class PolicyNetwork(NeuralNet):
     return torch.exp(pi).data.cpu().numpy()[0]
 
   def loss_pi(self, targets, outputs):
-    # loss function. Be careful with the sign!
+    # loss function. compute and return the negative log likelihood of targets!
     return -torch.sum(targets * outputs) / targets.size()[0]
 
   def save_checkpoint(self, folder='checkpoint', filename='checkpoint.pth.tar'):
@@ -86,7 +85,7 @@ class PolicyNetwork(NeuralNet):
     self.nnet.load_state_dict(checkpoint['state_dict'])
 
 
-# we use the same actor-critic network to output a policy
 game = OthelloGame(6)
+## we use the same actor-critic network to output a policy
 pnet = PolicyNetwork(game)
 pnet.train(loaded_games)
