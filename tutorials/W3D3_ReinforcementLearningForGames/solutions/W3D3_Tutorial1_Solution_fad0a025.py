@@ -33,14 +33,21 @@ class MonteCarloTreeSearchBasedPlayer():
     return action_probs
 
 
+# Load MCTS model from the repository
+mcts_model_save_name = 'MCTS.pth.tar'
+path = F"/content/nma_rl_games/alpha-zero/pretrained_models/models/"
 game = OthelloGame(6)
 rp = RandomPlayer(game).play  # all players
 num_games = 20  # games
 n1 = NNet(game)  # nnet players
+n1.load_checkpoint(folder=path, filename=mcts_model_save_name)
 args1 = dotdict({'numMCTSSims': 50, 'cpuct':1.0})
+
 ## Uncomment below to check your agent!
 mcts1 = MonteCarloTreeSearchBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mcts1.getActionProb(x, temp=0))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
 MCTS_result = arena.playGames(num_games, verbose=False)
-print("\n Number of games won by player1 = {}, num of games won by player2 = {}, num of games won by nobody = {} out of {} games" .format(MCTS_result[0], MCTS_result[1], MCTS_result[2], num_games))
+print("\nNumber of games won by player1 = {}, num of games won by player2 = {}, out of {} games" .format(MCTS_result[0], MCTS_result[1], num_games))
+win_rate_player1 = MCTS_result[0]/num_games
+print('\nWin rate for player 1 over {} games: {}%'.format(num_games, win_rate_player1*100))
