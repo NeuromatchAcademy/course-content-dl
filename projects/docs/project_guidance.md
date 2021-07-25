@@ -32,7 +32,7 @@ Goal is to decide what dataset/topic to work on and to form two separate groups 
 Tips:
 * No need to have a very concrete project after this day. You will determine the feasibility of your questions in the next few days, and you will likely change your question completely. That’s how research works!  
 
-## Project Day 2 (3h)
+## Project Day 2 (3h) 
 
 * First, check your inbox! You will receive project TA assignments at some point between Monday and Tuesday, with a first meeting scheduled for Tuesday. Reach out to your project TA to confirm the first meeting or reschedule if it’s necessary.
 
