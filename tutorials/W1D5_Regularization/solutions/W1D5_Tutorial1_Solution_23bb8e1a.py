@@ -1,8 +1,5 @@
 def early_stopping_main(args, model, train_loader, val_loader):
-
-  use_cuda = not args['no_cuda'] and torch.cuda.is_available()
-  device = torch.device('cuda' if use_cuda else 'cpu')
-
+  device = args['device']
   model = model.to(device)
   optimizer = optim.SGD(model.parameters(),
                         lr=args['lr'],
@@ -21,13 +18,13 @@ def early_stopping_main(args, model, train_loader, val_loader):
   for epoch in tqdm(range(args['epochs'])):
 
     # train the model
-    train(args, model, device, train_loader, optimizer)
+    train(args, model, train_loader, optimizer)
 
     # calculate training accuracy
-    train_acc = test(model, device, train_loader)
+    train_acc = test(model, train_loader, device=device)
 
     # calculate validation accuracy
-    val_acc = test(model, device, val_loader)
+    val_acc = test(model, val_loader, device=device)
 
     if (val_acc > best_acc):
       best_acc = val_acc
@@ -47,13 +44,16 @@ def early_stopping_main(args, model, train_loader, val_loader):
   return val_acc_list, train_acc_list, best_model, best_epoch
 
 
+# Set the arguments
 args = {
     'epochs': 200,
     'lr': 5e-4,
     'momentum': 0.99,
-    'no_cuda': False,
+    'device': DEVICE
 }
 
+# Initialize the model
+set_seed(seed=SEED)
 model = AnimalNet()
 
 ## Uncomment to test
