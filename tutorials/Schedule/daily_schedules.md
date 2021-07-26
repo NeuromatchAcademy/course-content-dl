@@ -35,8 +35,8 @@ All days will follow this schedule for course time:
 |------------------|---------------------------------------|              
 |    0:00-0:15   |    Discussion      |                    
 |    0:15-1:45     |    Tutorials I     |    
-|    1:45-2:15     |    Big break          |    
-|    2:15-4:15     |    Tutorials II    |   
+|    1:45-2:45     |    Big break          |    
+|    2:45-4:15     |    Tutorials II    |   
 |    4:15-4:30    |    Pod discussion      |    
 |
 
