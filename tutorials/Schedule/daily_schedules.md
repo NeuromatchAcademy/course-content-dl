@@ -33,14 +33,12 @@ All days will follow this schedule for course time:
  
 |    Time (Hour)   |    Lecture                            | 
 |------------------|---------------------------------------|              
-|    0:00-0:30\*   |    Breakout debrief|   
-|    **0:30**-0:45**     |    Break  |                  
-|    0:45-2:15     |    Tutorials I     |    
-|    2:15-3:15     |    Big break                 |    
-|    3:15-4:45     |    Tutorials II    |   
-|    4:45-4:55    |    Pod discussion      |    
-|    4:55-5:00    |    Break               |    
-|    5:05-5:35\*     |   Pod Q&A                              |
+|    0:00-0:15   |    Discussion      |                    
+|    0:15-1:45     |    Tutorials I     |    
+|    1:45-2:15     |    Big break          |    
+|    2:15-4:15     |    Tutorials II    |   
+|    4:15-4:30    |    Pod discussion      |    
+|
 
 
 ### W3D5 (subject to changes)
