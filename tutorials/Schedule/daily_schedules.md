@@ -1,7 +1,7 @@
 # General schedule
 
 ## Course overview
-    
+
 * Week 1: The basics
     * Mon, August 2: Basics and Pytorch
     * Tue, August 3: Linear Deep Learning
@@ -25,7 +25,7 @@
 ----
 
 ## Daily coursework schedule
-All days will follow the same schedule apart from W3D5!
+All days will follow the same schedule apart from W3D4!
 
 ### General schedule
 All days will follow this schedule for course time:
@@ -39,9 +39,10 @@ All days will follow this schedule for course time:
 |    4:15-4:30     |    Pod discussion                     |
 
 
-### W3D5 (subject to changes)
+### W3D4 (subject to changes)
 On W3D4 (final day!), we will have project presentations, an extra celebration and pod wrap-ups!
 
-## Professional Development Series
+**Note:** The naming W{x}D{y} correspond to days that include tutorials.
 
+## Professional Development Series
 Coming soon
