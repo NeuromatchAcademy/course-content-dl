@@ -1,4 +1,4 @@
-# Project Templates
+# Project Templates Computational Neuroscience
 
 Click on each image below to see a full browser version!
 
