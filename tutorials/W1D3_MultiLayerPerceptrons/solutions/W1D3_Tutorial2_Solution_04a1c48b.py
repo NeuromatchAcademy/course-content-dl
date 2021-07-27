@@ -1,4 +1,4 @@
-def run_depth_optimizer(max_par_count,  max_hidden_layer, device):
+def run_depth_optimizer(max_par_count, max_hidden_layer, device):
 
   def count_parameters(model):
     par_count = 0
@@ -32,7 +32,7 @@ def run_depth_optimizer(max_par_count,  max_hidden_layer, device):
     optimizer = optim.Adam(wide_net.parameters(), lr=1e-3)
     _, test_acc = train_test_classification(wide_net, criterion, optimizer,
                                             train_loader, test_loader,
-                                            DEVICE, num_epochs=100)
+                                            num_epochs=100, device=device)
     test_scores += [test_acc]
 
   return hidden_layers, test_scores

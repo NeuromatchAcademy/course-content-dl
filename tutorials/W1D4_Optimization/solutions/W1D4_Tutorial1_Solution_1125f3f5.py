@@ -1,4 +1,4 @@
-def gradient_update(loss, params, lr=1e-1):
+def gradient_update(loss, params, lr=1e-3):
   """Perform a gradient descent update on a given loss over a collection of parameters
 
   Args:
@@ -13,19 +13,20 @@ def gradient_update(loss, params, lr=1e-1):
   # Compute gradients on given objective
   loss.backward()
 
-  for par in params:
-    # Here we work with the 'data' attribute of the parameter rather than the
-    # parameter itself.
-    par.data -= lr * par.grad.data
+  with torch.no_grad():
+    for par in params:
+      # Here we work with the 'data' attribute of the parameter rather than the
+      # parameter itself.
+      par -= lr * par.grad
 
 
 set_seed(2021)
-model = MLP(in_dim=784, out_dim=10, hidden_dims=[])
+model = MLP(in_dim=784, out_dim=10, hidden_dims=[]).to(DEVICE)
 print('\n The model parameters before the update are: \n')
 print_params(model)
 loss = loss_fn(model(X), y).to(DEVICE)
 
 ## Uncomment below to test your function
-gradient_update(loss, list(model.parameters()), lr=1e-2)
+gradient_update(loss, list(model.parameters()), lr=1e-1)
 print('\n The model parameters after the update are: \n')
 print_params(model)
