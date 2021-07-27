@@ -15,13 +15,13 @@ In the second week you will experiment with different types of deep neural netwo
 
 ## Project TAs
 
-Project TAs are a new role at NMA this year, and they are your friendly dataset experts to consult with on all issues related to datasets. They can also help with other aspects of a project, including brainstorming, literature searches and coding. You will have one-hour meetings with an assigned project TAs starting Tuesday and continuing every 2-3 days until the end of the school. During this time, they will help you refine your question and hypothesis into something that can be answered with deep learning. Sometimes they may miss a meeting or arrive late (busy schedules, lots of meetings!). In those cases, please stop what you were doing to have the meeting, and then resume your work when the project TA leaves.
+Project TAs are a new role at NMA this year, and they are your friendly topic experts to consult with on all issues related to that topic. They can also help with other aspects of a project, including brainstorming, literature searches and coding. You will have one-hour meetings with an assigned project TAs starting Tuesday and continuing every 2-3 days until the end of the school. During this time, they will help you refine your question and hypothesis into something that can be answered with deep learning. Sometimes they may miss a meeting or arrive late (busy schedules, lots of meetings!). In those cases, please stop what you were doing to have the meeting, and then resume your work when the project TA leaves.
 
-Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please be as flexible as you can, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. All project TAs have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
+Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please try to be flexible, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. All project TAs have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
 
 ## Project Day 1 (3 h)
 
-Goal is to decide what dataset/topic to work on and to form two separate groups (4-6 students/group). TAs make a [Miro](http://miro.com) concept board for brainstorming at the beginning of this session and they invite the students to join during the brainstorming times below.
+Goal is to decide what dataset/topic to work on and to form two separate groups (3-6 students/group). TAs make a [Miro](http://miro.com) concept board for brainstorming at the beginning of this session and they invite the students to join during the brainstorming times below.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 * Listen carefully as others talk about their interests. If you are curious about something, ask them. If their interests match yours, you can try to recruit them to your group later!
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) and some project template.
@@ -32,76 +32,57 @@ Goal is to decide what dataset/topic to work on and to form two separate groups 
 Tips:
 * No need to have a very concrete project after this day. You will determine the feasibility of your questions in the next few days, and you will likely change your question completely. That’s how research works!  
 
-## Project Day 2 (3h) 
+## Project Day 2 (3h)
 
 * First, check your inbox! You will receive project TA assignments at some point between Monday and Tuesday, with a first meeting scheduled for Tuesday. Reach out to your project TA to confirm the first meeting or reschedule if it’s necessary.
 
-Watch the 10 steps to modelling video and go through the steps 1-2 from the notebook. You should use your own research question to try to think what your question is, and to do a literature review of that topic.
+Watch the modelling steps 1-2 video and do the tutorial. This will ask you to come up with a question (today) and do a literature review (tomorrow). In practice, these two steps are intertwined. You might want to get a headstart today on looking at some literature, because it can inform and change your question.
 
-* You will need to use your own project for some of this content. If you don’t yet have concrete ideas, or you haven’t done a research project before, use one of the provided project templates to walk through the four steps.
+* You will need to use your own project for some of this content. If you don’t yet have concrete ideas, or you haven’t done a research project before, use one of the provided project templates.
 * If you are using a project template, your goal is to translate the information from the slide and colab notebook into the 10-steps format. Some information might not be readily available in the slide or notebook, and you might have to find it in your literature review later this day.
-* Try to write down a few sentences for each of the two steps applied to your project.
+* Try to write down a few sentences for each of the two steps applied to your project. Putting thoughts into well-defined sentences and paragraphs helps at all stages of a project.
 
 
 ## Project Day 3 (3h)
 
-Today you should do a literature review. The goal of the literature review is to situate your question in context and help you acquire some keywords to help you refine your question.
+Today you should do a literature review (step 2 of the "modelling steps"). The goal of the literature review is to situate your question in context and help you acquire some keywords to help you refine your question.
 * (30min) on your own, start doing a literature review using google searches and only look at abstracts to select 2-3 promising ones.  
 * (10min) report to the whole group what papers you found and pool them together. Assign one paper per person to read/skim in the next 1h.  
 * (1h) on your own, read the paper that was assigned to you. Make notes in a common google doc shared with your group, and especially write down important keywords or concepts which you might use in your proposal later today. If you are not connected to an .edu domain or a VPN, try to find full versions of papers on preprint servers like arXiv / bioRxiv. You could also ask your TA to get it for you (and they might in turn ask someone who has access to a university VPN). There might be other options too…  
 * (1h) report back to the group, and try to tell them as much as you understood about the paper. Get into details, but don’t just read to them whole sections from the paper. Ask the other students questions about the papers they are presenting to understand them better.
 
-## Project Day 4-5 (3h/day)
+## Project Days 4-5 (3h/day)
 
-During these two days you will search for the right dataset to answer your question. Notice that we didn't start with the dataset and that is important. It may seem easier to start with a dataset + favorite model, but that makes it very difficult to find a good question that matches that dataset. When you start with the question, you guarantee that you are personally invested in the question, and that you can have a unique angle or perspective that others may have not thought about yet.
+These correspond to "modelling steps 3-4". As usual, watch the short video and start through the notebook. It will ask you to find the ingredients for your project. In our case, this primarily involves finding a dataset. Finding a good dataset is a crucial step in all deep learning projects. Since you already have a question, you need the right dataset for that question. If you can find a good one, it will make the rest of the project much easier, so you should spend a lot of time on this (both days). This goes hand in hand with formulating a hypothesis (step 4), because some datasets will naturally invite you to make a hypothesis, especially if you already have a well-defined question. Here's an example:
+
+Question:  What is the relation between pollution and climate change?
+Dataset:   1) Geographic dataset of pollution indices; 2) Geographic dataset of average increase in surface temperature since 1900.
+Hypothesis: We can predict a substantial fraction of the variability in surface temperature increase from pollution indices using a multi-layer convnet.  
+
+Notice that we didn't start with the dataset and that is important. It may seem easier to start with a dataset + your favorite neural network, but that makes it very difficult to find a good question that matches that dataset. When you start with the question, you guarantee that you are personally invested in the question, and that you can have a unique angle or perspective that others may have not thought about yet.
 
 To find the dataset, you can rely on searches, especially using the keywords you identified in your literature review. You can also go to a few very well organized websites/repositories that have links to datasets. When you find a dataset, make sure you can load it effectively into google colab, either by downloading it locally and then uploading to your google drive, OR (and this is preferable/easier, especially if you don't have good internet) by directly downloading the dataset into google colab. You should then start working on the reformatting of the data, to put it into a format that you can apply deep learning on it (usually a multi-dimensional numpy array, or a set of images with a dataloader object in Pytorch). It's good to organize your dataset into a nice format early on, because that will save you time later and will make it easier to think about how to apply models to your data.
 
 
-## Project Day X
+## Project Day 6 (3h/day)
 
-In construction....
+You should now have a question, a dataset and a hypothesis. One or more of these could be shaky/vague, and that is ok! As you start testing you hypothesis, the weak points of your project will become clear and then you can update what needs updating (question, dataset or hypothesis).
 
+The next modelling steps are steps 5-6 in the jupyterbook materials: selecting a toolkit and planning a model. For deep learning, the "toolkit" could be the specific flavor of deep learning model you want to implement (transformer, residual network etc.). The model planning would be the specific architecture you give to your model (how many layers, convolution size etc). Design  your model in pytorch and try to get it to run. You don't need to start training it yet: first make sure it is designed correctly.
 
-<!--- Over the next two weeks, you will iterate between refining your question and trying to answer it. Be on the lookout for interesting hypotheses. You might notice something weird in the data, and if you dig deeper it might lead you directly to a result. For this to work, you must keep an open mind about what your questions are. If you feel like your question is starting to change, go back to Steps1-5 and see if it’s easier to formulate those steps with the new question. A good question/hypothesis makes the 5 steps really easy to think through. Here are some generally useful tips & tricks:
+## Project Days 7-10 (3h/day)
 
-* The hardest part will be wrestling with the data to try to answer your question. You can rely on your TAs, the dedicated project TAs and the Discord channels to make this process easier.
-* For theory projects, wrestling with your model can be equally challenging. If your model generates data, for example a neural network simulation, then you can still use some of the tricks below to analyze that data.
-* If your model makes a hypothesis that needs to be tested, then your theory project might become a data project. The opposite may also happen: you may find something interesting in the data, and realize that you need a model to understand it better.  
-* Always be on the lookout for bugs in your code, or ”bugs” in your analysis plan. If a plot/result looks too good to be true, it might be! Make sure you always split your data train/test, even for simple analyses where you think it might not matter (i.e. for making tuning curves).
-* If your question does change, remember to always do a quick literature survey (i.e. google search) to see if others thought about your question in the past. You don’t need to come up with a completely original question! Do however situate your research within the relevant literature, and try to get hints/suggestions from other papers.
-* Depending how complex your question is, there could be several data analysis steps:
-   * data wrangling: some questions can be answered simply by plotting the right variable from the data! Some generally useful strategies: make PSTHs and tuning curves; try scatter plots of different variables; plot across neurons or across trials; select the most tuned neurons and look just at those; if there are multiple sessions pick a good one and dig deep into that one.
-   * simple, linear analyses: most questions can be answered at this stage. This is often needed if you are doing a “population analysis”, i.e. trying to determine if a set of neurons or voxels collectively encode a certain variable. By far, the most used linear analyses are linear regression, PCA and k-means clustering.
-   * Linear regression is often a good first step, even if your variables are binary/categorical. Once you have a pipeline, it will be easy to switch to logistic regression or other predictors from the scikit-learn library.
-   * For visualizations, you might want to reduce a population of neurons to just a few components using PCA, then go back to the “data wrangling” steps and make the same kinds of plots for PCs that you made for neurons.
-   * Another way to reduce the size of data is to cluster neurons (or trials!) into a few subsets, then average within that cluster. The simplest clustering model is k-means, which is a “linear” clustering model.
-* complicated, nonlinear analyses: if the simple analyses fail, you might think you have no choice but to try something fancy, like deep learning or ISOMAP. This is often a dead end where projects go to die! You probably will make a lot more progress by slightly (or greatly) changing your question, or refining your hypothesis. The reason complicated analysis are so hard to do and interpret is that they often function as black boxes that are hard to look into. What do the parameters of a deep neural network mean? That is a hard research question in its own right. This is not to say that your hypothesis cannot be a nonlinear model, just that you can often test nonlinear hypotheses with simple, even linear analyses. If you must, however, use complicated analyses, then deep learning “replaces” linear regression, t-SNE / ISOMAP replaces PCA, and hdbscan replaces k-means.
-   * deep learning as a prediction tool. This is unlikely to do better than linear/logistic regression, because neural data is noisy, and you need a lot of training data to really train a deep network well. This is because deep networks have a lot of parameters.
-   * There are many “nonlinear dimensionality reduction” methods like t-SNE / ISOMAP, but these are often not meant as replacements for PCA, but instead as visualization tools to try to see a clustering structure in your data. They can be useful for making hypotheses based on interesting-looking plots. You still need to validate those hypotheses using simpler methods, like clustering and PCA.
-   * There are many nonlinear clustering models like hdbscan and spectral clustering, but those are fickle for high-dimensional data and difficult to interpret. You will have to carefully try different parameters, and think through what the clusters mean.
+These days correspond roughly to the modelling steps 7-9 videos and notebook, which primarily covers the implementation of the model and testing whether the model works correctly. Since you already have designed a neural network, it's time to try training it. This can take a lot of trial and error, but you don't need to wait for the entire training to finish. The cost function should decrease fairly quickly in the first few epochs, so try to optimize hyperparameters so that you get good initial reductions in the cost function. Warning: don't be too aggressive. The hyperparameters that work best for the first few iterations are likely to get stuck later on and/or lead to the parameters "exploding". It is often best to reduce the learning rate by a factor of 2 or so from the hyperparameters that lead to the best initial descent.
 
-## Block 6 (2-3h)
+## Project Day 11 (8h, Monday)
 
-You should now have a sense of the data, and you have probably refined your hypothesis a little. You might have a vague idea of what it would take for your project to work, what tools you might use, and what the answer could look like. Let’s make these things explicit, by continuing with steps 6-9 of the modelling practice in this [steps 5-10 notebook](https://compneuro.neuromatch.io/projects/modelingsteps/ModelingSteps_5through10.html).
-
-* (0.5h) Go through the first five steps again with your own refined question. Try to write down what the steps looks like for your data.
-* (1-2h) Go through steps 6-10 for the example project in the new notebook and watch the videos.
-* (1-2h) The rest of the day, start thinking what these steps would look like for your project, without actually doing the steps. Do you need to select a toolkit and where can you find some options? Do you need to implement a model? Don’t actually implement the model on this day! Try to complete the low-hanging fruit first, because you’ll have the rest of this week and next for the actual full implementation of your project.
-
-## Blocks 7-9 (2-3h / day)
-
-Leading up to day 10, you will implement Steps 5-9 in your project. If you are already experienced with research projects, this might just look like a continuation of last week and you don’t need to stick to the steps too closely. If you are not so experienced, you could benefit from implementing the steps one after the other, perhaps at a rate of 1 step / day.
-
-## Day 10 (8h, Friday for everyone)
-
-Abstract writing day! One of the best ways to understand your own research is to try to write about it. You should write early and often, not just at the end when you’re trying to write a paper or your thesis. Science conferences are a great way to present your intermediate work, and they give you a chance to write an abstract. For example, the Neuromatch Conferences are a great venue for this. However, you don’t have to wait so long to write your project abstract, you’ll do it today! If you have preliminary results that’s great, but it’s not required. Most of the components of an abstract do not in fact require results. The goal for this day is to workshop your abstract with your group, and then present this to your entire pod. You can also think of it as a much more refined version of the project proposal you submitted originally.
+This is a full project day, abstract writing day! One of the best ways to understand your own research is to try to write about it. You should write early and often, not just at the end when you’re trying to write a paper or your thesis. Science conferences are a great way to present your intermediate work, and they give you a chance to write an abstract. For example, the Neuromatch Conferences are a great venue for this. However, you don’t have to wait so long to write your project abstract, you’ll do it today! If you have preliminary results that’s great, but it’s not required. Most of the components of an abstract do not in fact require results. The goal for this day is to workshop your abstract with your group, and then present this to your entire pod. You can also think of it as a much more refined version of the project proposal you submitted originally.
 
 If you have been using a project template, this is a good time to branch out and pursue your own questions. The template was only meant to get you started on some concrete analyses, so that you become familiar with the data, but now that you have more knowledge, you should be able to come up with your own question. Practice the 4-steps again if necessary, they should be easier once you have a good question.
 
 If you think your abstract is lacking the computational "oomph" to make it sound good, check out the "Day 10 (bonus)" section below. Take the time to find interesting modelling or computational facets to your project, because this will make the abstract writing easier and more enjoyable since you can talk about big, interesting ideas and then gradually focus on the very specific work that you've done.  
 
-Your starting point for workshopping your abstract should be step 10 from the [Modeling steps 5-10](https://compneuro.neuromatch.io/projects/modelingsteps/ModelingSteps_5through10.html) notebook, and especially the example projects ([model project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionModel.html) and [data project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionDataProject.html)) which show how you can build an abstract if you have been following the 10 steps.
+Your starting point for workshopping your abstract should be step 10 from the [Modeling steps 10]() notebook, and especially the example projects ([model project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionModel.html) and [data project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionDataProject.html)) which show how you can build an abstract if you have been following the 10 steps.
 
 Note: the timings for this day are just suggestions. You can spend more or less time on different parts depending on how much work you think your abstract needs. Also, take as much time as you need in the beginning of this day to carefully go through the modelling steps notebooks (including the example projects) and/or to explore/think about the big picture topics from the "Day 10 (bonus)" section below.
 
@@ -126,60 +107,31 @@ Last 3h, with the pod.
 Back in your group
 * (1-2h) Has the abstract refined or changed your question? Use the rest of this day to make a concrete plan for the final week of your project. If you already answered your question, then you will need to plan for control analyses, maybe including some simulated data that you need to also generate yourself.
 
-Once you are done, please submit the abstract [HERE](https://airtable.com/shrITSzD4fgFCGiWI). We won't use this for further matching or anything like that, but we will keep a record of it to help us track the progress of all groups. If you really need/want to, the abstract can also be submitted on Monday (especially for timeslots 2,4 who have had one less project day so far).
+Once you are done, please submit the abstract [HERE](). We won't use this for further matching or anything like that, but we will keep a record of it to help us track the progress of all groups. If you really need/want to, the abstract can also be submitted on Monday (especially for timeslots 2,4 who have had one less project day so far).
 
+## Days 12-14 (3h/day)
 
-## Day 10 (bonus)
-
-Writing an abstract is also a good time to reflect on how your work relates to some of the big computational ideas in neuroscience. Relating your work to big ideas is a good way to get lots of people interested in your work! It is also a good way to find inspiration for what to do next. Maybe you have unknowingly proven an important theory? Think through the predictions that theory would make and see if you can steer your analyses towards validating or invalidating those predictions. Here is a list of big ideas the project team put together to think about. Some of them are covered in the course material (potentially next week). Don't be afraid to ask your TA (or project TA) if you are not familiar with some of these ideas, for example "why is sparsity such an important concept in neuroscience?". These kinds of questions usually spark good discussions.
-
-1. Sparsity ([paper](https://www.nature.com/articles/381607a0.pdf?origin=ppub))
-
-2. Mixed selectivity -- having individual neurons respond to multiple elements of a task/context/stimulus can increase the dimensionality of population activity and facilitate learning of arbitrary transformations ()[paper](https://www.nature.com/articles/nature12160)). Modelling idea: make toy model neuron populations based on your data that show either mixed selectivity or are pure labeled lines. How do things like decoder performance (especially for combinations of signals) differ between the two populations?
-
-3. Predictive coding -- rather than encoding sensory input directly, it might be more efficient to encode differences between new and past sensory inputs ([paper]( https://onlinelibrary.wiley.com/doi/full/10.1002/wcs.142))
-
-4. Computing through dynamics ([paper](https://www.annualreviews.org/doi/abs/10.1146/annurev-neuro-092619-094115))
-
-5. Integrate-and-fire Network Models -- See Ch 5 of Dayan and Abbott, Theoretical Neuroscience
-
-6. Generative models of neural activity -- evaluate critically the assumptions made about the generative model which is implied by your analysis method. What does it mean for principles of neural coding/ behavior? E.g. does the linear decoder do as well as a nonlinear decoder - does it suggest that encoding of this variable is likely linear in this brain region?
-
-7. Transfer learning: can the linear (?) combination of basis sets learned from Data A be used to decode Data B? If so, then you might have found a fundamental "dictionary" of neural features (or "ensembles", or "clusters" or "syllables").
-
-8. Generalization across days or individuals -- same as the transfer learning one, but across individuals. If the generalization works, have you found a "universal" set of sufficient features for a certain task?
-
-9. Theories of Band Power (i.e. what is "alpha" band power associated with? what is gamma power associated with? etc.)
-
-10. Labeled Lines -- is information encoded by specific, dedicated neurons, or distributed across a population of cells responding to more than one thing? See eg https://www.annualreviews.org/doi/abs/10.1146/annurev.neuro.26.041002.131022, https://www.sciencedirect.com/science/article/pii/S1044743106001692
-
-## Blocks 11-14
-
-Abstract writing day should have helped you narrow down what results (positive or negative) you would actually need to answer your question. You will use the rest of this time to try to get a result, or make progress towards an answer. This might not work out in such a short time, but don’t get discouraged: this part normally takes months if not years of work.
+Abstract writing day should have helped you narrow down what results (positive or negative) you would actually need to answer your question. You will use the rest of this time to try to get a result, or make progress towards an answer. This might not work out in such a short time, but don’t get discouraged: this part normally takes months if not years of work. You might need some new tools at this point to analyze your model, such as dimensionality reduction techniques, or visualization methods for units inside deep neural networks.
 
 * If you know what analysis you need, but don’t know how to do it, the TAs are there to help you. They can point you to useful toolkits that may be difficult to find otherwise.
 * Try not to implement complicated analyses from scratch. Use existing toolkits, and learn how to use them well. This kind of knowledge is very helpful long-term.
 * If you find a negative answer to your question, that is absolutely ok! Please do report that. Then go back and think about how this affects your initial hypothesis. Does it rule it out, or could there be limitations in this particular data that lead to the negative result? What other data would you collect that would be better suited for answering this question? Try to design a new experiment in very specific detail and tell us about it. Who knows, somebody might run that experiment someday!
 * If you find a positive result (i.e. the data matches your hypothesis), then you should spend the rest of your time validating it to make absolutely sure it is really true. You will need to design controls using the data (shuffling controls), or using simulated data, and you need to check the logic of your pipeline from start to end. Did you accidentally select only neurons that were tuned to a behavior, and then showed that they respond to aspects of that behavior? Did you sort neurons by their peak response time and then found sequences in your data? That is circular reasoning! There are some obvious and some not-so-obvious circular analyses that can catch even experienced researchers off-guard. This is what the controls are especially useful at catching.  
 
-## Day 15 project work
+At the end of project day 14, you should also submit your slides via this [Airtable link]().
 
-Only for timeslots 2 & 4! You have an extra project block at the beginning of this day before tutorials (which makes up for the lack of project time on W1D1). Use it to finalize your presentation. The last hour of this block (just before coursework starts) is your project presentation (as per update on Wed, July 21). Check the [calendar](https://academy.neuromatch.io/calendar-summer-2021) and the email invitation we are sending to the mentors to be confirm the time.
+## Day 15 Presentations (last day!)
 
-## Day 15 Presentations (Friday tutorial block for everyone)
-
-This is the day where you present your project to other groups who worked on the same dataset. Your mentor and your project TAs will be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
-
-At the end of your last project block, you should also submit your slides via this [Airtable link](https://airtable.com/shr9Ge6A94JB7TOPI).   
+This is the day where you present your project to other groups who worked on the same topic. Your mentor and your project TAs will be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 
 ### Schedule
 
-* 10 minutes of meet & greet. Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university and subject of study, as well as one interesting fact about themselves "Hi, I'm Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I do neuroscience experiments in flies, and in my free time I like to go on long bike rides".
+* 10 minutes of meet & greet. Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university and subject of study, as well as one interesting fact about themselves "Hi, I'm Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I build reinforcement learning models for robots, and in my free time I like to go on long bike rides".
 
 * 30 minutes of presentations, including questions. Each group should speak for approx 5 minutes (depending on group size), and then take questions for 1-2 minutes. The order of presentations should be the one from the email.
 
 * 20 minutes of discussion. Use the following questions to guide the group discussion. Spend 3-5 minutes on each question.  
-  * What was missing in the dataset that you would have really liked to have?
+  * Could one of the datasets chosen by the other groups have helped you answer your question, or a part of it? What does the other group think?
   * Does anyone plan to continue working on this project in the future? Perhaps a few students from the multiple groups would like to continue together?
   * Which one of the 10 steps to modelling/research was hardest and why?
   * Based on your experience with the NMA project, what project would you most like to do next? Make up your own, or pick from the NMA projects (a different dataset or project template which you did not use).
@@ -226,4 +178,20 @@ At the end of your last project block, you should also submit your slides via th
 
 * If you are answering the question, try to be short and concise. Rambling is very clear to the audience, and it can seem like you're avoiding to answer the question. Answering concisely is another very useful skill in "real life". It also means that you can take more questions given our time constraints.
 
--->
+<!--- Over the next two weeks, you will iterate between refining your question and trying to answer it. Be on the lookout for interesting hypotheses. You might notice something weird in the data, and if you dig deeper it might lead you directly to a result. For this to work, you must keep an open mind about what your questions are. If you feel like your question is starting to change, go back to Steps1-5 and see if it’s easier to formulate those steps with the new question. A good question/hypothesis makes the 5 steps really easy to think through. Here are some generally useful tips & tricks:
+
+* The hardest part will be wrestling with the data to try to answer your question. You can rely on your TAs, the dedicated project TAs and the Discord channels to make this process easier.
+* For theory projects, wrestling with your model can be equally challenging. If your model generates data, for example a neural network simulation, then you can still use some of the tricks below to analyze that data.
+* If your model makes a hypothesis that needs to be tested, then your theory project might become a data project. The opposite may also happen: you may find something interesting in the data, and realize that you need a model to understand it better.  
+* Always be on the lookout for bugs in your code, or ”bugs” in your analysis plan. If a plot/result looks too good to be true, it might be! Make sure you always split your data train/test, even for simple analyses where you think it might not matter (i.e. for making tuning curves).
+* If your question does change, remember to always do a quick literature survey (i.e. google search) to see if others thought about your question in the past. You don’t need to come up with a completely original question! Do however situate your research within the relevant literature, and try to get hints/suggestions from other papers.
+* Depending how complex your question is, there could be several data analysis steps:
+   * data wrangling: some questions can be answered simply by plotting the right variable from the data! Some generally useful strategies: make PSTHs and tuning curves; try scatter plots of different variables; plot across neurons or across trials; select the most tuned neurons and look just at those; if there are multiple sessions pick a good one and dig deep into that one.
+   * simple, linear analyses: most questions can be answered at this stage. This is often needed if you are doing a “population analysis”, i.e. trying to determine if a set of neurons or voxels collectively encode a certain variable. By far, the most used linear analyses are linear regression, PCA and k-means clustering.
+   * Linear regression is often a good first step, even if your variables are binary/categorical. Once you have a pipeline, it will be easy to switch to logistic regression or other predictors from the scikit-learn library.
+   * For visualizations, you might want to reduce a population of neurons to just a few components using PCA, then go back to the “data wrangling” steps and make the same kinds of plots for PCs that you made for neurons.
+   * Another way to reduce the size of data is to cluster neurons (or trials!) into a few subsets, then average within that cluster. The simplest clustering model is k-means, which is a “linear” clustering model.
+* complicated, nonlinear analyses: if the simple analyses fail, you might think you have no choice but to try something fancy, like deep learning or ISOMAP. This is often a dead end where projects go to die! You probably will make a lot more progress by slightly (or greatly) changing your question, or refining your hypothesis. The reason complicated analysis are so hard to do and interpret is that they often function as black boxes that are hard to look into. What do the parameters of a deep neural network mean? That is a hard research question in its own right. This is not to say that your hypothesis cannot be a nonlinear model, just that you can often test nonlinear hypotheses with simple, even linear analyses. If you must, however, use complicated analyses, then deep learning “replaces” linear regression, t-SNE / ISOMAP replaces PCA, and hdbscan replaces k-means.
+   * deep learning as a prediction tool. This is unlikely to do better than linear/logistic regression, because neural data is noisy, and you need a lot of training data to really train a deep network well. This is because deep networks have a lot of parameters.
+   * There are many “nonlinear dimensionality reduction” methods like t-SNE / ISOMAP, but these are often not meant as replacements for PCA, but instead as visualization tools to try to see a clustering structure in your data. They can be useful for making hypotheses based on interesting-looking plots. You still need to validate those hypotheses using simpler methods, like clustering and PCA.
+   * There are many nonlinear clustering models like hdbscan and spectral clustering, but those are fickle for high-dimensional data and difficult to interpret. You will have to carefully try different parameters, and think through what the clusters mean.
