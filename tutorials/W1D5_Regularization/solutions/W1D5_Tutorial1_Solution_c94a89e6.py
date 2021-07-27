@@ -18,18 +18,18 @@ def early_stopping_main(args, model, train_loader, val_loader):
   for epoch in tqdm(range(args['epochs'])):
 
     # train the model
-    train(args, model, train_loader, optimizer)
+    trained_model = train(args, model, train_loader, optimizer)
 
     # calculate training accuracy
-    train_acc = test(model, train_loader, device=device)
+    train_acc = test(trained_model, train_loader, device=device)
 
     # calculate validation accuracy
-    val_acc = test(model, val_loader, device=device)
+    val_acc = test(trained_model, val_loader, device=device)
 
     if (val_acc > best_acc):
       best_acc = val_acc
       best_epoch = epoch
-      best_model = copy.deepcopy(model)
+      best_model = copy.deepcopy(trained_model)
       wait = 0
     else:
       wait += 1
@@ -57,7 +57,7 @@ set_seed(seed=SEED)
 model = AnimalNet()
 
 ## Uncomment to test
-val_acc_earlystop, train_acc_earlystop, _, best_epoch = early_stopping_main(args, model, train_loader, val_loader)
+val_acc_earlystop, train_acc_earlystop, best_model, best_epoch = early_stopping_main(args, model, train_loader, val_loader)
 print(f'Maximum Validation Accuracy is reached at epoch: {best_epoch:2d}')
 with plt.xkcd():
   early_stop_plot(train_acc_earlystop, val_acc_earlystop, best_epoch)
