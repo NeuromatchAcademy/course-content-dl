@@ -1,6 +1,7 @@
  # Timezone widget
 
-```{div}
+```
+<!doctype html>
 <html lang="en">
 <head>
 <title>Slot selector</title>
