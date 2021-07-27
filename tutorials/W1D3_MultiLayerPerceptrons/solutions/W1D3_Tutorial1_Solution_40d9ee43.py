@@ -1,8 +1,8 @@
-def shuffle_and_split_data(X, y):
-
+def shuffle_and_split_data(X, y, seed):
+  # set seed for reproducibility
+  torch.manual_seed(seed)
   # Number of samples
   N = X.shape[0]
-
   # Shuffle data
   shuffled_indices = torch.randperm(N)   # get indices to shuffle data, could use torch.randperm
   X = X[shuffled_indices]
@@ -18,9 +18,8 @@ def shuffle_and_split_data(X, y):
   return X_test, y_test, X_train, y_train
 
 
-set_seed(seed=SEED)
 ## Uncomment below to test your function
-X_test, y_test, X_train, y_train = shuffle_and_split_data(X, y)
+X_test, y_test, X_train, y_train = shuffle_and_split_data(X, y, seed=SEED)
 with plt.xkcd():
   plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test)
   plt.title('Test data')

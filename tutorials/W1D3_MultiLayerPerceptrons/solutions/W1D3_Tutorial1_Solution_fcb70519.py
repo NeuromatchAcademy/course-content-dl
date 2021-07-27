@@ -30,6 +30,6 @@ class Net(nn.Module):
 
 input = torch.zeros((100, 2))
 ## Uncomment below to create network and test it on input
-net = Net(actv='LeakyReLU(0.1)', input_feature_num=2, hidden_unit_nums = [100, 10, 5], output_feature_num = 1)
-y = net(input)
+net = Net(actv='LeakyReLU(0.1)', input_feature_num=2, hidden_unit_nums=[100, 10, 5], output_feature_num=1).to(DEVICE)
+y = net(input).to(DEVICE)
 print(f'The output shape is {y.shape} for an input of shape {input.shape}')
