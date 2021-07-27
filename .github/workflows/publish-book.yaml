@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: 3.7
       - name: Install CI tools
-        if: "!contains(env.COMMIT_MESSAGE, 'skip book')"
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
@@ -42,12 +42,12 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
       - name: Install dependencies
-        if: "!contains(env.COMMIT_MESSAGE, 'skip book')"
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           pip install -r requirements.txt
           pip install jupyter-book==0.10.2 ghp-import
       - name: Build the book
-        if: "!contains(env.COMMIT_MESSAGE, 'skip book')"
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           python ci/generate_book_dl.py
           ln -s ../tutorials book/tutorials
@@ -55,7 +55,7 @@ jobs:
           jupyter-book build book
           python ci/parse_html_for_errors.py
       - name: Commit book
-        if: "!contains(env.COMMIT_MESSAGE, 'skip book')"
+        if: "contains(env.COMMIT_MESSAGE, 'ci:book')"
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
