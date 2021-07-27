@@ -8,7 +8,7 @@
 title                       : "Neuromatch Academy: Deep Learning"  # The title of the book. Will be placed in the left navbar.
 author                      : Neuromatch  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : nma-logo-square-4xp.jpg  # A path to the book logo
+logo                        : nma-dl-logo-square-4xp.jpeg  # A path to the book logo
 only_build_toc_files        : true
 
 
