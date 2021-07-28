@@ -1,5 +1,7 @@
 # Neuromatch Academy Deep Learning (NMA-DL) syllabus
 
+The content should primarily be accessed from our new ebook: https://deeplearning.neuromatch.io/ [under continuous development]
+
 ----
 
 *August 2-20, 2021*
@@ -127,8 +129,6 @@ Coming soon... stay tuned...
 ### Mon, August 16, 2021:  Projects day 
 
 *coordinated by Project TAs*
-
-**Description** Learning without direct supervision
 
 ----
 
