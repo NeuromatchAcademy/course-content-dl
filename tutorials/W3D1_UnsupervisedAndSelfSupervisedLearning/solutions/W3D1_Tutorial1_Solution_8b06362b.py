@@ -9,4 +9,4 @@ B. The trained, supervised network produces more meaningful representations,
    specifically shape similarities. In other words, the image representations
    obtained with the trained, supervised encoding reflect the fact that two hearts
    are more conceptually similar to each other in terms of shape than a heart and a square.
-"""
+""";

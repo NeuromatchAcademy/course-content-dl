@@ -14,4 +14,4 @@ C. The random encoder projects the raw data to a lower dimensional
    directly on the raw data. However, since the features are random,
    they are far less useful for the shape classification task than the
    supervised encoder's features which were specifically tuned to that task.
-"""
+""";

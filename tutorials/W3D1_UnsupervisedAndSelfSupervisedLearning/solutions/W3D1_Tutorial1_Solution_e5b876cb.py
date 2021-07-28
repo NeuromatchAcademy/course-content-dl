@@ -28,4 +28,4 @@ B. Since the **supervised encoder** cannot be trained with unlabelled data,
    The fact that increasing the number of labelled examples available barely
    impacts their performance suggests that their features, in contrast to the
    SimCLR encoder's features, are not very informative at all about shape.
-"""
+""";
