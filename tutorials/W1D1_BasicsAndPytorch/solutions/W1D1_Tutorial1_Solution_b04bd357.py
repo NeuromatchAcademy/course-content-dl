@@ -4,3 +4,4 @@
 
 # TODO: Comment the above line and fix this code by reordering the tensor dimensions
 plt.imshow(image.permute(1, 2, 0))
+plt.show()
