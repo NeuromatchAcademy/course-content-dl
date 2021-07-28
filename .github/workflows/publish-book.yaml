@@ -3,6 +3,9 @@ name: publish-book
 on: 
 
   workflow_dispatch:
+  
+  push:
+    branches: main
 
 env:
   NB_KERNEL: python
