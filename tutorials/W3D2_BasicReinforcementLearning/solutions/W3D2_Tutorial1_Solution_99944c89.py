@@ -19,5 +19,4 @@ This should be a very open-ended discussion. Try to have everyone say at least
 one thing. They can either take these 3 questions in turn, with 3-4 minutes
 allotted to each, or address them all at once, and allow for a more natural
 conversation.
-
-"""
+""";
