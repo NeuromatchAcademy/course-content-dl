@@ -26,4 +26,4 @@ D. The pre-trained VAE encoder is not likely to perform very well on shape class
 
 E. The pre-trained VAE encoder might be better suited to **predicting `posX` or `posY`**,
    as the RSMs show that its feature space does encode these features to some extent.
-"""
+""";

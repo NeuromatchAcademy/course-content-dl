@@ -58,4 +58,4 @@ E. If we wanted to pre-train a SimCLR encoder to decode `orientation` instead of
    Indeed, since **orientation is at least partially determined from shape**, a
    feature space that is good for predicting orientation will likely not be
    entirely invariant to shape.
-"""
+""";

@@ -1,5 +1,5 @@
-def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5,
-                                   seed=SEED):
+def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
+
   """
   custom_simclr_contrastive_loss(proj_feat1, proj_feat2)
   Returns contrastive loss, given sets of projected features, with positive

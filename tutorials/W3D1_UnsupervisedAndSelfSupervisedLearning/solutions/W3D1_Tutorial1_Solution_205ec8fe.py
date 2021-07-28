@@ -35,4 +35,4 @@ C. Negative pairs are used, in contrastive models like SimCLR, as a
    as observed above. Our normal SimCLR encoder is trained with a loss calculated
    from far more (999) negative pairs, and this enables it to learn a much more
    distributed and meaningful feature space.
-"""
+""";

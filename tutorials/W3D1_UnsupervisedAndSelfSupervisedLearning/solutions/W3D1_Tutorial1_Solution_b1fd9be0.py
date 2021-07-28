@@ -13,4 +13,4 @@ B. Since several of the latent features of the images are well preserved
    However, it is also possible that the VAE encoder instead learned a different
    latent feature space that is good enough to achieve reasonable image reconstruction.
    Examining the RSMs should shed light on that.
-"""
+""";

@@ -27,4 +27,4 @@ D. If we sort by different latent dimensions (e.g., `scale`, `orientation`, `pos
    or positions. If it **were** trained to predict `orientation`, `scale` or `position`,
    we could expect to see similar RSM patterns, with high similarity along the
    diagonal for the predicted dimension.
-"""
+""";
