@@ -67,7 +67,7 @@ def functionC(my_tensor1, my_tensor2):
     my_tensor1 = my_tensor1.reshape(1, -1)
     my_tensor2 = my_tensor2.reshape(1, -1)
     # TODO concatenate the two tensors in the correct dimension
-    output = torch.cat([my_tensor1, my_tensor2], axis=1)
+    output = torch.cat([my_tensor1, my_tensor2], axis=1).squeeze()
 
   return output
 
