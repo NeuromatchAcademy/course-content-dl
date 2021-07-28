@@ -8,8 +8,8 @@ def approximate_function(x_train, y_train):
 
   ## COMPUTE RELU ACTIVATIONS
 
-  # First determine what bias terms should be for each of 9 ReLUs
-  b = -x_train[:9]
+  # First determine what bias terms should be for each of `n_relus` ReLUs
+  b = -x_train[:-1]
 
   # Compute ReLU activations for each point along the x axis (x)
   relu_acts = torch.zeros((n_relus, x.shape[0]))
