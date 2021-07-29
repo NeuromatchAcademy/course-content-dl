@@ -8,3 +8,4 @@ ipywidgets
 tqdm
 torchvision
 pathlib
+decorator==5.0.9
