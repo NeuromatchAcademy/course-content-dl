@@ -1,3 +1,8 @@
+
+#add event to airtable
+atform.add_event('Coding Exercise 0: Re-initialization')
+
+
 def ex_initializer_(model, gamma=1e-12):
   """(in-place) Re-initialization of weights
 
