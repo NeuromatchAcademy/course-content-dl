@@ -18,6 +18,8 @@ def tensor_creation(Z):
 
   return A, B, C, D
 
+# add timing to airtable
+atform.add_event('Coding Exercise 2.1: Creating Tensors')
 
 # numpy array to copy later
 Z = np.vander([1, 2, 3], 4)
