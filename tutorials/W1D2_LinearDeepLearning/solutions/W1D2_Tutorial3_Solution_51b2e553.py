@@ -14,6 +14,9 @@ def ex_net_svd(model, in_dim):
   U, Σ, V = torch.svd(W_tot)
   return U, Σ, V
 
+#add event to airtable
+atform.add_event('Coding Exercise 2: SVD')
+
 
 ## Uncomment and run
 test_net_svd_ex(SEED)
