@@ -1,8 +1,7 @@
 class biLSTM(nn.Module):
-  def __init__(self, layers, output_size, hidden_size, vocab_size, embed_size,
+  def __init__(self, output_size, hidden_size, vocab_size, embed_size,
                device):
     super(biLSTM, self).__init__()
-    self.layers = layers
     self.output_size = output_size
     self.hidden_size = hidden_size
     self.device = device
@@ -32,5 +31,5 @@ class biLSTM(nn.Module):
 
 
 ## Uncomment to run
-sampleBiLSTM = biLSTM(3, 10, 100, 1000, 300, DEVICE)
+sampleBiLSTM = biLSTM(10, 100, 1000, 300, DEVICE)
 print(sampleBiLSTM)
