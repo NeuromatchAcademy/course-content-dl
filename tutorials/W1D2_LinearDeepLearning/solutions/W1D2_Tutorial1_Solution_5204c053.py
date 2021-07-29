@@ -25,6 +25,9 @@ def train(features, labels, model, loss_fun, optimizer, n_epochs):
     loss_record.append(loss.item())
   return loss_record
 
+#add event to airtable
+atform.add_event('Coding Exercise 3.1: Training Loop')
+
 
 set_seed(seed=2021)
 epochs = 1847 # Cauchy, Exercices d'analyse et de physique mathematique (1847)
