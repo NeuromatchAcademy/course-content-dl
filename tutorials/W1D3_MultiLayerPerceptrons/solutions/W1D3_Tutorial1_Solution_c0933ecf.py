@@ -17,6 +17,9 @@ def shuffle_and_split_data(X, y, seed):
 
   return X_test, y_test, X_train, y_train
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.3: Implement for a classfication task')
+
 
 ## Uncomment below to test your function
 X_test, y_test, X_train, y_train = shuffle_and_split_data(X, y, seed=SEED)

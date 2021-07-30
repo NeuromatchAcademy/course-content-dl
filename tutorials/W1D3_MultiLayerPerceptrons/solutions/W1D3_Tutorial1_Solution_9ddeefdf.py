@@ -36,6 +36,9 @@ def approximate_function(x_train, y_train):
 
   return y_hat, relu_acts, x
 
+# add event to airtable
+atform.add_event('Coding Exercise 2: Function approximation with ReLU')
+
 
 # Make training data from sine function
 N_train = 10

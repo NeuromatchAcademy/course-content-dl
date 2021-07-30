@@ -35,6 +35,9 @@ def get_data_loaders(batch_size, seed):
 
   return img_train_loader, img_test_loader
 
+# add event to airtable
+atform.add_event('Coding Exercise 2: Dataloader on a real-world dataset')
+
 
 batch_size = 64
 set_seed(seed=SEED)
