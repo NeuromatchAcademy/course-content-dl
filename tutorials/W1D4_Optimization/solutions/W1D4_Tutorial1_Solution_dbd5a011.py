@@ -17,19 +17,19 @@ def momentum_update(loss, params, grad_vel, lr=1e-3, beta=0.8):
   with torch.no_grad():
     for (par, vel) in zip(params, grad_vel):
       # Update 'velocity'
-      vel = -lr * par.grad + beta * vel
+      vel.data = -lr * par.grad.data + beta * vel.data
       # Update parameters
-      par += vel
+      par.data += vel.data
 
 
-set_seed(2021)
-model = MLP(in_dim=784, out_dim=10, hidden_dims=[])
-print('\n The model parameters before the update are: \n')
-print_params(model)
-loss = loss_fn(model(X), y)
-initial_vel = [torch.randn_like(p) for p in model.parameters()]
+set_seed(seed=SEED)
+model2 = MLP(in_dim=784, out_dim=10, hidden_dims=[])
+print('\n The model2 parameters before the update are: \n')
+print_params(model2)
+loss = loss_fn(model2(X), y)
+initial_vel = [torch.randn_like(p) for p in model2.parameters()]
 
 ## Uncomment below to test your function
-momentum_update(loss, list(model.parameters()), grad_vel=initial_vel, lr=1e-1)
-print('\n The model parameters after the update are: \n')
-print_params(model)
+momentum_update(loss, list(model2.parameters()), grad_vel=initial_vel, lr=1e-1, beta=0.9)
+print('\n The model2 parameters after the update are: \n')
+print_params(model2)
