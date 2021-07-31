@@ -32,8 +32,8 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
 
   # initialize arrays to identify sets of positive and negative examples, of
   # shape (batch_size * 2, batch_size * 2), and where
-  # 0 indicates that 2 images are NOT a pair
-  # 1 indices that 2 images ARE a pair
+  # 0 indicates that 2 images are NOT a pair (either positive or negative, depending on the indicator type)
+  # 1 indices that 2 images ARE a pair (either positive or negative, depending on the indicator type)
   pos_sample_indicators = torch.roll(torch.eye(2 * batch_size), batch_size, 1).to(device)
   neg_sample_indicators = (torch.ones(2 * batch_size) - torch.eye(2 * batch_size)).to(device)
 
