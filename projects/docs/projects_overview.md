@@ -1,1 +1,1 @@
-# Project ideas
+# Project Templates
