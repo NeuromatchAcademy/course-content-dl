@@ -64,6 +64,7 @@ class MonteCarloBasedPlayer():
     return action_probs
 
 
+set_seed(seed=SEED)
 game = OthelloGame(6)
 rp = RandomPlayer(game).play  # all players
 num_games = 20  # Feel free to change this number

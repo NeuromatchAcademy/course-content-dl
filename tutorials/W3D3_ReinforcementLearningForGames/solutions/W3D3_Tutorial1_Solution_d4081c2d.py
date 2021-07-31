@@ -83,6 +83,7 @@ class PolicyNetwork(NeuralNet):
     self.nnet.load_state_dict(checkpoint['state_dict'])
 
 
+set_seed(seed=SEED)
 game = OthelloGame(6)
 ## we use the same actor-critic network to output a policy
 pnet = PolicyNetwork(game)

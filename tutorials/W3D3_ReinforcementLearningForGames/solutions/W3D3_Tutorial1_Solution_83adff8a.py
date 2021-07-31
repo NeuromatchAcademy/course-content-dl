@@ -29,6 +29,7 @@ class PolicyBasedPlayer():
 
 
 # playing games
+set_seed(seed=SEED)
 num_games = 20
 player1 = PolicyBasedPlayer(game, pnet, greedy=True).play
 player2 = RandomPlayer(game).play
@@ -37,4 +38,4 @@ arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
 result = arena.playGames(num_games, verbose=False)
 print(f"\n\n{result}")
 win_rate_player1 = result[0] / num_games
-print(f"\nWin rate for player1 over {num_games} games: {round(win_rate_player1*100, 1)}")
+print(f"\nWin rate for player1 over {num_games} games: {round(win_rate_player1*100, 1)}%")

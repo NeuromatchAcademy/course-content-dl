@@ -33,9 +33,7 @@ class MonteCarloTreeSearchBasedPlayer():
     return action_probs
 
 
-# Load MCTS model from the repository
-mcts_model_save_name = 'MCTS.pth.tar'
-path = F"/content/nma_rl_games/alpha-zero/pretrained_models/models/"
+set_seed(seed=SEED)
 game = OthelloGame(6)
 rp = RandomPlayer(game).play  # all players
 num_games = 20  # games
