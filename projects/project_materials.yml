@@ -1,7 +1,7 @@
 - title: Modeling Steps 1-2
   category: modelingsteps
   link: ModelingSteps_1through2_DL.ipynb
-  
+
 - title: Modeling Steps 3-4
   category: modelingsteps
   link: ModelingSteps_3through4_DL.ipynb
@@ -13,7 +13,7 @@
 - title: Modeling Steps 7-9
   category: modelingsteps
   link: ModelingSteps_7through9_DL.ipynb
-  
+
 - title: Modeling Steps 10
   category: modelingsteps
   link: ModelingSteps_10_DL.ipynb
@@ -21,43 +21,71 @@
 - title: Train Illusion Data Project DL
   category: modelingsteps
   link: TrainIllusionDataProjectDL.ipynb
-  
+
 - title: Train Illusion Modeling Project DL
   category: modelingsteps
   link: TrainIllusionModelingProjectDL.ipynb
-  
+
 - title: Example Deep Learning Project
   category: modelingsteps
   link: Example_Deep_Learning_Project.ipynb
 
 - title: Image Alignment
   category: ComputerVision
-  link: Image_Alignment.ipynb
+  link: image_alignment.ipynb
 
-- title: Learning from Images
+- title: EM synapses
   category: ComputerVision
-  link: Learning_from_Images.ipynb
-  
+  link: em_synapses.ipynb
+
 - title: Data Augmentation
   category: ComputerVision
   link: data_augmentation.ipynb
-  
+
 - title: Transfer Learning
   category: ComputerVision
   link: transfer_learning.ipynb
 
+- title: Music Spectrograms
+  category: ComputerVision
+  link: spectrogram_analysis.ipynb
+
+- title: Screw Classification
+  category: ComputerVision
+  link: screws.ipynb
+
 - title: Pose Estimation
   category: Neuroscience
-  link: PoseEstimation.ipynb
-  
+  link: pose_estimation.ipynb
+
+- title: Neural Dynamics
+  category: Neuroscience
+  link: neuro_seq_to_seq.ipynb
+
 - title: Segmentation and Denoising
   category: Neuroscience
-  link: segmentation_denoising.ipynb
-  
-- title: Algonauts videos
+  link: cellular_segmentation.ipynb
+
+- title: Blurry Vision
+  category: Neuroscience
+  link: blurry_vision.ipynb
+
+- title: Algonauts FMRI
   category: Neuroscience
   link: algonauts_videos.ipynb
-  
-- title: RLymipcs
+
+- title: Finetuning on FMRI data
+  category: Neuroscience
+  link: finetuning_fmri.ipynb
+
+- title: Robolympics
   category: Reinforcement Learning
-  link: RLymipcs.ipynb
+  link: robolympics.ipynb
+
+- title: Lunar Lander
+  category: Reinforcement Learning
+  link: lunar_lander.ipynb
+
+- title: Human RL
+  category: Reinforcement Learning
+  link: human_rl.ipynb
