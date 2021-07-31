@@ -11,9 +11,6 @@ def fun_z(x, y):
   z = np.sin(x**2 + y**2)
   return z
 
-#add event to airtable
-atform.add_event('Coding Exercise 1.1: Gradient Vector')
-
 
 def fun_dz(x, y):
   """Function sin(x^2 + y^2)
@@ -29,6 +26,8 @@ def fun_dz(x, y):
   dz_dy = 2 * y * np.cos(x**2 + y**2)
   return (dz_dx, dz_dy)
 
+#add event to airtable
+atform.add_event('Coding Exercise 1.1: Gradient Vector')
 
 ## Uncomment to run
 with plt.xkcd():

@@ -45,7 +45,6 @@ def sq_loss(y_true, y_prediction):
   return loss
 
 
-
 feature = torch.tensor([1])  # input tensor
 target = torch.tensor([7])  # target tensor
 ## Uncomment to run
