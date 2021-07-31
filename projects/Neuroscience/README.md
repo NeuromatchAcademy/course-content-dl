@@ -1,1 +1,1 @@
-# Ideas for Neuroscience related projects
+# Neuroscience
