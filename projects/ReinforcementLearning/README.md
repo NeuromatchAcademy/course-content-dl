@@ -1,1 +1,1 @@
-# Ideas for RL related projects
+# Reinforcement Learning
