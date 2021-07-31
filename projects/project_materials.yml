@@ -26,18 +26,34 @@
   category: modelingsteps
   link: projects/modelingsteps/Example_Deep_Learning_Project.ipynb
 
-- title: Segmentation and Denoising
-  category: projects
-  link: projects/code/segmentation_denoising.ipynb
+- title: Image Alignment
+  category: ComputerVision
+  link: projects/ComputerVision/Image_Alignment.ipynb
+
+- title: Learning from Images
+  category: ComputerVision
+  link: projects/ComputerVision/Learning_from_Images.ipynb
+  
+- title: Data Augmentation
+  category: ComputerVision
+  link: projects/ComputerVision/data_augmentation.ipynb
+  
+- title: Transfer Learning
+  category: ComputerVision
+  link: projects/ComputerVision/transfer_learning.ipynb
 
 - title: Pose Estimation
-  category: projects
-  link: projects/code/PoseEstimation.ipynb
+  category: Neuroscience
+  link: projects/ComputerVision/PoseEstimation.ipynb
   
-- title: RLympics
-  category: projects
-  link: projects/code/RLymipcs.ipynb
+- title: Segmentation and Denoising
+  category: Neuroscience
+  link: projects/ComputerVision/segmentation_denoising.ipynb
   
 - title: Algonauts videos
-  category: projects
-  link: projects/code/algonauts_videos.ipynb
+  category: Neuroscience
+  link: projects/ComputerVision/algonauts_videos.ipynb
+  
+- title: RLymipcs
+  category: Reinforcement Learning
+  link: projects/ComputerVision/RLymipcs.ipynb
