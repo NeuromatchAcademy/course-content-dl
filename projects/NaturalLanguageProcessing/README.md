@@ -1,1 +1,1 @@
-# Ideas for NLP related projects
+# Natural Language Processing
