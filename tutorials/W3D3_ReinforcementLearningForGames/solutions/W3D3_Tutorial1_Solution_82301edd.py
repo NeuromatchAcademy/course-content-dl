@@ -33,4 +33,4 @@ player2 = RandomPlayer(game).play
 arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
 ## Uncomment the code below to check your code!
 result = arena.playGames(num_games, verbose=False)
-print(result)
+print(f"\n\n{result}")
