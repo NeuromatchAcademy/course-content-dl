@@ -64,6 +64,7 @@ class MonteCarloBasedPlayer():
     return action_probs
 
 
+set_seed(seed=SEED)
 game = OthelloGame(6)
 rp = RandomPlayer(game).play  # all players
 num_games = 20  # Feel free to change this number
@@ -77,6 +78,8 @@ mc1 = MonteCarloBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mc1.getActionProb(x))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
 MC_result = arena.playGames(num_games, verbose=False)
-print("\n Number of games won by player1 = {}, num of games won by player2 = {}, out of {} games" .format(MC_result[0], MC_result[1], num_games))
+print(f"\n\n{MC_result}")
+print(f"\nNumber of games won by player1 = {MC_result[0]}, "
+      f"number of games won by player2 = {MC_result[1]}, out of {num_games} games")
 win_rate_player1 = result[0]/num_games
-print('\n Win rate for player 1 over {} games: {}%'.format(num_games, win_rate_player1*100))
+print(f"\nWin rate for player1 over {num_games} games: {round(win_rate_player1*100, 1)}%")

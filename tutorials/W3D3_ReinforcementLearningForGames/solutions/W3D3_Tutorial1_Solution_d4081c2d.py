@@ -4,8 +4,7 @@ class PolicyNetwork(NeuralNet):
     self.board_x, self.board_y = game.getBoardSize()
     self.action_size = game.getActionSize()
 
-    if args.cuda:
-      self.nnet.cuda()
+    self.nnet.to(args.device)
 
   def train(self, games):
     """
@@ -29,8 +28,7 @@ class PolicyNetwork(NeuralNet):
           target_pis = torch.FloatTensor(np.array(pis))
 
           # predict
-          if args.cuda:
-            boards, target_pis = boards.contiguous().cuda(), target_pis.contiguous().cuda()
+          boards, target_pis = boards.contiguous().to(args.device), target_pis.contiguous().to(args.device)
 
           # compute output
           out_pi, _ = self.nnet(boards)
@@ -54,7 +52,7 @@ class PolicyNetwork(NeuralNet):
 
     # preparing input
     board = torch.FloatTensor(board.astype(np.float64))
-    if args.cuda: board = board.contiguous().cuda()
+    board = board.contiguous().to(args.device)
     board = board.view(1, self.board_x, self.board_y)
     self.nnet.eval()
     with torch.no_grad():
@@ -80,11 +78,12 @@ class PolicyNetwork(NeuralNet):
     filepath = os.path.join(folder, filename)
     if not os.path.exists(filepath):
       raise ("No model in path {}".format(filepath))
-    map_location = None if args.cuda else 'cpu'
-    checkpoint = torch.load(filepath, map_location=map_location)
+
+    checkpoint = torch.load(filepath, map_location=args.device)
     self.nnet.load_state_dict(checkpoint['state_dict'])
 
 
+set_seed(seed=SEED)
 game = OthelloGame(6)
 ## we use the same actor-critic network to output a policy
 pnet = PolicyNetwork(game)

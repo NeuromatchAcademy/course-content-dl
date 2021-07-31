@@ -4,8 +4,7 @@ class ValueNetwork(NeuralNet):
     self.board_x, self.board_y = game.getBoardSize()
     self.action_size = game.getActionSize()
 
-    if args.cuda:
-      self.nnet.cuda()
+    self.nnet.to(args.device)
 
   def train(self, games):
     """
@@ -26,8 +25,8 @@ class ValueNetwork(NeuralNet):
           target_vs = torch.FloatTensor(np.array(vs).astype(np.float64))
 
           # predict
-          if args.cuda: # to run on GPU if available
-            boards, target_vs = boards.contiguous().cuda(), target_vs.contiguous().cuda()
+          # to run on GPU if available
+          boards, target_vs = boards.contiguous().to(args.device), target_vs.contiguous().to(args.device)
 
           # compute output
           _, out_v = self.nnet(boards)
@@ -51,8 +50,7 @@ class ValueNetwork(NeuralNet):
 
     # preparing input
     board = torch.FloatTensor(board.astype(np.float64))
-    if args.cuda:
-      board = board.contiguous().cuda()
+    board = board.contiguous().to(args.device)
     board = board.view(1, self.board_x, self.board_y)
     self.nnet.eval()
     with torch.no_grad():
@@ -78,6 +76,6 @@ class ValueNetwork(NeuralNet):
     filepath = os.path.join(folder, filename)
     if not os.path.exists(filepath):
       raise ("No model in path {}".format(filepath))
-    map_location = None if args.cuda else 'cpu'
-    checkpoint = torch.load(filepath, map_location=map_location)
+
+    checkpoint = torch.load(filepath, map_location=args.device)
     self.nnet.load_state_dict(checkpoint['state_dict'])

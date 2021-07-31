@@ -27,10 +27,11 @@ class ValueBasedPlayer():
 
 
 # playing games between a value-based player and a random player
+set_seed(seed=SEED)
 num_games = 20
 player1 = ValueBasedPlayer(game, vnet).play
 player2 = RandomPlayer(game).play
 arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
 ## Uncomment the code below to check your code!
 result = arena.playGames(num_games, verbose=False)
-print(result)
+print(f"\n\n{result}")
