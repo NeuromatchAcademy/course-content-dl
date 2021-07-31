@@ -1,1 +1,3 @@
-# Ideas for Computer Vision related projects
+# Project Templates
+
+Click on each image below to see a full browser version!
