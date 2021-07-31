@@ -22,6 +22,10 @@ def rmsprop_update(loss, params, grad_sq, lr=1e-3, alpha=0.8, epsilon=1e-8):
       # Update parameters
       par.data -=  lr * (par.grad / (epsilon + gsq.data)**0.5)
 
+# add event to airtable
+atform.add_event('Coding Exercise 7: Implement RMSprop')
+
+
 
 set_seed(seed=SEED)
 model3 = MLP(in_dim=784, out_dim=10, hidden_dims=[])
