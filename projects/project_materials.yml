@@ -1,28 +1,32 @@
-- title: Modeling Steps
+- title: Modeling Steps 1-2
   category: modelingsteps
   link: projects/modelingsteps/ModelingSteps_1through2_DL.ipynb
   
-- title: Modeling Steps
+- title: Modeling Steps 3-4
   category: modelingsteps
   link: projects/modelingsteps/ModelingSteps_3through4_DL.ipynb
-  
-- title: Modeling Steps
+
+- title: Modeling Steps 5-6
+  category: modelingsteps
+  link: projects/modelingsteps/ModelingSteps_5through6_DL.ipynb
+
+- title: Modeling Steps 7-9
   category: modelingsteps
   link: projects/modelingsteps/ModelingSteps_7through9_DL.ipynb
   
-- title: Modeling Steps
+- title: Modeling Steps 10
   category: modelingsteps
   link: projects/modelingsteps/ModelingSteps_10_DL.ipynb
 
-- title: Modeling Steps
+- title: Train Illusion Data Project DL
   category: modelingsteps
   link: projects/modelingsteps/TrainIllusionDataProjectDL.ipynb
   
-- title: Modeling Steps
+- title: Train Illusion Modeling Project DL
   category: modelingsteps
   link: projects/modelingsteps/TrainIllusionModelingProjectDL.ipynb
   
-- title: Modeling Steps
+- title: Example Deep Learning Project
   category: modelingsteps
   link: projects/modelingsteps/Example_Deep_Learning_Project.ipynb
 
