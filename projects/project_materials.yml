@@ -90,6 +90,6 @@
   category: ReinforcementLearning
   link: human_rl.ipynb
   
-- title: Machine Translation
+- title: Sentiment Analysis
   category: NaturalLanguageProcessing
-  link: machine_translation.ipynb
+  link: sentiment_analysis.ipynb
