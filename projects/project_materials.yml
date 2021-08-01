@@ -18,15 +18,15 @@
   category: modelingsteps
   link: ModelingSteps_10_DL.ipynb
 
-- title: Train Illusion Data Project DL
+- title: Train illusion data project
   category: modelingsteps
   link: TrainIllusionDataProjectDL.ipynb
 
-- title: Train Illusion Modeling Project DL
+- title: Train illusion modeling project
   category: modelingsteps
   link: TrainIllusionModelingProjectDL.ipynb
 
-- title: Example Deep Learning Project
+- title: Example deep learning project
   category: modelingsteps
   link: Example_Deep_Learning_Project.ipynb
 
@@ -34,58 +34,4 @@
   category: ComputerVision
   link: image_alignment.ipynb
 
-- title: EM synapses
-  category: ComputerVision
-  link: em_synapses.ipynb
 
-- title: Data Augmentation
-  category: ComputerVision
-  link: data_augmentation.ipynb
-
-- title: Transfer Learning
-  category: ComputerVision
-  link: transfer_learning.ipynb
-
-- title: Music Spectrograms
-  category: ComputerVision
-  link: spectrogram_analysis.ipynb
-
-- title: Screw Classification
-  category: ComputerVision
-  link: screws.ipynb
-
-- title: Pose Estimation
-  category: Neuroscience
-  link: pose_estimation.ipynb
-
-- title: Neural Dynamics
-  category: Neuroscience
-  link: neuro_seq_to_seq.ipynb
-
-- title: Segmentation and Denoising
-  category: Neuroscience
-  link: cellular_segmentation.ipynb
-
-- title: Blurry Vision
-  category: Neuroscience
-  link: blurry_vision.ipynb
-
-- title: Algonauts FMRI
-  category: Neuroscience
-  link: algonauts_videos.ipynb
-
-- title: Finetuning on FMRI data
-  category: Neuroscience
-  link: finetuning_fmri.ipynb
-
-- title: Robolympics
-  category: Reinforcement Learning
-  link: robolympics.ipynb
-
-- title: Lunar Lander
-  category: Reinforcement Learning
-  link: lunar_lander.ipynb
-
-- title: Human RL
-  category: Reinforcement Learning
-  link: human_rl.ipynb
