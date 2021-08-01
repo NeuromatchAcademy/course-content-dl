@@ -41,4 +41,8 @@
 - title: Data Augmentation
   category: ComputerVision
   link: data_augmentation.ipynb
+  
+- title: Transfer Learning
+  category: ComputerVision
+  link: transfer_learning.ipynb
 
