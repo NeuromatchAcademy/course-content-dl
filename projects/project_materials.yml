@@ -66,4 +66,6 @@
   category: Neuroscience
   link: blurry_vision.ipynb
 
-
+- title: Finetuning on FMRI data
+  category: Neuroscience
+  link: finetuning_fmri.ipynb
