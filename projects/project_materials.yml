@@ -69,3 +69,15 @@
 - title: Neural Dynamics
   category: Neuroscience
   link: neuro_seq_to_seq.ipynb
+  
+- title: Robolympics
+  category: Reinforcement Learning
+  link: robolympics.ipynb
+
+- title: Lunar Lander
+  category: Reinforcement Learning
+  link: lunar_lander.ipynb
+
+- title: Human RL
+  category: Reinforcement Learning
+  link: human_rl.ipynb
