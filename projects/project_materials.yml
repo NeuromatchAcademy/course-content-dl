@@ -18,15 +18,15 @@
   category: modelingsteps
   link: ModelingSteps_10_DL.ipynb
 
-- title: Train Illusion Data Project DL
+- title: Train illusion data project
   category: modelingsteps
   link: TrainIllusionDataProjectDL.ipynb
 
-- title: Train Illusion Modeling Project DL
+- title: Train illusion modeling project
   category: modelingsteps
   link: TrainIllusionModelingProjectDL.ipynb
 
-- title: Example Deep Learning Project
+- title: Example deep learning project
   category: modelingsteps
   link: Example_Deep_Learning_Project.ipynb
 
@@ -34,7 +34,7 @@
   category: ComputerVision
   link: image_alignment.ipynb
 
-- title: EM synapses
+- title: EM Synapses
   category: ComputerVision
   link: em_synapses.ipynb
 
