@@ -93,7 +93,3 @@
 - title: Machine Translation
   category: NaturalLanguageProcessing
   link: machine_translation.ipynb
-  
-- title: Sentiment Analysis
-  category: NaturalLanguageProcessing
-  link: sentiment_analysis.ipynb
