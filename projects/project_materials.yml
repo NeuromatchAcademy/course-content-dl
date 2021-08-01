@@ -45,4 +45,8 @@
 - title: Transfer Learning
   category: ComputerVision
   link: transfer_learning.ipynb
+  
+- title: Music Spectrograms
+  category: ComputerVision
+  link: spectrogram_analysis.ipynb
 
