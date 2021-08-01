@@ -56,7 +56,7 @@ These are projects submitted by NMA-CN students in 2020. They don't have deep le
 
 # **Important deadlines**
 
-* project day 1:    by end of your project time, please submit your group name and group members via this [Airtable link](). We will use this immediately to match your group with a project TA.  
+* project day 1:    by end of your project time, please submit your group name and group members via this [Airtable link](https://airtable.com/shrZ341XOB4CSO9wh). We will use this immediately to match your group with a project TA.  
 * project day 11:   by end of your project time, please submit your abstract via this [Airtable link]().  
 * project day 14:   by end of your project time, please submit your slides via this [Airtable link]().  
 

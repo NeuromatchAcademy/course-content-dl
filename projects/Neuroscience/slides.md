@@ -25,4 +25,4 @@ Click on each image below to see a full browser version!
 
 # Focus on what matters: inferring low-dimensional dynamics from neural recordings
 
-<img src="../docs/template_images/finetuning_fmri.svg" width="100%">
+<img src="../docs/template_images/neuro_seq_to_seq.svg" width="100%">
