@@ -45,8 +45,8 @@
 - title: Transfer Learning
   category: ComputerVision
   link: transfer_learning.ipynb
-  
-- title: Music Spectrograms
+ 
+- title: Screw Classification
   category: ComputerVision
-  link: spectrogram_analysis.ipynb
+  link: screws.ipynb
 
