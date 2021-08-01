@@ -8,8 +8,8 @@ In the second week you will experiment with different types of deep neural netwo
 
 ## Project templates
 
-[Project templates](./docs/project_templates.html) are research ideas developed by the NMA team that can be used in conjunction with the datasets we provided. Project templates can be used in a variety of ways.
-* For starters, you can use the project templates just to get familiarized with some neural networks. They can provide keywords for you to use in your proposal on D2, or python libraries you can reuse to answer your own questions.
+[Project templates](./docs/project_templates.html) are research ideas developed by the NMA team or by the project TAs which contain code and slides with background and questions. Project templates can be used in a variety of ways.
+* For starters, you can use the project templates just to get familiarized with some neural network applications. They can provide keywords for you to use in your literature search, or python libraries you can reuse to answer your own questions.
 * You may start with a project template, use it in the first week and then in the second week diverge from it as your group develops their own new idea or question to test.
 * Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are meant to be used very flexibly!
 
@@ -19,12 +19,14 @@ Project TAs are a new role at NMA this year, and they are your friendly topic ex
 
 Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please try to be flexible, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. All project TAs have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
 
-## Project Day 1 (3 h)
+## Project Day 1 (Monday, 3 h)
+
+Please submit [this form](https://airtable.com/shrZ341XOB4CSO9wh) at the end of the project period, otherwise you won't be matched to a project TA! Only one form per group is needed, and there is should be two groups in your pod.
 
 Goal is to decide what dataset/topic to work on and to form two separate groups (3-6 students/group). TAs make a [Miro](http://miro.com) concept board for brainstorming at the beginning of this session and they invite the students to join during the brainstorming times below.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 * Listen carefully as others talk about their interests. If you are curious about something, ask them. If their interests match yours, you can try to recruit them to your group later!
-* Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) and some project template.
+* Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
 * Brainstorm at the pod level (60 min): do you have an idea or a rough direction? Bring it out to the group. Start recruiting others to your group!
 * The TA will pay close attention to what you all are interested in, and will produce an initial set of two topics / datasets / ideas, written down on the Miro board. Join one of these by writing your name down underneath the topic.    
 * Separate into groups. Now brainstorm within your group (60 min, breakout rooms). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).

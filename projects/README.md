@@ -17,9 +17,9 @@ Your pod will split into two groups at the end of the first day, based on common
 * natural language processing
 * neuroscience
 
-We recommend that groups of students who come from a neuroscience background do a neuroscience project because we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). Furthermore, deep learning is much more powerful in an application for which you have domain knowledge (or a big enough dataset, but that's rare...). In any case, NMA will not teach you how to build huge, energy-hungry models but rather how to combine modelling with deep learning using your insights from domain knowledge.
+For groups of students from a neuroscience background we recommend to do a neuroscience project because we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). Furthermore, deep learning is much more powerful in an application for which you have domain knowledge (or a big enough dataset, but that's rare...). In any case, NMA will not teach you how to build huge, energy-hungry models but rather how to combine modelling with deep learning using your insights from domain knowledge.
 
-After groups are formed, we will assign to each group a project TA based on your chosen topic and the project TA will start meeting with you every 2-3 days to help in any way they can.
+After groups are formed on Monday, you need to submit [this form](https://airtable.com/shrZ341XOB4CSO9wh), and we will assign to each group a project TA based on your chosen topic and the project TA will start meeting with you every 2-3 days to help in any way they can. There are no external mentors for the DL course.
 
 On days 2-5 you will lay the foundation for your projects, by finding an interesting question to ask, and an appropriate dataset for answering the question.
 
@@ -37,14 +37,13 @@ Daily project time is either:
 
 Day 11 (Monday of week 3) is a full day for projects, meaning you don't have any coursework. This will primarily be used to put together an abstract for your project.
 
-
 # **Ten steps how to model materials**
 
-We are making some changes for DL, but these materials will be very similar to the comp-neuro materials [here](https://compneuro.neuromatch.io/projects/modelingsteps/intro.html).
+These materials (see [here](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html)) form a guide to project steps which approximately align with the first two weeks of the projects schedule. They are similar to the comp-neuro materials.
 
 # **Project Templates**
 
-Project templates are [in construction](./docs/project_templates.md).
+Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/projects_overview.html)) are project ideas prepared by the NMA team and by the project TAs. They each include substantial code to get you started in some direction for your project, and they also include slides with background and potential questions to ask. We highly recommend these for beginners, but even if you are advanced, you can use them for inspiration and for setting a starting point in your project. There are also some extra ideas from the project TAs that did not become full project templates, that you can check in the "Ideas and datasets" page for each topic. There you will also find links to various datasets that may be useful.
 
 # **Project examples 2020 - comp-neuro**
 
@@ -56,9 +55,9 @@ These are projects submitted by NMA-CN students in 2020. They don't have deep le
 
 # **Important deadlines**
 
-* project day 1:    by end of your project time, please submit your group name and group members via this [Airtable link](). We will use this immediately to match your group with a project TA.  
-* project day 11:   by end of your project time, please submit your abstract via this [Airtable link]().  
-* project day 14:   by end of your project time, please submit your slides via this [Airtable link]().  
+* project day 1:    by end of your project time, please submit your group name and group members via this [Airtable link](https://airtable.com/shrZ341XOB4CSO9wh). We will use this immediately to match your group with a project TA.  
+* project day 11:   by end of your project time, please submit your abstract via this [Airtable link]() (not yet available).  
+* project day 14:   by end of your project time, please submit your slides via this [Airtable link]() (not yet available).  
 
 **Presentations** — Start preparing project presentation after day 11
  * Groups make an approx five minute project presentation: 1 minute / 1 slide / 1 person
