@@ -61,5 +61,9 @@
 - title: Algonauts FMRI
   category: Neuroscience
   link: algonauts_videos.ipynb
+  
+- title: Blurry Vision
+  category: Neuroscience
+  link: blurry_vision.ipynb
 
 
