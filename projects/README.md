@@ -12,16 +12,18 @@ The NMA projects are conducted over 14 days: all of the course days except the f
 
 Your pod will split into two groups at the end of the first day, based on common research interests, which can be
 
-* computer vision
-* reinforcement learning
-* natural language processing
 * neuroscience
+* computer vision
+* natural language processing (advanced)
+* reinforcement learning (advanced)
+
+Note that reinforcement learning is an advanced topic at NMA, taught in week 3 just before the end. Also, NLP uses concepts from week 2, like recurrent neural networks and transformers. We also provide fewer project templates for these topics.
 
 For groups of students from a neuroscience background we recommend to do a neuroscience project because we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). Furthermore, deep learning is much more powerful in an application for which you have domain knowledge (or a big enough dataset, but that's rare...). In any case, NMA will not teach you how to build huge, energy-hungry models but rather how to combine modelling with deep learning using your insights from domain knowledge.
 
 After groups are formed on Monday, you need to submit [this form](https://airtable.com/shrZ341XOB4CSO9wh), and we will assign to each group a project TA based on your chosen topic and the project TA will start meeting with you every 2-3 days to help in any way they can. There are no external mentors for the DL course.
 
-On days 2-5 you will lay the foundation for your projects, by finding an interesting question to ask, and an appropriate dataset for answering the question.
+On days 2-5 you will lay the foundation for your projects, by finding an interesting question to ask, and an appropriate dataset for answering the question. We encourage you to be creative with your question, and to use non-standard datasets!
 
 During the second week, you will refine your question iteratively as you try things out. You will experiment with different types of deep neural networks to find one that works for your project. This will culminate in an "abstract" that you write on day 11 (Monday of week 3), which is a full projects day with some structured guidance to the process of writing abstracts.
 
@@ -29,7 +31,7 @@ The rest of week 3 you will continue implementing your project and trying to get
 
 # **Daily Schedule**
 
-Detailed schedule about what to do every day is in the [Daily student guide for projects](./docs/project_guidance.md). You should refer back to this document often.
+Detailed schedule about what to do every day is in the [Daily student guide for projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html). You should refer back to this document often.
 
 Daily project time is either:
  - Early — 3h before content (time slots 2,4)
@@ -39,11 +41,11 @@ Day 11 (Monday of week 3) is a full day for projects, meaning you don't have any
 
 # **Ten steps how to model materials**
 
-These materials (see [here](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html)) form a guide to project steps which approximately align with the first two weeks of the projects schedule. They are similar to the comp-neuro materials.
+These materials (see [here](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html)) are a step-by-step guide to research which approximately aligns with the first two weeks of the projects schedule. They are similar to the comp-neuro materials.
 
 # **Project Templates**
 
-Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/projects_overview.html)) are project ideas prepared by the NMA team and by the project TAs. They each include substantial code to get you started in some direction for your project, and they also include slides with background and potential questions to ask. We highly recommend these for beginners, but even if you are advanced, you can use them for inspiration and for setting a starting point in your project. There are also some extra ideas from the project TAs that did not become full project templates, that you can check in the "Ideas and datasets" page for each topic. There you will also find links to various datasets that may be useful.
+Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/projects_overview.html)) are project ideas prepared by the NMA team and by the project TAs. They each include substantial code to get you started in some direction for your project, and they also include slides with background and potential questions to ask. We highly recommend these for beginners. Even if your group is more advanced, you can use the project templates for inspiration and for setting a starting point in your project. There are also some extra ideas from the project TAs that did not become full project templates, that you can check in the "Ideas" page for each topic. There you will also find links to various datasets that may be useful.
 
 # **Project examples 2020 - comp-neuro**
 
