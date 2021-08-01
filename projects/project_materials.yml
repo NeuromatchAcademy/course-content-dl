@@ -34,4 +34,7 @@
   category: ComputerVision
   link: image_alignment.ipynb
 
+- title: Data Augmentation
+  category: ComputerVision
+  link: data_augmentation.ipynb
 
