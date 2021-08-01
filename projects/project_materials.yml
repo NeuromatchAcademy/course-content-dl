@@ -34,6 +34,10 @@
   category: ComputerVision
   link: image_alignment.ipynb
 
+- title: EM Synapses
+  category: ComputerVision
+  link: em_synapses.ipynb
+
 - title: Data Augmentation
   category: ComputerVision
   link: data_augmentation.ipynb
