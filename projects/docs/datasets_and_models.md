@@ -5,16 +5,16 @@ Here are some places where you can search for models or datasets.
 
 ## Model Search  
 
-[https://models.roboflow.com/](https://models.roboflow.com/)
-[https://huggingface.co/models](https://huggingface.co/models)
-[https://modelzoo.co/](https://modelzoo.co/)
-[https://github.com/onnx/models](https://github.com/onnx/models)
-[https://github.com/rwightman/pytorch-image-models](https://github.com/rwightman/pytorch-image-models)
-[https://github.com/Cadene/pretrained-models.pytorch](https://github.com/Cadene/pretrained-models.pytorch)
-[https://github.com/qubvel/segmentation_models.pytorch](https://github.com/qubvel/segmentation_models.pytorch)
-[https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)
-[https://github.com/balavenkatesh3322/CV-pretrained-model](https://github.com/balavenkatesh3322/CV-pretrained-model)
-[https://github.com/snakers4/silero-models](https://github.com/snakers4/silero-models)
+* [https://models.roboflow.com/](https://models.roboflow.com/)
+* [https://huggingface.co/models](https://huggingface.co/models)
+* [https://modelzoo.co/](https://modelzoo.co/)
+* [https://github.com/onnx/models](https://github.com/onnx/models)
+* [https://github.com/rwightman/pytorch-image-models](https://github.com/rwightman/pytorch-image-models)
+* [https://github.com/Cadene/pretrained-models.pytorch](https://github.com/Cadene/pretrained-models.pytorch)
+* [https://github.com/qubvel/segmentation_models.pytorch](https://github.com/qubvel/segmentation_models.pytorch)
+* [https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)
+* [https://github.com/balavenkatesh3322/CV-pretrained-model](https://github.com/balavenkatesh3322/CV-pretrained-model)
+* [https://github.com/snakers4/silero-models](https://github.com/snakers4/silero-models)
 
 
 ## Metadataset Search
