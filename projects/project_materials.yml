@@ -79,21 +79,21 @@
   link: neuro_seq_to_seq.ipynb
   
 - title: Robolympics
-  category: Reinforcement Learning
+  category: ReinforcementLearning
   link: robolympics.ipynb
 
 - title: Lunar Lander
-  category: Reinforcement Learning
+  category: ReinforcementLearning
   link: lunar_lander.ipynb
 
 - title: Human RL
-  category: Reinforcement Learning
+  category: ReinforcementLearning
   link: human_rl.ipynb
 
 - title: Sentiment Analysis
-  category: Natural Language Processing
+  category: NaturalLanguageProcessing
   link: sentiment_analysis.ipynb
 
 - title: Machine translation
-  category: Natural Language Processing
+  category: NaturalLanguageProcessing
   link: machine_translation.ipynb
