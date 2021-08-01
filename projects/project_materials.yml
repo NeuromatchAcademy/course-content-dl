@@ -33,7 +33,7 @@
 - title: EM Synapses
   category: ComputerVision
   link: em_synapses.ipynb
-  
+
 - title: Music Spectrograms
   category: ComputerVision
   link: spectrogram_analysis.ipynb
@@ -53,7 +53,7 @@
 - title: Transfer Learning
   category: ComputerVision
   link: transfer_learning.ipynb
-  
+
 - title: Pose Estimation
   category: Neuroscience
   link: pose_estimation.ipynb
@@ -65,7 +65,7 @@
 - title: Algonauts FMRI
   category: Neuroscience
   link: algonauts_videos.ipynb
-  
+
 - title: Blurry Vision
   category: Neuroscience
   link: blurry_vision.ipynb
@@ -73,11 +73,11 @@
 - title: Finetuning on FMRI data
   category: Neuroscience
   link: finetuning_fmri.ipynb
-  
+
 - title: Neural Dynamics
   category: Neuroscience
   link: neuro_seq_to_seq.ipynb
-  
+
 - title: Robolympics
   category: ReinforcementLearning
   link: robolympics.ipynb
