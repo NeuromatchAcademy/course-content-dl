@@ -46,6 +46,18 @@ Different categories of DL projects (in order of increasing expertise):
 
 Predict when or where an epileptic seizure will happen ([neurovista](https://www.epilepsyecosystem.org/neurovista-trial-1), [seizure_recognition](https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition)).
 
+[MNIST of the Brain](http://www.mindbigdata.com/opendb) (low resolution EEG in response to MNIST digits)
+
+[ImageNet of the Brain](http://www.mindbigdata.com/opendb/imagenet.html) (low resolution EEG in response to Imagenet)  
+
+[StudyForrest](http://www.studyforrest.org/data.html) (high resolution fMRI data while watching/listening to Forrest Gump along with speech,audio,eyegaze annotation)
+
+[Trends Neuroimaging](https://www.kaggle.com/c/trends-assessment-prediction/data ) (MRI data with age and assessment scores)
+
+[Nature Scientific data](https://www.nature.com/search?subject=neuroscience&journal=sdata&page=1) (neuroscience related)
+
+[THINGS]( https://things-initiative.org/) behavior and neuroscience datasets
+
 ## Brain-Score
 
 [About Brainscore](https://paperswithcode.com/dataset/brain-score) , [Main Website](http://www.brain-score.org/), [Tutorial](https://brain-score.readthedocs.io/en/latest/index.html), [preprint](https://www.biorxiv.org/content/10.1101/407007v2).
