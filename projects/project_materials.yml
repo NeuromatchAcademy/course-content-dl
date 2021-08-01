@@ -33,6 +33,10 @@
 - title: EM Synapses
   category: ComputerVision
   link: em_synapses.ipynb
+  
+- title: Music Spectrograms
+  category: ComputerVision
+  link: spectrogram_analysis.ipynb
 
 - title: Screw Classification
   category: ComputerVision
