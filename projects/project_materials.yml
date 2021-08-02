@@ -34,6 +34,10 @@
   category: ComputerVision
   link: em_synapses.ipynb
 
+- title: Spectrogram Analysis
+  category: ComputerVision
+  link: spectrogram_analysis.ipynb
+
 - title: Screw Classification
   category: ComputerVision
   link: screws.ipynb
