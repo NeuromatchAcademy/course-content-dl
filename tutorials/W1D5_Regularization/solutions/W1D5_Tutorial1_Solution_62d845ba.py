@@ -44,6 +44,9 @@ def early_stopping_main(args, model, train_loader, val_loader):
   return val_acc_list, train_acc_list, best_model, best_epoch
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 4: Early Stopping')
+
 # Set the arguments
 args = {
     'epochs': 200,
