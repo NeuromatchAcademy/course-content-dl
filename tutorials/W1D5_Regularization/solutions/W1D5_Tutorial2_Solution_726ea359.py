@@ -11,6 +11,8 @@ def l2_reg(model):
 
   return l2
 
+# add event to airtable
+atform.add_event('Coding Exercise 1.2: L2 Regularization')
 
 set_seed(SEED)
 ## uncomment to test

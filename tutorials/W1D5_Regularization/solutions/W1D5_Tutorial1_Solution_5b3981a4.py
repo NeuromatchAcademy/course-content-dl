@@ -22,6 +22,9 @@ def visualize_data(dataloader):
   plt.show()
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3: Data Visualizer')
+
 ## uncomment to run the function
 with plt.xkcd():
   visualize_data(rand_train_loader)
