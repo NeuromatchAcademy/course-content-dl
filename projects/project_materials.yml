@@ -89,3 +89,11 @@
 - title: Human RL
   category: ReinforcementLearning
   link: human_rl.ipynb
+  
+- title: Sebtiment Analysis
+  category: NaturalLanguageProcessing
+  link: sentiment_analysis.ipynb
+
+- title: Machine translation
+  category: NaturalLanguageProcessing
+  link: machine_translation.ipynb
