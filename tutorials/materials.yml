@@ -12,7 +12,7 @@
 - day: W1D2
   category: The Basics
   name: Linear Deep Learning
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18N9cIgTcnBg6IEARrg-hvBb
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18N9Wtbf8jkcenO5DGi1eH-F
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3qevp/?direct%26mode=render%26action=download%26mode=render
@@ -64,7 +64,7 @@
 - day: W2D1
   category: Doing more with fewer parameters
   name: Convnets And Recurrent Neural Networks
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render

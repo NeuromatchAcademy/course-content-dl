@@ -1,5 +1,7 @@
 # Neuromatch Academy Deep Learning (NMA-DL) syllabus
 
+The content should primarily be accessed from our new ebook: https://deeplearning.neuromatch.io/ [under continuous development]
+
 ----
 
 *August 2-20, 2021*
@@ -124,7 +126,13 @@ Coming soon... stay tuned...
 
 ----
 
-### Mon, August 16, 2021:  Unsupervised and Self-supervised Learning 
+### Mon, August 16, 2021:  Projects day 
+
+*coordinated by Project TAs*
+
+----
+
+### Tue, August 17, 2021:  Unsupervised and Self-supervised Learning 
 
 *coordinated by [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home) and [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/)*
 
@@ -132,7 +140,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Tue, August 17, 2021: Basic Reinforcement Learning (RL) ideas 
+### Wed, August 18, 2021: Basic Reinforcement Learning (RL) ideas 
 
 *coordinated by [Jane Wang (Google DeepMind)](http://www.janexwang.com/) and [Feryal Behbahani (Google DeepMind)](https://feryal.github.io/)*
 
@@ -140,7 +148,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Wed, August 18, 2021: RL for games
+### Thu, August 19, 2021: RL for games
 
 *coordinated by [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/) and [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home)*
 
@@ -148,16 +156,10 @@ Coming soon... stay tuned...
 
 ----
 
-### Thu, August 19, 2021: Continual Learning / Causality / Future stuff
+### Fri, August 20, 2021: Continual Learning / Causality / Future stuff & Finishing Proposals and Wrap-up
 
 *coordinated by [Joshua T. Vogelstein (Johns Hopkins)](https://jovo.me/) and [Vincenzo Lomonaco (U Pisa)](https://www.vincenzolomonaco.com/)*
 
 **Description** How can we get a causality, how to generalize out of sample, what will the future bring?
 
-----
-
-### Fri, August 20, 2021:  Finishing Proposals and Wrap-up
-
-*coordinated by The NMA-DL Team*
-
-**Description** This day is dedicated to group projects and celebrating course completion
+**Description** After the tutorials the day is dedicated to group projects and celebrating course completion
