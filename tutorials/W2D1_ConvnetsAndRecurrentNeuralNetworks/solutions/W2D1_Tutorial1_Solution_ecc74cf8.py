@@ -26,6 +26,9 @@ def conv_check():
   return original, kernel, actual_convolution, solution
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 2.1: Convolution of a Simple Kernel')
+
 ## Uncomment to test your solution!
 original, kernel, actual_convolution, solution = conv_check()
 with plt.xkcd():

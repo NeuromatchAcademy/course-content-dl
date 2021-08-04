@@ -26,6 +26,10 @@ def convolution2d(image, kernel):
 
   return output
 
+
+# add event to airtable
+atform.add_event('Coding Exercise 2.3: Coding a Convolution')
+
 ## Tests
 # first, we test the parameters we used before in the manual-calculation example
 image = np.array([[0,  200, 200], [0,   0,  200], [0,   0,   0]])

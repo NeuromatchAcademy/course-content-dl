@@ -20,9 +20,9 @@ class EMNIST_Net(nn.Module):
     return x
 
 
-set_seed(SEED)
-emnist_train, emnist_test = get_Xvs0_dataset()
-train_loader, test_loader = get_data_loaders(emnist_train, emnist_test, seed=SEED)
+# add event to airtable
+atform.add_event('Coding Exercise 4: Implement your own CNN')
+
 ## Uncomment the lines below to train your network
 emnist_net = EMNIST_Net().to(DEVICE)
 print("Total Parameters in Network {:10d}".format(sum(p.numel() for p in emnist_net.parameters())))
