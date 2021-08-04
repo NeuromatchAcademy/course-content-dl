@@ -7,4 +7,4 @@ going from top to bottom, so you'd be adding and subtracting the same value.
 
 (If you're confused as to why this shows up as black, rather than gray,
 it's because of how the image is normalized)
-"""
+""";

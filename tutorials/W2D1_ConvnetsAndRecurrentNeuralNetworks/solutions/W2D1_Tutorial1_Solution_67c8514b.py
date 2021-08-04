@@ -32,6 +32,9 @@ class Net3(nn.Module):
     return x
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.3: Implement MaxPooling')
+
 ## check if your implementation is correct
 net = Net3().to(DEVICE)
 check_pooling_net(net, device=DEVICE)
