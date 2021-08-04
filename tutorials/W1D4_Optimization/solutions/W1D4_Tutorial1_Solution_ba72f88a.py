@@ -22,6 +22,10 @@ def momentum_update(loss, params, grad_vel, lr=1e-3, beta=0.8):
       par.data += vel.data
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 4: Implement momentum')
+
+
 set_seed(seed=SEED)
 model2 = MLP(in_dim=784, out_dim=10, hidden_dims=[])
 print('\n The model2 parameters before the update are: \n')
