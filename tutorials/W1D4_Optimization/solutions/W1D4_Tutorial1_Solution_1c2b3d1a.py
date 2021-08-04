@@ -19,6 +19,7 @@ def gradient_update(loss, params, lr=1e-3):
       # parameter itself.
       par.data -= lr * par.grad.data
 
+
 # add event to airtable
 atform.add_event('Coding Exercise 3: Implement gradient descent')
 
