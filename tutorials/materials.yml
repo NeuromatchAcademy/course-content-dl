@@ -71,10 +71,8 @@
     title: Tutorial_1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/mkgqs/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial_2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5asx2/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial_3
   
-  tutorials: 3
+  tutorials: 2
   
 - day: W2D2
   category: Doing more with fewer parameters
