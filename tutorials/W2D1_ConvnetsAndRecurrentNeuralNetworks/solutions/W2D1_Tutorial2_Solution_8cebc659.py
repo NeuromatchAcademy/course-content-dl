@@ -23,6 +23,9 @@ class FMNIST_Net2(nn.Module):
     return x
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 2.1: Adding Regularization')
+
 set_seed(SEED)
 ## Uncomment below to check your code
 net2 = FMNIST_Net2().to(DEVICE)

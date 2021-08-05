@@ -72,6 +72,9 @@ def train(model, device, train_loader, validation_loader, epochs):
   return train_loss, train_acc, validation_loss, validation_acc
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 1: Code the training loop')
+
 set_seed(SEED)
 ## Uncomment to test your training loop
 net = FMNIST_Net1().to(DEVICE)
