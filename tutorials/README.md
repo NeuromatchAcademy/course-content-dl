@@ -79,7 +79,7 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/mf79a/?di
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592)
 
-Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/mkgqs/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_3](https://mfr.ca-1.osf.io/render?url=https://osf.io/5asx2/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/5asx2/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
