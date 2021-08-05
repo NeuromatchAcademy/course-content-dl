@@ -73,7 +73,7 @@ def train(model, device, train_loader, validation_loader, epochs):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 1: Code the training loop')
+atform.add_event('Coding Exercise Bonus 1: Code the training loop')
 
 set_seed(SEED)
 ## Uncomment to test your training loop

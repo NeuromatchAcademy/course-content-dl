@@ -24,7 +24,7 @@ class FMNIST_Net2(nn.Module):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 2.1: Adding Regularization')
+atform.add_event('Coding Exercise Bonus 2.1: Adding Regularization')
 
 set_seed(SEED)
 ## Uncomment below to check your code
