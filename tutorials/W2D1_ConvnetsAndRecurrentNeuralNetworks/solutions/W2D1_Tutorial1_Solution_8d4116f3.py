@@ -4,9 +4,6 @@ def get_augmentation_transforms():
   return augmentation_transforms
 
 
-# add event to airtable
-atform.add_event('Coding Exercise Bonus 2.2: How much does augmentation help?')
-
 set_seed(SEED)
 net3 = FMNIST_Net2().to(DEVICE)  # get the network
 
