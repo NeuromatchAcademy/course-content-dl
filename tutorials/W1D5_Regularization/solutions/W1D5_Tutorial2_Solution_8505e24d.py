@@ -17,4 +17,4 @@ atform.add_event('Coding Exercise 1.2: L2 Regularization')
 set_seed(SEED)
 ## uncomment to test
 net = nn.Linear(20, 20)
-print(f'L2 norm of the model: {l2_reg(net)}')
+print(f"L2 norm of the model: {l2_reg(net)}")
