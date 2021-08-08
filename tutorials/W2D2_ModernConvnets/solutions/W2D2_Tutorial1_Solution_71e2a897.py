@@ -14,4 +14,4 @@ Challenge 3: training deep networks "out-of-the-box" is unstable / training dive
 NOTE: Students cannot know any of the solutions to the problems from the material.
 The intention of the question is to have them discuss and think about the
 challenges (primarily the first two). The solutions are just provided for completeness for the tutors.
-"""
+""";

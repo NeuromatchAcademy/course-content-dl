@@ -22,10 +22,12 @@ def get_parameter_count(network):
   return param_count
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 1: Calculate number of parameters in FCNN vs ConvNet')
+
 # Initialize networks
 fccnet = FullyConnectedNet()
 convnet = ConvNet()
-# Apply above defined function to both networks
-## Uncomment to test your fuimction
-print('FCCN parameter count: ' + str(get_parameter_count(fccnet)))
-print('ConvNet parameter count: ' + str(get_parameter_count(convnet)))
+## Apply the above defined function to both networks by uncommenting the following lines
+print(f"FCCN parameter count: {get_parameter_count(fccnet)}")
+print(f"ConvNet parameter count: {get_parameter_count(convnet)}")
