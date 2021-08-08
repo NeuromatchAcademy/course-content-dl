@@ -62,7 +62,7 @@
   tutorials: 2
   
 - day: W2D1
-  category: Doing more with fewer parameters
+  category: Doing More With Fewer Parameters
   name: Convnets And Recurrent Neural Networks
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
@@ -75,7 +75,7 @@
   tutorials: 2
   
 - day: W2D2
-  category: Doing more with fewer parameters
+  category: Doing More With Fewer Parameters
   name: Modern Convnets
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
 
@@ -88,7 +88,7 @@
   tutorials: 2
 
 - day: W2D3
-  category: Doing more with fewer parameters
+  category: Doing More With Fewer Parameters
   name: Modern Recurrent Neural Networks
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
 
@@ -101,7 +101,7 @@
   tutorials: 2
   
 - day: W2D4
-  category: Doing more with fewer parameters
+  category: Doing More With Fewer Parameters
   name: Attention And Transformers
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
 
@@ -112,7 +112,7 @@
   tutorials: 1
   
 - day: W2D5
-  category: Doing more with fewer parameters
+  category: Doing More With Fewer Parameters
   name: Generative Models
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
@@ -127,7 +127,7 @@
   tutorials: 3
   
 - day: W3D1
-  category: Advanced topics
+  category: Advanced Topics
   name: Unsupervised And Self Supervised Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NYb71nfD5gwwnZY4DPMCXu
 
@@ -138,7 +138,7 @@
   tutorials: 1
   
 - day: W3D2
-  category: Advanced topics
+  category: Advanced Topics
   name: Basic Reinforcement Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC
 
@@ -149,7 +149,7 @@
   tutorials: 1
   
 - day: W3D3
-  category: Advanced topics
+  category: Advanced Topics
   name: Reinforcement Learning For Games
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
 
@@ -160,7 +160,7 @@
   tutorials: 1
   
 - day: W3D4
-  category: Advanced topics
+  category: Advanced Topics
   name: Continual Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Mvz847jPl2T2bkXrfYyIC2
 
