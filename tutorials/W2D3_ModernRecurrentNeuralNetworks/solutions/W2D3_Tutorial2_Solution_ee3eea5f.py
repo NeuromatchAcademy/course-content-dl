@@ -30,6 +30,9 @@ class biLSTM(nn.Module):
     return logits
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 2.2: BiLSTM')
+
 ## Uncomment to run
 sampleBiLSTM = biLSTM(10, 100, 1000, 300, DEVICE)
 print(sampleBiLSTM)

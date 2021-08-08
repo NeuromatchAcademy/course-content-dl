@@ -15,15 +15,17 @@ class VanillaRNN(nn.Module):
   def forward(self, inputs):
     input = self.embeddings(inputs)
     input = input.permute(1, 0, 2)
-    h_0 = Variable(torch.zeros(2, input.size()[1],
-                               self.hidden_size).to(self.device))
+    h_0 = torch.zeros(2, input.size()[1], self.hidden_size).to(self.device)
     output, h_n = self.rnn(input, h_0)
     h_n = h_n.permute(1, 0, 2)
-    h_n = h_n.contiguous().view(h_n.size()[0], h_n.size()[1]*h_n.size()[2])
+    h_n = h_n.contiguous().reshape(h_n.size()[0], h_n.size()[1]*h_n.size()[2])
     logits = self.fc(h_n)
 
     return logits
 
+
+# add event to airtable
+atform.add_event('Coding Exercise 1.1: Vanilla RNN')
 
 ## Uncomment to test VanillaRNN class
 sampleRNN = VanillaRNN(2, 10, 50, 1000, 300, DEVICE)

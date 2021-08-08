@@ -30,6 +30,9 @@ class NeuralNet(nn.Module):
     return output
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.1: Simple Feed Forward Net')
+
 # Uncomment to check your code
 nn_model = NeuralNet(2, 128, 100, 300, TEXT.vocab.vectors)
 print(nn_model)
