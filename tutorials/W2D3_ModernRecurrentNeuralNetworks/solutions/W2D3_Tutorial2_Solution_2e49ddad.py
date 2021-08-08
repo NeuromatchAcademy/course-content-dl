@@ -38,6 +38,9 @@ class LSTM(nn.Module):
     return logits
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 2.1: Implementing LSTM')
+
 ## Uncomment to run
 sampleLSTM = LSTM(3, 10, 100, 1000, 300, DEVICE)
 print(sampleLSTM)

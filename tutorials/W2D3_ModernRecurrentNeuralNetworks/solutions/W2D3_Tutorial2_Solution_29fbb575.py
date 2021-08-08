@@ -22,7 +22,11 @@ class Seq2SeqEncoder(d2l.Encoder):
     return output, state
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3: Encoder')
+
 X = torch.zeros((4, 7), dtype=torch.long)
+## uncomment the lines below.
 encoder = Seq2SeqEncoder(vocab_size=10, embed_size=8, num_hiddens=16, num_layers=2)
 encoder.eval()
 output, state = encoder(X)

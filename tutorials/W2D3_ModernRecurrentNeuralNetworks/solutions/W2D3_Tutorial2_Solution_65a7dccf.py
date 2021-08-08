@@ -1,12 +1,13 @@
 class AttentionModel(torch.nn.Module):
   def __init__(self, batch_size, output_size, hidden_size, vocab_size,
-               embedding_length, weights):
+               embedding_length, weights, device):
     super(AttentionModel, self).__init__()
     self.hidden_size = hidden_size
     self.word_embeddings = nn.Embedding(vocab_size, embedding_length)
     self.word_embeddings.weights = nn.Parameter(weights, requires_grad=False)
     self.lstm = nn.LSTM(embedding_length, hidden_size)
     self.fc1 = nn.Linear(2*hidden_size, output_size)
+    self.device = device
 
   def attention_net(self, lstm_output, final_state):
     """
@@ -33,8 +34,8 @@ class AttentionModel(torch.nn.Module):
     input = self.word_embeddings(input_sentences)
     input = input.permute(1, 0, 2)
 
-    h_0 = Variable(torch.zeros(1, input.shape[1], self.hidden_size).cuda())
-    c_0 = Variable(torch.zeros(1, input.shape[1], self.hidden_size).cuda())
+    h_0 = torch.zeros(1, input.shape[1], self.hidden_size).to(self.device)
+    c_0 = torch.zeros(1, input.shape[1], self.hidden_size).to(self.device)
 
     output, (final_hidden_state, final_cell_state) = self.lstm(input, (h_0, c_0))
     attn_output = self.attention_net(output, final_hidden_state)
@@ -45,5 +46,5 @@ class AttentionModel(torch.nn.Module):
 
 
 # Uncomment to check AttentionModel class
-attention_model = AttentionModel(32, 2, 16, 20, 200, TEXT.vocab.vectors)
+attention_model = AttentionModel(32, 2, 16, 20, 200, TEXT.vocab.vectors, DEVICE)
 print(attention_model)
