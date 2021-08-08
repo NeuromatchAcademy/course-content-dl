@@ -1,4 +1,4 @@
-def predict_top5(images, device):
+def predict_top5(images, device, seed):
   """
   Args:
     images: torch Tensor with dimensionality B x C x H x W
@@ -9,6 +9,8 @@ def predict_top5(images, device):
       top5_probs: torch Tensor (B, 5) with top 5 class probabilities
       top5_names: list of top 5 class names (B, 5)
   """
+  set_seed(seed=seed)
+
   B = images.size(0)
   with torch.no_grad():
     # Run images through model
@@ -27,18 +29,19 @@ def predict_top5(images, device):
   # Convert indices to class names
   top5_names = []
   for b in range(B):
-    temp = [dict_map[key].split(',')[0] for key in top5_idcs[:,b]]
+    temp = [dict_map[key].split(',')[0] for key in top5_idcs[:, b]]
     top5_names.append(temp)
 
   return top5_names, top5_probs
 
 
-set_seed(seed=2021)
+# add event to airtable
+atform.add_event('Coding Exercise 4.1: Use the ResNet model')
+
 # get batch of images
 dataiter = iter(imagenette_val_loader)
 images, labels = dataiter.next()
 
-## Uncomment to test your function
-## retrieve top 5 predictions
-top5_names, top5_probs = predict_top5(images, DEVICE)
+## Uncomment to test your function and retrieve top 5 predictions
+top5_names, top5_probs = predict_top5(images, DEVICE, SEED)
 print(top5_names[1])

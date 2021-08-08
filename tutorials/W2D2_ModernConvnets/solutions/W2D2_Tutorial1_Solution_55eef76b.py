@@ -19,5 +19,8 @@ def convolution_math(in_channels, filter_size, out_channels):
   return None
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 6.1: Calculation of parameters')
+
 ## Uncomment to test your function
 convolution_math(in_channels=4, filter_size=3, out_channels=2)
