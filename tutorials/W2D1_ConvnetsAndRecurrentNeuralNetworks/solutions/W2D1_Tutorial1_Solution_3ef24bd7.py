@@ -7,4 +7,4 @@ of the network, hence it is overfitting.
 
 To prevent overfitting, e.g. dropout can be used, as discussed in the next
 section.
-"""
+""";

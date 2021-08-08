@@ -74,7 +74,7 @@ def train(model, device, train_loader, validation_loader, epochs):
 
 set_seed(SEED)
 ## Uncomment to test your training loop
-net = FMNIST_Net1().to(DEVICE)
+net = FMNIST_Net1(num_classes=2).to(DEVICE)
 train_loss, train_acc, validation_loss, validation_acc = train(net, DEVICE, train_loader, validation_loader, 20)
 with plt.xkcd():
   plot_loss_accuracy(train_loss, train_acc, validation_loss, validation_acc)
