@@ -39,3 +39,7 @@ class SelfAttention(nn.Module):
     out = self.attention(queries, keys, values, b, h, t, k)
 
     return self.unify_heads(out)
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 5: Q, K, V attention')

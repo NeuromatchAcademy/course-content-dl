@@ -41,3 +41,7 @@ class Transformer(nn.Module):
     x = self.classification_head(sequence_avg)
     logprobs = F.log_softmax(x, dim=1)
     return logprobs
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 6: Transformer Architechture for classification')
