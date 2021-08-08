@@ -134,13 +134,14 @@ Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?di
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD)
 
-Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/dftym/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_3](https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Tutorial_1](https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_2](https://mfr.ca-1.osf.io/render?url=https://osf.io/dftym/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_3](https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render%26action=download%26mode=render) | [Tutorial_4](https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | View |
 | - | --- | ---- |
 | Tutorial 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial1.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial1.ipynb?flush_cache=true) |
 | Tutorial 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial2.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial2.ipynb?flush_cache=true) |
 | Tutorial 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial3.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial3.ipynb?flush_cache=true) |
+| Tutorial 4 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial4.ipynb) | [![View the notebook](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial4.ipynb?flush_cache=true) |
 
 
 
