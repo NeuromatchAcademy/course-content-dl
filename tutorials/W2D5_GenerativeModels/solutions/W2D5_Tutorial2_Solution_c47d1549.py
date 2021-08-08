@@ -21,6 +21,9 @@ def loss_disc(disc, x_real, x_fake):
   return torch.cat([loss_real, loss_fake])
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.1: Implement Discriminator Loss')
+
 disc = DummyDisc()
 gen = DummyGen()
 

@@ -26,6 +26,9 @@ class LinearAutoEncoder(nn.Module):
     return self.decode(h).view(x.size())
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.1: Linear AutoEncoder Architecture')
+
 # Pick your own K
 K = 20
 set_seed(seed=SEED)
