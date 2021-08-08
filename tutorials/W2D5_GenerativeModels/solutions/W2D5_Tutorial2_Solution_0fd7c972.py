@@ -45,6 +45,11 @@ def train_gan_iter(data, disc, gen):
 
   print("Your implementation passes the check!")
 
+  return None
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 1: The GAN training loop')
 
 data = get_data()
 disc = Disc()

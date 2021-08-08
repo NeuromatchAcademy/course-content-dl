@@ -24,6 +24,9 @@ def ratio_disc(disc, x_real, x_fake):
   return p_over_q
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3.2: Estimating the density ratio by the discriminator')
+
 disc = OptimalDisc()
 gen = DummyGen()
 
