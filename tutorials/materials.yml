@@ -123,8 +123,10 @@
     title: Tutorial_2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial_3
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial_4
   
-  tutorials: 3
+  tutorials: 4
   
 - day: W3D1
   category: Advanced Topics
