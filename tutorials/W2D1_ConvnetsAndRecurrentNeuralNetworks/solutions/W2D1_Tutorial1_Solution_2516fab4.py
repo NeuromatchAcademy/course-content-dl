@@ -1,7 +1,7 @@
 class Net4(nn.Module):
   def __init__(self, padding=0, stride=2):
     super(Net4, self).__init__()
-    self.conv1 = nn.Conv2d(in_channels=1, out_channels=3, kernel_size=3,
+    self.conv1 = nn.Conv2d(in_channels=1, out_channels=3, kernel_size=5,
                             padding=padding)
 
     # first kernel - leading diagonal
