@@ -6,10 +6,10 @@ class ValueBasedPlayer():
   def play(self, board):
     valids = self.game.getValidMoves(board, 1)
     candidates = []
-    max_num_actions = 3
+    max_num_actions = 4
     va = np.where(valids)[0]
     va_list = va.tolist()
-    shuffle(va_list)
+    random.shuffle(va_list)
     for a in va_list:
       # return next board state using getNextState() function
       nextBoard, _ = self.game.getNextState(board, 1, a)

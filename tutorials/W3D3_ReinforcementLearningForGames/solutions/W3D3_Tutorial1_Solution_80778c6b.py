@@ -42,6 +42,7 @@ n1.load_checkpoint(folder=path, filename=mcts_model_save_name)
 args1 = dotdict({'numMCTSSims': 50, 'cpuct':1.0})
 
 ## Uncomment below to check your agent!
+print('\n******MCTS player versus random player******')
 mcts1 = MonteCarloTreeSearchBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mcts1.getActionProb(x, temp=0))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
