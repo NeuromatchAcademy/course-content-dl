@@ -66,7 +66,8 @@ class MonteCarloBasedPlayer():
 
 set_seed(seed=SEED)
 game = OthelloGame(6)
-rp = RandomPlayer(game).play  # all players
+# Run the resulting player versus the random player
+rp = RandomPlayer(game).play
 num_games = 20  # Feel free to change this number
 
 n1 = NNet(game)  # nNet players
@@ -74,6 +75,7 @@ n1.load_checkpoint(folder=path, filename=mc_model_save_name)
 args1 = dotdict({'numMCsims': 10, 'maxRollouts':5, 'maxDepth':5, 'mc_topk': 3})
 
 ## Uncomment below to check Monte Carlo agent!
+print('\n******MC player versus random player******')
 mc1 = MonteCarloBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mc1.getActionProb(x))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
@@ -81,5 +83,5 @@ MC_result = arena.playGames(num_games, verbose=False)
 print(f"\n\n{MC_result}")
 print(f"\nNumber of games won by player1 = {MC_result[0]}, "
       f"number of games won by player2 = {MC_result[1]}, out of {num_games} games")
-win_rate_player1 = result[0]/num_games
+win_rate_player1 = MC_result[0]/num_games
 print(f"\nWin rate for player1 over {num_games} games: {round(win_rate_player1*100, 1)}%")

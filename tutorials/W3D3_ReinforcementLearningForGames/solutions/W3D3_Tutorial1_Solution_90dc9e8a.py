@@ -60,7 +60,8 @@ class PolicyNetwork(NeuralNet):
     return torch.exp(pi).data.cpu().numpy()[0]
 
   def loss_pi(self, targets, outputs):
-    # loss function. compute and return the negative log likelihood of targets!
+    ## To implement the loss function, please compute and return the negative log likelihood of targets.
+    ## For more information, here is a reference that connects the expression to the neg-log-prob: https://gombru.github.io/2018/05/23/cross_entropy_loss/
     return -torch.sum(targets * outputs) / targets.size()[0]
 
   def save_checkpoint(self, folder='checkpoint', filename='checkpoint.pth.tar'):
@@ -81,10 +82,3 @@ class PolicyNetwork(NeuralNet):
 
     checkpoint = torch.load(filepath, map_location=args.device)
     self.nnet.load_state_dict(checkpoint['state_dict'])
-
-
-set_seed(seed=SEED)
-game = OthelloGame(6)
-## we use the same actor-critic network to output a policy
-pnet = PolicyNetwork(game)
-pnet.train(loaded_games)
