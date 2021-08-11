@@ -14,9 +14,9 @@ class DotProductAttention(nn.Module):
     .transpose(dim0, dim1) is used to change the shape of a tensor. It returns a new tensor
     that shares the data with the original tensor. It can only swap two dimension.
 
-    Shape of `queries`: (`batch_size`, no. of queries, `k`)
-    Shape of `keys`: (`batch_size`, no. of key-value pairs, `k`)
-    Shape of `values`: (`batch_size`, no. of key-value pairs, value dimension)
+    Shape of `queries`: (`batch_size`, no. of queries, head,`k`)
+    Shape of `keys`: (`batch_size`, no. of key-value pairs, head, `k`)
+    Shape of `values`: (`batch_size`, no. of key-value pairs, head, value dimension)
 
     b: batch size
     h: number of heads
