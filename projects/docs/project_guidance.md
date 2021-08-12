@@ -80,27 +80,25 @@ These days correspond roughly to the modelling steps 7-9 videos and notebook, wh
 
 This is a full project day, abstract writing day! One of the best ways to understand your own research is to try to write about it. You should write early and often, not just at the end when you’re trying to write a paper or your thesis. Science conferences are a great way to present your intermediate work, and they give you a chance to write an abstract. For example, the Neuromatch Conferences are a great venue for this. However, you don’t have to wait so long to write your project abstract, you’ll do it today! If you have preliminary results that’s great, but it’s not required. Most of the components of an abstract do not in fact require results. The goal for this day is to workshop your abstract with your group, and then present this to your entire pod. You can also think of it as a much more refined version of the project proposal you submitted originally.
 
-If you have been using a project template, this is a good time to branch out and pursue your own questions. The template was only meant to get you started on some concrete analyses, so that you become familiar with the data, but now that you have more knowledge, you should be able to come up with your own question. Practice the 4-steps again if necessary, they should be easier once you have a good question.
+If you have been using a project template, this is a good time to branch out and pursue your own questions. The template was meant to get you started on some concrete analyses, so that you become familiar with the data, but now that you have more knowledge, you should be able to come up with your own question. Practice the first 4-steps again if necessary, they should be easier once you have a good question.
 
-If you think your abstract is lacking the computational "oomph" to make it sound good, check out the "Day 10 (bonus)" section below. Take the time to find interesting modelling or computational facets to your project, because this will make the abstract writing easier and more enjoyable since you can talk about big, interesting ideas and then gradually focus on the very specific work that you've done.  
+Your starting point for workshopping your abstract should be step 10 from the [Modeling steps 10](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_10_DL.html) notebook, and especially the example projects ([deep learning](https://deeplearning.neuromatch.io/projects/modelingsteps/Example_Deep_Learning_Project.html), [modelling](https://deeplearning.neuromatch.io/projects/modelingsteps/TrainIllusionModelingProjectDL.html) and [data science](https://deeplearning.neuromatch.io/projects/modelingsteps/TrainIllusionDataProjectDL.html)) which show how you can build an abstract if you have been following the 10 steps.
 
-Your starting point for workshopping your abstract should be step 10 from the [Modeling steps 10]() notebook, and especially the example projects ([model project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionModel.html) and [data project](https://compneuro.neuromatch.io/projects/modelingsteps/TrainIllusionDataProject.html)) which show how you can build an abstract if you have been following the 10 steps.
-
-Note: the timings for this day are just suggestions. You can spend more or less time on different parts depending on how much work you think your abstract needs. Also, take as much time as you need in the beginning of this day to carefully go through the modelling steps notebooks (including the example projects) and/or to explore/think about the big picture topics from the "Day 10 (bonus)" section below.
+Note: the timings for this day are just suggestions. You can spend more or less time on different parts depending on how much work you think your abstract needs. Also, take as much time as you need in the beginning of this day to carefully go through the modelling steps notebooks (including the example projects).
 
 With your group
-* (30 min) use the ABC...G questions from the example model/data projects to write your own answers and build a first version of your abstract.
+* (30 min) use the ABC...G questions from the example deep learning / model / data projects to write your own answers and build a first version of your abstract.
 * (30 min) by yourself, read the [Ten simple rules for structuring papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619). Pay close attention to figure 1, and how it specifies the same overall structure for the abstract, for each paragraph in the paper, and for the paper as a whole.  
 * (1h) workshop your abstract together as a group. Say what you like and what you don’t like about it. Try to refer back to the principles from the "Ten simple rules" paper in order to find problems with your abstract and follow the recommended solutions from the paper.   
 
 1h break
 
-* (30-60 min) Edit the abstract individually in your own google doc. At this stage, it is also important to control the flow of the abstract, in addition to keeping the structure from the 10 rules-paper. The flow relates to the “writing style”, which is generally no different for scientists than for other writers. Most importantly, make sure each sentence continues from where the previous one left, and do not use jargon without defining it first. Check out this book about writing if you have time ([book](https://sites.duke.edu/niou/files/2014/07/WilliamsJosephM1990StyleTowardClarityandGrace.pdf), especially chapter 3 about "cohesion" and flow.
+* (30-60 min) Edit the abstract individually in your own google doc. At this stage, it is also important to control the flow of the abstract, in addition to keeping the structure from the 10 rules-paper. The flow relates to the “writing style”, which is generally no different for researchers than for other writers. Most importantly, make sure each sentence continues from where the previous one left, and do not use jargon without defining it first. Check out this book about writing if you have time ([book](https://sites.duke.edu/niou/files/2014/07/WilliamsJosephM1990StyleTowardClarityandGrace.pdf), especially chapter 3 about "cohesion" and flow.
 * (30 min) You should now have as many copies of your abstract as there are students in your group. Put them all into the same google doc, and try to see what you all did the same / differently. What sounds better? Pick and choose different sentences from different abstracts.
 
 
-With your mentor (timing is not precise!)
-* (30-60min) Try to schedule a meeting with your mentor to be about now (or any time in the second half of this day). Show them your abstract. Try to get explicit feedback and edit the abstract together in a google doc.
+With your project TA (timing is not precise!)
+* (30-60min) Try to schedule a meeting with your project TA during this day and show them your abstract. Try to get explicit feedback and edit the abstract together in a google doc.
 
 Last 3h, with the pod.
 
@@ -109,7 +107,7 @@ Last 3h, with the pod.
 Back in your group
 * (1-2h) Has the abstract refined or changed your question? Use the rest of this day to make a concrete plan for the final week of your project. If you already answered your question, then you will need to plan for control analyses, maybe including some simulated data that you need to also generate yourself.
 
-Once you are done, please submit the abstract [HERE](). We won't use this for further matching or anything like that, but we will keep a record of it to help us track the progress of all groups. If you really need/want to, the abstract can also be submitted on Monday (especially for timeslots 2,4 who have had one less project day so far).
+Once you are done, please submit the abstract [HERE](https://airtable.com/shrJZuCmrPRRjbYpE). We will use your submission to find a few other groups for your one hour mini-conference on Friday, during which you will present your project.
 
 ## Days 12-14 (3h/day)
 
@@ -124,7 +122,7 @@ At the end of project day 14, you should also submit your slides via this [Airta
 
 ## Day 15 Presentations (last day!)
 
-This is the day where you present your project to other groups who worked on the same topic. Your mentor and your project TAs will be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+This is the day where you present your project to other groups who worked on the same topic. Your project TA will be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 
 ### Schedule
 
