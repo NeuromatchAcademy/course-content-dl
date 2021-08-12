@@ -28,14 +28,14 @@ access to Google Colab, you can use Kaggle as a substitute for launching an inte
 
 ### **6.** Go to *Settings* -> *Internet* and select *Internet connected*. Your Kernels session restarts and the newly started session is enabled to access the Internet. If after the installation you experience any error when trying to import an installed module, make sure to restart the kernel after installing the module and then it should work.
 
-![Step 6.1](../static/kaggle_step6_1.png)
+![Step 6.1](../static/kaggle_internet_enabled.png)
 
 ### >**NOTE:-** The last step, that is **step 6** grants you access to GPU in Kaggle. It is **NOT** required for Computational Neuroscience course and is only required for Deep Learning course
 
 ### **7.** (Optional) The last and final step about how to leverage **GPU** accelerator in the kaggle kernel. You should not need to do this ever for the comp neuro course tutorials. You may want it for project work and especially for the deep learning course. To get access to the GPU, first time users have get their phone numbers verified. In order to have GPU access, on the left sidebar of the notebook under the settings panel, go to **Get phone verified** link and enter your credentials.
 
-![Step 7.1](../static/kaggle_step7_1.png)
+![Step 7.1](../static/kaggle_step6_1.png)
 
 Once your phone number has been verified, on the left sidebar under **Settings** panel, select **Accelerator** to **GPU** from **None** using the drop down menu.
 
-![Step 7.2](../static/kaggle_step7_2.png)
+![Step 7.2](../static/kaggle_step6_2.png)
