@@ -17,7 +17,7 @@ def loss_gen(disc, x_fake):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 3.3: The generator loss')
+atform.add_event('Coding Exercise 2.3: The generator loss')
 
 disc = DummyDisc()
 gen = DummyGen()
