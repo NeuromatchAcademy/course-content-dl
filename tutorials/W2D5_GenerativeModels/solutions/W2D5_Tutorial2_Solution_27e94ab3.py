@@ -22,7 +22,7 @@ def loss_disc(disc, x_real, x_fake):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 3.1: Implement Discriminator Loss')
+atform.add_event('Coding Exercise 2.1: Implement Discriminator Loss')
 
 disc = DummyDisc()
 gen = DummyGen()
