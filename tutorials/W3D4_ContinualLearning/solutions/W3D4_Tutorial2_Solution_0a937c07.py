@@ -1,8 +1,11 @@
 class Multi_task_model(nn.Module):
-  def __init__(self, pretrained=True, num_tasks=4, num_labels_per_task=[2, 2, 2, 5]):
+  def __init__(self, pretrained=True, num_tasks=4, load_file=None,
+               num_labels_per_task=[2, 2, 2, 5]):
     super(Multi_task_model, self).__init__()
-    self.backbone = models.resnet18(pretrained=pretrained)                      # You can play around with different pre-trained models
-    self.backbone = torch.nn.Sequential(*(list(self.backbone.children())[:-1])) # Remove the last fully connected layer
+    self.backbone = models.resnet18(pretrained=pretrained)  # You can play around with different pre-trained models
+    if load_file:
+      self.backbone.load_state_dict(torch.load(load_file))
+    self.backbone = torch.nn.Sequential(*(list(self.backbone.children())[:-1]))  # Remove the last fully connected layer
 
     if pretrained:
       for param in self.backbone.parameters():
