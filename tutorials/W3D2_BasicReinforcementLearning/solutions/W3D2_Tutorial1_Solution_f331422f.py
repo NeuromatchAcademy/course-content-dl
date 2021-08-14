@@ -95,3 +95,7 @@ class NeuralFittedQAgent(acme.Actor):
 
   def observe(self, action: int, next_timestep: dm_env.TimeStep):
     self._replay_buffer.add(action, next_timestep)
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 6.1: Implement NFQ')

@@ -28,6 +28,9 @@ class PolicyBasedPlayer():
     return a
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 5: Implement the PolicyBasedPlayer')
+
 # playing games
 set_seed(seed=SEED)
 num_games = 20

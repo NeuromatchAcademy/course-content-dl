@@ -17,3 +17,7 @@ def epsilon_greedy(
     action = np.random.randint(num_actions)
 
   return action
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 5.1: Implement  epsilon-greedy')

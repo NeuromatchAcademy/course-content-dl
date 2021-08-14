@@ -33,3 +33,7 @@ class Multi_task_model(nn.Module):
     for i in range(self.num_tasks):
       outs.append(self.fcs[i](x))
     return outs
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 2.2: Creating a Multi-Task model')
