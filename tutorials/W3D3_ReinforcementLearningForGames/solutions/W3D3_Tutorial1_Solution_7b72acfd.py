@@ -44,3 +44,7 @@ class OthelloNNet(nn.Module):
 
     # return a probability distribution over actions at the current state and the value of the current state.
     return F.log_softmax(pi, dim=1), torch.tanh(v)
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 2.2: Implement the NN OthelloNNet for Othello')

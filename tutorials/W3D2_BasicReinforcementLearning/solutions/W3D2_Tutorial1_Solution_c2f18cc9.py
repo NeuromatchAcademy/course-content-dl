@@ -105,6 +105,10 @@ class DQN(acme.Actor):
     self._replay_buffer.add(action, next_timestep)
 
 
+
+# add event to airtable
+atform.add_event('Coding Exercise 7.1: Run a DQN Agent')
+
 # Create a convenient container for the SARS tuples required by NFQ.
 Transitions = collections.namedtuple(
     'Transitions', ['state', 'action', 'reward', 'discount', 'next_state'])

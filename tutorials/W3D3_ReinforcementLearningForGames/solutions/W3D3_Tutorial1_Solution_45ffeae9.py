@@ -26,6 +26,9 @@ class ValueBasedPlayer():
     return candidates[0][1]
 
 
+# add event to airtable
+atform.add_event('Coding Exercise 3: Value-based player')
+
 # playing games between a value-based player and a random player
 set_seed(seed=SEED)
 num_games = 20

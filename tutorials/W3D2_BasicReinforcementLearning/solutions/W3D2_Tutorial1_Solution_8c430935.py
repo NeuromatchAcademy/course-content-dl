@@ -67,3 +67,7 @@ class QLearningAgent(acme.Actor):
     self._q[s, a] += self._step_size * self._td_error
     # Update the current state.
     self._state = self._next_state
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 5.3: Implement Q-Learning')

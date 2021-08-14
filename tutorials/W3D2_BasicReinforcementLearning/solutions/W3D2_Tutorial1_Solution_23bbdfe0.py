@@ -23,3 +23,7 @@ class RandomAgent(acme.Actor):
   def update(self):
     """Does not update as the RandomAgent does not learn from data."""
     pass
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 2.1: Random Agent')

@@ -54,3 +54,7 @@ class PolicyEvalAgent(acme.Actor):
     self._q[s, a] += self._step_size * self._td_error
     # Update the state
     self._state = self._next_state
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 4.1 Policy Evaluation Agent')

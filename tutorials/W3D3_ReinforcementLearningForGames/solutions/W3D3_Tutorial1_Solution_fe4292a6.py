@@ -82,3 +82,7 @@ class PolicyNetwork(NeuralNet):
 
     checkpoint = torch.load(filepath, map_location=args.device)
     self.nnet.load_state_dict(checkpoint['state_dict'])
+
+
+# add event to airtable
+atform.add_event('Coding Exercise 4: Implement PolicyNetwork')
