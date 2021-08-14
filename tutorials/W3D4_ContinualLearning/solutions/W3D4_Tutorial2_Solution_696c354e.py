@@ -31,7 +31,3 @@ class ConvSiameseNet(nn.Module):
     l1_distance = torch.abs(x1_fv - x2_fv)
 
     return self.fc2(l1_distance)
-
-
-# add event to airtable
-atform.add_event('Coding Exercise 3.2: Creating a Convolutional Siamese Network')
