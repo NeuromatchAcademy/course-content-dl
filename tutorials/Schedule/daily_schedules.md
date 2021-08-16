@@ -32,11 +32,11 @@ All days will follow this schedule for course time:
  
 |    Time (Hour)   |    Lecture                            |
 |------------------|---------------------------------------|
-|    0:00-0:15     |    Discussion                         |
-|    0:15-1:45     |    Tutorials I                        |
-|    1:45-2:45     |    Big break                          |
-|    2:45-4:15     |    Tutorials II                       |
-|    4:15-4:30     |    Pod discussion                     |
+|    0:00~0:15     |    Discussion                         |
+|    0:15~1:45     |    Tutorials I                        |
+|    1:45~2:45     |    Big break                          |
+|    2:45~4:15     |    Tutorials II                       |
+|    4:15~4:30     |    Pod discussion                     |
 
 
 ### W3D4 (subject to changes)
@@ -44,17 +44,18 @@ On W3D4 (final day!), we will have project presentations, an extra celebration a
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
-| **-1:00-0:00**   |    Project presentations **(slots 2,4)**  |
-|    0:00-0:15     |    Discussion                             |
-|    0:15-1:45     |    Tutorials I                            |
-|    1:45-2:45     |    Big break                              |
-|    2:45-4:15     |    Tutorials II                           |
-|    4:15-4:30     |    Pod discussion                         |
-|    4:30-4:45     |    Break                                  |
-|    4:45-5:10     |    Evaluation report                      |
-|  **5:10-6:10**   |    Project presentations **(slots 1,3,5)**|
-|    6:10-6:25     |    Pod farewell                           |
-|    6:25-7:15     |    Closing ceremony                       |
+| **-1:30~-0:30**  |    Project presentations **(slots 2,4)**  |
+|   -0:30~0:00     |    Break  **(slots 2,4)**                 |
+|    0:00~0:15     |    Discussion                             |
+|    0:15~1:45     |    Tutorials I                            |
+|    1:45~2:45     |    Big break                              |
+|    2:45~4:15     |    Tutorials II                           |
+|    4:15~4:30     |    Pod discussion                         |
+|    4:30~4:45     |    Break                                  |
+|    4:45~5:10     |    Evaluation report                      |
+|  **5:10~6:10**   |    Project presentations **(slots 1,3,5)**|
+|    6:10~6:25     |    Pod farewell                           |
+|    6:25~7:15     |    Closing ceremony                       |
 
 
 **Note:** The naming W{x}D{y} correspond to days that include tutorials.
