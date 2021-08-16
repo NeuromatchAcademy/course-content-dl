@@ -43,8 +43,6 @@ All days will follow this schedule for course time:
 On W3D4 (final day!), we will have project presentations, an extra celebration and pod wrap-ups!
 |    Time (Hour)   |    Lecture                            |
 |------------------|---------------------------------------|
-|    Time (Hour)   |    Lecture                            |
-|------------------|---------------------------------------|
 |    0:00-0:15     |    Discussion                         |
 |    0:15-1:45     |    Tutorials I                        |
 |    1:45-2:45     |    Big break                          |
