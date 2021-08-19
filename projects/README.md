@@ -59,7 +59,7 @@ These are projects submitted by NMA-CN students in 2020. They don't have deep le
 
 * project day 1:    by end of your project time, please submit your group name and group members via this [Airtable link](https://airtable.com/shrZ341XOB4CSO9wh). We will use this immediately to match your group with a project TA.  
 * project day 11:   by end of your project time, please submit your abstract via this [Airtable link](https://airtable.com/shrJZuCmrPRRjbYpE).  
-* project day 14:   by end of your project time, please submit your slides via this [Airtable link]() (not yet available).  
+* project day 14:   by end of your project time, please submit your slides via this [Airtable link](https://airtable.com/shrYQqPDyWt0KgoE0).  
 
 **Presentations** — Start preparing project presentation after day 11
  * Groups make an approx five minute project presentation: 1 minute / 1 slide / 1 person
