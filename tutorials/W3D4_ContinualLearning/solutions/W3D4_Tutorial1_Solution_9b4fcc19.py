@@ -10,19 +10,19 @@ def make_result_matrix(T):
     result_matrix : numpy.array
       A TxT matrix
   """
-  result_matrix = []
-  # Uniform sampled distribution
-  distribution = np.random.choice([1, 0], T, p=[.1, .9])
-  place_holder = np.random.randn(T)
-  place_holder[distribution] = np.nan # Masking
+  distribution = np.random.rand(T**2)
+  # Create a random mask
+  mask = np.random.choice([1, 0], distribution.shape, p=[.1, .9]).astype(bool)
+  distribution[mask] = np.nan
 
-  # This block is to un-flatten the 25 element matrix into a 5*5 matrix
+  result_matrix = []
+  count = 0
   for j in range(T):
     temp = []
     for i in range(T):
-      temp.append(place_holder[i])
+      temp.append(distribution[count])
+      count += 1
     result_matrix.append(temp)
-
   result_matrix = np.array(result_matrix)
 
   return result_matrix
@@ -31,7 +31,8 @@ def make_result_matrix(T):
 # add event to airtable
 atform.add_event('Coding Exercise 4.2: Evaluate your CL algorithm')
 
+set_seed(seed=SEED)
 T = len(rehe_accs)  # number of tasks
-## Uncommnet below to test you function
+## Uncomment below to test you function
 result_matrix = make_result_matrix(T)
 print(result_matrix)
