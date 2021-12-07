@@ -1,14 +1,20 @@
 def sample_minibatch(input_data, target_data, num_points=100):
-  """Sample a minibatch of size num_point from the provided input-target data
+  """
+  Sample a minibatch of size num_point from the provided input-target data
 
   Args:
-    input_data (tensor): Multi-dimensional tensor containing the input data
-    target_data (tensor): 1D tensor containing the class labels
-    num_points (int): Number of elements to be included in minibatch
+    input_data: Tensor
+      Multi-dimensional tensor containing the input data
+    target_data: Tensor
+      1D tensor containing the class labels
+    num_points: Integer
+      Number of elements to be included in minibatch with default=100
 
   Returns:
-    batch_inputs (tensor): Minibatch inputs
-    batch_targets (tensor): Minibatch targets
+    batch_inputs: Tensor
+      Minibatch inputs
+    batch_targets: Tensor
+      Minibatch targets
   """
   # Sample a collection of IID indices from the existing data
   batch_indices = np.random.choice(len(input_data), num_points)

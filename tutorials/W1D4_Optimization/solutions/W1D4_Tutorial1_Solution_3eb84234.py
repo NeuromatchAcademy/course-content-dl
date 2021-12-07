@@ -1,13 +1,23 @@
 def rmsprop_update(loss, params, grad_sq, lr=1e-3, alpha=0.8, epsilon=1e-8):
-  """Perform an RMSprop update on a collection of parameters
+  """
+  Perform an RMSprop update on a collection of parameters
 
   Args:
-    loss (tensor): A scalar tensor containing the loss whose gradient will be computed
-    params (iterable): Collection of parameters with respect to which we compute gradients
-    grad_sq (iterable): Moving average of squared gradients
-    lr (float): Scalar specifying the learning rate or step-size for the update
-    alpha (float): Moving average parameter
-    epsilon (float): for numerical estability
+    loss: Tensor
+      A scalar tensor containing the loss whose gradient will be computed
+    params: Iterable
+      Collection of parameters with respect to which we compute gradients
+    grad_sq: Iterable
+      Moving average of squared gradients
+    lr: Float
+      Scalar specifying the learning rate or step-size for the update
+    alpha: Float
+      Moving average parameter
+    epsilon: Float
+      quotient for numerical stability
+
+  Returns:
+    Nothing
   """
   # Clear up gradients as Pytorch automatically accumulates gradients from
   # successive backward calls
