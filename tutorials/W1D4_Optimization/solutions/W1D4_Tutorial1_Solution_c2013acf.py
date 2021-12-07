@@ -1,7 +1,7 @@
 
 """
 Note how gradient descent (with a properly tuned step size) guarantees an improvement
-in the objective function, unlike the random udpate method, which very rarely finds a
+in the objective function, unlike the random update method, which very rarely finds a
 direction that improves the objective function. The green line indicates
 a change of zero in the value of the loss: we want to be below zero to minimize!
 

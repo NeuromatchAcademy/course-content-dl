@@ -42,7 +42,7 @@ model3 = MLP(in_dim=784, out_dim=10, hidden_dims=[])
 print('\n The model3 parameters before the update are: \n')
 print_params(model3)
 loss = loss_fn(model3(X), y)
-# Intialize the moving average of squared gradients
+# Initialize the moving average of squared gradients
 grad_sq = [1e-6*i for i in list(model3.parameters())]
 
 ## Uncomment below to test your function
