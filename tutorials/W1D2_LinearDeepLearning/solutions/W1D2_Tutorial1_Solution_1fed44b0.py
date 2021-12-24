@@ -1,7 +1,3 @@
-
-#add event to airtable
-atform.add_event('Coding Exercise 2.1: Computational Graph ')
-
 class SimpleGraph:
   def __init__(self, w, b):
     """Initializing the SimpleGraph
@@ -44,6 +40,9 @@ def sq_loss(y_true, y_prediction):
   loss = (y_true - y_prediction)**2
   return loss
 
+
+# add event to airtable
+atform.add_event('Coding Exercise 2.1: Computational Graph ')
 
 feature = torch.tensor([1])  # input tensor
 target = torch.tensor([7])  # target tensor
