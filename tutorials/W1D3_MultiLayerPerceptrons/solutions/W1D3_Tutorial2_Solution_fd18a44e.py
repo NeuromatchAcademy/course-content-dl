@@ -37,6 +37,7 @@ def run_depth_optimizer(max_par_count, max_hidden_layer, device):
 
   return hidden_layers, test_scores
 
+
 # add event to airtable
 atform.add_event('Coding Exercise 1: Wide vs. Deep ')
 
