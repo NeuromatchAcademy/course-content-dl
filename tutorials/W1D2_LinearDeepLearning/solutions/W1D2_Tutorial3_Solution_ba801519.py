@@ -1,8 +1,3 @@
-
-#add event to airtable
-atform.add_event('Coding Exercise 0: Re-initialization')
-
-
 def ex_initializer_(model, gamma=1e-12):
   """(in-place) Re-initialization of weights
 
@@ -15,6 +10,9 @@ def ex_initializer_(model, gamma=1e-12):
     sigma = gamma / math.sqrt(n_in + n_out)
     nn.init.normal_(weight, mean=0.0, std=sigma)
 
+
+# add event to airtable
+atform.add_event('Coding Exercise 0: Re-initialization')
 
 ## uncomment and run
 test_initializer_ex(SEED)
