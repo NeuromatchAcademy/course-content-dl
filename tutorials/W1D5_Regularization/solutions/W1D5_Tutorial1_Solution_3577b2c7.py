@@ -17,4 +17,4 @@ set_seed(seed=SEED)
 
 ## uncomment below to test your code
 net = nn.Linear(10, 1)
-print(f'Frobenius Norm of Single Linear Layer: {calculate_frobenius_norm(net)}')
+print(f'Frobenius norm of Single Linear Layer: {calculate_frobenius_norm(net)}')
