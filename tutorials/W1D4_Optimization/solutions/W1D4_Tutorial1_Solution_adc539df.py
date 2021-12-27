@@ -1,11 +1,11 @@
 
 """
-Stochastic Gradient Descent: Performs updates one example at a time.
+Stochastic Gradient Descent (SGD): Performs updates one example at a time.
+Momentum: Helps accelerate SGD in the relevant direction and dampens
+oscillations specially ravines.
 RMSProp: Allows each parameter to be updated at an 'appropriate' rate decided
 based on magnitudes of past recent updates;
-Momentum: Helps accelerate SGD in the relevant direction and dampens
-oscillations specially ravines,
-i.e. areas where the surface curves much more steeply in one dimension than
+i.e., areas where the surface curves much more steeply in one dimension than
 in another, which are common around local optima.
 
 Robustness: RMSProp > Momentum > SGD
