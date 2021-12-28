@@ -27,3 +27,5 @@ atform.add_event('Coding Exercise 4: Implement your own CNN')
 emnist_net = EMNIST_Net().to(DEVICE)
 print("Total Parameters in Network {:10d}".format(sum(p.numel() for p in emnist_net.parameters())))
 train(emnist_net, DEVICE, train_loader, 1)
+## Uncomment to test your model
+print(f'Test accuracy is: {test(emnist_net, DEVICE, test_loader)}')

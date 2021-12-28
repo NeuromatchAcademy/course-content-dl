@@ -23,12 +23,10 @@ class FMNIST_Net2(nn.Module):
     return x
 
 
-# add event to airtable
-atform.add_event('Coding Exercise Bonus 2.1: Adding Regularization')
-
 set_seed(SEED)
 ## Uncomment below to check your code
 net2 = FMNIST_Net2(num_classes=2).to(DEVICE)
 train_loss, train_acc, validation_loss, validation_acc = train(net2, DEVICE, train_loader, validation_loader, 20)
+print(f'Test accuracy is: {test(net2, DEVICE, test_loader)}')
 with plt.xkcd():
   plot_loss_accuracy(train_loss, train_acc, validation_loss, validation_acc)
