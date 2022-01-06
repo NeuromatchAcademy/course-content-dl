@@ -19,12 +19,12 @@ changes in how it handles the table of contents file we generate.
 2. Create a symlink in the book dir to the tutorials dir. From the repo root
 directory (`course-content-dl`):
    
-`ln -s ../tutorials book/tutorials`
-`ln -s ../projects book/projects`
+- `ln -s ../tutorials book/tutorials`
+- `ln -s ../projects book/projects`
 
 3. Prepare repo for book building (assuming than `nmaci` is placed in the same directory as `course-content-dl`)
 
-`python ../nmaci/scripts/generate_book.py`
+`python ../nmaci/scripts/generate_book_dl.py`
 
 This will use the tutorials/materials.yml to create the _toc.yml file in the
 book directory. It will also be responsible for creating any additional markdown
