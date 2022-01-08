@@ -15,8 +15,8 @@ jobs:
     runs-on: [self-hosted,cml,gpu]
     timeout-minutes: 1200
     steps:
-      - name: cml-run
       - uses: actions/checkout@v2
+      - name: cml-run
         run : |
           CODEBLOCK="\`\`\`"
           echo $CODEBLOCK > report.md
