@@ -1,6 +1,6 @@
-name: publish-book
+name: publish-book-local
 
-on: 
+on:
 
   workflow_dispatch:
 
