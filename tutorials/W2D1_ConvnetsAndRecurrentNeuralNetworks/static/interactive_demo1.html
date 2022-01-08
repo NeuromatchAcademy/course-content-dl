@@ -1,0 +1,756 @@
+%%html
+
+# @markdown *Run this cell to enable the widget!*
+
+<style>
+    svg {
+        #border: 1px solid black;
+    }
+.matrix {
+    font-family: sans-serif;
+    transition: all 700ms ease-in-out;
+}
+.cell rect {
+    fill:white;stroke-width:1;stroke:rgb(0,0,0)
+}
+.padding rect {
+    stroke: rgba(0, 0, 0, 0.25);
+}
+.padding text {
+    fill: lightgray;
+}
+.highlight1 {
+    fill:none;stroke-width:4;stroke: rgb(236, 58, 58);stroke-dasharray:10,5;
+}
+.highlight2 {
+    fill:rgba(229, 132, 66, 0.25);stroke-width:5;stroke: rgb(229, 132, 66);
+}
+.highlight3 {
+    fill:rgba(236, 58, 58, 0.25);stroke-width:2;stroke: rgb(236, 58, 58);;
+}
+.title {
+    text-anchor: middle;
+}
+.button_play {
+    display: inline-block;
+    background: none;
+    border: none;
+    position: relative;
+    top: -3px;
+}
+.button_play path {
+    fill: darkgray;
+}
+.button_play:hover path {
+    fill: rgb(236, 58, 58);
+}
+.display_vis_input input:not(:hover)::-webkit-outer-spin-button,
+.display_vis_input input:not(:hover)::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.display_vis_input input:not(:hover)[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    width: 1ch;
+    margin-right: 0px;
+    z-index: 0;
+}
+.display_vis_input input[type=number] {
+    width: 4ch;
+    border: 0px;
+    margin-right: -3ch;
+    z-index: 6;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    border-bottom: 2px solid red;
+    background: white;
+    color: black
+}
+.display_vis_input .pair {
+    display: inline-block;
+    white-space:nowrap;
+        position: relative;
+}
+.display_vis_input .pair .pair_hide {
+    max-width: 4em;
+    transition: max-width 1s ease-in;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+.pair:not(:hover) .pair_hide {
+    max-width: 0;
+}
+.pairX .pair_hide {
+    max-width: 4em;
+    transition: max-width 1s ease-in;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  border-bottom: 2px solid red;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 5px 2px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+</style>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8" > </script>
+
+
+<div id="animation_conv_filters" style="background: white">
+    <div class="display_vis_input language-python" style="font-family: monospace; color: black; padding: 10px;">
+        <!-- default -->
+        import torch<br><br>
+        input = torch.rand(1, 1<input class="input_matrixz" type="hidden" min="1" max="3" value="1">, <input class="input_matrixy" type="number" min="3" max="5" value="3">, <input class="input_matrixx" type="number" min="3" max="5" value="4">)<br>
+        conv = torch.nn.Conv2d(in_channels=1<input class="input_matrixzB" type="hidden" min="1" max="3" value="1">, out_channels=1<input class="input_filterz" type="hidden" min="1" max="3" value="1">,
+        kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filtery" type="number" min="2" max="4" value="2"><span class="pair_hide">,
+                                                                       <input class="input_filterx" type="number" min="2" max="4" value="3">)</span></span>
+        <span class="pair" style="display: none"><span class="pair_hide">(</span><input class="input_stridex" type="hidden" min="1" max="2" value="1"><span class="pair_hide">,
+                                                                  <input class="input_stridey" type="hidden" min="1" max="2" value="1">)</span></span>
+        <span class="pair" style="display: none"><span class="pair_hide">(</span><input class="input_paddingx" type="hidden" min="0" max="4" value="0"><span class="pair_hide">,
+                                                                   <input class="input_paddingy" type="hidden" min="0" max="4" value="0">)</span></span>)<br>
+        result = conv(input)
+
+        <!-- padding
+        import torch<br><br>
+        input = torch.rand(1, 1<input class="input_matrixz" type="hidden" min="1" max="3" value="1">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">))<br>
+        conv = torch.nn.Conv2d(in_channels=1<input class="input_matrixzB" type="hidden" min="1" max="3" value="1">, out_channels=1<input class="input_filterz" type="hidden" min="1" max="3" value="1">,
+        kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="3"><span class="pair_hide">,
+                                                                       <input class="input_filtery" type="number" min="2" max="4" value="3">)</span></span>,
+        stride=<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="number" min="1" max="2" value="1"><span class="pair_hide">,
+                                                                  <input class="input_stridey" type="number" min="1" max="2" value="1">)</span></span>,
+        padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="1"><span class="pair_hide">,
+                                                                   <input class="input_paddingy" type="number" min="0" max="4" value="1">)</span></span>)<br>
+        result = conv(input)
+-->
+    <!-- filters -- >
+        import torch<br><br>
+        input = torch.rand(1, <input class="input_matrixz" type="number" min="1" max="3" value="3">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">)<br>
+        conv = torch.nn.Conv2d(in_channels=<input class="input_matrixzB" type="number" min="1" max="3" value="3">, out_channels=<input class="input_filterz" type="number" min="1" max="3" value="2">,
+        kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="2"><span class="pair_hide">,
+                                                                       <input class="input_filtery" type="number" min="2" max="4" value="2">)</span></span>,
+        stride=<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="number" min="1" max="2" value="1"><span class="pair_hide">,
+                                                                  <input class="input_stridey" type="number" min="1" max="2" value="1">)</span></span>,
+        padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="0"><span class="pair_hide">,
+                                                                   <input class="input_paddingy" type="number" min="0" max="4" value="0">)</span></span>)<br>
+        result = conv(input)
+-->
+ <!--
+        import torch<br><br>
+        input = torch.rand(1, <input class="input_matrixz" type="hidden" min="1" max="3" value="1">1, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">))<br>
+        conv = torch.nn.<div class="dropdown">
+  <div class="dropbtn">MaxPool2d</div>
+  <div class="dropdown-content">
+    <a class="select_maxpool" href="#">MaxPool2d</a>
+    <a class="select_avgpool" href="#">AvgPool2d</a>
+  </div>
+</div>(<input class="input_matrixzB" type="hidden" min="1" max="3" value="1"><input class="input_filterz" type="hidden" min="1" max="3" value="1">kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="2"><span class="pair_hide">,
+                                                                       <input class="input_filtery" type="number" min="2" max="4" value="2">)</span></span>,
+        stride=<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="number" min="1" max="2" value="2"><span class="pair_hide">,
+                                                                  <input class="input_stridey" type="number" min="1" max="2" value="2">)</span></span>,
+        padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="0"><span class="pair_hide">,
+                                                                   <input class="input_paddingy" type="number" min="0" max="4" value="0">)</span></span>)<br>
+        result = conv(input)
+-->
+    </div>
+        <button class="button_play play"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 1.5,0 9.5,5 1.5,10 z"/></svg></button>
+    <button class="button_play pause" style="display: none"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 0,0 4,0 4,10, 0,10 z"/><path d="M 6,0 10,0 10,10, 6,10 z"/></svg></button>
+    <input type="range" min="1" max="100" value="50" class="slider" style="width: 300px; display: inline-block">
+    <button class="button_play left"><svg width="7" height="15" viewbox="0 0 4 10"><path d="M 0,5 4,0 4,10 z"/></svg></button>
+    <button class="button_play right"><svg width="7" height="15" viewbox="0 0 4 10"><path d="M 0,0 4,5 0,10 z"/></svg></button>
+    <input type="checkbox" class="play_fast">fast play mode
+    <br/>
+    <svg height="0" width="0">
+        <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+    refX="0" refY="1.5" orient="auto" fill="rgb(236, 58, 58)">
+      <polygon points="0 0, 4 1.5, 0 3" />
+    </marker>
+  </defs>
+    </svg>
+    <svg class="image" height="460" width="600">
+
+    </svg>
+</div>
+<script>
+(function() {
+var dom_target = document.getElementById("animation_conv_filters")
+const divmod = (x, y) => [Math.floor(x / y), x % y];
+var svg = d3.select(dom_target).select(".image")
+
+var box_s = 50;
+var box_z = 10;
+var show_single_elements = true;
+var group_func = undefined;
+function mulberry32(a) {
+    return function() {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ t >>> 15, t | 1);
+      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+function numberGenerator(seed, max, digits) {
+    var random = mulberry32(seed)
+    return () => parseFloat((random() * max).toFixed(digits));
+}
+window.numberGenerator = numberGenerator
+window.mulberry32 = mulberry32
+function generateMatrix2(number, dims) {
+    var res = [];
+    for (var i = 0; i < dims[0]; i++) {
+        if(dims.length == 1)
+            res.push(number())
+        else
+            res.push(generateMatrix2(number, dims.slice(1)));
+    }
+    return res
+}
+window.generateMatrix2 = generateMatrix2
+
+function addPadding(matrix, paddingx, paddingy) {
+    matrix = JSON.parse(JSON.stringify(matrix));
+    var ly = matrix.length; var lx = matrix[0].length;
+    for (var i = 0; i < ly; i++) {
+        for(var p = 0; p < paddingx; p++) {
+            matrix[i].splice(0, 0, 0);
+            matrix[i].splice(matrix[i].length, 0, 0);
+        }
+    }
+    for(var p = 0; p < paddingy; p++) {
+        matrix.splice(0, 0, []);
+        matrix.splice(matrix.length, 0, []);
+        for (var i = 0; i < lx + paddingx * 2; i++) {
+            matrix[0].push(0);
+            matrix[matrix.length - 1].push(0);
+        }
+    }
+    matrix.paddingx = paddingx;
+    matrix.paddingy = paddingy;
+    return matrix;
+}
+
+var stride_x = 1;
+var stride_y = 1;
+function convolve(matrix, filter) {
+    var ress = [];
+    for(var zz = 0; zz < filter.length; zz++) {
+        var res = [];
+        for (var i = 0; i < parseInt((matrix[0].length - filter[0][0].length + stride_y) / stride_y); i++) {
+            res.push([]);
+            for (var j = 0; j < parseInt((matrix[0][0].length - filter[0][0][0].length + stride_x) / stride_x); j++) {
+                var answer = 0;
+                var text = "";
+                for (var ii = 0; ii < filter[0][0].length; ii++) {
+                    for (var jj = 0; jj < filter[0][0][0].length; jj++) {
+                        for (var z = 0; z < matrix.length; z++) {
+                            answer += matrix[z][i * stride_y + ii][j * stride_x + jj] * filter[zz][z][ii][jj];
+                            text +=matrix[z][i * stride_y + ii][j * stride_x + jj] + "*" + filter[zz][z][ii][jj]+"+";
+                        }
+                    }
+                }
+                console.log(i, j, text, "=", answer)
+                res[res.length - 1].push(answer.toFixed(1))
+            }
+        }
+        ress.push(res)
+    }
+    return ress;
+}
+function pool(matrix, filter, func) {
+    var res = [];
+    for (var i = 0; i < parseInt((matrix.length - filter.length + stride_y) / stride_y); i++) {
+        res.push([]);
+        for (var j = 0; j < parseInt((matrix[0].length - filter[0].length + stride_x) / stride_x); j++) {
+            var answer = [];
+            for(var ii = 0; ii < filter.length; ii++) {
+                for(var jj = 0; jj < filter[0].length; jj++) {
+                    answer.push(matrix[i* stride_y + ii][j* stride_x + jj]);
+                }
+            }
+            if(func == "max")
+                res[res.length-1].push(Math.max(...answer))
+            else {
+                var sum = 0;
+                for( var ii = 0; ii < answer.length; ii++)
+                    sum += answer[ii]; //don't forget to add the base
+                var avg = sum/answer.length;
+                res[res.length-1].push(parseFloat(avg.toFixed(1)));
+            }
+
+        }
+    }
+    return res;
+}
+
+class Matrix {
+    constructor(x, y, matrix, title) {
+        this.g = svg.append("g").attr("class", "matrix").attr("transform", `translate(${x}, ${y})`);
+        for(var z = 0; z < matrix.length; z++) {
+            var gg = this.g.append("g").attr("class", "matrix_layer").attr("transform", `translate(${- z*box_z}, ${+ z*box_z})`);
+            for (var j = 0; j < matrix[0].length; j++) {
+                for (var i = 0; i < matrix[0][0].length; i++) {
+                    var element = gg.append("g").attr("class", "cell").attr("transform", `translate(${i * box_s}, ${j * box_s})`);
+                    var rect = element.append("rect")
+                        .attr("class", "number")
+                        .attr("x", -box_s / 2 + "px")
+                        .attr("y", -box_s / 2 + "px")
+                        .attr("width", box_s + "px")
+                        .attr("height", box_s + "px")
+                    if (i < matrix.paddingx || j < matrix.paddingy || i > matrix[0][0].length - matrix.paddingx - 1 || j > matrix[0].length - matrix.paddingy - 1)
+                        element.attr("class", "cell padding")
+                    element.append("text").text(matrix[z][j][i]).attr("text-anchor", "middle").attr("alignment-baseline", "center").attr("dy", "0.3em")
+                }
+            }
+            gg.append("rect").attr("class", "highlight3")
+            gg.append("rect").attr("class", "highlight1")
+            gg.append("rect").attr("class", "highlight2")
+        }
+        //<line x1="0" y1="50" x2="250" y2="50" stroke="#000" stroke-width="8" marker-end="url(#arrowhead)" />
+        this.arrow = gg.append("line").attr("transform", `translate(${(-0.5)*box_s}, ${(-0.5+filter.length/2)*box_s})`).attr("marker-end", "url(#arrowhead)").attr("x1", 0).attr("y1", 0).attr("x2", 50).attr("y2", 0)
+            .attr("stroke", "#000").attr("stroke-width", 8).attr("stroke", "rgb(236, 58, 58)").style("opacity", 0)
+
+
+        gg.append("text").attr("class", "title").text(title)
+            .attr("x", (matrix[0][0].length/2-0.5)*box_s+"px")
+            .attr("y", (matrix[0].length)*box_s+"px")
+            .attr("dy", "0em")
+        this.highlight2_hidden = true
+    }
+
+    setHighlight1(i, j, w, h) {
+        if(this.old_i == i && this.old_j == j && this.old_w == w)
+            return
+        if(i == this.old_i+stride_x || j == this.old_j+stride_y) {
+            if (this.old_j == j)
+                this.arrow.attr("x1", this.old_i * box_s).attr("y1", j * box_s)
+                    .attr("x2", i * box_s - 30).attr("y2", j * box_s).attr("transform", `translate(${(-0.5) * box_s}, ${(-0.5 + h / 2) * box_s})`)
+            else
+                this.arrow.attr("x1", i * box_s).attr("y1", this.old_j * box_s)
+                    .attr("x2", i * box_s).attr("y2", j * box_s - 30).attr("transform", `translate(${(-0.5 + w / 2) * box_s}, ${(-0.5) * box_s})`)
+            this.arrow.transition().style("opacity", 1)
+                .transition()
+                .duration(1000)
+                .style("opacity", 0)
+        }
+        this.old_i = i; this.old_j = j; this.old_w = w;
+        this.g.selectAll(".highlight1")
+            .style("fill", "rgba(236, 58, 58, 0)")
+            .transition()
+            .duration(1000)
+            .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
+            .attr("width", box_s*w+"px")
+            .attr("height", box_s*h+"px")
+            .style("fill", "rgba(236, 58, 58, 0.25)")
+        this.g.selectAll(".highlight3")
+            .style("opacity", 1)
+            .transition()
+            .duration(1000)
+            .style("opacity", 0)
+        this.g.selectAll(".highlight3")
+            .transition()
+            .delay(900)
+            .duration(0)
+            .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
+            .attr("width", box_s*w+"px")
+            .attr("height", box_s*h+"px")
+//            .style("opacity", 1)
+    }
+
+    setHighlight2(i, j, w, h) {
+        if(this.highlight2_hidden == true) {
+            this.g.selectAll(".highlight2")
+            .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
+            .attr("width", box_s*w+"px")
+            .attr("height", box_s*h+"px")
+            .transition()
+            .duration(1000)
+            .style("opacity", 1)
+            this.highlight2_hidden = false
+            return
+        }
+        this.g.selectAll(".highlight2")
+            .transition()
+            .duration(1000)
+            .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
+            .attr("width", box_s*w+"px")
+            .attr("height", box_s*h+"px");
+    }
+    hideHighlight2() {
+        this.highlight2_hidden = true
+        this.g.selectAll(".highlight2")
+            .transition()
+            .duration(1000)
+            .style("opacity", 0)
+    }
+    //m.g.selectAll(".cell text").style("opacity", (d, i)=>{console.log(i>4); return 1*(i>5)})
+}
+
+class Calculation {
+    constructor(x, y, matrix, title) {
+        this.g = svg.append("g").attr("class", "matrix").attr("transform", `translate(${x}, ${y})`)
+        this.g.append("text").text(title).attr("dy", "-1.5em").attr("dx", "2em")
+        this.g = this.g.append("text")
+        for (var j in matrix) {
+            for (var i in matrix[j]) {
+                var element = this.g;
+                var a = element.append("tspan")
+                    .text(i+"·"+j)
+                if(i == 0 && j > 0)
+                    a.attr("dy", "1.5em").attr("x", 0)
+                if(i == matrix[0].length - 1 && j == matrix.length - 1) {
+                    a = element.append("tspan")
+                    .attr("dy", "1.5em").attr("x", 0)
+                    .text(" = 12 ")
+                }
+                else {
+                    a = element.append("tspan")
+                        .text(" + ")
+                }
+            }
+        }
+    }
+    setText(i, text) {
+        d3.select(this.g.selectAll("tspan")[0][i*2]).text(text)
+    }
+    hideAll() {
+        this.g.selectAll("tspan")
+            .attr("fill", "white")
+    }
+    setHighlight1(i) {
+        this.g.selectAll("tspan")
+            .transition()
+            .duration(1000)
+            .attr("fill",
+            (d, ii) => ii==i*2 ? "rgb(229, 132, 66)" : ii> i*2 ? "white" : "black")
+
+    }
+}
+
+class CalculationPool {
+    constructor(x, y, matrix, title) {
+        this.g = svg.append("g").attr("class", "matrix").attr("transform", `translate(${x}, ${y})`)
+        this.g.append("text").text(title).attr("dy", "-3em").attr("dx", "-2em")
+        this.g.append("text").text(group_func+"([").attr("dy", "-1.5em").attr("dx", "-0.5em")
+        this.g = this.g.append("text")
+        for (var j in matrix) {
+            for (var i in matrix[j]) {
+                var element = this.g;
+                var a = element.append("tspan")
+                    .text("")
+                if(i == 0 && j > 0)
+                    a.attr("dy", "1.5em").attr("x", 0)
+                if(i == matrix[0].length - 1 && j == matrix.length - 1) {
+                    a = element.append("tspan")
+                    .attr("dy", "1.5em").attr("x", 0).attr("dx", "-0.5em")
+                    .text("")
+                }
+                else {
+                    a = element.append("tspan")
+                        .text("")
+                }
+            }
+        }
+    }
+    setText(i, text) {
+        d3.select(this.g.selectAll("tspan")[0][i*2]).text(text)
+    }
+    hideAll() {
+        this.g.selectAll("tspan")
+            .attr("fill", "white")
+    }
+    setHighlight1(i) {
+        this.g.selectAll("tspan")
+            .transition()
+            .duration(1000)
+            .attr("fill",
+            (d, ii) => ii==i*2 ? "rgb(229, 132, 66)" : ii> i*2 ? "white" : "black")
+
+    }
+}
+
+var matrix, res, m, f, r, c, last_pos, index_max;
+function init() {
+    show_single_elements = dom_target.querySelector(".play_fast").checked == false
+    /*
+    tuple_or_single = (x, y) => x == y ? x : `(${x}, ${y})`
+    if(group_func == "max")
+        dom_target.querySelector(".torch_name").innerText = `torch.nn.MaxPool2d(kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
+    else if(group_func == "mean")
+            dom_target.querySelector(".torch_name").innerHTML = `torch.nn.AvgPool2d(x=<input class="input_filterx" type="number" min="2" max="4" value="3">, kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
+    else
+        dom_target.querySelector(".torch_name").innerText = `torch.nn.Conv2d(in_channels=1, out_channels=1,  kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
+
+    if(window.hljs != undefined)
+        hljs.highlightElement(dom_target.querySelector(".torch_name"))
+    */
+    svg.selectAll("*").remove();
+
+    dom_target.querySelector(".input_matrixzB").value = dom_target.querySelector(".input_matrixz").value
+
+    console.log("dom_target", dom_target)
+    console.log("dom_target.querySelector(\".input_filterx\").value)", dom_target.querySelector(".input_filterx").value)
+    filter = generateMatrix2(numberGenerator(17, 0.9, 1), [parseInt(dom_target.querySelector(".input_filterz").value), parseInt(dom_target.querySelector(".input_matrixz").value), parseInt(dom_target.querySelector(".input_filtery").value), parseInt(dom_target.querySelector(".input_filterx").value)]);
+    if(dom_target.querySelector(".input_filterx").value == dom_target.querySelector(".input_filtery").value)
+        dom_target.querySelector(".input_filtery").parentElement.className = "pair"
+    else
+        dom_target.querySelector(".input_filtery").parentElement.className = "pairX"
+    matrix_raw = generateMatrix2(numberGenerator(4, 9, 0), [parseInt(dom_target.querySelector(".input_matrixz").value), parseInt(dom_target.querySelector(".input_matrixy").value), parseInt(dom_target.querySelector(".input_matrixx").value)]);
+
+    matrix = JSON.parse(JSON.stringify(matrix_raw));
+    for(var z = 0; z < matrix.length; z++)
+        matrix[z] = addPadding(matrix_raw[z], parseInt(dom_target.querySelector(".input_paddingx").value), parseInt(dom_target.querySelector(".input_paddingy").value));
+    matrix.paddingx = matrix[0].paddingx
+    matrix.paddingy = matrix[0].paddingy
+    stride_x = parseInt(dom_target.querySelector(".input_stridex").value)
+    stride_y = parseInt(dom_target.querySelector(".input_stridey").value)
+
+    if(dom_target.querySelector(".input_stridex").value == dom_target.querySelector(".input_stridey").value)
+        dom_target.querySelector(".input_stridey").parentElement.className = "pair"
+    else
+        dom_target.querySelector(".input_stridey").parentElement.className = "pairX"
+        if(dom_target.querySelector(".input_paddingx").value == dom_target.querySelector(".input_paddingy").value)
+        dom_target.querySelector(".input_paddingy").parentElement.className = "pair"
+    else
+        dom_target.querySelector(".input_paddingy").parentElement.className = "pairX"
+
+    res = convolve(matrix, filter);
+        window.matrix = matrix
+        window.filter = filter
+        window.res = res
+    if(group_func != undefined)
+        res = [pool(matrix[0], filter[0][0], group_func)]
+
+    m = new Matrix(1*box_s, (1+filter[0][0].length+1.5)*box_s, matrix, "Matrix");
+
+    f = []
+    for(var zz = 0; zz < filter.length; zz++)
+        f.push(new Matrix((1+(matrix[0][0].length-filter[zz][0][0].length)/2 + zz*(1+filter[zz][0][0].length))*box_s, 1*box_s, filter[zz], group_func == undefined ? (filter.length != 1? `Filter ${zz}` : `Filter`) : "Pooling"));
+    if(group_func != undefined)
+        f[0].g.selectAll(".cell text").attr("fill", "white")
+
+    console.log("res", res)
+    r = new Matrix((2+(matrix[0][0].length)+1)*box_s, (1+filter[0][0].length+1.5)*box_s, res, "Result");
+
+    var c_x = Math.max((1+(matrix[0][0].length))*box_s, (3+filter.length*(1+(filter[0][0].length)))*box_s)
+    console.log("m,ax", (1+(matrix[0][0].length)), filter.length*(1+(filter[0][0].length)))
+    if(group_func != undefined)
+        c = new CalculationPool(c_x, (1+0.5)*box_s, filter[0][0], "Calculation");
+    else
+        c = new Calculation(c_x, (1+0.5)*box_s, filter[0][0], "Calculation");
+
+    last_pos = undefined;
+    if(show_single_elements)
+        index_max = filter.length*res[0].length*res[0][0].length*(filter[0][0].length * filter[0][0][0].length * filter[0].length + 2)
+    else
+        index_max = filter.length*res[0].length*res[0][0].length
+    window.index_max = index_max
+    window.filter = filter
+    setHighlights(0, 0)
+    svg.attr("width", box_s*(matrix[0][0].length+res[0][0].length+4)+(c.g.node().getBoundingClientRect().width)+"px");
+    svg.attr("height", box_s*(matrix[0].length+filter[0][0].length+3.0)+"px");
+}
+init()
+
+function setHighlights(pos_zz, subpos) {
+    var [zz, pos] = divmod(pos_zz, res[0].length*res[0][0].length)
+    var [i, j] = divmod(pos, res[0][0].length)
+    i *= stride_y;
+    j *= stride_x;
+    var [j2, i2] = divmod(subpos, filter[0][0][0].length * filter[0].length)
+    var [i2, z2] = divmod(i2, filter[0].length)
+    subpos = Math.floor(subpos/filter[0].length)
+    console.log(zz, i, j, j2, i2, z2)
+    if(last_pos != pos || 1) {
+        var answer = 0;
+        for(var ii = 0; ii < filter[0][0].length; ii++) {
+            for(var jj = 0; jj < filter[0][0][0].length; jj++) {
+                var text = []
+                if(filter[0].length == 1) {
+                    for(var z = 0; z < filter[0].length; z++) {
+                        if (group_func != undefined)
+                            text.push(matrix[0][i + ii][j + jj] + ", ");
+                        else
+                            text.push(matrix[z][i + ii][j + jj] + " · " + filter[zz][z][ii][jj]);
+                    }
+                    if (group_func != undefined)
+                        c.setText(ii * filter[0][0][0].length + jj, text.join(", "));
+                    else
+                        c.setText(ii * filter[0][0][0].length + jj, text.join("+"));
+                }
+                else {
+                    let max_z = (ii == j2 && jj == i2) ? z2+1 : filter[0].length
+                    for (var z = 0; z < max_z; z++) {
+                        if (group_func != undefined)
+                            text.push(matrix[0][i + ii][j + jj] + ", ");
+                        else
+                            text.push(matrix[z][i + ii][j + jj] + "·" + filter[zz][z][ii][jj]);
+                        console.log(z, z2, text)
+                    }
+                    console.log("----------")
+                    if (group_func != undefined)
+                        c.setText(ii * filter[0][0][0].length + jj, text.join(", "));
+                    else
+                        c.setText(ii * filter[0][0][0].length + jj, "(" + text.join("+") + ((filter[0].length==max_z)?")":""));
+                }
+            }
+        }
+        if(group_func != undefined)
+            c.setText(filter[0][0].length * filter[0][0][0].length - 0.5, "   ]) = "+res[zz][i/stride_y][j/stride_x])
+        else
+            c.setText(filter[0][0].length * filter[0][0][0].length - 0.5, "   = "+res[zz][i/stride_y][j/stride_x])
+        if(last_pos != pos)
+            c.hideAll();
+        last_pos = pos;
+    }
+    m.setHighlight1(j, i, filter[0][0][0].length, filter[0][0].length)
+    for(var zzz = 0; zzz < filter.length; zzz++) {
+        console.log(zzz, zz, zzz == zz)
+        if (zzz == zz)
+            f[zzz].setHighlight1(0, 0, filter[0][0][0].length, filter[0][0].length)
+        else
+            f[zzz].setHighlight1(0, 0, 0, 0)
+    }
+    window.f = f
+
+    r.setHighlight1(j/stride_x, i/stride_y, 1, 1)
+    r.g.selectAll(".matrix_layer").attr("opacity", (d,i) => i > zz ? 0.2 : 1 )
+    r.g.selectAll(".matrix_layer .highlight1").attr("visibility", (d,i)=>i==zz ? "visible" : "hidden")
+    r.g.selectAll(".matrix_layer .highlight3").attr("visibility", (d,i)=>i==zz ? "visible" : "hidden")
+    window.r = r
+
+    let matrixpos = (i + j2) * matrix[0][0].length + (j + i2)
+    m.g.selectAll(".matrix_layer").each(function(p, j){
+        console.log(d3.select(this).select("highlight2"))
+        d3.select(this).selectAll(".cell").attr("opacity", (d,i) => (i == matrixpos && j > z2 && subpos < filter[0][0].length * filter[0][0][0].length) ? 0 : 1 );
+        d3.select(this).select(".highlight2").style("stroke", (d,i) => (j != z2) ? "transparent" : "rgb(229, 132, 66)");
+    })
+    f[zz].g.selectAll(".matrix_layer").each(function(p, j){
+        console.log(d3.select(this).select("highlight2"), subpos, i2, j2, z2)
+        d3.select(this).selectAll(".cell").attr("opacity", (d,i) => (i == subpos && j > z2 && subpos < filter[0][0].length * filter[0][0][0].length) ? 0 : 1 );
+        d3.select(this).select(".highlight2").style("stroke", (d,i) => (j != z2) ? "transparent" : "rgb(229, 132, 66)");
+        //d3.select(this).select(".highlight1").style("stroke", (d,i) => (j == z2) ? "visible" : "hidden");
+        //d3.select(this).select(".highlight3").style("stroke", (d,i) => (j == z2) ? "visible" : "hidden");
+    })
+
+    if(subpos < filter[0][0].length * filter[0][0][0].length) {
+        m.setHighlight2(j + i2, i + j2, 1, 1)
+        if(group_func == undefined)
+            for(var zzz = 0; zzz < filter.length; zzz++) {
+                if (zzz == zz)
+                    f[zzz].setHighlight2(i2, j2, 1, 1)
+                else
+                    f[zzz].hideHighlight2()
+            }
+        r.g.selectAll(".cell text").attr("fill", (d, i) => i >= pos_zz ? "white" : "black")
+        c.setHighlight1(subpos);
+    }
+    else {
+        m.hideHighlight2()
+        for(var zzz = 0; zzz < filter.length; zzz++)
+            f[zzz].hideHighlight2()
+        r.g.selectAll(".cell text").attr("fill", (d, i) => i > pos_zz ? "white" : "black")
+        if(subpos > filter[0][0].length * filter[0][0][0].length) {
+            c.hideAll()
+        }
+        else
+            c.setHighlight1(subpos);
+    }
+
+    function p(x) { console.log(x); return x}
+}
+function animate(frame) {
+    dom_target.querySelector("input[type=range]").value = index;
+    dom_target.querySelector("input[type=range]").max = index_max - 1;
+    dom_target.querySelector("input[type=range]").min = 0;
+    if(show_single_elements) {
+        var [pos, subpos] = divmod(frame, filter[0][0].length * filter[0][0][0].length * filter[0].length + 2)
+        setHighlights(pos, subpos);
+    }
+    else
+        setHighlights(frame, filter[0][0].length * filter[0][0][0].length * filter[0].length);
+}
+var index = -1
+animate(0)
+var interval = undefined;
+
+function PlayStep() {
+    index += 1;
+    if(index >= index_max)
+        index = 0;
+    animate(index);
+}
+
+function playPause() {
+    if(interval === undefined) {
+        dom_target.querySelector(".play").style.display = "none"
+        dom_target.querySelector(".pause").style.display = "inline-block"
+        interval = window.setInterval(PlayStep, 1000);
+        PlayStep();
+    }
+    else {
+        dom_target.querySelector(".play").style.display = "inline-block"
+        dom_target.querySelector(".pause").style.display = "none"
+        window.clearInterval(interval);
+        interval = undefined;
+    }
+}
+dom_target.querySelector("input[type=range]").value = 0;
+dom_target.querySelector("input[type=range]").max = index_max;
+dom_target.querySelector("input[type=range]").onchange = (i)=>{var v = parseInt(i.target.value); index = v; animate(v);};
+dom_target.querySelector(".play").onclick = playPause;
+dom_target.querySelector(".pause").onclick = playPause;
+dom_target.querySelector(".left").onclick = ()=>{index > 0 ? index -= 1 : index = index_max-1; animate(index);};
+dom_target.querySelector(".right").onclick = ()=>{index < index_max-1 ? index += 1 : index = 0; animate(index);};
+
+dom_target.querySelector(".input_filterx").onchange = ()=>{init()}
+dom_target.querySelector(".input_filtery").onchange = ()=>{init()}
+dom_target.querySelector(".input_filterz").onchange = ()=>{init()}
+dom_target.querySelector(".input_matrixx").onchange = ()=>{init()}
+dom_target.querySelector(".input_matrixy").onchange = ()=>{init()}
+dom_target.querySelector(".input_matrixz").onchange = ()=>{init()}
+dom_target.querySelector(".input_matrixzB").onchange = (i)=>{dom_target.querySelector(".input_matrixz").value = parseInt(i.target.value); init();};
+dom_target.querySelector(".input_paddingx").onchange = ()=>{init()}
+dom_target.querySelector(".input_paddingy").onchange = ()=>{init()}
+dom_target.querySelector(".input_stridex").onchange = ()=>{init()}
+dom_target.querySelector(".input_stridey").onchange = ()=>{init()}
+dom_target.querySelector(".play_fast").onchange = ()=>{init()}
+
+//dom_target.querySelector(".select_maxpool").onclick = ()=>{group_func="max"; dom_target.querySelector(".dropbtn").innerText = "MaxPool2d"; init()}
+//dom_target.querySelector(".select_avgpool").onclick = ()=>{group_func="avg"; dom_target.querySelector(".dropbtn").innerText = "AvgPool2d"; init()}
+
+})();
+</script>
