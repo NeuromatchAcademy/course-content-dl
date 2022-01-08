@@ -1,0 +1,65 @@
+name: publish-book-local
+
+on: 
+
+  workflow_dispatch:
+
+env:
+  NB_KERNEL: python
+  NMA_REPO: course-content-dl
+  NMA_MAIN_BRANCH: main
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  build-and-deploy-book:
+    runs-on: [self-hosted,cml,gpu]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Get commit message
+        run: |
+          readonly local msg=$(git log -1 --pretty=format:"%s")
+          echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install CI tools
+        run: |
+          BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
+          tar -xzf $BRANCH.tar.gz
+          apt-get install python3.7-dev libffi-dev pybind11-dev
+          python3.7 -m pip install cython wheel
+          python3.7 -m pip install python-Levenshtein
+          python3.7 -m pip install -r nmaci-$BRANCH/requirements.txt
+          mv nmaci-$BRANCH/scripts/ ci/
+          rm -r nmaci-$BRANCH
+          echo ci/ >> .gitignore
+      - name: Install dependencies
+        run: |
+          python3.7 -m pip install requests numpy scipy==1.4.0 matplotlib scikit-learn torch ipywidgets tqdm torchvision pathlib decorator==5.0.9
+          python3.7 -m pip install jupyter-book==0.10.2 ghp-import
+      - name: Build the book
+        run: |
+          python3.7 ci/generate_book_dl.py
+          ln -s ../tutorials book/tutorials
+          ln -s ../projects book/projects
+          jupyter-book build book
+          python3.7 ci/parse_html_for_errors.py
+      - name: Commit book
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          ghp-import -n -c "deeplearning.neuromatch.io" -m "Update course book" book/_build/html
+          git checkout -f gh-pages
+      - name: Publish to gh-pages
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          force: true
