@@ -1,0 +1,27 @@
+name: publish-book
+
+on: 
+
+  workflow_dispatch:
+
+env:
+  NB_KERNEL: python
+  NMA_REPO: course-content-dl
+  NMA_MAIN_BRANCH: main
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  build-and-deploy-book:
+    runs-on: [self-hosted,cml,gpu]
+    timeout-minutes: 1200
+    steps:
+      - name: cml-run
+      - uses: actions/checkout@v2
+        run : |
+          CODEBLOCK="\`\`\`"
+          echo $CODEBLOCK > report.md
+          nvidia-smi >> report.md
+          echo $CODEBLOCK > report.md
+          
+          cml-send-comment report.md
+          
