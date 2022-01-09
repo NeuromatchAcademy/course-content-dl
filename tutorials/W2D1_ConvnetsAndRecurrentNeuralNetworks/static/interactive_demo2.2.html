@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <style>
     svg {
@@ -127,7 +128,6 @@
 
   <div id="animation_conv_padding" style="background: white">
     <div class="display_vis_input language-python" style="font-family: monospace; color: black; padding: 10px;">
-
         <!-- padding -->
         import torch<br><br>
         input = torch.rand(1, 1<input class="input_matrixz" type="hidden" min="1" max="3" value="1">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">)<br>
@@ -139,9 +139,8 @@
         padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="1"><span class="pair_hide">,
                                                                     <input class="input_paddingy" type="number" min="0" max="4" value="1">)</span></span>)<br>
         result = conv(input)
-
     </div>
-        <button class="button_play play"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 1.5,0 9.5,5 1.5,10 z"/></svg></button>
+    <button class="button_play play"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 1.5,0 9.5,5 1.5,10 z"/></svg></button>
     <button class="button_play pause" style="display: none"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 0,0 4,0 4,10, 0,10 z"/><path d="M 6,0 10,0 10,10, 6,10 z"/></svg></button>
     <input type="range" min="1" max="100" value="50" class="slider" style="width: 300px; display: inline-block">
     <button class="button_play left"><svg width="7" height="15" viewbox="0 0 4 10"><path d="M 0,5 4,0 4,10 z"/></svg></button>
@@ -149,16 +148,14 @@
     <input type="checkbox" class="play_fast">fast play mode
     <br/>
     <svg height="0" width="0">
-        <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7"
-    refX="0" refY="1.5" orient="auto" fill="rgb(236, 58, 58)">
+      <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="0" refY="1.5" orient="auto" fill="rgb(236, 58, 58)">
       <polygon points="0 0, 4 1.5, 0 3" />
-    </marker>
-  </defs>
+      </marker>
+      </defs>
     </svg>
-    <svg class="image" height="460" width="600">
-
-    </svg>
+    <svg class="image" height="460" width="600"></svg>
   </div>
 
   <script>
@@ -343,7 +340,6 @@
                 .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
                 .attr("width", box_s*w+"px")
                 .attr("height", box_s*h+"px")
-    //            .style("opacity", 1)
         }
 
         setHighlight2(i, j, w, h) {
@@ -671,7 +667,7 @@
     dom_target.querySelector(".input_stridex").onchange = ()=>{init()}
     dom_target.querySelector(".input_stridey").onchange = ()=>{init()}
     dom_target.querySelector(".play_fast").onchange = ()=>{init()}
-        <!--
+    <!--
     dom_target.querySelector(".select_maxpool").onclick = ()=>{group_func="max"; dom_target.querySelector(".dropbtn").innerText = "MaxPool2d"; init()}
     dom_target.querySelector(".select_avgpool").onclick = ()=>{group_func="avg"; dom_target.querySelector(".dropbtn").innerText = "AvgPool2d"; init()}
     -->
