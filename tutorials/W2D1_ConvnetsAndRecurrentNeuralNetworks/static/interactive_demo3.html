@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <style>
         svg {
@@ -128,31 +129,6 @@
 
     <div id="animation_conv_filters" style="background: white">
         <div class="display_vis_input language-python" style="font-family: monospace; color: black; padding: 10px;">
-            <!-- default -- >
-            import torch<br><br>
-            input = torch.rand(1, 1<input class="input_matrixz" type="hidden" min="1" max="3" value="1">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="3">))<br>
-            conv = torch.nn.Conv2d(in_channels=1<input class="input_matrixzB" type="hidden" min="1" max="3" value="1">, out_channels=1<input class="input_filterz" type="hidden" min="1" max="3" value="1">,
-            kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="3"><span class="pair_hide">,
-                                                                           <input class="input_filtery" type="number" min="2" max="4" value="2">)</span></span>,
-            stride=1<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="hidden" min="1" max="2" value="1"><span class="pair_hide">,
-                                                                      <input class="input_stridey" type="hidden" min="1" max="2" value="1">)</span></span>,
-            padding=0<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="hidden" min="0" max="4" value="0"><span class="pair_hide">,
-                                                                       <input class="input_paddingy" type="hidden" min="0" max="4" value="0">)</span></span>)<br>
-            result = conv(input)
-            -->
-            <!-- padding
-            import torch<br><br>
-            input = torch.rand(1, 1<input class="input_matrixz" type="hidden" min="1" max="3" value="1">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">))<br>
-            conv = torch.nn.Conv2d(in_channels=1<input class="input_matrixzB" type="hidden" min="1" max="3" value="1">, out_channels=1<input class="input_filterz" type="hidden" min="1" max="3" value="1">,
-            kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="3"><span class="pair_hide">,
-                                                                           <input class="input_filtery" type="number" min="2" max="4" value="3">)</span></span>,
-            stride=<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="number" min="1" max="2" value="1"><span class="pair_hide">,
-                                                                      <input class="input_stridey" type="number" min="1" max="2" value="1">)</span></span>,
-            padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="1"><span class="pair_hide">,
-                                                                       <input class="input_paddingy" type="number" min="0" max="4" value="1">)</span></span>)<br>
-            result = conv(input)
-    -->
-        <!-- filters -->
             import torch<br><br>
             input = torch.rand(1, <input class="input_matrixz" type="number" min="1" max="3" value="3">, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">)<br>
             conv = torch.nn.Conv2d(in_channels=<input class="input_matrixzB" type="number" min="1" max="3" value="3">, out_channels=<input class="input_filterz" type="number" min="1" max="3" value="2">,
@@ -164,25 +140,8 @@
                                                                        <input class="input_paddingy" type="number" min="0" max="4" value="0">)</span></span>)<br>
             result = conv(input)
 
-     <!--
-            import torch<br><br>
-            input = torch.rand(1, <input class="input_matrixz" type="hidden" min="1" max="3" value="1">1, <input class="input_matrixx" type="number" min="3" max="5" value="4">, <input class="input_matrixy" type="number" min="3" max="5" value="4">))<br>
-            conv = torch.nn.<div class="dropdown">
-      <div class="dropbtn">MaxPool2d</div>
-      <div class="dropdown-content">
-        <a class="select_maxpool" href="#">MaxPool2d</a>
-        <a class="select_avgpool" href="#">AvgPool2d</a>
-      </div>
-    </div>(<input class="input_matrixzB" type="hidden" min="1" max="3" value="1"><input class="input_filterz" type="hidden" min="1" max="3" value="1">kernel_size=<span class="pair"><span class="pair_hide">(</span><input class="input_filterx" type="number" min="2" max="4" value="2"><span class="pair_hide">,
-                                                                           <input class="input_filtery" type="number" min="2" max="4" value="2">)</span></span>,
-            stride=<span class="pair"><span class="pair_hide">(</span><input class="input_stridex" type="number" min="1" max="2" value="2"><span class="pair_hide">,
-                                                                      <input class="input_stridey" type="number" min="1" max="2" value="2">)</span></span>,
-            padding=<span class="pair"><span class="pair_hide">(</span><input class="input_paddingx" type="number" min="0" max="4" value="0"><span class="pair_hide">,
-                                                                       <input class="input_paddingy" type="number" min="0" max="4" value="0">)</span></span>)<br>
-            result = conv(input)
-    -->
         </div>
-            <button class="button_play play"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 1.5,0 9.5,5 1.5,10 z"/></svg></button>
+        <button class="button_play play"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 1.5,0 9.5,5 1.5,10 z"/></svg></button>
         <button class="button_play pause" style="display: none"><svg width="15" height="15" viewbox="0 0 10 10"><path d="M 0,0 4,0 4,10, 0,10 z"/><path d="M 6,0 10,0 10,10, 6,10 z"/></svg></button>
         <input type="range" min="1" max="100" value="50" class="slider" style="width: 300px; display: inline-block">
         <button class="button_play left"><svg width="7" height="15" viewbox="0 0 4 10"><path d="M 0,5 4,0 4,10 z"/></svg></button>
@@ -191,17 +150,16 @@
         <br/>
         <svg height="0" width="0">
             <defs>
-        <marker id="arrowhead" markerWidth="10" markerHeight="7"
-        refX="0" refY="1.5" orient="auto" fill="rgb(236, 58, 58)">
-          <polygon points="0 0, 4 1.5, 0 3" />
-        </marker>
-      </defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7"
+            refX="0" refY="1.5" orient="auto" fill="rgb(236, 58, 58)">
+            <polygon points="0 0, 4 1.5, 0 3" />
+            </marker>
+            </defs>
         </svg>
-        <svg class="image" height="460" width="600">
-
-        </svg>
+        <svg class="image" height="460" width="600"></svg>
     </div>
-    <script>
+    
+<script>
     (function() {
     var dom_target = document.getElementById("animation_conv_filters")
     const divmod = (x, y) => [Math.floor(x / y), x % y];
@@ -336,7 +294,6 @@
                 gg.append("rect").attr("class", "highlight1")
                 gg.append("rect").attr("class", "highlight2")
             }
-            //<line x1="0" y1="50" x2="250" y2="50" stroke="#000" stroke-width="8" marker-end="url(#arrowhead)" />
             this.arrow = gg.append("line").attr("transform", `translate(${(-0.5)*box_s}, ${(-0.5+filter.length/2)*box_s})`).attr("marker-end", "url(#arrowhead)").attr("x1", 0).attr("y1", 0).attr("x2", 50).attr("y2", 0)
                 .attr("stroke", "#000").attr("stroke-width", 8).attr("stroke", "rgb(236, 58, 58)").style("opacity", 0)
 
@@ -384,7 +341,6 @@
                 .attr("x", (-box_s/2+i*box_s)+"px").attr("y", (-box_s/2+j*box_s)+"px")
                 .attr("width", box_s*w+"px")
                 .attr("height", box_s*h+"px")
-    //            .style("opacity", 1)
         }
 
         setHighlight2(i, j, w, h) {
@@ -413,7 +369,6 @@
                 .duration(1000)
                 .style("opacity", 0)
         }
-        //m.g.selectAll(".cell text").style("opacity", (d, i)=>{console.log(i>4); return 1*(i>5)})
     }
 
     class Calculation {
@@ -453,7 +408,6 @@
                 .duration(1000)
                 .attr("fill",
                 (d, ii) => ii==i*2 ? "rgb(229, 132, 66)" : ii> i*2 ? "white" : "black")
-
         }
     }
 
@@ -495,27 +449,13 @@
                 .duration(1000)
                 .attr("fill",
                 (d, ii) => ii==i*2 ? "rgb(229, 132, 66)" : ii> i*2 ? "white" : "black")
-
         }
     }
 
     var matrix, res, m, f, r, c, last_pos, index_max;
     function init() {
         show_single_elements = dom_target.querySelector(".play_fast").checked == false
-        /*
-        tuple_or_single = (x, y) => x == y ? x : `(${x}, ${y})`
-        if(group_func == "max")
-            dom_target.querySelector(".torch_name").innerText = `torch.nn.MaxPool2d(kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
-        else if(group_func == "mean")
-                dom_target.querySelector(".torch_name").innerHTML = `torch.nn.AvgPool2d(x=<input class="input_filterx" type="number" min="2" max="4" value="3">, kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
-        else
-            dom_target.querySelector(".torch_name").innerText = `torch.nn.Conv2d(in_channels=1, out_channels=1,  kernel_size=${tuple_or_single(dom_target.querySelector(".input_filterx").value, dom_target.querySelector(".input_filtery").value)}, stride=${tuple_or_single(dom_target.querySelector(".input_stridex").value, dom_target.querySelector(".input_stridey").value)}, padding=${tuple_or_single(dom_target.querySelector(".input_paddingx").value, dom_target.querySelector(".input_paddingy").value)})`
-
-        if(window.hljs != undefined)
-            hljs.highlightElement(dom_target.querySelector(".torch_name"))
-        */
         svg.selectAll("*").remove();
-
         dom_target.querySelector(".input_matrixzB").value = dom_target.querySelector(".input_matrixz").value
 
         console.log("dom_target", dom_target)
@@ -659,8 +599,6 @@
             console.log(d3.select(this).select("highlight2"), subpos, i2, j2, z2)
             d3.select(this).selectAll(".cell").attr("opacity", (d,i) => (i == subpos && j > z2 && subpos < filter[0][0].length * filter[0][0][0].length) ? 0 : 1 );
             d3.select(this).select(".highlight2").style("stroke", (d,i) => (j != z2) ? "transparent" : "rgb(229, 132, 66)");
-            //d3.select(this).select(".highlight1").style("stroke", (d,i) => (j == z2) ? "visible" : "hidden");
-            //d3.select(this).select(".highlight3").style("stroke", (d,i) => (j == z2) ? "visible" : "hidden");
         })
 
         if(subpos < filter[0][0].length * filter[0][0][0].length) {
@@ -745,10 +683,6 @@
     dom_target.querySelector(".input_stridex").onchange = ()=>{init()}
     dom_target.querySelector(".input_stridey").onchange = ()=>{init()}
     dom_target.querySelector(".play_fast").onchange = ()=>{init()}
-
-    //dom_target.querySelector(".select_maxpool").onclick = ()=>{group_func="max"; dom_target.querySelector(".dropbtn").innerText = "MaxPool2d"; init()}
-    //dom_target.querySelector(".select_avgpool").onclick = ()=>{group_func="avg"; dom_target.querySelector(".dropbtn").innerText = "AvgPool2d"; init()}
-
     })();
     </script>
 </html>
