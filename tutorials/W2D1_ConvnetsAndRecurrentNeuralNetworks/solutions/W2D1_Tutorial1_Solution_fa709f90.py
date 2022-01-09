@@ -1,8 +1,7 @@
 def train(model, device, train_loader, validation_loader, epochs):
 
   criterion =  nn.CrossEntropyLoss()
-  optimizer = torch.optim.SGD(model.parameters(),
-                            lr=0.01, momentum=0.9)
+  optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
   train_loss, validation_loss = [], []
   train_acc, validation_acc = [], []
   with tqdm(range(epochs), unit='epoch') as tepochs:
@@ -47,8 +46,8 @@ def train(model, device, train_loader, validation_loader, epochs):
         total += target.size(0)
         correct += (predicted == target).sum().item()
 
-      train_loss.append(running_loss/len(train_loader))  # append the loss for this epoch (running loss divided by the number of batches e.g. len(train_loader))
-      train_acc.append(correct/total)
+      train_loss.append(running_loss / len(train_loader))  # append the loss for this epoch (running loss divided by the number of batches e.g. len(train_loader))
+      train_acc.append(correct / total)
 
       # evaluate on validation data
       model.eval()
@@ -66,8 +65,8 @@ def train(model, device, train_loader, validation_loader, epochs):
         total += target.size(0)
         correct += (predicted == target).sum().item()
 
-      validation_loss.append(running_loss/len(validation_loader))
-      validation_acc.append(correct/total)
+      validation_loss.append(running_loss / len(validation_loader))
+      validation_acc.append(correct / total)
 
   return train_loss, train_acc, validation_loss, validation_acc
 

@@ -32,7 +32,7 @@ atform.add_event('Coding Exercise 2.3: Coding a Convolution')
 
 ## Tests
 # first, we test the parameters we used before in the manual-calculation example
-image = np.array([[0,  200, 200], [0,   0,  200], [0,   0,   0]])
+image = np.array([[0, 200, 200], [0, 0, 200], [0, 0, 0]])
 kernel = np.array([[0.25, 0.25], [0.25, 0.25]])
 check_conv_function(convolution2d, image, kernel)
 
