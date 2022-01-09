@@ -44,7 +44,6 @@ jobs:
           echo ci/ >> .gitignore
       - name: Install dependencies
         run: |
-          python3.7 -m pip install requests numpy scipy==1.4.0 matplotlib scikit-learn torch ipywidgets tqdm torchvision pathlib decorator==5.0.9
           python3.7 -m pip install jupyter-book==0.10.2 ghp-import
       - name: Build the book
         run: |
