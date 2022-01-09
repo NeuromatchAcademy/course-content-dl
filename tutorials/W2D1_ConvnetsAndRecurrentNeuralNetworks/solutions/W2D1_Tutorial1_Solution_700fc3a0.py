@@ -2,13 +2,13 @@ def conv_check():
   # Write the solution array and call the function to verify it!
   solution = np.array([
                        [50, 150],
-                       [0,   50]
+                       [0, 50]
                        ])
 
   original = np.array([
                        [0, 200, 200],
-                       [0,   0, 200],
-                       [0,   0,   0]
+                       [0, 0, 200],
+                       [0, 0, 0]
                        ])
 
   kernel = np.array([
