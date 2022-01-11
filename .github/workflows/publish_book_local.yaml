@@ -32,7 +32,7 @@ jobs:
         run: |
           apt-get update
           apt-get -y upgrade
-          apt-get install -y python3.7-dev libffi-dev pybind11-dev
+          apt-get install -y python3.7-dev libffi-dev pybind11-dev xvfb ffmpeg
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
