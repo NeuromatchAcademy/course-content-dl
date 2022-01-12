@@ -31,8 +31,8 @@ jobs:
       - name: Install CI tools
         run: |
           apt-get update
-          apt-get -y upgrade
-          apt-get install -y python3.7-dev libffi-dev pybind11-dev xvfb ffmpeg
+          apt-get upgrade -yq
+          apt-get install python3.7-dev libffi-dev pybind11-dev xvfb ffmpeg -yq 
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
