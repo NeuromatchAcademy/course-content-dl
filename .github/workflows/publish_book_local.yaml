@@ -50,7 +50,7 @@ jobs:
           python3.7 ci/generate_book_dl.py
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
-          jupyter-book build book
+          CUDA_VISIBLE_DEVICES=0 jupyter-book build book
           python3.7 ci/parse_html_for_errors.py
       - name: Commit book
         run: |
