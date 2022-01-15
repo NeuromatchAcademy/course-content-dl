@@ -1,15 +1,27 @@
 class Transformer(nn.Module):
-  """Transformer Encoder network for classification
+  """ Transformer Encoder network for classification. """
+
+  def __init__(self, k, heads, depth, seq_length, num_tokens, num_classes):
+    """
+    Initiates the Transformer Network
 
     Args:
-      k (int): Attention embedding size
-      heads (int): Number of self attention heads
-      depth (int): How many transformer blocks to include
-      seq_length (int): How long an input sequence is
-      num_tokens (int): Size of dictionary
-      num_classes (int): Number of output classes
-  """
-  def __init__(self, k, heads, depth, seq_length, num_tokens, num_classes):
+      k: Integer
+        Attention embedding size
+      heads: Integer
+        Number of self attention heads
+      depth: Integer
+        Number of Transformer Blocks
+      seq_length: Integer
+        Length of input sequence
+      num_tokens: Integer
+        Size of dictionary
+      num_classes: Integer
+        Number of output classes
+
+    Returns:
+      Nothing
+    """
     super().__init__()
 
     self.k = k
@@ -25,13 +37,16 @@ class Transformer(nn.Module):
     self.classification_head = nn.Linear(k, num_classes)
 
   def forward(self, x):
-    """Forward pass for Classification Transformer network
+    """
+    Forward pass for Classification within Transformer network
 
     Args:
-      x (torch.Tensor): (b, t) sized tensor of tokenized words
+      x: Tensor
+        (b, t) sized tensor of tokenized words
 
     Returns:
-      torch.Tensor of size (b, c) with log-probabilities over classes
+      logprobs: Tensor
+        Log-probabilities over classes sized (b, c)
     """
     x = self.token_embedding(x) * np.sqrt(self.k)
     x = self.pos_enc(x)
