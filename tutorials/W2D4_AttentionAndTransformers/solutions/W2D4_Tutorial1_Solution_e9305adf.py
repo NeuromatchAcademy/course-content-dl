@@ -1,15 +1,22 @@
 class TransformerBlock(nn.Module):
-  """Transformer Block
-  Args:
-    k (int): Attention embedding size
-    heads (int): number of self-attention heads
+  """ Block to instantiate transformers. """
 
-  Attributes:
-    attention: Multi-head SelfAttention layer
-    norm_1, norm_2: LayerNorms
-    mlp: feedforward neural network
-  """
   def __init__(self, k, heads):
+    """
+    Initiates following attributes
+    attention: Initiating Multi-head Self-Attention layer
+    norm1, norm2: Initiating Layer Norms
+    mlp: Initiating Feed Forward Neural Network
+
+    Args:
+      k: Integer
+        Attention embedding size
+      heads: Integer
+        Number of self-attention heads
+
+    Returns:
+      Nothing
+    """
     super().__init__()
 
     self.attention = SelfAttention(k, heads=heads)
@@ -24,6 +31,17 @@ class TransformerBlock(nn.Module):
         nn.Linear(hidden_size, k))
 
   def forward(self, x):
+    """
+    Defines the network structure and flow across a subset of transformer blocks
+
+    Args:
+      x: Tensor
+        Input Sequence to be processed by the network
+
+    Returns:
+      x: Tensor
+        Input post-processing by add and normalise blocks [See Architectural Block above for visual details]
+    """
     attended = self.attention(x)
     # Complete the input of the first Add & Normalize layer
     x = self.norm_1(attended + x)

@@ -1,6 +1,17 @@
 class DotProductAttention(nn.Module):
-  """Scaled dot product attention."""
+  """ Scaled dot product attention. """
+
   def __init__(self, dropout, **kwargs):
+    """
+    Constructs a Scaled Dot Product Attention Instance.
+
+    Args:
+      dropout: Integer
+        Specifies probability of dropout hyperparameter
+
+    Returns:
+      Nothing
+    """
     super(DotProductAttention, self).__init__(**kwargs)
     self.dropout = nn.Dropout(dropout)
 
@@ -11,17 +22,31 @@ class DotProductAttention(nn.Module):
     Note: .contiguous() doesn't change the actual shape of the data,
     but it rearranges the tensor in memory, which will help speed up the computation
     for this batch matrix multiplication.
-    .transpose(dim0, dim1) is used to change the shape of a tensor. It returns a new tensor
+    .transpose() is used to change the shape of a tensor. It returns a new tensor
     that shares the data with the original tensor. It can only swap two dimension.
 
-    Shape of `queries`: (`batch_size`, no. of queries, head,`k`)
-    Shape of `keys`: (`batch_size`, no. of key-value pairs, head, `k`)
-    Shape of `values`: (`batch_size`, no. of key-value pairs, head, value dimension)
+    Args:
+      queries: Tensor
+        Query is your search tag/Question
+        Shape of `queries`: (`batch_size`, no. of queries, head,`k`)
+      keys: Tensor
+        Descriptions associated with the database for instance
+        Shape of `keys`: (`batch_size`, no. of key-value pairs, head, `k`)
+      values: Tensor
+        Values are returned results on the query
+        Shape of `values`: (`batch_size`, head, no. of key-value pairs,  `k`)
+      b: Integer
+        Batch size
+      h: Integer
+        Number of heads
+      t: Integer
+        Number of keys/queries/values (for simplicity, let's assume they have the same sizes)
+      k: Integer
+        Embedding size
 
-    b: batch size
-    h: number of heads
-    t: number of keys/queries/values (for simplicity, let's assume they have the same sizes)
-    k: embedding size
+    Returns:
+      out: Tensor
+        Matrix Multiplication between the keys, queries and values.
     """
     keys = keys.transpose(1, 2).contiguous().view(b * h, t, k)
     queries = queries.transpose(1, 2).contiguous().view(b * h, t, k)

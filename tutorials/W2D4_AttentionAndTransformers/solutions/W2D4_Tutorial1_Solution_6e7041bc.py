@@ -1,17 +1,23 @@
 class SelfAttention(nn.Module):
-  """Multi-head self attention layer
+  """  Multi-head self attention layer. """
 
-  Args:
-    k (int): Size of attention embeddings
-    heads (int): Number of attention heads
-
-  Attributes:
+  def __init__(self, k, heads=8, dropout=0.1):
+    """
+    Initiates the following attributes:
     to_keys: Transforms input to k x k*heads key vectors
     to_queries: Transforms input to k x k*heads query vectors
     to_values: Transforms input to k x k*heads value vectors
     unify_heads: combines queries, keys and values to a single vector
-  """
-  def __init__(self, k, heads=8, dropout=0.1):
+
+    Args:
+      k: Integer
+        Size of attention embeddings
+      heads: Integer
+        Number of attention heads
+
+    Returns:
+      Nothing
+    """
     super().__init__()
     self.k, self.heads = k, heads
 
@@ -23,10 +29,16 @@ class SelfAttention(nn.Module):
     self.attention = DotProductAttention(dropout)
 
   def forward(self, x):
-    """Implements forward pass of self-attention layer
+    """
+    Implements forward pass of self-attention layer
 
     Args:
-      x (torch.Tensor): batch x t x k sized input
+      x: Tensor
+        Batch x t x k sized input
+
+    Returns:
+      unify_heads: Tensor
+        Self-attention based unified Query/Value/Key tensors
     """
     b, t, k = x.size()
     h = self.heads
