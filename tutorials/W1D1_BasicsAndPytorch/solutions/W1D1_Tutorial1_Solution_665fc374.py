@@ -1,5 +1,20 @@
 def simple_operations(a1: torch.Tensor, a2: torch.Tensor, a3: torch.Tensor):
-  # multiplication of tensor a1 with tensor a2 and then add it with tensor a3
+  """
+  Helper function to demonstrate simple operations
+  i.e., Multiplication of tensor a1 with tensor a2 and then add it with tensor a3
+
+  Args:
+    a1: Torch tensor
+      Tensor of size ([2,2])
+    a2: Torch tensor
+      Tensor of size ([2,2])
+    a3: Torch tensor
+      Tensor of size ([2,2])
+
+  Returns:
+    answer: Torch tensor
+      Tensor of size ([2,2]) resulting from a1 multiplied with a2, added with a3
+  """
   answer = a1 @ a2 + a3
   return answer
 

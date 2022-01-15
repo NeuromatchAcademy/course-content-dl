@@ -8,7 +8,8 @@ def functionA(my_tensor1, my_tensor2):
   Args:
     my_tensor1: torch.Tensor
     my_tensor2: torch.Tensor
-  Retuns:
+
+  Returns:
     output: torch.Tensor
       The multiplication of the column sum of `my_tensor1` by the sum of
       `my_tensor2`.
@@ -27,7 +28,8 @@ def functionB(my_tensor):
 
   Args:
     my_tensor: torch.Tensor
-  Retuns:
+
+  Returns:
     output: torch.Tensor
       Concatenated tensor.
   """
@@ -52,7 +54,8 @@ def functionC(my_tensor1, my_tensor2):
   Args:
     my_tensor1: torch.Tensor
     my_tensor2: torch.Tensor
-  Retuns:
+
+  Returns:
     output: torch.Tensor
       Concatenated tensor.
   """

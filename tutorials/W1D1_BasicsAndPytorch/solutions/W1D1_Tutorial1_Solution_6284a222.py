@@ -1,8 +1,12 @@
 def simpleFun(dim, device):
   """
+  Helper function to check device-compatiblity with computations
+
   Args:
-    dim: integer
-    device: "cpu" or "cuda"
+    dim: Integer
+    device: String
+      "cpu" or "cuda"
+
   Returns:
     Nothing.
   """
@@ -15,7 +19,7 @@ def simpleFun(dim, device):
 
   # elementwise multiplication of x and y
   a = x * y
-  # matrix multiplication of x and y
+  # matrix multiplication of x and z
   b = x @ z
 
   del x
