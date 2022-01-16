@@ -2,7 +2,7 @@
 """
 A. The yellow diagonal corresponds to the similarity between each encoded image and itself.
    Since each encoded image is, of course, identical to itself, the similarity
-   is of 1 at each point on the diagonal.
+   is 1 at each point on the diagonal.
 
 B. The pattern we observe is that there are square sections of the RSM that have
    higher similarity values than the rest, and these sections lie along the
@@ -15,9 +15,9 @@ B. The pattern we observe is that there are square sections of the RSM that have
 C. It is a bit subtle, but it looks like the **hearts and squares** might be
    encoded more similarly to one another than the **ovals and squares**, in general.
    This is based on the fact that the RSM values for hearts x squares
-   (bottom left and top right) appear to be lighter (more yellow) than the RSM
+   (bottom left and top right) appear to be lighter (more yellow, hence higher) than the RSM
    values for ovals x squares (top middle and middle left),
-   which are a bit darker (more blue).
+   which are a bit darker (more blue, hence lower).
 
 D. If we sort by different latent dimensions (e.g., `scale`, `orientation`, `posX` or `posY`),
    we do not see as much structure in the RSMs. This is because the supervised

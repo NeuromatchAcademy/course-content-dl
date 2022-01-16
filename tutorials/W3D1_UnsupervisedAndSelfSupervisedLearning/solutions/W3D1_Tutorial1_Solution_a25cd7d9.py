@@ -1,7 +1,7 @@
 
 """
 A. The classifier trained with the supervised encoder is most affected by the
-    biased training dataset, which drops to chance performance.
+    biased training dataset i.e., drops to chance performance.
     In contrast, the classifier trained with the pre-trained SimCLR encoder
     is least affected. Classifiers trained with the random or pre-trained VAE
     encoders also drop to chance performance.
