@@ -1,19 +1,22 @@
 def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
-
   """
-  custom_simclr_contrastive_loss(proj_feat1, proj_feat2)
   Returns contrastive loss, given sets of projected features, with positive
   pairs matched along the batch dimension.
-  Required args:
-  - proj_feat1 (2D torch Tensor): projected features for first image
-      augmentations (batch_size x feat_size)
-  - proj_feat2 (2D torch Tensor): projected features for second image
-      augmentations (batch_size x feat_size)
 
-  Optional args:
-  - temperature (float): relaxation temperature. (default: 0.5)
+  Args:
+    Required:
+      proj_feat1: 2D torch.Tensor
+        Projected features for first image with augmentations (size: batch_size x feat_size)
+      proj_feat2: 2D torch.Tensor
+        Projected features for second image with augmentations (size: batch_size x feat_size)
+    Optional:
+      temperature: Float
+        Relaxation temperature (default: 0.5)
+        l2 normalization along with temperature effectively weights different
+        examples, and an appropriate temperature can help the model learn from hard negatives.
   Returns:
-  - loss (float): mean contrastive loss
+    loss: Float
+      Mean contrastive loss
   """
   device = proj_feat1.device
 
@@ -30,7 +33,7 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
       proj_features.unsqueeze(1), proj_features.unsqueeze(0), dim=2
       ) # dim: 2N x 2N
 
-  # initialize arrays to identify sets of positive and negative examples, of
+  # Initialize arrays to identify sets of positive and negative examples, of
   # shape (batch_size * 2, batch_size * 2), and where
   # 0 indicates that 2 images are NOT a pair (either positive or negative, depending on the indicator type)
   # 1 indices that 2 images ARE a pair (either positive or negative, depending on the indicator type)
@@ -50,7 +53,7 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
       dim=1
       )
 
-  if (denominator < 1e-8).any(): # clamp to avoid division by 0
+  if (denominator < 1e-8).any(): # Clamp to avoid division by 0
     denominator = torch.clamp(denominator, 1e-8)
 
   loss = torch.mean(-torch.log(numerator / denominator))
@@ -58,7 +61,7 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
   return loss
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 6.1.1: Complete a SimCLR loss function')
 
 ## Uncomment below to test your function

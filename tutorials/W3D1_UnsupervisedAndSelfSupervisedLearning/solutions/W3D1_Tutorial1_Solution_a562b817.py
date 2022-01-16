@@ -1,5 +1,18 @@
 def vae_train_loss(num_epochs, seed):
-  # call this before any dataset/network initializing or training,
+  """
+  Helper function to plot the train loss of the variational autoencoder (VAE)
+
+  Args:
+    num_epochs: Integer
+      Number of the epochs the VAE is to be trained for
+    seed: Integer
+      The seed value for the dataset/network
+
+  Returns:
+    vae_loss_array: List
+      Loss per epoch
+  """
+  # Call this before any dataset/network initializing or training,
   # to ensure reproducibility
   set_seed(seed)
   # EXERCISE: Train an encoder and classifier on the images, using models.train_classifier()
@@ -9,9 +22,9 @@ def vae_train_loss(num_epochs, seed):
       dataset=dSprites_torchdataset,
       train_sampler=train_sampler,
       test_sampler=test_sampler,
-      freeze_features=True, # keep the encoder frozen while training the classifier
+      freeze_features=True, # Keep the encoder frozen while training the classifier
       num_epochs=num_epochs,
-      verbose=True # print results
+      verbose=True # Print results
       )
   # EXERCISE: Plot the VAE classifier training loss.
   fig, ax = plt.subplots()
@@ -23,7 +36,7 @@ def vae_train_loss(num_epochs, seed):
   return vae_loss_array
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 4.1.2: Evaluating the classification performance of a logistic regression - VAE encoder')
 
 # Set a reasonable number of training epochs
