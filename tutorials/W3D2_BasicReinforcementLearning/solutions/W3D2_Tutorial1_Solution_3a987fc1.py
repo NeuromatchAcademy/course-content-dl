@@ -1,5 +1,23 @@
 class PolicyGradientNet(nn.Module):
+  """
+  Defines Policy Gradient Network with the following attributes:
+    Feed Forward Network with a single hidden layer
+    width: 128 neurons
+    dropout: 0.6
+    Optimizer: Adam
+    Learning Rate: 0.01
+  """
+
   def __init__(self):
+    """
+    Initiate Policy Gradient Network with above mentioned parameters/hyperparameters
+
+    Args:
+      None
+
+    Returns:
+      Nothing
+    """
     super(PolicyGradientNet, self).__init__()
     self.state_space = env.observation_space.shape[0]
     self.action_space = env.action_space.n

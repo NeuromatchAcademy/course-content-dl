@@ -1,8 +1,18 @@
 def epsilon_greedy(
-    q_values_at_s: np.ndarray,  # Q-values in state s: Q(s, a).
-    epsilon: float = 0.1  # Probability of taking a random action.
+    q_values_at_s: np.ndarray,
+    epsilon: float = 0.1
     ):
-  """Return an epsilon-greedy action sample."""
+  """
+  Return an epsilon-greedy action sample
+  Args:
+    q_values_at_s: np.ndarray
+      Q-values in state s: Q(s, a).
+    epsilon: float
+      Probability of taking a random action.
+  Returns:
+    action: Integer
+      Chosen action based on epsilon-greedy policy
+  """
   # TODO generate a uniform random number and compare it to epsilon to decide if
   # the action should be greedy or not
   # HINT: Use np.random.random() to generate a random float from 0 to 1.
@@ -19,5 +29,5 @@ def epsilon_greedy(
   return action
 
 
-# add event to airtable
-atform.add_event('Coding Exercise 5.1: Implement  epsilon-greedy')
+# Add event to airtable
+atform.add_event('Coding Exercise 5.1: Implement epsilon-greedy')

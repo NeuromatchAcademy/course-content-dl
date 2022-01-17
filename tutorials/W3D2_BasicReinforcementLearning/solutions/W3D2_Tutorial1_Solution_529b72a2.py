@@ -1,8 +1,29 @@
 class PolicyEvalAgent(acme.Actor):
+  """
+  New Acme agent that behaves according to uniform random policy.
+  """
 
   def __init__(self, environment_spec, evaluated_policy,
                behaviour_policy=random_policy, step_size=0.1):
+    """
+    Initiates the agent
 
+    Args:
+      environment_spec: enum
+        * actions: DiscreteArray(shape=(), dtype=int32, name=action, minimum=0, maximum=3, num_values=4)
+        * observations: Array(shape=(9, 10, 3), dtype=dtype('float32'), name='observation_grid')
+        * rewards: Array(shape=(), dtype=dtype('float32'), name='reward')
+        * discounts: BoundedArray(shape=(), dtype=dtype('float32'), name='discount', minimum=0.0, maximum=1.0)
+      evaluated_policy: f.__name__
+        Policy on which agent is to be evaluated
+      behavior policy: f.__name__
+        Uniform random policy
+      step_size: Float
+        Size of step while choosing action
+
+    Returns:
+      Nothing
+    """
     self._state = None
     # Get number of states and actions from the environment spec.
     self._number_of_states = environment_spec.observations.num_values
@@ -21,7 +42,7 @@ class PolicyEvalAgent(acme.Actor):
 
   @property
   def q_values(self):
-    # return the Q values
+    # Return the Q values
     return self._q
 
   def select_action(self, observation):
@@ -32,6 +53,18 @@ class PolicyEvalAgent(acme.Actor):
     self._state = timestep.observation
 
   def observe(self, action, next_timestep):
+    """
+    Function to compute TD Error
+
+    Args:
+      action: Integer
+        Selected action based on Q value
+      next_timestep: dm_env._environment.TimeStep
+        Advances timestep
+
+    Returns:
+      Nothing
+    """
     s = self._state
     a = action
     r = next_timestep.reward
@@ -47,6 +80,15 @@ class PolicyEvalAgent(acme.Actor):
     self._td_error = r + g * self._q[next_s, next_a] - self._q[s, a]
 
   def update(self):
+    """
+    Perform update based on Q-table
+
+    Args:
+      None
+
+    Returns:
+      Nothing
+    """
     # Updates
     s = self._state
     a = self._action
@@ -56,5 +98,5 @@ class PolicyEvalAgent(acme.Actor):
     self._state = self._next_state
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 4.1 Policy Evaluation Agent')

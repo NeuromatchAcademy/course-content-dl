@@ -1,6 +1,4 @@
 """
-For TAs:
-
 Encourage students to consider different examples of RL in the real
 world that have safety issues that don't necessarily come up with supervised
 learning, due to the fact that in RL, agents must *interact* with the world,
@@ -14,9 +12,4 @@ Interpretability can help with the safe deployment of deep RL algorithms
 because we can have higher expectation that our agents will not perform
 unpredictable actions, or if they do, we can at least understand why they did,
 and work to prevent such occurrences in the future.
-
-This should be a very open-ended discussion. Try to have everyone say at least
-one thing. They can either take these 3 questions in turn, with 3-4 minutes
-allotted to each, or address them all at once, and allow for a more natural
-conversation.
 """;
