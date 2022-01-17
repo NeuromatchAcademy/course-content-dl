@@ -4,6 +4,9 @@ Transitions = collections.namedtuple(
 
 
 class NeuralFittedQAgent(acme.Actor):
+  """
+  Implementation of a Neural Fitted Agent
+  """
 
   def __init__(self,
                environment_spec: specs.EnvironmentSpec,
@@ -12,7 +15,29 @@ class NeuralFittedQAgent(acme.Actor):
                epsilon: float = 0.1,
                batch_size: int = 1,
                learning_rate: float = 3e-4):
+    """
+    Neural Fitted Agent Initialisation
 
+    Args:
+      environment_spec: specs.EnvironmentSpec
+        * actions: DiscreteArray(shape=(), dtype=int32, name=action, minimum=0, maximum=3, num_values=4)
+        * observations: Array(shape=(9, 10, 3), dtype=dtype('float32'), name='observation_grid')
+        * rewards: Array(shape=(), dtype=dtype('float32'), name='reward')
+        * discounts: BoundedArray(shape=(), dtype=dtype('float32'), name='discount', minimum=0.0, maximum=1.0)
+      q_network: nn.Module,
+        Q Network
+      replay_capacity: int,
+        Capacity of the replay buffer [default: 100000]
+      epsilon: float
+        Controls the exploration-exploitation tradeoff
+      batch_size: int
+        Batch Size [default = 1]
+      learning_rate: float
+        Rate at which the neural fitted agent learns [default = 3e-4]
+
+    Returns:
+      Nothing
+    """
     # Store agent hyperparameters and network.
     self._num_actions = environment_spec.actions.num_values
     self._epsilon = epsilon
@@ -30,6 +55,26 @@ class NeuralFittedQAgent(acme.Actor):
     self._loss_fn = nn.MSELoss()
 
   def select_action(self, observation):
+    """
+    Chooses epsilon-greedy action
+
+    Args:
+      observation: enum
+        * ObservationType.STATE_INDEX: int32 index of agent occupied tile.
+        * ObservationType.AGENT_ONEHOT: NxN float32 grid, with a 1 where the
+          agent is and 0 elsewhere.
+        * ObservationType.GRID: NxNx3 float32 grid of feature channels.
+          First channel contains walls (1 if wall, 0 otherwise), second the
+          agent position (1 if agent, 0 otherwise) and third goal position
+          (1 if goal, 0 otherwise)
+        * ObservationType.AGENT_GOAL_POS: float32 tuple with
+          (agent_y, agent_x, goal_y, goal_x)
+
+
+    Returns:
+      action: Integer
+        Chosen action based on epsilon-greedy policy
+    """
     # Compute Q-values.
     q_values = self._q_network(torch.tensor(observation).unsqueeze(0))  # Adds batch dimension.
     q_values = q_values.squeeze(0)   # Removes batch dimension
@@ -46,7 +91,15 @@ class NeuralFittedQAgent(acme.Actor):
     return q_values.squeeze(0).detach()
 
   def update(self):
+    """
+    Updates replay buffer
 
+    Args:
+      None
+
+    Returns:
+      Nothing
+    """
     if not self._replay_buffer.is_ready(self._batch_size):
       # If the replay buffer is not ready to sample from, do nothing.
       return
@@ -97,5 +150,5 @@ class NeuralFittedQAgent(acme.Actor):
     self._replay_buffer.add(action, next_timestep)
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 6.1: Implement NFQ')
