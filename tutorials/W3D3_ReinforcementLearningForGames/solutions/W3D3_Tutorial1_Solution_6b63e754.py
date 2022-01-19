@@ -1,37 +1,68 @@
 class PolicyBasedPlayer():
+  """
+  Simulate Policy Based Player
+  """
+
   def __init__(self, game, pnet, greedy=True):
+    """
+    Initialize Policy based player parameters
+
+    Args:
+      game: OthelloGame instance
+        Instance of the OthelloGame class above;
+      pnet: Policy Network instance
+        Instance of the Policy Network class above
+      greedy: Boolean
+        If true, implement greedy approach
+        Else, implement random sample policy based player
+
+    Returns:
+      Nothing
+    """
     self.game = game
     self.pnet = pnet
     self.greedy = greedy
 
   def play(self, board):
+    """
+    Simulate game play
+
+    Args:
+      board: np.ndarray
+        Board of size n x n [6x6 in this case]
+
+    Returns:
+      a: np.ndarray
+        If greedy, implement greedy policy player
+        Else, implement random sample policy based player
+    """
     valids = self.game.getValidMoves(board, 1)
     action_probs = self.pnet.predict(board)
-    vap = action_probs*valids  # masking invalid moves
+    vap = action_probs*valids  # Masking invalid moves
     sum_vap = np.sum(vap)
 
     if sum_vap > 0:
-      vap /= sum_vap  # renormalize
+      vap /= sum_vap  # Renormalize
     else:
-      # if all valid moves were masked we make all valid moves equally probable
+      # If all valid moves were masked we make all valid moves equally probable
       print("All valid moves were masked, doing a workaround.")
       vap = vap + valids
       vap /= np.sum(vap)
 
     if self.greedy:
-      # greedy policy player
+      # Greedy policy player
       a = np.where(vap == np.max(vap))[0][0]
     else:
-      # sample-based policy player
+      # Sample-based policy player
       a = np.random.choice(self.game.getActionSize(), p=vap)
 
     return a
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 5: Implement the PolicyBasedPlayer')
 
-# playing games
+# Playing games
 set_seed(seed=SEED)
 num_games = 20
 player1 = PolicyBasedPlayer(game, pnet, greedy=True).play
