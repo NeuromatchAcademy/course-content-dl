@@ -1,11 +1,45 @@
 class MonteCarloTreeSearchBasedPlayer():
+  """
+  Simulate Player based on MCTS
+  """
+
   def __init__(self, game, nnet, args):
+    """
+    Initialize parameters of MCTS
+
+    Args:
+      game: OthelloGame instance
+        Instance of the OthelloGame class above;
+      nnet: OthelloNet instance
+        Instance of the OthelloNNet class above;
+      args: dictionary
+        Instantiates number of iterations and episodes, controls temperature threshold, queue length,
+        arena, checkpointing, and neural network parameters:
+        learning-rate: 0.001, dropout: 0.3, epochs: 10, batch_size: 64,
+        num_channels: 512
+
+    Returns:
+      Nothing
+    """
     self.game = game
     self.nnet = nnet
     self.args = args
     self.mcts = MCTS(game, nnet, args)
 
   def play(self, canonicalBoard, temp=1):
+    """
+    Simulate Play on Canonical Board
+
+    Args:
+      canonicalBoard: np.ndarray
+        Canonical Board of size n x n [6x6 in this case]
+      temp: Integer
+        Signifies if game is in terminal state
+
+    Returns:
+      List of probabilities for all actions if temp is 0
+      Best action based on max probability otherwise
+    """
     for i in range(self.args.numMCTSSims):
       self.mcts.search(canonicalBoard)
 
@@ -26,17 +60,29 @@ class MonteCarloTreeSearchBasedPlayer():
     return np.argmax(probs)
 
   def getActionProb(self, canonicalBoard, temp=1):
+    """
+    Helper function to get probabilities associated with each action
+
+    Args:
+      canonicalBoard: np.ndarray
+        Canonical Board of size n x n [6x6 in this case]
+      temp: Integer
+        Signifies if game is in terminal state
+
+    Returns:
+      action_probs: List
+        Probability associated with corresponding action
+    """
     action_probs = np.zeros((self.game.getActionSize()))
     best_action = self.play(canonicalBoard)
     action_probs[best_action] = 1
 
     return action_probs
 
-
 set_seed(seed=SEED)
 game = OthelloGame(6)
-rp = RandomPlayer(game).play  # all players
-num_games = 20  # games
+rp = RandomPlayer(game).play  # All players
+num_games = 20  # Games
 n1 = NNet(game)  # nnet players
 n1.load_checkpoint(folder=path, filename=mcts_model_save_name)
 args1 = dotdict({'numMCTSSims': 50, 'cpuct':1.0})

@@ -1,9 +1,36 @@
 class ValueBasedPlayer():
+  """
+  Simulate Value Based Player
+  """
+
   def __init__(self, game, vnet):
+    """
+    Initialise value based player parameters
+
+    Args:
+      game: OthelloGame instance
+        Instance of the OthelloGame class above;
+      vnet: Value Network instance
+        Instance of the Value Network class above;
+
+    Returns:
+      Nothing
+    """
     self.game = game
     self.vnet = vnet
 
   def play(self, board):
+    """
+    Simulate game play
+
+    Args:
+      board: np.ndarray
+        Board of size n x n [6x6 in this case]
+
+    Returns:
+      candidates: List
+        Collection of tuples describing action and values of future predicted states
+    """
     valids = self.game.getValidMoves(board, 1)
     candidates = []
     max_num_actions = 4
@@ -11,11 +38,11 @@ class ValueBasedPlayer():
     va_list = va.tolist()
     random.shuffle(va_list)
     for a in va_list:
-      # return next board state using getNextState() function
+      # Return next board state using getNextState() function
       nextBoard, _ = self.game.getNextState(board, 1, a)
-      # predict the value of next state using value network
+      # Predict the value of next state using value network
       value = self.vnet.predict(nextBoard)
-      # add the value and the action as a tuple to the candidate lists, note that you might need to change the sign of the value based on the player
+      # Add the value and the action as a tuple to the candidate lists, note that you might need to change the sign of the value based on the player
       candidates += [(-value, a)]
 
       if len(candidates) == max_num_actions:
@@ -26,10 +53,10 @@ class ValueBasedPlayer():
     return candidates[0][1]
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 3: Value-based player')
 
-# playing games between a value-based player and a random player
+# Playing games between a value-based player and a random player
 set_seed(seed=SEED)
 num_games = 20
 player1 = ValueBasedPlayer(game, vnet).play
