@@ -1,24 +1,39 @@
 def get_data_loaders(batch_size, seed):
-  # define the transform done only during training
+  """
+  Helper function to get data loaders
+
+  Args:
+    batch_size: int
+      Batch size
+    seed: int
+      A non-negative integer that defines the random state.
+
+  Returns:
+    img_train_loader: torch.utils.data type
+      Combines the train dataset and sampler, and provides an iterable over the given dataset.
+    img_test_loader: torch.utils.data type
+      Combines the test dataset and sampler, and provides an iterable over the given dataset.
+  """
+  # Define the transform done only during training
   augmentation_transforms = [transforms.RandomRotation(10), transforms.RandomHorizontalFlip()]
 
-  # define the transform done in training and testing (after augmentation)
+  # Define the transform done in training and testing (after augmentation)
   preprocessing_transforms = [transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
 
-  # compose them together
+  # Compose them together
   train_transform = transforms.Compose(augmentation_transforms + preprocessing_transforms)
   test_transform = transforms.Compose(preprocessing_transforms)
 
-  # using pathlib to be compatible with all OS's
+  # Using pathlib to be compatible with all OS's
   data_path = pathlib.Path('.')/'afhq'
 
-  # define the dataset objects (they can load one by one)
+  # Define the dataset objects (they can load one by one)
   img_train_dataset = ImageFolder(data_path/'train', transform=train_transform)
   img_test_dataset = ImageFolder(data_path/'val', transform=test_transform)
 
   g_seed = torch.Generator()
   g_seed.manual_seed(seed)
-  # define the dataloader objects (they can load batch by batch)
+  # Define the dataloader objects (they can load batch by batch)
   img_train_loader = DataLoader(img_train_dataset,
                                 batch_size=batch_size,
                                 shuffle=True,
@@ -36,7 +51,7 @@ def get_data_loaders(batch_size, seed):
   return img_train_loader, img_test_loader
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2: Dataloader on a real-world dataset')
 
 
