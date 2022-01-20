@@ -1,10 +1,20 @@
 class SimpleGraph:
+  """
+  Implementing Simple Computational Graph
+  """
+
   def __init__(self, w, b):
-    """Initializing the SimpleGraph
+    """
+    Initializing the SimpleGraph
 
     Args:
-      w (float): initial value for weight
-      b (float): initial value for bias
+      w: float
+        Initial value for weight
+      b: float
+        Initial value for bias
+
+    Returns:
+      Nothing
     """
     assert isinstance(w, float)
     assert isinstance(b, float)
@@ -12,13 +22,16 @@ class SimpleGraph:
     self.b = torch.tensor([b], requires_grad=True)
 
   def forward(self, x):
-    """Forward pass
+    """
+    Forward pass
 
     Args:
-      x (torch.Tensor): 1D tensor of features
+      x: torch.Tensor
+        1D tensor of features
 
     Returns:
-      torch.Tensor: model predictions
+      prediction: torch.Tensor
+        Model predictions
     """
     assert isinstance(x, torch.Tensor)
     prediction = torch.tanh(x * self.w + self.b)
@@ -26,14 +39,18 @@ class SimpleGraph:
 
 
 def sq_loss(y_true, y_prediction):
-  """L2 loss function
+  """
+  L2 loss function
 
   Args:
-    y_true (torch.Tensor): 1D tensor of target labels
-    y_prediction (torch.Tensor): 1D tensor of predictions
+    y_true: torch.Tensor
+      1D tensor of target labels
+    y_prediction: torch.Tensor
+      1D tensor of predictions
 
   Returns:
-    torch.Tensor: L2-loss (squared error)
+    loss: torch.Tensor
+      L2-loss (squared error)
   """
   assert isinstance(y_true, torch.Tensor)
   assert isinstance(y_prediction, torch.Tensor)
@@ -41,11 +58,11 @@ def sq_loss(y_true, y_prediction):
   return loss
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2.1: Computational Graph ')
 
-feature = torch.tensor([1])  # input tensor
-target = torch.tensor([7])  # target tensor
+feature = torch.tensor([1])  # Input tensor
+target = torch.tensor([7])  # Target tensor
 ## Uncomment to run
 simple_graph = SimpleGraph(-0.5, 0.5)
 print(f"initial weight = {simple_graph.w.item()}, "

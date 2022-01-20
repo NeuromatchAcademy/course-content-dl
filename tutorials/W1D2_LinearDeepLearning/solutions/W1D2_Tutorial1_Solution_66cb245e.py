@@ -1,31 +1,38 @@
 def train(features, labels, model, loss_fun, optimizer, n_epochs):
-
-  """Training function
+  """
+  Training function
 
   Args:
-    features (torch.Tensor): features (input) with shape torch.Size([n_samples, 1])
-    labels (torch.Tensor): labels (targets) with shape torch.Size([n_samples, 1])
-    model (torch nn.Module): the neural network
-    loss_fun (function): loss function
-    optimizer(function): optimizer
-    n_epochs (int): number of training iterations
+    features: torch.Tensor
+      Features (input) with shape torch.Size([n_samples, 1])
+    labels: torch.Tensor
+      Labels (targets) with shape torch.Size([n_samples, 1])
+    model: torch nn.Module
+      The neural network
+    loss_fun: function
+      Loss function
+    optimizer: function
+      Optimizer
+    n_epochs: int
+      Number of training iterations
 
   Returns:
-    list: record (evolution) of training losses
+    loss_record: list
+      Record (evolution) of training losses
   """
-  loss_record = []  # keeping recods of loss
+  loss_record = []  # Keeping recods of loss
 
   for i in range(n_epochs):
-    optimizer.zero_grad()  # set gradients to 0
+    optimizer.zero_grad()  # Set gradients to 0
     predictions = model(features)  # Compute model prediction (output)
     loss = loss_fun(predictions, labels)  # Compute the loss
     loss.backward()  # Compute gradients (backward pass)
-    optimizer.step()  # update parameters (optimizer takes a step)
+    optimizer.step()  # Update parameters (optimizer takes a step)
 
     loss_record.append(loss.item())
   return loss_record
 
-#add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 3.1: Training Loop')
 
 
