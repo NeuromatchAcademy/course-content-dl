@@ -1,10 +1,18 @@
 class ShallowNarrowExercise:
-  """Shallow and narrow (one neuron per layer) linear neural network
   """
+  Shallow and narrow (one neuron per layer) linear neural network
+  """
+
   def __init__(self, init_weights):
     """
+    Initialize parameters of ShallowNarrow Net
+
     Args:
-      init_weights (list): initial weights
+      init_weights: list
+        Initial weights
+
+    Returns:
+      Nothing
     """
     assert isinstance(init_weights, (list, np.ndarray, tuple))
     assert len(init_weights) == 2
@@ -13,28 +21,36 @@ class ShallowNarrowExercise:
 
 
   def forward(self, x):
-    """The forward pass through netwrok y = x * w1 * w2
+    """
+    The forward pass through netwrok y = x * w1 * w2
 
     Args:
-      x (np.ndarray): features (inputs) to neural net
+      x: np.ndarray
+        Features (inputs) to neural net
 
-    returns:
-      (np.ndarray): neural network output (prediction)
+    Returns:
+      y: np.ndarray
+        Neural network output (predictions)
     """
     y = x * self.w1 * self.w2
     return y
 
 
   def dloss_dw(self, x, y_true):
-    """Gradient of loss with respect to weights
+    """
+    Gradient of loss with respect to weights
 
     Args:
-      x (np.ndarray): features (inputs) to neural net
-      y_true (np.ndarray): true labels
+      x: np.ndarray
+        Features (inputs) to neural net
+      y_true: np.ndarray
+        True labels
 
-    returns:
-      (float): mean gradient of loss with respect to w1
-      (float): mean gradient of loss with respect to w2
+    Returns:
+      dloss_dw1: float
+        Mean gradient of loss with respect to w1
+      dloss_dw2: float
+        Mean gradient of loss with respect to w2
     """
     assert x.shape == y_true.shape
     dloss_dw1 = - (2 * self.w2 * x * (y_true - self.w1 * self.w2 * x)).mean()
@@ -43,22 +59,29 @@ class ShallowNarrowExercise:
 
 
   def train(self, x, y_true, lr, n_ep):
-    """Training with Gradient descent algorithm
+    """
+    Training with Gradient descent algorithm
 
     Args:
-      x (np.ndarray): features (inputs) to neural net
-      y_true (np.ndarray): true labels
-      lr (float): learning rate
-      n_ep (int): number of epochs (training iterations)
+      x: np.ndarray
+        Features (inputs) to neural net
+      y_true: np.ndarray
+        True labels
+      lr: float
+        Learning rate
+      n_ep: int
+        Number of epochs (training iterations)
 
-    returns:
-      (list): training loss records
-      (list): training weight records (evolution of weights)
+    Returns:
+      loss_records: list
+        Training loss records
+      weight_records: list
+        Training weight records (evolution of weights)
     """
     assert x.shape == y_true.shape
 
-    loss_records = np.empty(n_ep)  # pre allocation of loss records
-    weight_records = np.empty((n_ep, 2))  # pre allocation of weight records
+    loss_records = np.empty(n_ep)  # Pre allocation of loss records
+    weight_records = np.empty((n_ep, 2))  # Pre allocation of weight records
 
     for i in range(n_ep):
       y_prediction = self.forward(x)
@@ -72,20 +95,24 @@ class ShallowNarrowExercise:
 
 
 def loss(y_prediction, y_true):
-  """Mean squared error
+  """
+  Mean squared error
 
   Args:
-    y_prediction (np.ndarray): model output (prediction)
-    y_true (np.ndarray): true label
+    y_prediction: np.ndarray
+      Model output (prediction)
+    y_true: np.ndarray
+      True label
 
-  returns:
-    (np.ndarray): mean squared error loss
+  Returns:
+    mse: np.ndarray
+      Mean squared error loss
   """
   assert y_prediction.shape == y_true.shape
   mse = ((y_true - y_prediction)**2).mean()
   return mse
 
-#add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1.1: Implement simple narrow LNN')
 
 

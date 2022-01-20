@@ -1,12 +1,16 @@
 def linear_regression(X, Y):
-  """Analytical Linear regression
+  """
+  Analytical Linear regression
 
   Args:
-    X (np.ndarray): design matrix
-    Y (np.ndarray): target ouputs
+    X: np.ndarray
+      Design matrix
+    Y: np.ndarray
+      Target ouputs
 
-  return:
-    np.ndarray: estimated weights (mapping)
+  Returns:
+    W: np.ndarray
+      Estimated weights (mapping)
   """
   assert isinstance(X, np.ndarray)
   assert isinstance(Y, np.ndarray)
