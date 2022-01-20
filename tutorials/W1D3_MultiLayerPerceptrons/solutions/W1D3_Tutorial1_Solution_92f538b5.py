@@ -1,4 +1,22 @@
 def approximate_function(x_train, y_train):
+  """
+  Function to compute and combine ReLU activations
+
+  Args:
+    x_train: torch.tensor
+      Training data
+    y_train: torch.tensor
+      Ground truth labels corresponding to training data
+
+  Returns:
+    relu_acts: torch.tensor
+      Computed ReLU activations for each point along the x axis (x)
+    y_hat: torch.tensor
+      Estimated labels/class predictions
+      Weighted sum of ReLU activations for every point along x axis
+    x: torch.tensor
+      x-axis points
+  """
 
   # Number of relus
   n_relus = x_train.shape[0] - 1
@@ -16,7 +34,6 @@ def approximate_function(x_train, y_train):
 
   for i_relu in range(n_relus):
     relu_acts[i_relu, :] = torch.relu(x + b[i_relu])
-
 
   ## COMBINE RELU ACTIVATIONS
 
@@ -36,7 +53,7 @@ def approximate_function(x_train, y_train):
 
   return y_hat, relu_acts, x
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1: Function approximation with ReLU')
 
 
@@ -45,7 +62,7 @@ N_train = 10
 x_train = torch.linspace(0, 2*np.pi, N_train).view(-1, 1)
 y_train = torch.sin(x_train)
 
-## uncomment the lines below to test your function approximation
+## Uncomment the lines below to test your function approximation
 y_hat, relu_acts, x = approximate_function(x_train, y_train)
 with plt.xkcd():
   plot_function_approximation(x, relu_acts, y_hat)
