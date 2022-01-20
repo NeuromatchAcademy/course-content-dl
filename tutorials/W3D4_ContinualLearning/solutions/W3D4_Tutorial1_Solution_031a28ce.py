@@ -6,6 +6,7 @@ def make_result_matrix(T):
   Args:
     T : int
       The number of tasks
+
   Returns:
     result_matrix : numpy.array
       A TxT matrix
@@ -28,11 +29,11 @@ def make_result_matrix(T):
   return result_matrix
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 4.2: Evaluate your CL algorithm')
 
 set_seed(seed=SEED)
-T = len(rehe_accs)  # number of tasks
+T = len(rehe_accs)  # Number of tasks
 ## Uncomment below to test you function
 result_matrix = make_result_matrix(T)
 print(result_matrix)
