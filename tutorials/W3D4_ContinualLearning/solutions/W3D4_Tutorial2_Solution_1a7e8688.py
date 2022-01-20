@@ -1,6 +1,26 @@
 class Multi_task_model(nn.Module):
+  """
+  Defines Multi-task model
+  """
+
   def __init__(self, pretrained=True, num_tasks=4, load_file=None,
                num_labels_per_task=[2, 2, 2, 5]):
+    """
+    Initialize parameters of the multi-task model
+
+    Args:
+      pretrained: boolean
+        If true, load pretrained model
+      num_tasks: int
+        Number of tasks
+      load_file: string
+        If specified, load requisite file [default: None]
+      num_labels_per_task: list
+        Specifies number of labels per task
+
+    Returns:
+      Nothing
+    """
     super(Multi_task_model, self).__init__()
     self.backbone = models.resnet18(pretrained=pretrained)  # You can play around with different pre-trained models
     if load_file:
@@ -30,6 +50,17 @@ class Multi_task_model(nn.Module):
       self.fcs = nn.ModuleList(self.fcs)
 
   def forward(self, x):
+    """
+    Forward pass of multi-task model
+
+    Args:
+      x: torch.tensor
+        Input Data
+
+    Returns:
+      outs: list
+        Fully connected layer outputs for each task
+    """
     x = self.backbone(x)
     x = torch.flatten(x, 1)
     outs = []
@@ -38,5 +69,5 @@ class Multi_task_model(nn.Module):
     return outs
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2.2: Creating a Multi-Task model')
