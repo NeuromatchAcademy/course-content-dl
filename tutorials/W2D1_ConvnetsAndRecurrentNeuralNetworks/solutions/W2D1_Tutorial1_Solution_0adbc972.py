@@ -1,5 +1,19 @@
 class FMNIST_Net2(nn.Module):
+  """
+  Neural Network instance
+  """
+
   def __init__(self, num_classes):
+    """
+    Initialise parameters of FMNIST_Net2
+
+    Args:
+      num_classes: int
+        Number of classes
+
+    Returns:
+      Nothing
+    """
     super(FMNIST_Net2, self).__init__()
     self.conv1 = nn.Conv2d(1, 32, 3, 1)
     self.conv2 = nn.Conv2d(32, 64, 3, 1)
@@ -9,6 +23,17 @@ class FMNIST_Net2(nn.Module):
     self.fc2 = nn.Linear(128, num_classes)
 
   def forward(self, x):
+    """
+    Forward pass of FMNIST_Net2
+
+    Args:
+      x: torch.tensor
+        Input features
+
+    Returns:
+      x: torch.tensor
+        Output after passing through FMNIST_Net2
+    """
     x = self.conv1(x)
     x = F.relu(x)
     x = self.conv2(x)

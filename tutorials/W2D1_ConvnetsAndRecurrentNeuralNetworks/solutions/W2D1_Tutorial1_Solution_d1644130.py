@@ -1,4 +1,19 @@
 def calculate_output_shape(image_shape, kernel_shape):
+  """
+  Helper function to calculate output shape
+
+  Args:
+    image_shape: tuple
+      Image shape
+    kernel_shape: tuple
+      Kernel shape
+
+  Returns:
+    output_height: int
+      Output Height
+    output_width: int
+      Output Width
+  """
   image_height, image_width = image_shape
   kernel_height, kernel_width = kernel_shape
   output_height = image_height - kernel_height + 1
@@ -6,10 +21,10 @@ def calculate_output_shape(image_shape, kernel_shape):
   return output_height, output_width
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2.2: Convolution Output Size')
 
-# here we check if your function works correcly by applying it to different image
+# Here we check if your function works correcly by applying it to different image
 # and kernel shapes
 check_shape_function(calculate_output_shape, image_shape=(3, 3), kernel_shape=(2, 2))
 check_shape_function(calculate_output_shape, image_shape=(3, 4), kernel_shape=(2, 3))

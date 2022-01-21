@@ -1,5 +1,22 @@
 def train(model, device, train_loader, validation_loader, epochs):
+  """
+  Training loop
 
+  Args:
+    model: nn.module
+      Neural network instance
+    device: string
+      GPU/CUDA if available, CPU otherwise
+    epochs: int
+      Number of epochs
+    train_loader: torch.loader
+      Training Set
+    validation_loader: torch.loader
+      Validation set
+
+  Returns:
+    Nothing
+  """
   criterion =  nn.CrossEntropyLoss()
   optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
   train_loss, validation_loss = [], []
@@ -8,7 +25,7 @@ def train(model, device, train_loader, validation_loader, epochs):
     tepochs.set_description('Training')
     for epoch in tepochs:
       model.train()
-      # keeps track of the running loss
+      # Keeps track of the running loss
       running_loss = 0.
       correct, total = 0, 0
       for data, target in train_loader:
@@ -34,22 +51,22 @@ def train(model, device, train_loader, validation_loader, epochs):
         #                        optimizer.step())
         optimizer.step()
 
-        # set loss to whatever you end up naming your variable when
+        # Set loss to whatever you end up naming your variable when
         # calling criterion
-        # for example, loss = criterion(output, target)
+        # For example, loss = criterion(output, target)
         # then set loss = loss.item() in the set_postfix function
         tepochs.set_postfix(loss=loss.item())
-        running_loss += loss.item()  # add the loss for this batch
+        running_loss += loss.item()  # Add the loss for this batch
 
-        # get accuracy
+        # Get accuracy
         _, predicted = torch.max(output, 1)
         total += target.size(0)
         correct += (predicted == target).sum().item()
 
-      train_loss.append(running_loss / len(train_loader))  # append the loss for this epoch (running loss divided by the number of batches e.g. len(train_loader))
+      train_loss.append(running_loss / len(train_loader))  # Append the loss for this epoch (running loss divided by the number of batches e.g. len(train_loader))
       train_acc.append(correct / total)
 
-      # evaluate on validation data
+      # Evaluate on validation data
       model.eval()
       running_loss = 0.
       correct, total = 0, 0
@@ -60,7 +77,7 @@ def train(model, device, train_loader, validation_loader, epochs):
         loss = criterion(output, target)
         tepochs.set_postfix(loss=loss.item())
         running_loss += loss.item()
-        # get accuracy
+        # Get accuracy
         _, predicted = torch.max(output, 1)
         total += target.size(0)
         correct += (predicted == target).sum().item()
