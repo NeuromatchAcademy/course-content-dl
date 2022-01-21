@@ -1,7 +1,14 @@
 def l1_reg(model):
   """
-    Inputs: Pytorch model
-    This function calculates the l1 norm of the all the tensors in the model
+  This function calculates the l1 norm of the all the tensors in the model
+
+  Args:
+    model: nn.module
+      Neural network instance
+
+  Returns:
+    l1: float
+      L1 norm of the all the tensors in the model
   """
   l1 = 0.0
 
@@ -10,7 +17,7 @@ def l1_reg(model):
 
   return l1
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1.1: L1 Regularization')
 
 set_seed(seed=SEED)
