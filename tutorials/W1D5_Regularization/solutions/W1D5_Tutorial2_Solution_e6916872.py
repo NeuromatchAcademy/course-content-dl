@@ -1,8 +1,14 @@
 def l2_reg(model):
-
   """
-    Inputs: Pytorch model
-    This function calculates the l2 norm of the all the tensors in the model
+  This function calculates the l2 norm of the all the tensors in the model
+
+  Args:
+    model: nn.module
+      Neural network instance
+
+  Returns:
+    l2: float
+      L2 norm of the all the tensors in the model
   """
 
   l2 = 0.0
@@ -11,7 +17,7 @@ def l2_reg(model):
 
   return l2
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1.2: L2 Regularization')
 
 set_seed(SEED)

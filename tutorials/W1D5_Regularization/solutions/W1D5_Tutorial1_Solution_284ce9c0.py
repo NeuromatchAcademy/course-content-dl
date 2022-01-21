@@ -1,4 +1,28 @@
 def early_stopping_main(args, model, train_loader, val_loader):
+  """
+  Function to simulate early stopping
+
+  Args:
+    args: dictionary
+      Dictionary with epochs: 200, lr: 5e-3, momentum: 0.9, device: DEVICE
+    model: nn.module
+      Neural network instance
+    train_loader: torch.loader
+      Train dataset
+    val_loader: torch.loader
+      Validation set
+
+  Returns:
+    val_acc_list: list
+      Val accuracy log until early stop point
+    train_acc_list: list
+      Training accuracy log until early stop point
+    best_model: nn.module
+      Model performing best with early stopping
+    best_epoch: int
+      Epoch at which early stopping occurs
+  """
+
   device = args['device']
   model = model.to(device)
   optimizer = optim.SGD(model.parameters(),
@@ -11,19 +35,19 @@ def early_stopping_main(args, model, train_loader, val_loader):
   # Number of successive epochs that you want to wait before stopping training process
   patience = 20
 
-  # Keps track of number of epochs during which the val_acc was less than best_acc
+  # Keeps track of number of epochs during which the val_acc was less than best_acc
   wait = 0
 
   val_acc_list, train_acc_list = [], []
   for epoch in tqdm(range(args['epochs'])):
 
-    # train the model
+    # Train the model
     trained_model = train(args, model, train_loader, optimizer)
 
-    # calculate training accuracy
+    # Calculate training accuracy
     train_acc = test(trained_model, train_loader, device=device)
 
-    # calculate validation accuracy
+    # Calculate validation accuracy
     val_acc = test(trained_model, val_loader, device=device)
 
     if (val_acc > best_acc):
@@ -35,7 +59,7 @@ def early_stopping_main(args, model, train_loader, val_loader):
       wait += 1
 
     if (wait > patience):
-      print(f'early stopped on epoch: {epoch}')
+      print(f'Early stopped on epoch: {epoch}')
       break
 
     train_acc_list.append(train_acc)
@@ -44,7 +68,7 @@ def early_stopping_main(args, model, train_loader, val_loader):
   return val_acc_list, train_acc_list, best_model, best_epoch
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 4: Early Stopping')
 
 # Set the arguments

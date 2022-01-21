@@ -1,4 +1,15 @@
 def calculate_frobenius_norm(model):
+  """
+  Function to calculate frobenius norm
+
+  Args:
+    model: nn.module
+      Neural network instance
+
+  Returns:
+    norm: float
+      Frobenius norm
+  """
   norm = 0.0
   # Sum the square of all parameters
   for param in model.parameters():
@@ -9,7 +20,7 @@ def calculate_frobenius_norm(model):
   return norm
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1: Frobenius Norm')
 
 # Seed added for reproducibility
