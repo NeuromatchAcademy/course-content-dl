@@ -1,14 +1,16 @@
 def get_parameter_count(network):
   """
-  Calculate the number of parameters used by the fully connected network.
+  Calculate the number of parameters used by the fully connected/convolutional network.
   Hint: Casting the result of network.parameters() to a list may make it
         easier to work with
 
   Args:
-      network: Network to calculate the parameters of
+    network: nn.module
+      Network to calculate the parameters of fully connected/convolutional network
 
   Returns:
-      param_count: The number of parameters in the network
+    param_count: int
+      The number of parameters in the network
   """
 
   # Get the network's parameters
@@ -22,7 +24,7 @@ def get_parameter_count(network):
   return param_count
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1: Calculate number of parameters in FCNN vs ConvNet')
 
 # Initialize networks

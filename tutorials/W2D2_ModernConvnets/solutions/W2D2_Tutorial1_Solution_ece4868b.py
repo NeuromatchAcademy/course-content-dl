@@ -4,13 +4,19 @@ def convolution_math(in_channels, filter_size, out_channels):
   and filter size in convolution vs depthwise separable convolution.
 
   Args:
-    in_channels : number of input channels
-    filter_size : size of the filter
-    out_channels : number of output channels
+    in_channels : int
+      Number of input channels
+    filter_size : int
+      Size of the filter
+    out_channels : int
+      Number of output channels
+
+  Returns:
+    None
   """
-  # calculate the number of parameters for regular convolution
+  # Calculate the number of parameters for regular convolution
   conv_parameters = in_channels * filter_size * filter_size * out_channels
-  # calculate the number of parameters for depthwise separable convolution
+  # Calculate the number of parameters for depthwise separable convolution
   depthwise_conv_parameters = in_channels * filter_size * filter_size + in_channels * out_channels
 
   print(f"Depthwise separable: {depthwise_conv_parameters} parameters")
@@ -19,7 +25,7 @@ def convolution_math(in_channels, filter_size, out_channels):
   return None
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 6.1: Calculation of parameters')
 
 ## Uncomment to test your function

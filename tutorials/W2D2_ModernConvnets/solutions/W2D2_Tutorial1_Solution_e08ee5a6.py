@@ -1,5 +1,18 @@
 def create_models(pretrained=False):
-  # load three pretrained models from torchvision.models
+  """
+  Creates models
+
+  Args:
+    pretrained: boolean
+      If True, load pretrained models
+
+  Returns:
+    models: dict
+      Log of models
+    lr_rates: list
+      Log of learning rates
+  """
+  # Load three pretrained models from torchvision.models
   # [these are just examples, other models are possible as well]
   model1 = torchvision.models.resnet18(pretrained=pretrained)
   model2 = torchvision.models.alexnet(pretrained=pretrained)
