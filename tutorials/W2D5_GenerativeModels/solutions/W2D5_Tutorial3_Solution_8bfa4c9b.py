@@ -16,5 +16,4 @@
 2. Huge compute requirement to allow for large mini-batch sizes and therefore
    high energy consumption
 
-3. N/A
 """;

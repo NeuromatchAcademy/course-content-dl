@@ -1,20 +1,31 @@
 def generate_images(autoencoder, K, n_images=1):
-  """Generate n_images 'new' images from the decoder part of the given
+  """
+  Generate n_images 'new' images from the decoder part of the given
   autoencoder.
 
-  returns (n_images, channels, height, width) tensor of images
+  Args:
+    autoencoder: nn.module
+      Autoencoder model
+    K: int
+      Bottleneck dimension
+    n_images: int
+      Number of images
+
+  Returns:
+    x: torch.tensor
+      (n_images, channels, height, width) tensor of images
   """
   # Concatenate tuples to get (n_images, channels, height, width)
   output_shape = (n_images,) + data_shape
   with torch.no_grad():
-    # sample z from a unit gaussian, pass through autoencoder.decode()
+    # Sample z from a unit gaussian, pass through autoencoder.decode()
     z = torch.randn(n_images, K)
     x = autoencoder.decode(z)
 
     return x.reshape(output_shape)
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 4.2: Generating images')
 
 set_seed(seed=SEED)
