@@ -1,12 +1,17 @@
 def train_gan_iter(data, disc, gen):
-  """Update the discriminator (`disc`) and the generator (`gen`) using `data`
+  """
+  Update the discriminator (`disc`) and the generator (`gen`) using `data`
 
   Args:
-    data (ndarray): An array of shape (N,) that contains the data
-    disc (Disc): The discriminator
-    gen (Gen): The generator
+    data: ndarray
+      An array of shape (N,) that contains the data
+    disc: Disc
+      The discriminator
+    gen: Gen
+      The generator
 
   Returns:
+    None
   """
 
   # Number of samples in the data batch
@@ -48,7 +53,7 @@ def train_gan_iter(data, disc, gen):
   return None
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 1: The GAN training loop')
 
 data = get_data()

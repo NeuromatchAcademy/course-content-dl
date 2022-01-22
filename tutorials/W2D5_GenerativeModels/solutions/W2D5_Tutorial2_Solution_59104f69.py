@@ -1,13 +1,17 @@
 def loss_disc(disc, x_real, x_fake):
-  """Compute the discriminator loss for `x_real` and `x_fake` given `disc`
+  """
+  Compute the discriminator loss for `x_real` and `x_fake` given `disc`
 
   Args:
-    disc: The discriminator
-    x_real (ndarray): An array of shape (N,) that contains the real samples
-    x_fake (ndarray): An array of shape (N,) that contains the fake samples
+    disc: Disc
+      The discriminator
+    x_real: ndarray
+      An array of shape (N,) that contains the real samples
+    x_fake: ndarray
+      An array of shape (N,) that contains the fake samples
 
   Returns:
-    ndarray: The discriminator loss
+    ndarray with log of the discriminator loss
   """
 
   # Loss for real data
@@ -21,7 +25,7 @@ def loss_disc(disc, x_real, x_fake):
   return torch.cat([loss_real, loss_fake])
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2.1: Implement Discriminator Loss')
 
 disc = DummyDisc()

@@ -1,56 +1,79 @@
 class ConvAutoEncoder(nn.Module):
+  """
+  A Convolutional AutoEncoder
+  """
+
   def __init__(self, x_dim, h_dim, n_filters=32, filter_size=5):
-    """A Convolutional AutoEncoder
+    """
+    Initialize parameters of ConvAutoEncoder
 
     Args:
-      x_dim (tuple): input dimensions (channels, height, widths)
-      h_dim (int): hidden dimension, bottleneck dimension, K
-      n_filters (int): number of filters (number of output channels)
-      filter_size (int): kernel size
+      x_dim: tuple
+        Input dimensions (channels, height, widths)
+      h_dim: int
+        Hidden dimension, bottleneck dimension, K
+      n_filters: int
+        Number of filters (number of output channels)
+      filter_size: int
+        Kernel size
+
+    Returns:
+      Nothing
     """
     super().__init__()
     channels, height, widths = x_dim
 
-    # encoder input bias layer
+    # Encoder input bias layer
     self.enc_bias = BiasLayer(x_dim)
 
-    # first encoder conv2d layer
+    # First encoder conv2d layer
     self.enc_conv_1 = nn.Conv2d(channels, n_filters, filter_size)
 
-    # output shape of the first encoder conv2d layer given x_dim input
+    # Output shape of the first encoder conv2d layer given x_dim input
     conv_1_shape = cout(x_dim, self.enc_conv_1)
 
-    # second encoder conv2d layer
+    # Second encoder conv2d layer
     self.enc_conv_2 = nn.Conv2d(n_filters, n_filters, filter_size)
 
-    # output shape of the second encoder conv2d layer given conv_1_shape input
+    # Output shape of the second encoder conv2d layer given conv_1_shape input
     conv_2_shape = cout(conv_1_shape, self.enc_conv_2)
 
     # The bottleneck is a dense layer, therefore we need a flattenning layer
     self.enc_flatten = nn.Flatten()
 
-    # conv output shape is (depth, height, width), so the flatten size is:
+    # Conv output shape is (depth, height, width), so the flatten size is:
     flat_after_conv = conv_2_shape[0] * conv_2_shape[1] * conv_2_shape[2]
 
-    # encoder Linear layer
+    # Encoder Linear layer
     self.enc_lin = nn.Linear(flat_after_conv, h_dim)
 
-    # decoder Linear layer
+    # Decoder Linear layer
     self.dec_lin = nn.Linear(h_dim, flat_after_conv)
 
-    # unflatten data to (depth, height, width) shape
+    # Unflatten data to (depth, height, width) shape
     self.dec_unflatten = nn.Unflatten(dim=-1, unflattened_size=conv_2_shape)
 
-    # first "deconvolution" layer
+    # First "deconvolution" layer
     self.dec_deconv_1 = nn.ConvTranspose2d(n_filters, n_filters, filter_size)
 
-    # second "deconvolution" layer
+    # Second "deconvolution" layer
     self.dec_deconv_2 = nn.ConvTranspose2d(n_filters, channels, filter_size)
 
-    # decoder output bias layer
+    # Decoder output bias layer
     self.dec_bias = BiasLayer(x_dim)
 
   def encode(self, x):
+    """
+    Encoder
+
+    Args:
+      x: torch.tensor
+        Input features
+
+    Returns:
+      h: torch.tensor
+        Encoded output
+    """
     s = self.enc_bias(x)
     s = F.relu(self.enc_conv_1(s))
     s = F.relu(self.enc_conv_2(s))
@@ -59,6 +82,17 @@ class ConvAutoEncoder(nn.Module):
     return h
 
   def decode(self, h):
+    """
+    Decoder
+
+    Args:
+      h: torch.tensor
+        Encoded output
+
+    Returns:
+      x_prime: torch.tensor
+        Decoded output
+    """
     s = F.relu(self.dec_lin(h))
     s = self.dec_unflatten(s)
     s = F.relu(self.dec_deconv_1(s))
@@ -67,10 +101,20 @@ class ConvAutoEncoder(nn.Module):
     return x_prime
 
   def forward(self, x):
+    """
+    Forward pass
+
+    Args:
+      x: torch.tensor
+        Input features
+
+    Returns:
+      Decoded output
+    """
     return self.decode(self.encode(x))
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 3.2: Fill in code for the ConvAutoEncoder module')
 
 K = 20
