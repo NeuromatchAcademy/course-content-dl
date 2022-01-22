@@ -7,4 +7,4 @@ center of the X, while the more round edges of the O evoke weaker responses.
 
 So the images which have strong downward (filter 1) and upward diagonals
 (filter 3), as well as an intersection of both (filter 2) are probably an X.
-"""
+""";

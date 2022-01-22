@@ -1,4 +1,20 @@
 def conv_check():
+  """
+  Demonstration of convolution operation
+
+  Args:
+    None
+
+  Returns:
+    original: np.ndarray
+      Image
+    actual_convolution: np.ndarray
+      Expected convolution output
+    solution: np.ndarray
+      Obtained convolution output
+    kernel: np.ndarray
+      Kernel
+  """
   # Write the solution array and call the function to verify it!
   solution = np.array([
                        [50, 150],
@@ -26,7 +42,7 @@ def conv_check():
   return original, kernel, actual_convolution, solution
 
 
-# add event to airtable
+# Add event to airtable
 atform.add_event('Coding Exercise 2.1: Convolution of a Simple Kernel')
 
 ## Uncomment to test your solution!
