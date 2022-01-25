@@ -1,0 +1,16 @@
+name: nma-dl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - requests
+  - numpy
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - pytorch
+  - torchvision
+  - ipywidgets
+  - pathlib
+  - tqdm
+  - pip
