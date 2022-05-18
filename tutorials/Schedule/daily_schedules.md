@@ -1,6 +1,6 @@
 # General schedule
 
-This page refers to the course schedule of NMA-DL 2021. We will update the new program as soon as possible.
+## _This page refers to the course schedule of NMA-DL 2021. We will update the new program as soon as possible._
 
 ## Course overview
 
