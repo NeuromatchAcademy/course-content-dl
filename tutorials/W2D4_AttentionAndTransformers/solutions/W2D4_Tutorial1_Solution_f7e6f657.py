@@ -15,6 +15,20 @@ class DotProductAttention(nn.Module):
     super(DotProductAttention, self).__init__(**kwargs)
     self.dropout = nn.Dropout(dropout)
 
+  def calculate_score(self, queries, keys):
+      """
+      Compute the score between queries and keys.
+
+      Args:
+      queries: Tensor
+        Query is your search tag/Question
+        Shape of `queries`: (`batch_size`, no. of queries, head,`k`)
+      keys: Tensor
+        Descriptions associated with the database for instance
+        Shape of `keys`: (`batch_size`, no. of key-value pairs, head, `k`)
+      """
+      return torch.bmm(queries, keys.transpose(1, 2)) / math.sqrt(queries.shape[-1])
+
   def forward(self, queries, keys, values, b, h, t, k):
     """
     Compute dot products. This is the same operation for each head,
@@ -23,7 +37,7 @@ class DotProductAttention(nn.Module):
     but it rearranges the tensor in memory, which will help speed up the computation
     for this batch matrix multiplication.
     .transpose() is used to change the shape of a tensor. It returns a new tensor
-    that shares the data with the original tensor. It can only swap two dimension.
+    that shares the data with the original tensor. It can only swap two dimensions.
 
     Args:
       queries: Tensor
@@ -53,7 +67,7 @@ class DotProductAttention(nn.Module):
     values = values.transpose(1, 2).contiguous().view(b * h, t, k)
 
     # Matrix Multiplication between the keys and queries
-    score = torch.bmm(queries, keys.transpose(1, 2)) / math.sqrt(k)  # size: (b * h, t, t)
+    score = self.calculate_score(queries, keys)  # size: (b * h, t, t)
     softmax_weights = F.softmax(score, dim=2)  # row-wise normalization of weights
 
     # Matrix Multiplication between the output of the key and queries multiplication and values.

@@ -54,4 +54,4 @@ class SelfAttention(nn.Module):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 5: Q, K, V attention')
+atform.add_event('Coding Exercise 3: Q, K, V attention')
