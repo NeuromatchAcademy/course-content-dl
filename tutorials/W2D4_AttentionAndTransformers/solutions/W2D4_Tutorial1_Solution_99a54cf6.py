@@ -59,4 +59,4 @@ class Transformer(nn.Module):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 6: Transformer Architechture for classification')
+atform.add_event('Coding Exercise 7: Transformer Architechture for classification')
