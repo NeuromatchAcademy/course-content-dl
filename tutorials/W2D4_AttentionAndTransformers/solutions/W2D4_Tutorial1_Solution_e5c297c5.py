@@ -54,4 +54,4 @@ class TransformerBlock(nn.Module):
 
 
 # add event to airtable
-atform.add_event('Coding Exercise 3: Transformer encoder')
+atform.add_event('Coding Exercise 4: Transformer encoder')
