@@ -44,7 +44,7 @@ jobs:
           pip install jupyter-book==0.10.2 ghp-import
       - name: Build the book
         run: |
-          python ci/generate_book_dl.py
+          python ci/generate_book_dl.py student
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           jupyter-book build book
