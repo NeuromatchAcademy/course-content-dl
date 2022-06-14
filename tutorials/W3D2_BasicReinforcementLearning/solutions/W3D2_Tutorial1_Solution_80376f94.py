@@ -7,7 +7,7 @@ however, excessively large values of alpha can slow, or even prevent, learning,
 as we'll see later.
 
 Gamma effectively controls how much the model cares about the future: larger values of
-gamma causes the model to weigh future rewards nearly as much as present ones. At gamma=1,
+gamma cause the model to weigh future rewards nearly as much as present ones. At gamma=1,
 the model weights all rewards, regardless of when they occur, equally and when greater than one, it
 starts to *prefer* rewards in the future, rather than the present (this is rarely good).
 When gamma=0, however, the model becomes greedy and only considers rewards that

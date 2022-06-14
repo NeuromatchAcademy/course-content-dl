@@ -29,5 +29,6 @@ def epsilon_greedy(q, epsilon):
 q = [-2, 5, 0, 1]
 epsilon = 0.1
 
+# Visualize
 with plt.xkcd():
-  plot_choices(q, epsilon, epsilon_greedy) # Visualize
+  plot_choices(q, epsilon, epsilon_greedy)
