@@ -39,6 +39,9 @@ def td_learner(env, n_trials, gamma=0.98, alpha=0.001):
 # Initialize classical conditioning class
 env = ClassicalConditioning(n_steps=40, reward_magnitude=10, reward_time=10)
 
-V, TDE = td_learner(env, n_trials=20000) # Perform temporal difference learning
+# Perform temporal difference learning
+V, TDE = td_learner(env, n_trials=20000)
+
+# Visualize
 with plt.xkcd():
-  learning_summary_plot(V, TDE) # Visualize
+  learning_summary_plot(V, TDE)

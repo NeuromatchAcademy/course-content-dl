@@ -107,7 +107,7 @@ Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?di
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai)
 
-Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render)
+Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
