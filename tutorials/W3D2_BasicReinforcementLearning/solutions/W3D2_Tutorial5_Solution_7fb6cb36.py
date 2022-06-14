@@ -27,6 +27,7 @@ class PolicyGradientNet(nn.Module):
     #   https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
     self.l1 = nn.Linear(self.state_space, hidden_neurons, bias=False)
     self.l2 = nn.Linear(hidden_neurons, self.action_space, bias=False)
+
     self.gamma = gamma
     # Episode policy and past rewards
     self.past_policy = Variable(torch.Tensor())
