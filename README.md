@@ -4,7 +4,7 @@ The content should primarily be accessed from our new ebook: https://deeplearnin
 
 ----
 
-*August 2-20, 2021*
+*July 11-29, 2022*
 
 **Objectives**: Gain hands-on, code-first experience with deep learning theories, models, and skills that are useful for applications and for advancing science. We focus on how to decide which problems can be tackled with deep learning, how to determine what model is best, how to best implement a model, how to visualize / justify findings, and how neuroscience can inspire deep learning. And throughout we emphasize the ethical use of DL. 
 
@@ -34,11 +34,11 @@ Coming soon... stay tuned...
 
 ----
 
-## Week 1: The basics
+## Week 1
 
 ----
 
-### Mon, August 2, 2021:  Intro to DL academy
+### Day 1:  Intro to DL academy
 
 *coordinated by [Konrad Kording (U Penn)](http://koerding.com/)*
 
@@ -46,7 +46,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Tue, August 3, 2021: Linear DL
+### Day 2: Linear DL
 
 *coordinated by [Andrew Saxe (Oxford)](https://www.saxelab.org/)*
 
@@ -54,7 +54,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Wed, August 4, 2021: Multi-layer Perceptrons (MLPs)
+### Day 3: Multi-layer Perceptrons (MLPs)
 
 *coordinated by [Surya Ganguli (Stanford)](https://ganguli-gang.stanford.edu/)*
 
@@ -62,7 +62,13 @@ Coming soon... stay tuned...
 
 ----
 
-### Thu, August 5, 2021: Optimization
+### Day 4:  Projects day 
+
+*coordinated by Project TAs*
+
+----
+
+### Day 5: Optimization
 
 *coordinated by [Ioannis Mitliagkas (MILA)](http://mitliagkas.github.io/)*
 
@@ -70,7 +76,11 @@ Coming soon... stay tuned...
 
 ----
 
-### Fri, August 6, 2021: Regularization
+## Week 2
+
+----
+
+### Day 1: Regularization
 
 *coordinated by [Lyle Ungar (U Penn)](https://www.cis.upenn.edu/~ungar/)*
 
@@ -78,11 +88,7 @@ Coming soon... stay tuned...
 
 ----
 
-## Week 2: Doing more with fewer parameters
-
-----
-
-### Mon, August 9, 2021:  Parameter sharing: Convnets and RNNs
+### Day 2: Parameter sharing: Convnets and DL Thinking (part 1)
 
 *coordinated by [Alona Fyshe (U Alberta)](https://webdocs.cs.ualberta.ca/~alona/)*
 
@@ -90,7 +96,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Tue, August 10, 2021: Modern Convnets 
+### Day 3: Modern Convnets 
 
 *coordinated by [Alexander Ecker (U Goettingen)](https://eckerlab.org/)*
 
@@ -98,23 +104,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Wed, August 11, 2021: Modern  RNNs
-
-*coordinated by [James Evans (DeepAI)](https://deepai.org/profile/james-a-evans)*
-
-**Description** Memory, time series, recurrence, vanishing gradients and embeddings 
-
-----
-
-### Thu, August 12, 2021: Attention and Transformers
-
-*coordinated by [He He (NYU)](https://hhexiy.github.io/)*
-
-**Description** How attention helps classification, encoding and decoding
-
-----
-
-### Fri, August 13, 2021: Generative Models (VAEs & GANs)
+### Day 4: Generative Models (VAEs & GANs)
 
 *coordinated by [Vikash Gilja (UCSD)](https://scholar.google.com/citations?user=EO3cAGQAAAAJ&hl=en) and [Akash Srivastava (MIT-IBM)](http://akashgit.github.io/)*
 
@@ -122,17 +112,35 @@ Coming soon... stay tuned...
 
 ----
 
+### Day 5: Intro to NLP
+
+*coordinated by [Lyle Ungar (U Penn)](https://www.cis.upenn.edu/~ungar/)*
+
+**Description** Memory, time series, recurrence, vanishing gradients and embeddings 
+
+----
+
 ## Week 3: Advanced methods
 
 ----
 
-### Mon, August 16, 2021:  Projects day 
+### Day 1: Attention and Transformers
 
-*coordinated by Project TAs*
+*coordinated by [He He (NYU)](https://hhexiy.github.io/)*
+
+**Description** How attention helps classification, encoding and decoding
 
 ----
 
-### Tue, August 17, 2021:  Unsupervised and Self-supervised Learning 
+### Day 2: DL Thinking (part 2)
+
+*coordinated by [Konrad Kording (U Penn)](http://koerding.com/)* and *coordinated by [Lyle Ungar (U Penn)](https://www.cis.upenn.edu/~ungar/)*
+
+**Description** TBD
+
+----
+
+### Day 3:  Unsupervised and Self-supervised Learning 
 
 *coordinated by [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home) and [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/)*
 
@@ -140,7 +148,7 @@ Coming soon... stay tuned...
 
 ----
 
-### Wed, August 18, 2021: Basic Reinforcement Learning (RL) ideas 
+### Day 4: Basic Reinforcement Learning (RL) ideas 
 
 *coordinated by [Jane Wang (Google DeepMind)](http://www.janexwang.com/) and [Feryal Behbahani (Google DeepMind)](https://feryal.github.io/)*
 
@@ -148,23 +156,16 @@ Coming soon... stay tuned...
 
 ----
 
-### Thu, August 19, 2021: RL for games
+### TDay 5: RL for games
 
 *coordinated by [Tim Lillicrap (Google DeepMind)](https://contrastiveconvergence.net/) and [Blake Richards (McGill)](https://sites.google.com/mila.quebec/linc-lab/home)*
 
 **Description** Get to learn how RL solved the game of Go
 
-----
-
-### Fri, August 20, 2021: Continual Learning / Causality / Future stuff & Finishing Proposals and Wrap-up
-
-*coordinated by [Joshua T. Vogelstein (Johns Hopkins)](https://jovo.me/) and [Vincenzo Lomonaco (U Pisa)](https://www.vincenzolomonaco.com/)*
-
-**Description** How can we get a causality, how to generalize out of sample, what will the future bring?
-
 **Description** After the tutorials the day is dedicated to group projects and celebrating course completion
 
 ----
+
 # Licensing
 
 [![CC BY 4.0][cc-by-image]][cc-by]

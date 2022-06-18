@@ -1,5 +1,5 @@
 - day: W1D1
-  category: The Basics
+  category: Basics Module
   name: Basics And Pytorch
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ
 
@@ -10,7 +10,7 @@
   tutorials: 1
   
 - day: W1D2
-  category: The Basics
+  category: Basics Module
   name: Linear Deep Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18N9Wtbf8jkcenO5DGi1eH-F
 
@@ -25,7 +25,7 @@
   tutorials: 3
 
 - day: W1D3
-  category: The Basics
+  category: Basics Module
   name: Multi Layer Perceptrons
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NXk6yzEhjBJb92b6H0BNMw
 
@@ -37,8 +37,8 @@
 
   tutorials: 2
 
-- day: W1D4
-  category: The Basics
+- day: W1D5
+  category: Fine Tuning
   name: Optimization
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OFLZiurcZA4FKvG-mjA8pw
 
@@ -48,8 +48,8 @@
 
   tutorials: 1
   
-- day: W1D5
-  category: The Basics
+- day: W2D1
+  category: Fine Tuning
   name: Regularization
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Pp3kLoTZ8G8eB5GY16e12j
 
@@ -61,9 +61,9 @@
  
   tutorials: 2
   
-- day: W2D1
-  category: Doing More With Fewer Parameters
-  name: Convnets And Recurrent Neural Networks
+- day: W2D2
+  category: Convolutional Neural Networks
+  name: Convnets And DL Thinking
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
@@ -74,8 +74,8 @@
   
   tutorials: 2
   
-- day: W2D2
-  category: Doing More With Fewer Parameters
+- day: W2D3
+  category: Convolutional Neural Networks
   name: Modern Convnets
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
 
@@ -87,32 +87,8 @@
  
   tutorials: 2
 
-- day: W2D3
-  category: Doing More With Fewer Parameters
-  name: Modern Recurrent Neural Networks
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  
-  tutorials: 2
-  
 - day: W2D4
-  category: Doing More With Fewer Parameters
-  name: Attention And Transformers
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
-
-  tutorials: 1
-  
-- day: W2D5
-  category: Doing More With Fewer Parameters
+  category: Convolutional Neural Networks
   name: Generative Models
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
@@ -127,9 +103,33 @@
     title: Tutorial 4 (Bonus)
   
   tutorials: 4
+
+- day: W2D5
+  category: Natural Language Processing
+  name: Intro to NLP
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
+  
+  tutorials: 2
   
 - day: W3D1
-  category: Advanced Topics
+  category: Natural Language Processing
+  name: Attention And Transformers
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+
+  tutorials: 1
+
+- day: W3D3
+  category: Reinforcement Learning
   name: Unsupervised And Self Supervised Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NYb71nfD5gwwnZY4DPMCXu
 
@@ -139,19 +139,27 @@
   
   tutorials: 1
   
-- day: W3D2
-  category: Advanced Topics
+- day: W3D4
+  category: Reinforcement Learning
   name: Basic Reinforcement Learning
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 3
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 4
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 5
   
-  tutorials: 1
+  tutorials: 5
   
-- day: W3D3
-  category: Advanced Topics
+- day: W3D5
+  category: Reinforcement Learning
   name: Reinforcement Learning For Games
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
 
@@ -160,16 +168,3 @@
     title: Tutorial 1
 
   tutorials: 1
-  
-- day: W3D4
-  category: Advanced Topics
-  name: Continual Learning
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18Mvz847jPl2T2bkXrfYyIC2
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ejywm/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/dqnm6/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-    
-  tutorials: 2
