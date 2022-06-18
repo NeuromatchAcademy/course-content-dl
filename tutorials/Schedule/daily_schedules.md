@@ -28,32 +28,37 @@
 All days will follow the same schedule apart from W3D4!
 
 ### General schedule
-All days will follow this schedule for course time:
+All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
  
 |    Time (Hour)   |    Lecture                            |
 |------------------|---------------------------------------|
-|    0:00-0:15     |    Pod discussion I                   |
+|    0:00-0:15\*   |    Pod discussion I                   |
 |    0:15-1:45     |    Tutorials I                        |
 |    1:45-2:45     |    Big break                          |
 |    2:45-4:15     |    Tutorials II                       |
 |    4:15-4:25     |    Pod discussion II                  |
 |    4:25-4:30     |    Reflections & content checks       |
 
+\* : Note that the synchronous session starts at 0:00 with the first pod discussion.
 
 ### Specific Days
 
-#### On W1D4, we will have a day dedicated to projects!
+#### W1D4: Project Day
+On this day we will have a day dedicated to projects!
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
-|    0:00-1:45*    |    Literature review                      |
+|    0:00-1:45\*   |    Literature review                      |
 |    1:45~2:45     |    Big Break                              |
-|    2:45-EOD***   |    Project Proposal                       |
+|    2:45-EOD\**   |    Project Proposal                       |
 
 
-***: EOD: end of day: Note that this includes the next available project time, which may be on the next day.
+\* : Note that the synchronous session starts at 0:00 with the literature review.
 
-#### On W3D2: DL Thinking 2 & half project day (W3D2)
+\** : end of day (EOD): Note that this includes the next available project time, which may be on the next day.
+
+
+#### W3D2: DL Thinking 2 & half project day (W3D2)
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
@@ -67,10 +72,12 @@ During next  available project time (which could be on the next day):
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
-|    0:00-2:20*    |    Abstract workshop                      |
+|    0:00-2:20\*   |    Abstract workshop                      |
 |    2:20-2:50     |    Break                                  |
 |    2:50-4:20     |    Individual abstract editing            |
 |    4:20-5:05     |    Mentor meeting                         |
 |    5:05-5:25     |    Break                                  |
 |    5:25-6:25     |    Pod abstract swap                      |
 |    6:25-8:00     |    Finalize abstract                      |
+
+\* : Note that the synchronous session starts at 0:00 with the abstract workshop.
