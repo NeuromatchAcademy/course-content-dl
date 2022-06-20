@@ -67,18 +67,11 @@ On this day we will have a day dedicated to projects!
 |    1:45-2:45     |    Big Break                              |
 |    2:45-4:30     |    Abstract workshop                      |
 
-During next  available project time (which could be on the next day):
 
+During next  available project time (which could be on the next day):
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
-|    0:00-0:15\*   |    Pod Discussion                         |
-|    0:15-1:45     |    Tutorials                              |
-|    1:45-2:45     |    Big Break                              |
-|    2:45-4:30     |    Abstract Workshop                      |
-
-During next  available project time (which could be on the next day):
-
 |    0:00-1:00     |    Individual Abstract Editing            |
 |    1:00-1:45     |    Mentor Meeting                         |
 |    1:45-2:00     |    Break                                  |
