@@ -69,10 +69,8 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/5asx2/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
   
-  tutorials: 2
+  tutorials: 1
   
 - day: W2D3
   category: Convolutional Neural Networks
