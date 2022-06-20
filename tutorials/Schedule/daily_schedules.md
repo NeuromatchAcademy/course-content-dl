@@ -77,3 +77,21 @@ During next  available project time (which could be on the next day):
 |    1:45-2:00     |    Break                                  |
 |    2:00-2:40     |    Pod Abstract Swap                      |
 |    2:40-3:00     |    Finalize Abstract                      |
+
+#### Last day (W3D5)
+
+|    Time (Hour)   |    Lecture                               |
+|------------------|------------------------------------------|
+|   -1:30~-0:30\*  |    Project presentations (slots 1, 3, 4) |
+|   -0:30-0:00     |    Break (slots 1, 3, 4)                 |
+|    0:00-0:15     |    Pod Discussion I                      |
+|    0:15-1:45     |    Tutorials I                           |
+|    1:45-2:45     |    Big break                             |
+|    2:45-4:15     |    Tutorials II                          |
+|    4:15-4:30     |    Pod Discussion II                     |
+|    4:30-4:45     |    Break                                 |
+|    4:45-5:10     |    Evaluation report                     |
+|    5:10-6:10     |    Project presentations (slots 2, 5)    |
+|    6:10-6:25     |    Pod farewell                          |
+|    6:25-7:15     |    Commencement                          |
+
