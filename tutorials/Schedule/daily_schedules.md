@@ -72,12 +72,15 @@ During next  available project time (which could be on the next day):
 
 |    Time (Hour)   |    Lecture                                |
 |------------------|-------------------------------------------|
-|    0:00-2:20\*   |    Abstract workshop                      |
-|    2:20-2:50     |    Break                                  |
-|    2:50-4:20     |    Individual abstract editing            |
-|    4:20-5:05     |    Mentor meeting                         |
-|    5:05-5:25     |    Break                                  |
-|    5:25-6:25     |    Pod abstract swap                      |
-|    6:25-8:00     |    Finalize abstract                      |
+|    0:00-0:15\*   |    Pod Discussion                         |
+|    0:15-1:45     |    Tutorials                              |
+|    1:45-2:45     |    Big Break                              |
+|    2:45-4:30     |    Abstract Workshop                      |
 
-\* : Note that the synchronous session starts at 0:00 with the abstract workshop.
+During next  available project time (which could be on the next day):
+
+|    0:00-1:00     |    Individual Abstract Editing            |
+|    1:00-1:45     |    Mentor Meeting                         |
+|    1:45-2:00     |    Break                                  |
+|    2:00-2:40     |    Pod Abstract Swap                      |
+|    2:40-3:00     |    Finalize Abstract                      |
