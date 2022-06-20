@@ -2,6 +2,8 @@
 
 ## Course overview
 
+Sun, July 10: Convocation (optional live event, times to come)
+
 * Week 1
     * Mon, July 11: Basics and Pytorch
     * Tue, July 12: Linear Deep Learning
@@ -25,7 +27,6 @@
 ----
 
 ## Daily coursework schedule
-All days will follow the same schedule apart from W3D4!
 
 ### General schedule
 All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
