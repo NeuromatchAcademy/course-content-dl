@@ -8,7 +8,7 @@
     title: Tutorial 1
 
   tutorials: 1
-  
+
 - day: W1D2
   category: Basics Module
   name: Linear Deep Learning
@@ -47,7 +47,7 @@
     title: Tutorial 1
 
   tutorials: 1
-  
+
 - day: W2D1
   category: Fine Tuning
   name: Regularization
@@ -60,18 +60,18 @@
     title: Tutorial 2
  
   tutorials: 2
-  
+
 - day: W2D2
   category: Convolutional Neural Networks
-  name: CNNs And DL Thinking
+  name: CNNs And DL thinking
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  
+
   tutorials: 1
-  
+
 - day: W2D3
   category: Convolutional Neural Networks
   name: Modern Convnets
@@ -82,7 +82,7 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/4r2dp/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2 (Bonus)
- 
+
   tutorials: 2
 
 - day: W2D4
@@ -99,7 +99,7 @@
     title: Tutorial 3
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 4 (Bonus)
-  
+
   tutorials: 4
 
 - day: W2D5
