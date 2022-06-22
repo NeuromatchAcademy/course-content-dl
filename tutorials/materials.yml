@@ -63,14 +63,16 @@
 
 - day: W2D2
   category: Convolutional Neural Networks
-  name: CNNs And DL thinking
+  name: Convents And Dl Thinking
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
 
-  tutorials: 1
+  tutorials: 2
 
 - day: W2D3
   category: Convolutional Neural Networks
@@ -104,7 +106,7 @@
 
 - day: W2D5
   category: Natural Language Processing
-  name: Intro NLP
+  name: Time Series and Natural Language Processing
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
 
   slides:
@@ -126,6 +128,17 @@
 
   tutorials: 1
 
+- day: W3D2
+  category: Natural Language Processing
+  name: Dl Thinking2
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18M6GYMqOSsswELhdxOUWQgR
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/teq6v/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+
+  tutorials: 1
+
 - day: W3D3
   category: Reinforcement Learning
   name: Unsupervised And Self Supervised Learning
@@ -143,13 +156,13 @@
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 4
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 5
