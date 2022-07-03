@@ -9,29 +9,40 @@ The Github workflow is defined in `.github/workflows/publish-book.yaml`.
 
 In order to build the book locally, you will need to do the following:
 
-1. Install dependencies 
+1. Clone course-content, precourse, and nmaci repos
+
+`git clone https://github.com/NeuromatchAcademy/course-content-dl.git`
+
+`git clone https://github.com/NeuromatchAcademy/nmaci.git`
+
+2. Install dependencies
+
+`cd course-content`
+
+`pip install -r ../nmaci/requirements.txt`
 
 `pip install jupyter-book==0.10.2`
 
-Do not install jupyter-book 0.11 or later at this point, as there are breaking
-changes in how it handles the table of contents file we generate.
+**Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
 
-2. Create a symlink in the book dir to the tutorials dir. From the repo root
-directory (`course-content-dl`):
-   
-- `ln -s ../tutorials book/tutorials`
-- `ln -s ../projects book/projects`
+3. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
-3. Prepare repo for book building (assuming than `nmaci` is placed in the same directory as `course-content-dl`)
+`ln -s tutorials book/tutorials`
 
-`python ../nmaci/scripts/generate_book_dl.py`
+`ln -s projects book/projects`
 
-This will use the tutorials/materials.yml to create the _toc.yml file in the
-book directory. It will also be responsible for creating any additional markdown
-files or modifying any tutorial notebooks specifically for book generation. 
+4. Prepare repo for book building
+
+`python ../nmaci/scripts/generate_book.py arg`
+
+where `arg` can take either `student` or `instructor` as a value.
+
+This will use the modified tutorials/materials.yml to create the `_toc.yml` file in the book directory. It will also be responsible for creating any additional markdown files or modifying any tutorial notebooks specifically for book generation. 
 
 **No changes created by this script should be committed to the repo.**
 
-4. Build the book
+5. Build the book
 
 `jupyter-book build book`
+
+This will create a `book/_build` directory. You can open the `index.html` in any browser to verify the book.
