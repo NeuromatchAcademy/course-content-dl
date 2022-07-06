@@ -9,17 +9,21 @@ The Github workflow is defined in `.github/workflows/publish-book.yaml`.
 
 In order to build the book locally, you will need to do the following:
 
-1. Clone course-content, precourse, and nmaci repos
+1. Clone course-content-dl repo
 
 `git clone https://github.com/NeuromatchAcademy/course-content-dl.git`
 
-`git clone https://github.com/NeuromatchAcademy/nmaci.git`
+2. Download nmaci repo (main branch)
+
+`wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/main.tar.gz`
+`tar -xzf main.tar.gz`
+`rm -rf main.tar.gz`
 
 2. Install dependencies
 
-`cd course-content`
+`cd course-content-dl`
 
-`pip install -r ../nmaci/requirements.txt`
+`pip install -r ../nmaci-main/requirements.txt`
 
 `pip install jupyter-book==0.10.2`
 
