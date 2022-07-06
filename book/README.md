@@ -33,9 +33,9 @@ In order to build the book locally, you will need to do the following:
 
 4. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
-`ln -s tutorials book/tutorials`
+`ln -s ../tutorials book/tutorials`
 
-`ln -s projects book/projects`
+`ln -s ../projects book/projects`
 
 5. Prepare repo for book building
 
