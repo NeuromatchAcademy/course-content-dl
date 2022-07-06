@@ -16,10 +16,12 @@ In order to build the book locally, you will need to do the following:
 2. Download nmaci repo (main branch)
 
 `wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/main.tar.gz`
+
 `tar -xzf main.tar.gz`
+
 `rm -rf main.tar.gz`
 
-2. Install dependencies
+3. Install dependencies
 
 `cd course-content-dl`
 
@@ -29,13 +31,13 @@ In order to build the book locally, you will need to do the following:
 
 **Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
 
-3. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
+4. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
 `ln -s tutorials book/tutorials`
 
 `ln -s projects book/projects`
 
-4. Prepare repo for book building
+5. Prepare repo for book building
 
 `python ../nmaci/scripts/generate_book.py arg`
 
@@ -45,7 +47,7 @@ This will use the modified tutorials/materials.yml to create the `_toc.yml` file
 
 **No changes created by this script should be committed to the repo.**
 
-5. Build the book
+6. Build the book
 
 `jupyter-book build book`
 
