@@ -9,31 +9,37 @@ The Github workflow is defined in `.github/workflows/publish-book.yaml`.
 
 In order to build the book locally, you will need to do the following:
 
-1. Clone course-content, precourse, and nmaci repos
+1. Clone course-content-dl repo
 
 `git clone https://github.com/NeuromatchAcademy/course-content-dl.git`
 
-`git clone https://github.com/NeuromatchAcademy/nmaci.git`
+2. Download nmaci repo (main branch)
 
-2. Install dependencies
+`wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/main.tar.gz`
 
-`cd course-content`
+`tar -xzf main.tar.gz`
 
-`pip install -r ../nmaci/requirements.txt`
+`rm -rf main.tar.gz`
+
+3. Install dependencies
+
+`cd course-content-dl`
+
+`pip install -r ../nmaci-main/requirements.txt`
 
 `pip install jupyter-book==0.10.2`
 
 **Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
 
-3. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
+4. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
-`ln -s tutorials book/tutorials`
+`ln -s ../tutorials book/tutorials`
 
-`ln -s projects book/projects`
+`ln -s ../projects book/projects`
 
-4. Prepare repo for book building
+5. Prepare repo for book building
 
-`python ../nmaci/scripts/generate_book.py arg`
+`python ../nmaci-main/scripts/generate_book_dl.py arg`
 
 where `arg` can take either `student` or `instructor` as a value.
 
@@ -41,7 +47,7 @@ This will use the modified tutorials/materials.yml to create the `_toc.yml` file
 
 **No changes created by this script should be committed to the repo.**
 
-5. Build the book
+6. Build the book
 
 `jupyter-book build book`
 
