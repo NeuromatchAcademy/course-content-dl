@@ -39,7 +39,7 @@ In order to build the book locally, you will need to do the following:
 
 5. Prepare repo for book building
 
-`python ../nmaci/scripts/generate_book.py arg`
+`python ../nmaci-main/scripts/generate_book_dl.py arg`
 
 where `arg` can take either `student` or `instructor` as a value.
 
