@@ -44,6 +44,15 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
 
+      - name: Copy prereqs file
+        run: |
+          BRANCH=`python -c 'import os, re; m = re.search(r"course-content-dl:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          wget https://github.com/NeuromatchAcademy/precourse/archive/refs/heads/$BRANCH.tar.gz
+          tar -xzf $BRANCH.tar.gz
+          mv precourse-$BRANCH/prereqs/ prereqs/
+          rm -r precourse-$BRANCH
+          rm -r $BRANCH.tar.gz
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
