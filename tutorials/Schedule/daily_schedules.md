@@ -5,21 +5,21 @@
 * Sun, July 10: Opening Ceremonies
     * 7:00 am UTC
     * 3:00 pm UTC
-    
+
 * Week 1
     * Mon, July 11: Basics and Pytorch
     * Tue, July 12: Linear Deep Learning
     * Wed, July 13: Multilayer Perceptrons
     * Thu, July 14: Projects day
     * Fri, July 15: Optimization
-     
+
 * Week 2
     * Mon, July 18: Regularization
     * Tue, July 19: CNNs and DL Thinking 1
     * Wed, July 20: Modern Convnets
     * Thu, July 21: Generative models (VAEs and GANs)
     * Fri, July 22: Intro to NLP
-    
+
 * Week 3: Advanced concepts
     * Mon, July 25: Attention and Transformers
     * Tue, July 26: DL Thinking 2 & Half Projects Day (Abstract Writing)
@@ -33,7 +33,7 @@ These schedules refer to the coursework time.
 
 ### General schedule
 All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
- 
+
 |    Time (Hour)   |    Component                          |
 |------------------|---------------------------------------|
 |    0:00-0:15\*   |    Pod discussion I                   |
@@ -44,6 +44,11 @@ All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time
 |    4:25-4:30     |    Reflections & content checks       |
 
 \* : Note that the synchronous coursework session starts at 0:00 with the first pod discussion.
+
+### Project time
+In addition to course time, each day will have 3 hours of project time. Check the time slot widget to see when project time is scheduled for your slot.
+
+_Note: Slots 1, 3, and 4 **will not** have project time on W1D1._
 
 ### Schedule of specific days
 
@@ -60,7 +65,7 @@ On this day, we will have a day dedicated to projects!
 \** : Stop at end of day (EOD): end of projects or tutorial time, whichever is last for your time slot. Feel free to take the normal break between projects and tutorial time and additional breaks as needed (not explicitly shown in this schedule as timing differs based on time slot)
 
 
-#### W3D2: DL Thinking 2 & Half Project Day 
+#### W3D2: DL Thinking 2 & Half Project Day
 
 |    Time (Hour)   |    Component                              |
 |------------------|-------------------------------------------|
