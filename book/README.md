@@ -17,9 +17,7 @@ In order to build the book locally, you will need to do the following:
 
 `wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/main.tar.gz`
 
-`tar -xzf main.tar.gz`
-
-`rm -rf main.tar.gz`
+`tar -xzf main.tar.gz; rm -rf main.tar.gz`
 
 3. Download precourse repo (main branch)
 
