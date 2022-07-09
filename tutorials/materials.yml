@@ -21,7 +21,8 @@
     title: Tutorial 2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/bncr8/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3
-
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/bvwa9/?direct%26mode=render
+    title: Bonus Lecture
   tutorials: 3
 
 - day: W1D3
@@ -71,7 +72,8 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/r9pjc/?direct%26mode=render
+    title: Bonus Lecture
   tutorials: 2
 
 - day: W2D3
@@ -101,7 +103,8 @@
     title: Tutorial 3
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 4 (Bonus)
-
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/gx84r/?direct%26mode=render
+    title: Bonus Lecture
   tutorials: 4
 
 - day: W2D5
@@ -165,8 +168,9 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 4
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 5
-  
+    title: Tutorial 5 (Bonus)
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render
+    title: Bonus Lecture
   tutorials: 5
   
 - day: W3D5
@@ -177,5 +181,7 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render
+    title: Bonus Lecture
 
   tutorials: 1
