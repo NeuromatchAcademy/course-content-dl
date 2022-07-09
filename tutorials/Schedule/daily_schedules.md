@@ -57,12 +57,10 @@ On this day, we will have a day dedicated to projects!
 
 |    Time (Hour)   |    Component                              |
 |------------------|-------------------------------------------|
-|    0:00-1:45\*   |    Literature review                      |
-|    1:45-EOD\**   |    Project Proposal                       |
+|    0:00-EOD\*    |    Project Work                           |
 
-\* : This material is across both projects and tutorials time, so you should start the literature review at the start of the projects or tutorial time, whichever comes first for your time slot.
+\* : You will spend both the standard coursework and projects time on projects today. See https://deeplearning.neuromatch.io/projects/docs/project_guidance.html#w1d4-projects-day for more information about the goals of this day.
 
-\** : Stop at end of day (EOD): end of projects or tutorial time, whichever is last for your time slot. Feel free to take the normal break between projects and tutorial time and additional breaks as needed (not explicitly shown in this schedule as timing differs based on time slot)
 
 
 #### W3D2: DL Thinking 2 & Half Project Day
