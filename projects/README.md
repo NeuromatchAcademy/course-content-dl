@@ -21,8 +21,6 @@ Note that reinforcement learning is an advanced topic at NMA, taught in week 3 j
 
 For groups working on neuroscience projects, we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). 
 
-After groups are formed on Monday, you need to submit [this form](https://airtable.com/shrZ341XOB4CSO9wh), and we will assign to each group a project TA based on your chosen topic and the project TA will start meeting with you every 2-3 days to help in any way they can. There are no external mentors for the DL course.
-
 In the first week, you will lay the foundation for your projects by finding an interesting question to ask and an appropriate dataset for answering the question. Week 1 Day 4 (W1D4) is a **Projects Day**, when you will perform a literature review and write a project proposal. We encourage you to be creative with your question! 
 
 During the second week, you will refine your question iteratively as you try things out. You will experiment with different types of deep neural networks to find one that works for your project. 
