@@ -30,9 +30,9 @@ Depending on your time slot, you may or may not have project time on the first d
 
 * Split into groups alphabetically, as described above.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
-* Listen carefully as others talk about their interests. If you are curious about something, ask them. If their interests match yours, you can try to recruit them to your group later!
+* Listen carefully as others talk about their interests. 
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
-* Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group. Start recruiting others to your group!
+* Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group.
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
 
 Tips:
