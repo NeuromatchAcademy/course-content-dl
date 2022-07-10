@@ -57,6 +57,6 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
  * Use this presentation style ([google slides](https://docs.google.com/presentation/d/1A1uaYarVot9YyCdbAAB4VDvsQfK6emqq-TwIZ9xVNwo/edit?usp=sharing) or [powerpoint](https://osf.io/ky6fj/download)) or create your own style!
 
 **NMA final day** — Presentation of projects
-  * This happens either in the last hour of normal project time (timeslots 2,4) or during 6:10-7:10 relative to start of tutorials on the last day (timeslots 1,3,5). If it's not clear, check the [calendar](https://academy.neuromatch.io/calendar-summer-2021).
+  * Check the general schedule for precise timing of events on W3D5.
   * For each group, we will send an email invitation to the following people: TA, project TA and primary student contact.
   * More about scheduling and logistics in the [Student Guide to Projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html)
