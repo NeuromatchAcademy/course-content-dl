@@ -88,6 +88,7 @@ During next available project time (which could be on the next day):
 
 #### W3D5: Final Day of Course
 
+**Slots 1/2/4/5:**
 |    Time (Hour)   |    Lecture                               |
 |------------------|------------------------------------------|
 |   -2:00- -1:00\*  |    Project presentations (slots 1/3/4)  |
@@ -103,6 +104,26 @@ During next available project time (which could be on the next day):
 |    5:15-6:15\**   |    Project presentations (slots 2/5)     | 
 |    6:15-6:30\**   |    Pod farewell                         |
 |    6:30-7:15\**   |    Graduation                           |
+
+\* : This is the last hour of projects time for slots 1/3/4
+
+\** : Note that these events occur after the normal coursework time.
+
+**Slot 3:**
+|    Time (Hour)   |    Lecture                               |
+|------------------|------------------------------------------|
+|   -2:00- -1:00\*  |    Project presentations (slots 1/3/4)  |
+|   -1:00--0:30     |    Break (slots 1/3/4)                  |
+|   -0:30-0:00\*    |    Intro video & text                    |
+|    0:00-0:15      |    Pod Discussion I                      |
+|    0:15-1:45      |    Tutorials I                           |
+|    1:45-2:45      |    Big break                             |
+|    2:45-4:15      |    Tutorials II                          |
+|    4:15-4:25      |    Pod Discussion II                     |
+|    4:25-4:45      |    Break                                 |
+|    4:45-5:15\**   |    Evaluation report                     |
+|    5:15-5:30\**   |    Pod farewell                         |
+|    5:30-6:15\**   |    Graduation                           |
 
 \* : This is the last hour of projects time for slots 1/3/4
 
