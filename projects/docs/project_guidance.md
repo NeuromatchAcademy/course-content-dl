@@ -127,11 +127,9 @@ This is the day where you present your project to other groups who worked on the
 
 
 ### Logistics:
-
-* You will present to other groups (3-5 groups per room). An email will be sent with the zoom room of one of the pods where everyone goes for one hour corresponding to either:
-  * timeslots 2,4:   last hour of project time, -1:00 to 0:00 relative to start of your normal tutorial time (check the [calendar](https://academy.neuromatch.io/calendar-summer-2021)).
-  * timeslots 1,3,5: 6:10-7:10 relative to the start of your normal tutorial time (check the [calendar](https://academy.neuromatch.io/calendar-summer-2021)).
-  There is a hard cutoff at the one hour mark, so the TAs must ensure everyone gets a turn to present.
+* Check the general schedule for precise timing of events on W3D5.
+* You will present to other groups (3-5 groups per room).
+*  There is a strict schedule, so the TAs must ensure everyone gets a turn to present.
 
 * Use this presentation style ([google slides](https://docs.google.com/presentation/d/1A1uaYarVot9YyCdbAAB4VDvsQfK6emqq-TwIZ9xVNwo/edit?usp=sharing) or [powerpoint](https://osf.io/ky6fj/download)) or create your own style!
 
