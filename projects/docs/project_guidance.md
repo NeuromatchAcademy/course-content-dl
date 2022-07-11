@@ -30,9 +30,9 @@ Depending on your time slot, you may or may not have project time on the first d
 
 * Split into groups alphabetically, as described above.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
-* Listen carefully as others talk about their interests. If you are curious about something, ask them. If their interests match yours, you can try to recruit them to your group later!
+* Listen carefully as others talk about their interests. 
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
-* Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group. Start recruiting others to your group!
+* Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group.
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
 
 Tips:
@@ -127,11 +127,9 @@ This is the day where you present your project to other groups who worked on the
 
 
 ### Logistics:
-
-* You will present to other groups (3-5 groups per room). An email will be sent with the zoom room of one of the pods where everyone goes for one hour corresponding to either:
-  * timeslots 2,4:   last hour of project time, -1:00 to 0:00 relative to start of your normal tutorial time (check the [calendar](https://academy.neuromatch.io/calendar-summer-2021)).
-  * timeslots 1,3,5: 6:10-7:10 relative to the start of your normal tutorial time (check the [calendar](https://academy.neuromatch.io/calendar-summer-2021)).
-  There is a hard cutoff at the one hour mark, so the TAs must ensure everyone gets a turn to present.
+* Check the general schedule for precise timing of events on W3D5.
+* You will present to other groups (3-5 groups per room).
+*  There is a strict schedule, so the TAs must ensure everyone gets a turn to present.
 
 * Use this presentation style ([google slides](https://docs.google.com/presentation/d/1A1uaYarVot9YyCdbAAB4VDvsQfK6emqq-TwIZ9xVNwo/edit?usp=sharing) or [powerpoint](https://osf.io/ky6fj/download)) or create your own style!
 
