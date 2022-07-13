@@ -12,7 +12,7 @@ class Net(nn.Module):
         Activation function
       input_feature_num: int
         Number of input features
-      hidden_unit_nums: int
+      hidden_unit_nums: list
         Number of units in the hidden layer
       output_feature_num: int
         Number of output features
