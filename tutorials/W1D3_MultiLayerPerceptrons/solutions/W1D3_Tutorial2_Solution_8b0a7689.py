@@ -18,7 +18,10 @@ def get_data_loaders(batch_size, seed):
   augmentation_transforms = [transforms.RandomRotation(10), transforms.RandomHorizontalFlip()]
 
   # Define the transform done in training and testing (after augmentation)
-  preprocessing_transforms = [transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
+  mean = (0.5, 0.5, 0.5) # defined sequence of means per channel
+  std = (0.5, 0.5, 0.5) # defined sequence of std deviations per channel
+  # Note that the transform should normalize each channel: output[channel] = (input[channel] - mean[channel]) / std[channel]
+  preprocessing_transforms = [transforms.ToTensor(), transforms.Normalize(mean, std)]
 
   # Compose them together
   train_transform = transforms.Compose(augmentation_transforms + preprocessing_transforms)
