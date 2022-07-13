@@ -2,7 +2,7 @@
 
 ## Biological Image Analysis
 
-Count cells: use the [segmentation notebook](https://deeplearning.neuromatch.io/projects/code/segmentation_denoising.html) and/or other approaches.
+Count cells: use the [segmentation notebook](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/Neuroscience/cellular_segmentation.ipynb) and/or other approaches.
 
 Denoise with [noise2void](https://github.com/juglab/n2v).
 
