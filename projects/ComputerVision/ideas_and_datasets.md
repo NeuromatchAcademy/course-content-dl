@@ -35,7 +35,7 @@ Use the GNN deepwalk embedding on some molecules dataset and use CNN to cluster 
 
 # Datasets
 
-[THINGS](https://things-initiative.org/projects/things-images/)
+[THINGS](https://osf.io/jum2f/)
 
 [OpenNeuro](https://openneuro.org/public/datasets)
 
