@@ -24,7 +24,7 @@ Method: Train a multiclass text classification algorithm on a Wikipedia comments
 
 Pretrained machine translation from [huggingface]( https://huggingface.co/datasets?filter=task_ids:machine-translation)
 
-https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/
+[https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/](https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/)
 
 [Beginner NLP datasets](https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/)
 
