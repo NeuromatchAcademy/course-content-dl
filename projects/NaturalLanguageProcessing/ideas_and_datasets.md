@@ -2,8 +2,8 @@
 
 1. Question pairs [dataset](https://www.kaggle.com/c/quora-question-pairs/data).
 
-Idea:  Train a model to identify similar questions. Then, quantify how important it is to take into account word order in analyzing questions.  
-
+Idea:  Train a model to identify similar questions. Then, quantify how important it is to take into account word order in analyzing questions. 
+ 
 Method:  
 Option 1 - Train an order-sensible (possibly RNN) method and see how the results degrade when changing word order.  
 Option 2 - Compare the performance of two models in estimating question similarity. One that takes into account word order (possibly RNN) and one that does not (Bag of Words).
