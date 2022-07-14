@@ -56,11 +56,11 @@ Predict when or where an epileptic seizure will happen ([neurovista](https://www
 
 [Nature Scientific data](https://www.nature.com/search?subject=neuroscience&journal=sdata&page=1) (neuroscience related)
 
-[THINGS]( https://things-initiative.org/) behavior and neuroscience datasets
+[THINGS](https://twitter.com/martin_hebart/status/1396811812180578305) behavior and neuroscience datasets
 
 ## Brain-Score
 
-[About Brainscore](https://paperswithcode.com/dataset/brain-score) , [Main Website](http://www.brain-score.org/), [Tutorial](https://brain-score.readthedocs.io/en/latest/index.html), [preprint](https://www.biorxiv.org/content/10.1101/407007v2).
+[About Brainscore](https://paperswithcode.com/dataset/brain-score), [Main Website](http://www.brain-score.org/), [Tutorial](https://brain-score.readthedocs.io/en/latest/index.html), [preprint](https://www.biorxiv.org/content/10.1101/407007v2).
 
 Overview: contains some datasets about behaviour and neural activity during image recognition tasks, as well as tools to compare similarity of ANN models to neural/behavioural data.
 Potential research goals: comparing ANN activity and neural activity during image recognition. (*also need to look deeper at what datasets are available, might include more things). How does model architecture, learning rules influence similarity & performance?
