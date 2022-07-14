@@ -12,7 +12,7 @@ Try [self-supervised cell segmentation](https://www.biorxiv.org/content/10.1101/
 
 ## Using image features to predict human behavior
 
-[THINGS](https://things-initiative.org): [images](https://things-initiative.org/projects/things-images/), [behavioral data](https://osf.io/jum2f/), [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223792).
+[THINGS](https://twitter.com/martin_hebart/status/1396811812180578305): [images/behavioral data](https://osf.io/jum2f/), [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223792).
 
 ## Deep leakage from gradients
 
