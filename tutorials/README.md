@@ -175,7 +175,7 @@ Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?di
 
 ## W3D4 - Basic Reinforcement Learning
 
-[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MheqrchuSYx1_3URItKWhC)
+[YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18NvgYV0NBPZqDfFAc35sZUK)
 
 Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 3](https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 4](https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 5 (Bonus)](https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render) | [Bonus Lecture](https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render)
 
