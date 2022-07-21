@@ -117,7 +117,6 @@ class ConvAutoEncoder(nn.Module):
 # Add event to airtable
 atform.add_event('Coding Exercise 3.2: Fill in code for the ConvAutoEncoder module')
 
-K = 20
 set_seed(seed=SEED)
 ## Uncomment to test your solution
 trained_conv_AE = ConvAutoEncoder(data_shape, K)

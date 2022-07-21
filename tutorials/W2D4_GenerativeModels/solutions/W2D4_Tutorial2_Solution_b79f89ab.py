@@ -14,8 +14,7 @@ def loss_gen(disc, x_fake):
   """
 
   # Loss for fake data
-  label_fake = 1
-  loss_fake = label_fake * torch.log(disc.classify(x_fake))
+  loss_fake = -torch.log(disc.classify(x_fake))
 
   return loss_fake
 

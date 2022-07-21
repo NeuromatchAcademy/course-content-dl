@@ -16,11 +16,13 @@ def loss_disc(disc, x_real, x_fake):
 
   # Loss for real data
   label_real = 1
-  loss_real = label_real * torch.log(disc.classify(x_real))
+  ## Hint: torch.log may be useful
+  loss_real = -1 * label_real * torch.log(disc.classify(x_real))
 
   # Loss for fake data
   label_fake = 0
-  loss_fake = (1 - label_fake) * torch.log(1 - disc.classify(x_fake))
+  loss_fake = -1 * (1 - label_fake) * torch.log(1 - disc.classify(x_fake))
+
 
   return torch.cat([loss_real, loss_fake])
 
