@@ -72,7 +72,7 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/r9pjc/?direct%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/r9pjc/?direct%26mode=render%26action=download%26mode=render
     title: Bonus Lecture
   tutorials: 2
 
