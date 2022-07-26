@@ -36,6 +36,9 @@ def td_learner(env, n_trials, gamma=0.98, alpha=0.001):
   return V, TDE
 
 
+# Add event to airtable
+atform.add_event('Coding Exercise 1: TD-learning with guaranteed rewards')
+
 # Initialize classical conditioning class
 env = ClassicalConditioning(n_steps=40, reward_magnitude=10, reward_time=10)
 

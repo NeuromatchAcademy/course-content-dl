@@ -34,6 +34,9 @@ def dyna_q_planning(model, value, params):
   return value
 
 
+# Add event to airtable
+atform.add_event('Coding Exercise 2.2: Dyna-Q Planning')
+
 # set for reproducibility, comment out / change seed value for different results
 np.random.seed(1)
 

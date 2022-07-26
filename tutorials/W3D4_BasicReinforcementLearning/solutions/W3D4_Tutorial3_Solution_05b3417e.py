@@ -29,6 +29,9 @@ def q_learning(state, action, reward, next_state, value, params):
   return value
 
 
+# Add event to airtable
+atform.add_event('Coding Exercise 2: Implement the Q-learning algorithm')
+
 # set for reproducibility, comment out / change seed value for different results
 np.random.seed(1)
 
