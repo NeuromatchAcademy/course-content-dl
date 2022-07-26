@@ -15,7 +15,7 @@ def vae_train_loss(num_epochs, seed):
   # Call this before any dataset/network initializing or training,
   # to ensure reproducibility
   set_seed(seed)
-  # EXERCISE: Train an encoder and classifier on the images, using models.train_classifier()
+  # Train an encoder and classifier on the images, using models.train_classifier()
   print("Training a classifier on the pre-trained VAE encoder representations...")
   _, vae_loss_array, _, _ = models.train_classifier(
       encoder=vae_encoder,
@@ -26,7 +26,8 @@ def vae_train_loss(num_epochs, seed):
       num_epochs=num_epochs,
       verbose=True # Print results
       )
-  # EXERCISE: Plot the VAE classifier training loss.
+
+  # Plot the VAE classifier training loss.
   fig, ax = plt.subplots()
   ax.plot(vae_loss_array)
   ax.set_title("Loss of classifier trained on a VAE encoder")

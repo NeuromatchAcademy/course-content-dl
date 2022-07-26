@@ -20,7 +20,8 @@ def rsms_and_histogram_plot():
               "Random network encoder RSM"], # Plot titles
       sorting_latent=sorting_latent
       )
-  # EXERCISE: Plot a histogram of RSM values for both SimCLR encoders.
+
+  # Plot a histogram of RSM values for both SimCLR encoders.
   plot_rsm_histogram(
       [simclr_neg_pairs_rsm, simclr_rsm],
       colors=["royalblue", "gray"],

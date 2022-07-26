@@ -40,7 +40,7 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
   pos_sample_indicators = torch.roll(torch.eye(2 * batch_size), batch_size, 1).to(device)
   neg_sample_indicators = (torch.ones(2 * batch_size) - torch.eye(2 * batch_size)).to(device)
 
-  # EXERCISE: Implement the SimClr loss calculation
+  # Implement the SimClr loss calculation
   # Calculate the numerator of the Loss expression by selecting the appropriate elements from similarity_matrix.
   # Use the pos_sample_indicators tensor
   numerator = torch.exp(similarity_matrix / temperature)[pos_sample_indicators.bool()]

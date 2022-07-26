@@ -17,10 +17,10 @@ def plot_rsms(seed):
   # Initialize a core encoder network that will not get trained
   random_encoder = models.EncoderCore()
 
-  # EXERCISE: Try sorting by different latent dimensions
+  # Try sorting by different latent dimensions
   sorting_latent = "shape"
 
-  # EXERCISE: Plot RSMs
+  # Plot RSMs
   print("Plotting RSMs...")
   _ = models.plot_model_RSMs(
       encoders=[supervised_encoder, random_encoder],  # Pass both encoders

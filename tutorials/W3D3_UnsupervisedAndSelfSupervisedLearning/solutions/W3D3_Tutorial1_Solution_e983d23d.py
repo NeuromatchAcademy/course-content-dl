@@ -22,9 +22,7 @@ def custom_torch_RSM_fct(features):
       )
 
   if not rsm.shape == (num_items, num_items):
-    raise ValueError(
-        f"RSM should be of shape ({num_items}, {num_items})"
-        )
+    raise ValueError(f"RSM should be of shape ({num_items}, {num_items})")
 
   return rsm
 
