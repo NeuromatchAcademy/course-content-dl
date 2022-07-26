@@ -18,3 +18,7 @@ def dyna_q_model_update(model, state, action, reward, next_state):
   model[state, action] = reward, next_state
 
   return model
+
+
+# Add event to airtable
+atform.add_event('Coding Exercise 2.1: Dyna-Q Model Update')

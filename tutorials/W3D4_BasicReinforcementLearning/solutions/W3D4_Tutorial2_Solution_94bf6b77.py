@@ -25,6 +25,9 @@ def epsilon_greedy(q, epsilon):
   return action
 
 
+# Add event to airtable
+atform.add_event('Coding Exercise 2: Implement Epsilon-Greedy')
+
 # Set parameters
 q = [-2, 5, 0, 1]
 epsilon = 0.1

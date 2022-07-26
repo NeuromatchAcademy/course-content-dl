@@ -18,6 +18,9 @@ def update_action_value(q, action, reward, alpha):
   return value
 
 
+# Add event to airtable
+atform.add_event('Coding Exercise 3: Updating Action Values')
+
 # Set parameters
 q = [-2, 5, 0, 1]
 action = 2
