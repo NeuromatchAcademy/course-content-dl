@@ -27,7 +27,8 @@ def plot_loss(num_epochs, seed):
       num_epochs=num_epochs,
       verbose=True  # Print results
       )
-  # EXERCISE: Plot the loss array
+
+  # Plot the loss array
   fig, ax = plt.subplots()
   ax.plot(random_loss_array)
   ax.set_title("Loss of classifier trained on a random encoder.")

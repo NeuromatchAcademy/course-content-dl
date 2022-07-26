@@ -18,7 +18,7 @@ def train_supervised_encoder(num_epochs, seed):
 
   # Initialize a core encoder network on which the classifier will be added
   supervised_encoder = models.EncoderCore()
-  # EXERCISE: Train an encoder and classifier on the images, using models.train_classifier()
+  # Train an encoder and classifier on the images, using models.train_classifier()
   print("Training a supervised encoder and classifier...")
   _ = models.train_classifier(
       encoder=supervised_encoder,
@@ -36,6 +36,6 @@ def train_supervised_encoder(num_epochs, seed):
 # Add event to airtable
 atform.add_event('Coding Exercise 1.2.1: Training a logistic regression classifier along with an encoder')
 
-num_epochs = 10 # Proposed number of training epochs
+num_epochs = 10  # Proposed number of training epochs
 ## Uncomment below to test your function
 supervised_encoder = train_supervised_encoder(num_epochs=num_epochs, seed=SEED)
