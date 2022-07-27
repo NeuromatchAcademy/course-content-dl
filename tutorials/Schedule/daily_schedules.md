@@ -131,7 +131,7 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 |    5:15-5:30\**   |    Pod farewell                         |
 |    5:30-6:15\**   |    Closing Ceremony/Graduation                           |
 
-\* : This is the last hour of projects time for slots 1/3/4
+\* : This is the last hour and a quarter of projects time for slot 3
 
 \** : Note that these events occur after the normal coursework time.
 
