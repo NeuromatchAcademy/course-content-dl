@@ -30,7 +30,7 @@ Depending on your time slot, you may or may not have project time on the first d
 
 * Split into groups alphabetically, as described above.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
-* Listen carefully as others talk about their interests. 
+* Listen carefully as others talk about their interests.
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
 * Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group.
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
@@ -109,15 +109,15 @@ At the end of W3D4, you should also submit your slides via this [Airtable link](
 
 ## W3D5 (last day!): Presentations
 
-This is the day where you present your project to other groups who worked on the same topic. Your project TA will be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+This is the day where you present your project to other groups. You can invite your project TA and mentor, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 
 ### Schedule
 
 * 10 minutes of meet & greet. Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university and subject of study, as well as one interesting fact about themselves "Hi, I'm Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I build reinforcement learning models for robots, and in my free time I like to go on long bike rides".
 
-* 30 minutes of presentations, including questions. Each group should speak for approx 5 minutes (depending on group size), and then take questions for 1-2 minutes. The order of presentations should be the one from the email.
+* 30-40 minutes of presentations, including questions. Each group should speak for approx 5 minutes (depending on group size), and then take questions for 1-2 minutes. The order of presentations should be the one from the email.
 
-* 20 minutes of discussion. Use the following questions to guide the group discussion. Spend 3-5 minutes on each question.
+* 10-20 minutes of group discussion. Use the following questions to guide the group discussion. Spend a few minutes on one or two of the questions below, or ask your own question.
   * Could one of the datasets chosen by the other groups have helped you answer your question, or a part of it? What does the other group think?
   * Does anyone plan to continue working on this project in the future? Perhaps a few students from the multiple groups would like to continue together?
   * Which one of the 10 steps to modelling/research was hardest and why?
