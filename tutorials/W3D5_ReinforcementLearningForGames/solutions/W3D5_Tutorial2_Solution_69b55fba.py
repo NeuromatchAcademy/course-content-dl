@@ -1,11 +1,11 @@
-class PolicyNetwork(NeuralNet):
+class ValueNetwork(NeuralNet):
   """
-  Initialise Policy Network
+  Initiates the Value Network
   """
 
   def __init__(self, game):
     """
-    Initalise policy network paramaters
+    Initialise network parameters
 
     Args:
       game: OthelloGame instance
@@ -21,46 +21,44 @@ class PolicyNetwork(NeuralNet):
 
   def train(self, games):
     """
-    Function for Policy Network Training
+    Function to train value network
 
     Args:
       games: list
-        List of examples where each example is of form (board, pi, v)
+        List of examples with each example is of form (board, pi, v)
 
-    Return:
+    Returns:
       Nothing
     """
     optimizer = optim.Adam(self.nnet.parameters())
-
     for examples in games:
       for epoch in range(args.epochs):
         print('EPOCH ::: ' + str(epoch + 1))
         self.nnet.train()
-        pi_losses = []
-
-        batch_count = int(len(examples) / args.batch_size)
-
-        t = tqdm(range(batch_count), desc='Training Policy Network')
+        v_losses = []   # To store the losses per epoch
+        batch_count = int(len(examples) / args.batch_size)  # len(examples)=200, batch-size=64, batch_count=3
+        t = tqdm(range(batch_count), desc='Training Value Network')
         for _ in t:
-          sample_ids = np.random.randint(len(examples), size=args.batch_size)
-          boards, pis, _ = list(zip(*[examples[i] for i in sample_ids]))
+          sample_ids = np.random.randint(len(examples), size=args.batch_size)  # Read the ground truth information from MCTS simulation using the loaded examples
+          boards, pis, vs = list(zip(*[examples[i] for i in sample_ids]))  # Length of boards, pis, vis = 64
           boards = torch.FloatTensor(np.array(boards).astype(np.float64))
-          target_pis = torch.FloatTensor(np.array(pis))
+          target_vs = torch.FloatTensor(np.array(vs).astype(np.float64))
 
           # Predict
-          boards, target_pis = boards.contiguous().to(args.device), target_pis.contiguous().to(args.device)
+          # To run on GPU if available
+          boards, target_vs = boards.contiguous().to(args.device), target_vs.contiguous().to(args.device)
 
           # Compute output
-          out_pi, _ = self.nnet(boards)
-          l_pi = self.loss_pi(target_pis, out_pi)
+          _, out_v = self.nnet(boards)
+          l_v = self.loss_v(target_vs, out_v)  # Total loss
 
           # Record loss
-          pi_losses.append(l_pi.item())
-          t.set_postfix(Loss_pi=l_pi.item())
+          v_losses.append(l_v.item())
+          t.set_postfix(Loss_v=l_v.item())
 
           # Compute gradient and do SGD step
           optimizer.zero_grad()
-          l_pi.backward()
+          l_v.backward()
           optimizer.step()
 
   def predict(self, board):
@@ -72,7 +70,8 @@ class PolicyNetwork(NeuralNet):
         Board of size n x n [6x6 in this case]
 
     Returns:
-      Data from the OthelloNet class instance above;
+      v: OthelloNet instance
+        Data of the OthelloNet class instance above;
     """
     # Timing
     start = time.time()
@@ -83,12 +82,12 @@ class PolicyNetwork(NeuralNet):
     board = board.view(1, self.board_x, self.board_y)
     self.nnet.eval()
     with torch.no_grad():
-      pi,_ = self.nnet(board)
-    return torch.exp(pi).data.cpu().numpy()[0]
+        _, v = self.nnet(board)
+    return v.data.cpu().numpy()[0]
 
-  def loss_pi(self, targets, outputs):
+  def loss_v(self, targets, outputs):
     """
-    Calculates Negative Log Likelihood(NLL) of Targets
+    Calculates Mean squared error
 
     Args:
       targets: np.ndarray
@@ -97,15 +96,11 @@ class PolicyNetwork(NeuralNet):
         Predictions of Network
 
     Returns:
-      Negative Log Likelihood calculated as: When training a model, we aspire to find the minima of a
-      loss function given a set of parameters (in a neural network, these are the weights and biases).
-      Sum the loss function to all the correct classes. So, whenever the network assigns high confidence at
-      the correct class, the NLL is low, but when the network assigns low confidence at the correct class,
-      the NLL is high.
+      MSE Loss calculated as: square of the difference between your model's predictions
+      and the ground truth and average across the whole dataset
     """
-    ## To implement the loss function, please compute and return the negative log likelihood of targets.
-    ## For more information, here is a reference that connects the expression to the neg-log-prob: https://gombru.github.io/2018/05/23/cross_entropy_loss/
-    return -torch.sum(targets * outputs) / targets.size()[0]
+    # Mean squared error (MSE)
+    return torch.sum((targets - outputs.view(-1)) ** 2) / targets.size()[0]
 
   def save_checkpoint(self, folder='checkpoint', filename='checkpoint.pth.tar'):
     """
@@ -150,6 +145,5 @@ class PolicyNetwork(NeuralNet):
     checkpoint = torch.load(filepath, map_location=args.device)
     self.nnet.load_state_dict(checkpoint['state_dict'])
 
-
 # Add event to airtable
-atform.add_event('Coding Exercise 4: Implement PolicyNetwork')
+atform.add_event('Coding Exercise 1.3: Implement the ValueNetwork')

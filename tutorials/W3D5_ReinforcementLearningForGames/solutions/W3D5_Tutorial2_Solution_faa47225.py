@@ -82,4 +82,4 @@ class OthelloNNet(nn.Module):
     return F.log_softmax(pi, dim=1), torch.tanh(v)
 
 # Add event to airtable
-atform.add_event('Coding Exercise 2.2: Implement the NN OthelloNNet for Othello')
+atform.add_event('Coding Exercise 1.2: Implement the NN OthelloNNet for Othello')

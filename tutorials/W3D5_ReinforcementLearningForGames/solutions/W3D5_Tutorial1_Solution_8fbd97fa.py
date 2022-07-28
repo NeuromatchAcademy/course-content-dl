@@ -18,12 +18,19 @@ class RandomPlayer():
       a: int
         Randomly chosen move
     """
+
+    # Compute the valid moves using getValidMoves()
     valids = self.game.getValidMoves(board, 1)
+
+    # Compute the probability of each move being played (random player means this should
+    # be uniform for valid moves, 0 for others)
     prob = valids/valids.sum()
+
+    # Pick a random action based on the probabilities (hint: np.choice is useful)
     a = np.random.choice(self.game.getActionSize(), p=prob)
 
     return a
 
 
 # Add event to airtable
-atform.add_event('Coding Exercise 1.1: Implement a random player')
+atform.add_event('Coding Exercise 1.2: Implement a random player')
