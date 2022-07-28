@@ -83,4 +83,4 @@ class MonteCarlo():
 
 
 # Add event to airtable
-atform.add_event('Coding Exercise 6: MonteCarlo')
+atform.add_event('Coding Exercise 1: MonteCarlo')

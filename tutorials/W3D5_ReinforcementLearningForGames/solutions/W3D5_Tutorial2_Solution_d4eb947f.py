@@ -48,8 +48,10 @@ class ValueBasedPlayer():
       if len(candidates) == max_num_actions:
         break
 
+    # Sort by the values
     candidates.sort()
 
+    # Return action associated with highest value
     return candidates[0][1]
 
 

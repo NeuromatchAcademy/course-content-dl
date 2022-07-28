@@ -72,4 +72,4 @@ arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
 result = arena.playGames(num_games, verbose=False)
 print(f"\n\n{result}")
 win_rate_player1 = result[0] / num_games
-print(f"\nWin rate for player1 over {num_games} games: {round(win_rate_player1*100, 1)}%")
+print(f"\nWin rate for greedy policy player 1 (vs random player 2) over {num_games} games: {round(win_rate_player1*100, 1)}%")
