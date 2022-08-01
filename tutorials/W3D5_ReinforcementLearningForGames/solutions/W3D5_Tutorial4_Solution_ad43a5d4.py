@@ -79,6 +79,7 @@ class MonteCarloTreeSearchBasedPlayer():
 
     return action_probs
 
+
 set_seed(seed=SEED)
 game = OthelloGame(6)
 rp = RandomPlayer(game).play  # All players

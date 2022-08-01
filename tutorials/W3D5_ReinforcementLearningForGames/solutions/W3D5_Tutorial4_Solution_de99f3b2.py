@@ -45,14 +45,16 @@ class MonteCarlo():
     init_start_state = s
     temp_v = 0
     isfirstAction = None
+    current_player = -1  # opponent's turn (the agent has already taken an action before the simulation)
+    self.Ps[s], _ = self.nnet.predict(canonicalBoard)
 
-    for i in range(self.args.maxDepth): # maxDepth
+    for i in range(self.args.maxDepth):  # maxDepth
 
       if s not in self.Es:
         self.Es[s] = self.game.getGameEnded(canonicalBoard, 1)
       if self.Es[s] != 0:
         # Terminal state
-        temp_v= -self.Es[s]
+        temp_v = -self.Es[s] * current_player
         break
 
       self.Ps[s], v = self.nnet.predict(canonicalBoard)
@@ -74,9 +76,11 @@ class MonteCarlo():
       a = np.random.choice(self.game.getActionSize(), p=self.Ps[s])
       # Find the next state and the next player
       next_s, next_player = self.game.getNextState(canonicalBoard, 1, a)
-      next_s = self.game.getCanonicalForm(next_s, next_player)
-
+      canonicalBoard = self.game.getCanonicalForm(next_s, next_player)
       s = self.game.stringRepresentation(next_s)
+      current_player *= -1
+      # Initial policy
+      self.Ps[s], v = self.nnet.predict(canonicalBoard)
       temp_v = v
 
     return temp_v
