@@ -24,12 +24,12 @@ class MCTS():
     self.game = game
     self.nnet = nnet
     self.args = args
-    self.Qsa = {}    # Stores Q values for s,a (as defined in the paper)
-    self.Nsa = {}    # Stores #times edge s,a was visited
-    self.Ns = {}     # Stores #times board s was visited
-    self.Ps = {}     # Stores initial policy (returned by neural net)
-    self.Es = {}     # Stores game.getGameEnded ended for board s
-    self.Vs = {}     # Stores game.getValidMoves for board s
+    self.Qsa = {}  # Stores Q values for s,a (as defined in the paper)
+    self.Nsa = {}  # Stores #times edge s,a was visited
+    self.Ns = {}  # Stores #times board s was visited
+    self.Ps = {}  # Stores initial policy (returned by neural net)
+    self.Es = {}  # Stores game.getGameEnded ended for board s
+    self.Vs = {}  # Stores game.getValidMoves for board s
 
   def search(self, canonicalBoard):
     """
@@ -71,8 +71,10 @@ class MCTS():
         self.Ps[s] /= sum_Ps_s  # Renormalize
       else:
         # If all valid moves were masked make all valid moves equally probable
-        # NB! All valid moves may be masked if either your NNet architecture is insufficient or you've get overfitting or something else.
-        # If you have got dozens or hundreds of these messages you should pay attention to your NNet and/or training process.
+        # NB! All valid moves may be masked if either your NNet architecture is
+        # insufficient or you've get overfitting or something else.
+        # If you have got dozens or hundreds of these messages you should
+        # pay attention to your NNet and/or training process.
         log = logging.getLogger(__name__)
         log.error("All valid moves were masked, doing a workaround.")
         self.Ps[s] = self.Ps[s] + valids
