@@ -30,7 +30,9 @@ parse:
     - amsmath
     - dollarmath
     - html_image
-
+sphinx:
+  config:
+    html_show_copyright: false
 #######################################################################################
 # HTML-specific settings
 html:
