@@ -64,6 +64,6 @@ set_seed(seed=SEED)
 img_train_loader, img_test_loader = get_data_loaders(batch_size, SEED)
 ## get some random training images
 dataiter = iter(img_train_loader)
-images, labels = dataiter.next()
+images, labels = next(dataiter)
 ## show images
 imshow(make_grid(images, nrow=8))
