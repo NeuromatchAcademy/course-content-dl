@@ -37,7 +37,7 @@ In order to build the book locally, you will need to do the following:
 
 5. Copy files from precourse-main
 
-`mv ../precourse/prereqs .`
+`mv ../precourse-main/prereqs .`
 
 6. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
