@@ -4,7 +4,7 @@ Click on each image below to see a full browser version!
 
 # NMA Robolympics: controlling robots using reinforcement learning
 
-<img src="template_images/Robolympics.svg" width="100%">
+<img src="template_images/robolympics.svg" width="100%">
 
 # Animal Pose Estimation
 
