@@ -16,4 +16,4 @@ Click on each image below to see a full browser version!
 
 # Investigating the visual information in different brain regions
 
-<img src="template_images/fmri_movies.svg" width="100%">
+<img src="template_images/finetuning_fmri.svg" width="100%">
