@@ -45,7 +45,7 @@ atform.add_event('Coding Exercise 4.1: Use the ResNet model')
 
 # Get batch of images
 dataiter = iter(imagenette_val_loader)
-images, labels = dataiter.next()
+images, labels = next(dataiter)
 
 ## Uncomment to test your function and retrieve top 5 predictions
 top5_names, top5_probs = predict_top5(images, DEVICE, SEED)
