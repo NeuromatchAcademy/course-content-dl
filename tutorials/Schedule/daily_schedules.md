@@ -2,7 +2,7 @@
 
 ## Course overview
 
-* TBA: Opening Ceremonies
+* July 9: Opening Ceremonies
     * 7:00 am UTC
     * 3:00 pm UTC
 
@@ -25,7 +25,6 @@
     * Tue, July 26: DL Thinking 2 & Half Projects Day (Abstract Writing)
     * Wed, July 27: Unsupervised and Self-supervised learning
     * Thu, July 28: Basic Reinforcement Learning
-    * Fri, July 29: Reinforcement Learning for Games & Graduation
 ----
 
 ## Daily coursework schedule
