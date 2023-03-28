@@ -2,12 +2,12 @@
 
 ## Course overview
 
-* Sun, July 10: Opening Ceremonies
+* TBA: Opening Ceremonies
     * 7:00 am UTC
     * 3:00 pm UTC
 
 * Week 1
-    * Mon, July 11: Basics and Pytorch
+    * Mon, July 10: Basics and Pytorch
     * Tue, July 12: Linear Deep Learning
     * Wed, July 13: Multilayer Perceptrons
     * Thu, July 14: Projects day
