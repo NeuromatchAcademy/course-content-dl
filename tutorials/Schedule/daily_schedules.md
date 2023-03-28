@@ -1,5 +1,7 @@
 # General schedule
 
+**Important Note:** This was the schedule for 2022, it may be subject to changes for 2023.
+
 ## Course overview
 
 * July 9: Opening Ceremonies
