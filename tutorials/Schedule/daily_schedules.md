@@ -4,12 +4,12 @@
 
 ## Course overview
 
-* July 9: Opening Ceremonies
+* Sun, July 10: Opening Ceremonies
     * 7:00 am UTC
     * 3:00 pm UTC
 
 * Week 1
-    * Mon, July 10: Basics and Pytorch
+    * Mon, July 11: Basics and Pytorch
     * Tue, July 12: Linear Deep Learning
     * Wed, July 13: Multilayer Perceptrons
     * Thu, July 14: Projects day
@@ -27,6 +27,7 @@
     * Tue, July 26: DL Thinking 2 & Half Projects Day (Abstract Writing)
     * Wed, July 27: Unsupervised and Self-supervised learning
     * Thu, July 28: Basic Reinforcement Learning
+    * Fri, July 29: Reinforcement Learning for Games & Graduation
 ----
 
 ## Daily coursework schedule
