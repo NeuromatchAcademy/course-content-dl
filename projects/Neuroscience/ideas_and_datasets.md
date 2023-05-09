@@ -7,19 +7,19 @@ Different categories of DL projects (in order of increasing expertise):
 
 # Datasets
 
-## [NMA curated](https://github.com/NeuromatchAcademy/course-content/tree/master/projects)  
-[Steinmetz Neuropixels behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_decisions.ipynb)  
-[Steinmetz LFP behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_extra.ipynb)  
-[Stringer spontaneous](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_spontaneous.ipynb)  
-[Stringer orientations](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_orientations.ipynb)  
-[Allen Institute 2p with behavior, SDK](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_SDK.ipynb)  
-[Allen Institute 2p with behavior, simplified](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_pre_processed_file.ipynb)  
-[Human Connectome Project FMRI](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI)  
-[Kay natural images FMRI](https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_kay_images.ipynb)  
-[Bonner/Cichy etc FMRI](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI)  
-[ECoG](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/ECoG)  
-[Caltech social behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/behavior/Loading_CalMS21_data.ipynb)  
-[IBL mouse decision making](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/behavior)  
+## [NMA curated](https://github.com/NeuromatchAcademy/course-content/tree/master/projects)
+[Steinmetz Neuropixels behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_decisions.ipynb)
+[Steinmetz LFP behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_extra.ipynb)
+[Stringer spontaneous](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_spontaneous.ipynb)
+[Stringer orientations](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_orientations.ipynb)
+[Allen Institute 2p with behavior, SDK](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_SDK.ipynb)
+[Allen Institute 2p with behavior, simplified](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_pre_processed_file.ipynb)
+[Human Connectome Project FMRI](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI)
+[Kay natural images FMRI](https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_kay_images.ipynb)
+[Bonner/Cichy etc FMRI](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI)
+[ECoG](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/ECoG)
+[Caltech social behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/behavior/Loading_CalMS21_data.ipynb)
+[IBL mouse decision making](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/behavior)
 
 ## [CRCNS](https://crcns.org/)
 [Visual cortex](https://crcns.org/data-sets/vc)  
@@ -38,9 +38,9 @@ Different categories of DL projects (in order of increasing expertise):
 
 ## Others
 [Buzsaki lab webpage](https://buzsakilab.com/wp/database/)  
-[EEG datasets](https://www.kaggle.com/search?q=EEG+in%3Adatasets)  
-[BCI datasets](https://www.kaggle.com/search?q=BCI+in%3Adatasets)  
-[Motor control](https://www.kaggle.com/fabriciotorquato/eeg-data-from-hands-movement)  
+[EEG datasets](https://www.kaggle.com/search?q=EEG+in%3Adatasets)
+[BCI datasets](https://www.kaggle.com/search?q=BCI+in%3Adatasets)
+[Motor control](https://www.kaggle.com/fabriciotorquato/eeg-data-from-hands-movement)
 
 [Handwriting BCI dataset](https://www.kaggle.com/saurabhshahane/handwriting-bci). Relatively recent dataset (from Krishna Shenoy's lab) of motor cortex neural activity recordings during handwriting, for testing RNN models of text decoding.
 
@@ -82,3 +82,4 @@ Very recent 2p data with behavior from NMA-CN: [Pre-processed subsample](https:/
 [Reference paper](https://www.frontiersin.org/articles/10.3389/fnins.2020.568104/full), [Dataset](https://www.kaggle.com/disbeat/bciaut-p300)
 
 This a typical P300 dataset contains data from 15 subjects and 7 sessions for each subject.
+

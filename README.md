@@ -4,11 +4,11 @@
 
 **Objectives**: Gain hands-on, code-first experience with deep learning theories, models, and skills that are useful for applications and for advancing science. We focus on how to decide which problems can be tackled with deep learning, how to determine what model is best, how to best implement a model, how to visualize / justify findings, and how neuroscience can inspire deep learning. And throughout we emphasize the ethical use of DL. 
 
-Please check out [expected prerequisites here](https://github.com/NeuromatchAcademy/precourse/blob/main/prereqs/DeepLearning.md)!
+Please check out [expected prerequisites here](https://github.com/NeuromatchAcademy/precourse/blob/NMACN2022/prereqs/DeepLearning.md)!
 
 The content should primarily be accessed from our ebook: https://deeplearning.neuromatch.io/ [under continuous development]
 
-Schedule for 2022: https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/Schedule/daily_schedules.md
+Schedule for 2022: https://github.com/NeuromatchAcademy/course-content-dl/blob/NMACN2022/tutorials/Schedule/daily_schedules.md
 
 ----
 
@@ -30,3 +30,4 @@ Derivative works may use the license that is more appropriate to the relevant co
 
 [bsd-3]: https://opensource.org/licenses/BSD-3-Clause
 [bsd-3-shield]: https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667
+

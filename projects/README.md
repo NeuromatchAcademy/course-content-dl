@@ -60,3 +60,4 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
   * Check the general schedule for precise timing of events on W3D5.
   * For each group, we will send an email invitation to the following people: TA, project TA and primary student contact.
   * More about scheduling and logistics in the [Student Guide to Projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html)
+

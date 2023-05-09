@@ -2,7 +2,7 @@
 
 ## Biological Image Analysis
 
-Count cells: use the [segmentation notebook](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/Neuroscience/cellular_segmentation.ipynb) and/or other approaches.
+Count cells: use the [segmentation notebook](https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/NMACN2022/projects/Neuroscience/cellular_segmentation.ipynb) and/or other approaches.
 
 Denoise with [noise2void](https://github.com/juglab/n2v).
 
@@ -44,3 +44,4 @@ Use the GNN deepwalk embedding on some molecules dataset and use CNN to cluster 
 [VisualData](https://visualdata.io/discovery)
 
 [Models](https://models.roboflow.com/)
+

@@ -152,3 +152,4 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 *Note that these have been scheduled to be before or after the coursework time for each time slot. In some cases, they overlap by 15 - 30 minutes with projects time - please start on projects time late or end early in order to attend these events*
 
 Course live events: TBD — will update 
+
