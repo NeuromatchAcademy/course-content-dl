@@ -20,3 +20,4 @@ Click on each image below to see a full browser version!
 
 <img src="../docs/template_images/neuro_seq_to_seq.svg" width="100%">
 
+

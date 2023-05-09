@@ -6,3 +6,4 @@ Welcome to the Neuromatch academy deep learning course!
 
 <p align='center'><img src='https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True'/></p>
 
+

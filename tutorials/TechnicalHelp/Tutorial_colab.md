@@ -8,3 +8,4 @@ you can click the "Open in Colab" button at the top of each page to launch it in
 *  Do not edit the same colab directly as a group. Unlike Google Docs, one person's version will overwrite another's. If your browser happens to be open, it can overwrite anything that has been done by others since the last version in your browser!
 *  Colab does not have version control! Use git for this if you want to collaborate (on a group project colab for example)
 
+

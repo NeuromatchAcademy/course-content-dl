@@ -32,3 +32,4 @@ If there are exceptional circumstances that make it difficult to attend the proj
 
 If the student participates in projects but misses more than two days due to exceptional circumstances, they can request to get the projects certificate anyway by filling out the attendance exemption form ([https://airtable.com/shrJdpfwACARN5Jop](https://airtable.com/shrJdpfwACARN5Jop)) **at least two days prior to the end of course**. Please note these requests may not be granted.
 
+

@@ -28,3 +28,4 @@ Once your phone number has been verified, on the left sidebar under **Settings**
 
 ![Step 4.1](../static/kaggle_step6_2.png)
 
+
