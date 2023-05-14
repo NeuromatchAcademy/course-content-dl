@@ -75,7 +75,3 @@ class DotProductAttention(nn.Module):
     out = out.transpose(1, 2).contiguous().view(b, t, h * k)
 
     return out
-
-
-# add event to airtable
-atform.add_event('Coding Exercise 2: Dot product attention')

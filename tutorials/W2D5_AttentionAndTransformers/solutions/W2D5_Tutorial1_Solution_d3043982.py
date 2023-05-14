@@ -51,7 +51,3 @@ class TransformerBlock(nn.Module):
     x = self.norm_2(feedforward + x)
 
     return x
-
-
-# add event to airtable
-atform.add_event('Coding Exercise 4: Transformer encoder')
