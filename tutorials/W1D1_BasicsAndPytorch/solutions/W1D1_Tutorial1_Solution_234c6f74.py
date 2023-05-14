@@ -74,9 +74,6 @@ def functionC(my_tensor1, my_tensor2):
 
   return output
 
-# add timing to airtable
-atform.add_event('Coding Exercise 2.3: Manipulating Tensors')
-
 
 ## Implement the functions above and then uncomment the following lines to test your code
 print(functionA(torch.tensor([[1, 1], [1, 1]]), torch.tensor([[1, 2, 3], [1, 2, 3]])))

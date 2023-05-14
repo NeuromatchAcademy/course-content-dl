@@ -20,9 +20,6 @@ def dot_product(b1: torch.Tensor, b2: torch.Tensor):
   product = torch.dot(b1, b2)
   return product
 
-# add timing to airtable
-atform.add_event('Coding Exercise 2.2 : Simple tensor operations-dot_product')
-
 
 # Computing expression 2:
 b1 = torch.tensor([3, 5, 7])
