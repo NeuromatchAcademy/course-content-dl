@@ -18,9 +18,6 @@ def simple_operations(a1: torch.Tensor, a2: torch.Tensor, a3: torch.Tensor):
   answer = a1 @ a2 + a3
   return answer
 
-# add timing to airtable
-atform.add_event('Coding Exercise 2.2 : Simple tensor operations-simple_operations')
-
 
 # Computing expression 1:
 

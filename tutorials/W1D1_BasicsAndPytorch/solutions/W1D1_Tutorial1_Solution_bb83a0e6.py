@@ -29,6 +29,6 @@ def simpleFun(dim, device):
   del b
 
 
-## TODO: Implement the function above and uncomment the following lines to test your code
+## Implement the function above and uncomment the following lines to test your code
 timeFun(f=simpleFun, dim=dim, iterations=iterations)
 timeFun(f=simpleFun, dim=dim, iterations=iterations, device=DEVICE)
