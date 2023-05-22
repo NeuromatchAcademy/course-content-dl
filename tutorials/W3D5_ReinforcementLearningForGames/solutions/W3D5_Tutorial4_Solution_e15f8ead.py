@@ -59,7 +59,6 @@ class PolicyBasedPlayer():
     return a
 
 
-
 # Playing games
 set_seed(seed=SEED)
 num_games = 20
