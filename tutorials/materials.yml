@@ -64,7 +64,7 @@
 
 - day: W2D2
   category: Convolutional Neural Networks
-  name: Convnets And Dl Thinking
+  name: Convnets And Deep Learning Thinking 1
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
@@ -135,7 +135,7 @@
 
 - day: W3D2
   category: Natural Language Processing
-  name: Dl Thinking2
+  name: Deep Learning Thinking 2
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18M6GYMqOSsswELhdxOUWQgR
 
   slides:
@@ -177,7 +177,7 @@
   
 - day: W3D5
   category: Reinforcement Learning
-  name: Reinforcement Learning For Games
+  name: Reinforcement Learning For Games and Deep Learning Thinking 3
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
 
   slides:
@@ -192,4 +192,4 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render
     title: Bonus Lecture
 
-  tutorials: 4
+  tutorials: 5
