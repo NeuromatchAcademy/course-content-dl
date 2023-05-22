@@ -84,7 +84,3 @@ class MonteCarlo():
       temp_v = v
 
     return temp_v
-
-
-# Add event to airtable
-atform.add_event('Coding Exercise 1: MonteCarlo')

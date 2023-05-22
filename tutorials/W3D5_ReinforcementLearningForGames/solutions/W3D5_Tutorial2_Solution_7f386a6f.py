@@ -30,7 +30,3 @@ class RandomPlayer():
     a = np.random.choice(self.game.getActionSize(), p=prob)
 
     return a
-
-
-# Add event to airtable
-atform.add_event('Coding Exercise 1.2: Implement a random player')
