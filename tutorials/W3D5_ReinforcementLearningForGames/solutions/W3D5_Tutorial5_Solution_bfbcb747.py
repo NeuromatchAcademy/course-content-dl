@@ -110,8 +110,6 @@ class MonteCarloBasedPlayer():
     return action_probs
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 7: MonteCarlo siumulations')
 
 set_seed(seed=SEED)
 game = OthelloGame(6)

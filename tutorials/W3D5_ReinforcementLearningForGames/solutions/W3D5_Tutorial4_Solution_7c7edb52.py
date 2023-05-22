@@ -59,8 +59,6 @@ class PolicyBasedPlayer():
     return a
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 5: Implement the PolicyBasedPlayer')
 
 # Playing games
 set_seed(seed=SEED)

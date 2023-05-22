@@ -55,8 +55,6 @@ class ValueBasedPlayer():
     return candidates[0][1]
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3: Value-based player')
 
 # Playing games between a value-based player and a random player
 set_seed(seed=SEED)
