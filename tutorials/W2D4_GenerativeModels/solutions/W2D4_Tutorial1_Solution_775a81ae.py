@@ -25,8 +25,6 @@ def generate_images(autoencoder, K, n_images=1):
     return x.reshape(output_shape)
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 4.2: Generating images')
 
 set_seed(seed=SEED)
 ## Uncomment to test your solution

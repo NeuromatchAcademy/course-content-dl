@@ -114,8 +114,6 @@ class ConvAutoEncoder(nn.Module):
     return self.decode(self.encode(x))
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3.2: Fill in code for the ConvAutoEncoder module')
 
 set_seed(seed=SEED)
 ## Uncomment to test your solution
