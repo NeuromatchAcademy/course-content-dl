@@ -38,8 +38,6 @@ def gen_from_pPCA(noise_var, data_mean, pc_axes, pc_variance):
   return therm_data_sim
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2: pPCA')
 
 ## Uncomment to test your code
 therm_data_sim = gen_from_pPCA(sensor_noise_var, therm_data_mean, pc_axes, pc_axes_variance)
