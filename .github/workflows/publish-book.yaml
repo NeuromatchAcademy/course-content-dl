@@ -31,6 +31,12 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install jupyter-book ghp-import
+          pip install jupyter_client  # downgrade jupyter-client to fix hangs
+
       - name: Install CI tools
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
@@ -62,12 +68,6 @@ jobs:
           mv precourse-$BRANCH/prereqs/ prereqs/
           rm -r precourse-$BRANCH
           rm -r $BRANCH.tar.gz
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install jupyter-book==0.10.2 ghp-import
-          pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
 
       - name: Build the book
         run: |
