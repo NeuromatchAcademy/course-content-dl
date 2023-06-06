@@ -31,6 +31,12 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install jupyter-book ghp-import
+          pip install jupyter_client  # downgrade jupyter-client to fix hangs
+
       - name: Install CI tools
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
@@ -44,13 +50,6 @@ jobs:
           rm -r nmaci-$BRANCH
           rm -r $BRANCH.tar.gz
           echo ci/ >> .gitignore
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install jupyter-book ghp-import
-          pip install jupyter_client  # downgrade jupyter-client to fix hangs
-          pip install mkdocs mkdocs-material==7.0.7 mkdocs-mermaid2-plugin
 
       - name: Install XKCD fonts
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
