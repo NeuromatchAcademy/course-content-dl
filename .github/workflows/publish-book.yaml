@@ -34,8 +34,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install jupyter-book ghp-import
-          pip install jupyter_client  # downgrade jupyter-client to fix hangs
+          pip install -U jupyter-book
+          pip install ghp-import
+          pip install jupyter_client
 
       - name: Install CI tools
         run: |
