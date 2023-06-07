@@ -1,27 +1,27 @@
-def marginal_prob_std(t, sigma, device='cpu'):
+def marginal_prob_std(t, Lambda, device='cpu'):
   """Compute the standard deviation of $p_{0t}(x(t) | x(0))$.
 
   Args:
     t: A vector of time steps.
-    sigma: The $\sigma$ in our SDE.
+    Lambda: The $\lambda$ in our SDE.
 
   Returns:
     std : The standard deviation.
   """
   t = t.to(device)
-  std = torch.sqrt((sigma**(2 * t) - 1.) / 2. / np.log(sigma))
+  std = torch.sqrt((Lambda**(2 * t) - 1.) / 2. / np.log(Lambda))
   return std
 
 
-def diffusion_coeff(t, sigma, device='cpu'):
+def diffusion_coeff(t, Lambda, device='cpu'):
   """Compute the diffusion coefficient of our SDE.
 
   Args:
     t: A vector of time steps.
-    sigma: The $\sigma$ in our SDE.
+    Lambda: The $\lambda$ in our SDE.
 
   Returns:
     diff_coeff : The vector of diffusion coefficients.
   """
-  diff_coeff = sigma**t
+  diff_coeff = Lambda**t
   return diff_coeff.to(device)

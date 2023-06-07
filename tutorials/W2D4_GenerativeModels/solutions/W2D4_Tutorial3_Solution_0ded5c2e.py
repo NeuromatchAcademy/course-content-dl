@@ -4,9 +4,12 @@ def loss_fn(model, x, marginal_prob_std, eps=1e-3, device='cpu'):
   Args:
     model: A PyTorch model instance that represents a
       time-dependent score-based model.
+      Note, it takes two inputs in its forward function model(x, t)
+      $s_\theta(x,t)$ in the equation
     x: A mini-batch of training data.
     marginal_prob_std: A function that gives the standard deviation of
-      the perturbation kernel.
+      the perturbation kernel, takes `t` as input.
+      $\sigma_t$ in the equation.
     eps: A tolerance value for numerical stability.
   """
   # Sample time uniformly in eps, 1
