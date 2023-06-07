@@ -97,9 +97,9 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/dftym/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 4 (Bonus)
@@ -115,6 +115,8 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6eudb/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
 
   tutorials: 1
 
@@ -126,7 +128,7 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n23hy/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/spuj8/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/n263c/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3 (Bonus)
@@ -161,16 +163,8 @@
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NvgYV0NBPZqDfFAc35sZUK
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 3
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2jzdu/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 4
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/m3kqy/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 5 (Bonus)
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render
     title: Bonus Lecture
   tutorials: 5
