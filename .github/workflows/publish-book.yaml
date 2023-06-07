@@ -69,6 +69,13 @@ jobs:
           rm -r precourse-$BRANCH
           rm -r $BRANCH.tar.gz
 
+      - name: Remove files
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
       - name: Build the book
         run: |
           python ci/generate_book_dl.py student
