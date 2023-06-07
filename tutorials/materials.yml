@@ -167,7 +167,8 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render
     title: Bonus Lecture
-  tutorials: 5
+
+  tutorials: 2
   
 - day: W3D5
   category: Unsupervised and Reinforcement Learning
