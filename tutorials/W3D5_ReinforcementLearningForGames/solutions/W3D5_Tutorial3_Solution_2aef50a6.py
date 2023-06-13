@@ -1,12 +1,7 @@
 class MCTS():
-  """
-  This class handles MCTS (Monte Carlo Tree Search).
-  """
 
   def __init__(self, game, nnet, args):
     """
-    Initialize parameters of MCTS
-
     Args:
       game: OthelloGame instance
         Instance of the OthelloGame class above;
@@ -17,9 +12,6 @@ class MCTS():
         arena, checkpointing, and neural network parameters:
         learning-rate: 0.001, dropout: 0.3, epochs: 10, batch_size: 64,
         num_channels: 512
-
-    Returns:
-      Nothing
     """
     self.game = game
     self.nnet = nnet
@@ -33,9 +25,10 @@ class MCTS():
 
   def search(self, canonicalBoard):
     """
-    This function performs one iteration of MCTS. It is recursively called
-    till a leaf node is found. The action chosen at each node is one that
-    has the maximum upper confidence bound as in the paper.
+    Perform one iteration of MCTS.
+
+    It is recursively called till a leaf node is found. The action chosen at
+    each node is one that has the maximum upper confidence bound.
     Once a leaf node is found, the neural network is called to return an
     initial policy P and a value v for the state. This value is propagated
     up the search path. In case the leaf node is a terminal state, the

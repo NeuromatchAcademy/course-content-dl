@@ -5,8 +5,6 @@ class MonteCarloBasedPlayer():
 
   def __init__(self, game, nnet, args):
     """
-    Initialize Monte Carlo Parameters
-
     Args:
       game: OthelloGame instance
         Instance of the OthelloGame class above;
@@ -17,9 +15,6 @@ class MonteCarloBasedPlayer():
         arena, checkpointing, and neural network parameters:
         learning-rate: 0.001, dropout: 0.3, epochs: 10, batch_size: 64,
         num_channels: 512
-
-    Returns:
-      Nothing
     """
     self.game = game
     self.nnet = nnet
@@ -73,7 +68,7 @@ class MonteCarloBasedPlayer():
 
       # Do some rollouts
       for rollout in range(self.args.numMCsims):
-        value = self.mc.simulate(canonicalBoard)
+        value = self.mc.simulate(next_s)
         values.append(value)
 
       # Average out values
@@ -87,7 +82,7 @@ class MonteCarloBasedPlayer():
 
   def getActionProb(self, canonicalBoard, temp=1):
     """
-    Helper function to get probabilities associated with each action
+    Get probabilities associated with each action
 
     Args:
       canonicalBoard: np.ndarray
@@ -110,7 +105,6 @@ class MonteCarloBasedPlayer():
     return action_probs
 
 
-
 set_seed(seed=SEED)
 game = OthelloGame(6)
 # Run the resulting player versus the random player
@@ -127,7 +121,7 @@ mc1 = MonteCarloBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mc1.getActionProb(x))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
 MC_result = arena.playGames(num_games, verbose=False)
-print(f"\n\n{MC_result}")
+
 print(f"\nNumber of games won by player1 = {MC_result[0]}, "
       f"number of games won by player2 = {MC_result[1]}, out of {num_games} games")
 win_rate_player1 = MC_result[0]/num_games
