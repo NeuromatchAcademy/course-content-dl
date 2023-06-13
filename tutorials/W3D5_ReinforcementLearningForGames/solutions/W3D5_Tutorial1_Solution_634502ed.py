@@ -1,16 +1,4 @@
 class OthelloNNet(nn.Module):
-  """
-  Instantiate Othello Neural Net with following configuration
-  nn.Conv2d(1, args.num_channels, 3, stride=1, padding=1) # Convolutional Layer 1
-  nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1, padding=1) # Convolutional Layer 2
-  nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1) # Convolutional Layer 3
-  nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1) # Convolutional Layer 4
-  nn.BatchNorm2d(args.num_channels) X 4
-  nn.Linear(args.num_channels * (self.board_x - 4) * (self.board_y - 4), 1024) # Fully-connected Layer 1
-  nn.Linear(1024, 512) # Fully-connected Layer 2
-  nn.Linear(512, self.action_size) # Fully-connected Layer 3
-  nn.Linear(512, 1) # Fully-connected Layer 4
-  """
 
   def __init__(self, game, args):
     """
@@ -24,35 +12,39 @@ class OthelloNNet(nn.Module):
         arena, checkpointing, and neural network parameters:
         learning-rate: 0.001, dropout: 0.3, epochs: 10, batch_size: 64,
         num_channels: 512
-
-    Returns:
-      Nothing
     """
     self.board_x, self.board_y = game.getBoardSize()
     self.action_size = game.getActionSize()
     self.args = args
 
     super(OthelloNNet, self).__init__()
-    self.conv1 = nn.Conv2d(1, args.num_channels, 3, stride=1, padding=1)
-    self.conv2 = nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1,
-                           padding=1)
-    self.conv3 = nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1)
-    self.conv4 = nn.Conv2d(args.num_channels, args.num_channels, 3, stride=1)
+    self.conv1 = nn.Conv2d(in_channels=1, out_channels=args.num_channels,
+                           kernel_size=3, stride=1, padding=1)
+    self.conv2 = nn.Conv2d(in_channels=args.num_channels,
+                           out_channels=args.num_channels, kernel_size=3,
+                           stride=1, padding=1)
+    self.conv3 = nn.Conv2d(in_channels=args.num_channels,
+                           out_channels=args.num_channels, kernel_size=3,
+                           stride=1)
+    self.conv4 = nn.Conv2d(in_channels=args.num_channels,
+                           out_channels=args.num_channels, kernel_size=3,
+                           stride=1)
 
-    self.bn1 = nn.BatchNorm2d(args.num_channels)
-    self.bn2 = nn.BatchNorm2d(args.num_channels)
-    self.bn3 = nn.BatchNorm2d(args.num_channels)
-    self.bn4 = nn.BatchNorm2d(args.num_channels)
+    self.bn1 = nn.BatchNorm2d(num_features=args.num_channels)
+    self.bn2 = nn.BatchNorm2d(num_features=args.num_channels)
+    self.bn3 = nn.BatchNorm2d(num_features=args.num_channels)
+    self.bn4 = nn.BatchNorm2d(num_features=args.num_channels)
 
-    self.fc1 = nn.Linear(args.num_channels * (self.board_x - 4) * (self.board_y - 4), 1024)
-    self.fc_bn1 = nn.BatchNorm1d(1024)
+    self.fc1 = nn.Linear(in_features=args.num_channels * (self.board_x - 4) * (self.board_y - 4),
+                         out_features=1024)
+    self.fc_bn1 = nn.BatchNorm1d(num_features=1024)
 
-    self.fc2 = nn.Linear(1024, 512)
-    self.fc_bn2 = nn.BatchNorm1d(512)
+    self.fc2 = nn.Linear(in_features=1024, out_features=512)
+    self.fc_bn2 = nn.BatchNorm1d(num_features=512)
 
-    self.fc3 = nn.Linear(512, self.action_size)
+    self.fc3 = nn.Linear(in_features=512, out_features=self.action_size)
 
-    self.fc4 = nn.Linear(512, 1)
+    self.fc4 = nn.Linear(in_features=512, out_features=1)
 
   def forward(self, s):
     """
@@ -63,7 +55,9 @@ class OthelloNNet(nn.Module):
         Array of size (batch_size x board_x x board_y)
 
     Returns:
-      Probability distribution over actions at the current state and the value of the current state.
+      prob, v: tuple of torch.Tensor
+        Probability distribution over actions at the current state and the value
+        of the current state.
     """
     s = s.view(-1, 1, self.board_x, self.board_y)                # batch_size x 1 x board_x x board_y
     s = F.relu(self.bn1(self.conv1(s)))                          # batch_size x num_channels x board_x x board_y
@@ -77,6 +71,5 @@ class OthelloNNet(nn.Module):
 
     pi = self.fc3(s)  # batch_size x action_size
     v = self.fc4(s)   # batch_size x 1
-
     # Returns probability distribution over actions at the current state and the value of the current state.
     return F.log_softmax(pi, dim=1), torch.tanh(v)

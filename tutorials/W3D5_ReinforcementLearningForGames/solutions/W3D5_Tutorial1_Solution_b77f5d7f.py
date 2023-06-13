@@ -1,18 +1,10 @@
 class ValueNetwork(NeuralNet):
-  """
-  Initiates the Value Network
-  """
 
   def __init__(self, game):
     """
-    Initialise network parameters
-
     Args:
-      game: OthelloGame instance
-        Instance of the OthelloGame class above;
-
-    Returns:
-      Nothing
+      game: OthelloGame
+        Instance of the OthelloGame class above
     """
     self.nnet = OthelloNNet(game, args)
     self.board_x, self.board_y = game.getBoardSize()
@@ -21,14 +13,9 @@ class ValueNetwork(NeuralNet):
 
   def train(self, games):
     """
-    Function to train value network
-
     Args:
       games: list
         List of examples with each example is of form (board, pi, v)
-
-    Returns:
-      Nothing
     """
     optimizer = optim.Adam(self.nnet.parameters())
     for examples in games:
@@ -63,8 +50,6 @@ class ValueNetwork(NeuralNet):
 
   def predict(self, board):
     """
-    Function to perform prediction
-
     Args:
       board: np.ndarray
         Board of size n x n [6x6 in this case]
@@ -87,8 +72,6 @@ class ValueNetwork(NeuralNet):
 
   def loss_v(self, targets, outputs):
     """
-    Calculates Mean squared error
-
     Args:
       targets: np.ndarray
         Ground Truth variables corresponding to input
@@ -96,51 +79,13 @@ class ValueNetwork(NeuralNet):
         Predictions of Network
 
     Returns:
-      MSE Loss calculated as: square of the difference between your model's predictions
-      and the ground truth and average across the whole dataset
+      MSE Loss averaged across the whole dataset
     """
     # Mean squared error (MSE)
     return torch.sum((targets - outputs.view(-1)) ** 2) / targets.size()[0]
 
   def save_checkpoint(self, folder='checkpoint', filename='checkpoint.pth.tar'):
-    """
-    Code Checkpointing
-
-    Args:
-      folder: string
-        Path specifying training examples
-      filename: string
-        File name of training examples
-
-    Returns:
-      Nothing
-    """
-    filepath = os.path.join(folder, filename)
-    if not os.path.exists(folder):
-      print("Checkpoint Directory does not exist! Making directory {}".format(folder))
-      os.mkdir(folder)
-    else:
-      print("Checkpoint Directory exists! ")
-    torch.save({'state_dict': self.nnet.state_dict(),}, filepath)
-    print("Model saved! ")
+    save_model_checkpoint(folder, filename, self.nnet)
 
   def load_checkpoint(self, folder='checkpoint', filename='checkpoint.pth.tar'):
-    """
-    Load code checkpoint
-
-    Args:
-      folder: string
-        Path specifying training examples
-      filename: string
-        File name of training examples
-
-    Returns:
-      Nothing
-    """
-    # https://github.com/pytorch/examples/blob/master/imagenet/main.py#L98
-    filepath = os.path.join(folder, filename)
-    if not os.path.exists(filepath):
-      raise ("No model in path {}".format(filepath))
-
-    checkpoint = torch.load(filepath, map_location=args.device)
-    self.nnet.load_state_dict(checkpoint['state_dict'])
+    load_model_checkpoint(folder, filename, self.nnet, args.device)

@@ -1,12 +1,7 @@
 class MonteCarloTreeSearchBasedPlayer():
-  """
-  Simulate Player based on MCTS
-  """
 
   def __init__(self, game, nnet, args):
     """
-    Initialize parameters of MCTS
-
     Args:
       game: OthelloGame instance
         Instance of the OthelloGame class above;
@@ -17,9 +12,6 @@ class MonteCarloTreeSearchBasedPlayer():
         arena, checkpointing, and neural network parameters:
         learning-rate: 0.001, dropout: 0.3, epochs: 10, batch_size: 64,
         num_channels: 512
-
-    Returns:
-      Nothing
     """
     self.game = game
     self.nnet = nnet
@@ -28,8 +20,6 @@ class MonteCarloTreeSearchBasedPlayer():
 
   def play(self, canonicalBoard, temp=1):
     """
-    Simulate Play on Canonical Board
-
     Args:
       canonicalBoard: np.ndarray
         Canonical Board of size n x n [6x6 in this case]
@@ -61,8 +51,6 @@ class MonteCarloTreeSearchBasedPlayer():
 
   def getActionProb(self, canonicalBoard, temp=1):
     """
-    Helper function to get probabilities associated with each action
-
     Args:
       canonicalBoard: np.ndarray
         Canonical Board of size n x n [6x6 in this case]
@@ -94,7 +82,6 @@ mcts1 = MonteCarloTreeSearchBasedPlayer(game, n1, args1)
 n1p = lambda x: np.argmax(mcts1.getActionProb(x, temp=0))
 arena = Arena.Arena(n1p, rp, game, display=OthelloGame.display)
 MCTS_result = arena.playGames(num_games, verbose=False)
-print(f"\n\n{MCTS_result}")
 print(f"\nNumber of games won by player1 = {MCTS_result[0]}, "
       f"number of games won by player2 = {MCTS_result[1]}, out of {num_games} games")
 win_rate_player1 = MCTS_result[0]/num_games

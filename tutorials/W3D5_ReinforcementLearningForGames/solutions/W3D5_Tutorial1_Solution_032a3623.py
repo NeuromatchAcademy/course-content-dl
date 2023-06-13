@@ -55,13 +55,17 @@ class ValueBasedPlayer():
     return candidates[0][1]
 
 
-
 # Playing games between a value-based player and a random player
 set_seed(seed=SEED)
 num_games = 20
 player1 = ValueBasedPlayer(game, vnet).play
 player2 = RandomPlayer(game).play
 arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
+
 ## Uncomment the code below to check your code!
+## Compute win rate for the value-based player (player 1)
 result = arena.playGames(num_games, verbose=False)
-print(f"\n\n{result}")
+print(f"\nNumber of games won by player1 = {result[0]}, "
+      f"Number of games won by player2 = {result[1]} out of {num_games} games")
+win_rate_player1 = result[0]/num_games
+print(f"\nWin rate for player1 over 20 games: {round(win_rate_player1*100, 1)}%")

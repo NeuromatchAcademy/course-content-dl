@@ -1,12 +1,7 @@
 class PolicyBasedPlayer():
-  """
-  Simulate Policy Based Player
-  """
 
   def __init__(self, game, pnet, greedy=True):
     """
-    Initialize Policy based player parameters
-
     Args:
       game: OthelloGame instance
         Instance of the OthelloGame class above;
@@ -15,9 +10,6 @@ class PolicyBasedPlayer():
       greedy: Boolean
         If true, implement greedy approach
         Else, implement random sample policy based player
-
-    Returns:
-      Nothing
     """
     self.game = game
     self.pnet = pnet
@@ -25,8 +17,6 @@ class PolicyBasedPlayer():
 
   def play(self, board):
     """
-    Simulate game play
-
     Args:
       board: np.ndarray
         Board of size n x n [6x6 in this case]
@@ -67,6 +57,9 @@ player2 = RandomPlayer(game).play
 arena = Arena.Arena(player1, player2, game, display=OthelloGame.display)
 ## Uncomment below to test!
 result = arena.playGames(num_games, verbose=False)
-print(f"\n\n{result}")
+
+print(f"\nNumber of games won by player1 = {result[0]}, "
+      f"Number of games won by player2 = {result[1]} out of {num_games} games")
+
 win_rate_player1 = result[0] / num_games
 print(f"\nWin rate for greedy policy player 1 (vs random player 2) over {num_games} games: {round(win_rate_player1*100, 1)}%")
