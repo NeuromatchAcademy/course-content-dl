@@ -191,7 +191,7 @@ Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?di
 
 [YouTube Playlist](https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X)
 
-Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/4p2ek/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/r67j2/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 3](https://mfr.ca-1.osf.io/render?url=https://osf.io/r6tup/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 4](https://mfr.ca-1.osf.io/render?url=https://osf.io/h4utj/?direct%26mode=render%26action=download%26mode=render) | [Bonus Lecture](https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render)
+Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/4p2ek/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/r67j2/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 3](https://mfr.ca-1.osf.io/render?url=https://osf.io/h4utj/?direct%26mode=render%26action=download%26mode=render) | [Bonus Lecture](https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
