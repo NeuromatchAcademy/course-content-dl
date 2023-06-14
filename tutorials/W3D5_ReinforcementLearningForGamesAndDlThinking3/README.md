@@ -1,4 +1,4 @@
-# W3D5 - Reinforcement Learning For Games
+# W3D5 - Reinforcement Learning For Games And Dl Thinking 3
 
 ## Instructor notebooks
 
