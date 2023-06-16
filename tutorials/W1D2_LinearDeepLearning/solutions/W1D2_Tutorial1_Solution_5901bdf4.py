@@ -32,8 +32,6 @@ def train(features, labels, model, loss_fun, optimizer, n_epochs):
     loss_record.append(loss.item())
   return loss_record
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3.1: Training Loop')
 
 
 set_seed(seed=2021)

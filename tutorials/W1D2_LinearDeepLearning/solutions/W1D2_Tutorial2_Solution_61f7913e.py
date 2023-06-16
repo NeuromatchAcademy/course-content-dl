@@ -112,8 +112,6 @@ def loss(y_prediction, y_true):
   mse = ((y_true - y_prediction)**2).mean()
   return mse
 
-# Add event to airtable
-atform.add_event('Coding Exercise 1.1: Implement simple narrow LNN')
 
 
 set_seed(seed=SEED)

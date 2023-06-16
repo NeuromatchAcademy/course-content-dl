@@ -17,8 +17,6 @@ def ex_initializer_(model, gamma=1e-12):
     nn.init.normal_(weight, mean=0.0, std=sigma)
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 0: Re-initialization')
 
 ## uncomment and run
 test_initializer_ex(SEED)

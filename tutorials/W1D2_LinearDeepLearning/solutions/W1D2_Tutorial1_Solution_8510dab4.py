@@ -58,8 +58,6 @@ def sq_loss(y_true, y_prediction):
   return loss
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2.1: Computational Graph ')
 
 feature = torch.tensor([1])  # Input tensor
 target = torch.tensor([7])  # Target tensor
