@@ -38,8 +38,6 @@ def convolution2d(image, kernel):
   return output
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2.3: Coding a Convolution')
 
 ## Tests
 # First, we test the parameters we used before in the manual-calculation example

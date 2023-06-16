@@ -48,8 +48,6 @@ class EMNIST_Net(nn.Module):
     return x
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 4: Implement your own CNN')
 
 ## Uncomment the lines below to train your network
 emnist_net = EMNIST_Net().to(DEVICE)
