@@ -57,8 +57,6 @@ class Net(nn.Module):
     logits = self.mlp(x) # Forward pass of MLP
     return logits
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2: Implement a general-purpose MLP in Pytorch')
 
 
 input = torch.zeros((100, 2))

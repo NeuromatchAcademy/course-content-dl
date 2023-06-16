@@ -43,7 +43,7 @@ def run_depth_optimizer(max_par_count, max_hidden_layer, device):
 
   for hidden_layer in hidden_layers:
     # Initialize the hidden units in each hidden layer to be 1
-    hidden_units = np.ones(hidden_layer, dtype=np.int)
+    hidden_units = np.ones(hidden_layer, dtype=int)
 
     # Define the the with hidden units equal to 1
     wide_net = Net('ReLU()', X_train.shape[1], hidden_units, K).to(device)
@@ -65,9 +65,6 @@ def run_depth_optimizer(max_par_count, max_hidden_layer, device):
 
   return hidden_layers, test_scores
 
-
-# Add event to airtable
-atform.add_event('Coding Exercise 1: Wide vs. Deep ')
 
 
 set_seed(seed=SEED)
