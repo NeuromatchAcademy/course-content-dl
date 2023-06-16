@@ -23,8 +23,6 @@ def cross_entropy_loss(x, labels):
 
   return avg_loss
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2.1: Implement Batch Cross Entropy Loss')
 
 
 labels = torch.tensor([0, 1])

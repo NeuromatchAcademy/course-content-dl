@@ -24,8 +24,6 @@ def sample_minibatch(input_data, target_data, num_points=100):
 
   return batch_inputs, batch_targets
 
-# add event to airtable
-atform.add_event('Coding Exercise 6: Implement minibatch sampling')
 
 
 ## Uncomment to test your function
