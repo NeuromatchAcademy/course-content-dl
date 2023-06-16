@@ -33,8 +33,6 @@ def fun_dz(x, y):
   dz_dy = 2 * y * np.cos(x**2 + y**2)
   return (dz_dx, dz_dy)
 
-# Add event to airtable
-atform.add_event('Coding Exercise 1.1: Gradient Vector')
 
 ## Uncomment to run
 with plt.xkcd():

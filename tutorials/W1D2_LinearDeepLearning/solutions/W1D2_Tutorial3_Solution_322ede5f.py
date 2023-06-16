@@ -13,8 +13,6 @@ def ex_net_rsm(h):
   rsm = h @ h.T
   return rsm
 
-# Add event to airtable
-atform.add_event(' Coding Exercise 3: RSA')
 
 ## Uncomment and run
 test_net_rsm_ex(SEED)
