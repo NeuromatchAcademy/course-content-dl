@@ -69,8 +69,6 @@ class Net4(nn.Module):
     return x
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3.3: Implement MaxPooling')
 
 ## Check if your implementation is correct
 net4 = Net4().to(DEVICE)

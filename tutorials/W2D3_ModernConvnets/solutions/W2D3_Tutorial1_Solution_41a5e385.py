@@ -24,8 +24,6 @@ def get_parameter_count(network):
   return param_count
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 1: Calculate number of parameters in FCNN vs ConvNet')
 
 # Initialize networks
 fccnet = FullyConnectedNet()

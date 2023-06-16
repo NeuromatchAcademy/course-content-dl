@@ -40,8 +40,6 @@ def predict_top5(images, device, seed):
   return top5_names, top5_probs
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 4.1: Use the ResNet model')
 
 # Get batch of images
 dataiter = iter(imagenette_val_loader)

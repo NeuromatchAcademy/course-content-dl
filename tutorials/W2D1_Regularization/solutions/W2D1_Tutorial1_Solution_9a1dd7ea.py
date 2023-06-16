@@ -20,8 +20,6 @@ def calculate_frobenius_norm(model):
   return norm
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 1: Frobenius Norm')
 
 # Seed added for reproducibility
 set_seed(seed=SEED)
