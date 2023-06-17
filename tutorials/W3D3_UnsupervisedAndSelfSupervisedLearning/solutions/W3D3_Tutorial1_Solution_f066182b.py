@@ -34,8 +34,6 @@ def plot_rsms(seed):
   return random_encoder
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3.1.1: Plotting a random network encoder RSM along different latent dimensions')
 
 ## Uncomment below to test your function
 with plt.xkcd():

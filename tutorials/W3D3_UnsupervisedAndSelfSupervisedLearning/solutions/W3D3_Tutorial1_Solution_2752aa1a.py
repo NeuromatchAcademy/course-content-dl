@@ -27,8 +27,6 @@ def custom_torch_RSM_fct(features):
   return rsm
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 2.1.1: Complete a function that calculates RSMs')
 
 ## Test implementation by comparing output to solution implementation
 test_custom_torch_RSM_fct(custom_torch_RSM_fct)

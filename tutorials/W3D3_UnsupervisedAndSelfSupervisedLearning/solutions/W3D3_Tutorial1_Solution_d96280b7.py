@@ -33,8 +33,6 @@ def train_supervised_encoder(num_epochs, seed):
   return supervised_encoder
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 1.2.1: Training a logistic regression classifier along with an encoder')
 
 num_epochs = 10  # Proposed number of training epochs
 ## Uncomment below to test your function
