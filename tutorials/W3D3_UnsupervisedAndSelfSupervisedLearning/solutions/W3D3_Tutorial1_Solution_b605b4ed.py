@@ -37,8 +37,6 @@ def vae_train_loss(num_epochs, seed):
   return vae_loss_array
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 4.1.2: Evaluating the classification performance of a logistic regression - VAE encoder')
 
 # Set a reasonable number of training epochs
 num_epochs = 25

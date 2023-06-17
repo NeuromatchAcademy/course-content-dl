@@ -38,8 +38,6 @@ def plot_loss(num_epochs, seed):
   return random_loss_array
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 3.1.2: Evaluating the classification performance of a logistic regression')
 
 ## Set a reasonable number of training epochs
 num_epochs = 25

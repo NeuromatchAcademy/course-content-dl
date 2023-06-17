@@ -61,8 +61,6 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
   return loss
 
 
-# Add event to airtable
-atform.add_event('Coding Exercise 6.1.1: Complete a SimCLR loss function')
 
 ## Uncomment below to test your function
 test_custom_contrastive_loss_fct(custom_simclr_contrastive_loss)
