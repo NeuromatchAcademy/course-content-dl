@@ -18,7 +18,7 @@ execute:
   execute_notebooks         : force  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   cache                     : ""  # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
   exclude_patterns          : [projects/ComputerVision/*.ipynb, projects/ReinforcementLearning/*.ipynb, projects/Neuroscience/*.ipynb, projects/NaturalLanguageProcessing/*.ipynb, tutorials/W2D5_TimeSeriesAndNaturalLanguageProcessing/student/W2D5_Tutorial3.ipynb]  
-  timeout                   : 90  # The maximum time (in seconds) each notebook cell is allowed to run.
+  timeout                   : 60  # The maximum time (in seconds) each notebook cell is allowed to run.
   run_in_temp               : false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
                                     # otherwise the notebook's parent directory will be the cwd.
   allow_errors              : true # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
