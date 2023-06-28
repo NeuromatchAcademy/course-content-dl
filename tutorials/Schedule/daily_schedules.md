@@ -1,7 +1,5 @@
 # General schedule
 
-**Important Note:** This was the schedule for 2022, it may be subject to changes for 2023.
-
 ## 2023 course will run: July 10 - 28
 
 Course live events: TBD — will update 
