@@ -7,8 +7,8 @@ Course live events: TBD — will update
 ## Course overview
 
 * Sun, July 9: Opening Ceremonies
-   * 7:00 am UTC
-   * 3:00 pm UTC
+   * 8:30 am UTC
+   * 5:30 pm UTC
 
 * Week 1
    * Mon, July 10: Basics and Pytorch
