@@ -96,11 +96,9 @@
     title: Tutorial 2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/p6wty/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 4 (Bonus)
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/gx84r/?direct%26mode=render
     title: Bonus Lecture
-  tutorials: 4
+  tutorials: 3
 
 - day: W2D5
   category: Natural Language Processing
@@ -147,7 +145,7 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wvt34/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
   tutorials: 1
-  
+
 - day: W3D4
   category: Unsupervised and Reinforcement Learning
   name: Basic Reinforcement Learning
@@ -159,7 +157,7 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render
     title: Bonus Lecture
   tutorials: 1
-  
+
 - day: W3D5
   category: Unsupervised and Reinforcement Learning
   name: Reinforcement Learning For Games And Dl Thinking3
@@ -175,3 +173,8 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render
     title: Bonus Lecture
   tutorials: 3
+
+- day: Bonus
+  category: Deploy Models on the Web
+  name: Deploy Models
+  tutorials: 1
