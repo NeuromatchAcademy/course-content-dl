@@ -34,6 +34,8 @@ In order to build the book locally, you will need to do the following:
 `pip install -r requirements.txt`
 
 `pip install jupyter-book==0.10.2`
+ 
+ `pip install jupyter_client==7.3.5`
 
 **Important:** Do not install jupyter-book 0.11 or later at this point, as there are breaking changes in how it handles the table of contents file we generate.
 
