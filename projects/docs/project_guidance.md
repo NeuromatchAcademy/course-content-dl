@@ -2,37 +2,44 @@
 
 ## Summary
 
-This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad research interests (neuroscience, computer vision, natural language processing or reinforcement learning). Each pod will split into two groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2.
+This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad research interests (neuroscience, computer vision, natural language processing or reinforcement learning). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
 
-Once you're in groups, you will start brainstorming and via searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will look for an appropriate dataset to answer your question, and try to process that dataset into a format that is good for modeling. Week 1 day 4 (W1D4) is entirely dedicated to projects.
+Once you're in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will look for an appropriate dataset to answer your question, and try to process that dataset into a format that is good for modeling. Week 1 day 4 (W1D4) is entirely dedicated to projects.
 
 In the second week you will experiment with different types of deep neural networks to try to answer your question. By W3D2, you will be able to write a short abstract about your project, which may or may not include results, but it should at least include a testable hypothesis. For the rest of the week, you will focus on getting evidence for/against your hypothesis.
 
-Finally, on the last day of the course (W3D5), you will meet with other groups and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. See some of the [examples](https://compneuro.neuromatch.io/projects/docs/project_2020_highlights.html) from the comp-neuro course last year to get a sense of what the presentation should look like.
+Finally, on the last day of the course (W3D5), you will meet with other groups in your pod and megapod (organized by the lead TAs), and tell them the story of your project. This is a low-key presentation that may include some of the plots you made along the way, but it is not meant as a real research presentation with high “production values”. See some of the [examples](https://compneuro.neuromatch.io/projects/docs/project_2020_highlights.html) from the comp-neuro course last year to get a sense of what the presentation should look like.
+
+## Submission Links
+
+- W3D2 Abstract Submission [Airtable Link](https://airtable.com/shr0ozNAhXq6K1p8o)
+- W3D5 Project Submission [Airtable Link](https://airtable.com/shrvoz2N9UulAVqqU)
 
 ## Project templates
 
 [Project templates](https://deeplearning.neuromatch.io/projects/docs/projects_overview.html) are research ideas developed by the NMA team or by the project TAs which contain code and slides with background and questions. Project templates can be used in a variety of ways.
 * For starters, you can use the project templates just to get familiarized with some neural network applications. They can provide keywords for you to use in your literature search, or python libraries you can reuse to answer your own questions.
-* You may start with a project template, use it in the first week and then in the second week diverge from it as your group develops their own new idea or question to test.
+* You should use the project templates extensively if you are new to deep learning and/or you don’t have a lot of research experience. You may start with a project template, use it in the first week and then in the second week diverge from it as your group develops their own new idea or question to test.
 * Templates have a natural flow of questions, but don’t hesitate to skip or completely change some of these. They are meant to be used very flexibly!
 
 ## Project TAs
 
-Project TAs are your friendly topic experts to consult with on all issues related to your project. They can help with brainstorming, literature searches and coding. You will have one-hour meetings with an assigned project TAs starting Tuesday and continuing every 2-3 days until the end of the school. During this time, they will help you refine your question and hypothesis into something that can be answered with deep learning. Sometimes they may miss a meeting or arrive late (busy schedules, lots of meetings!). In those cases, please stop what you were doing to have the meeting, and then resume your work when the project TA leaves.
+Project TAs are your friendly topic experts to consult with on all issues related to your project. They can help with brainstorming, literature searches and coding. You will have meetings with them approximately every two days. During this time, they will help you refine your question and hypothesis into something that can be answered with deep learning. Sometimes they may miss a meeting or arrive late (busy schedules, lots of meetings!). In those cases, please stop what you were doing to have the meeting, and then resume your work when the project TA leaves.
 
-Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please try to be flexible, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. All project TAs have time set aside specifically to answer discord questions and to provide additional meetings when necessary.
+Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please try to be flexible, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. 
 
+## Project Mentors
+
+Project mentors are more senior figures in the field, typically senior postdocs, professors, or industry researchers. Each project group will have a mentor to help them refine their hypotheses and navigate the scientific process. They won't be around as often as the TAs, but they are another source of guidance and perspective.
 
 ## Week 1: Getting started
 
 Depending on your time slot, you may or may not have project time on the first day of the course. Regardless of whether your first project meeting is day 1 or day 2, spend your first session doing the following:
 
-* Split into groups alphabetically, as described above.
+* Split into groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2. If the split is not well-balanced, move one or two people around.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 * Listen carefully as others talk about their interests.
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
-* Brainstorming (60 min): do you have an idea or a rough direction? Bring it out to the group.
 * Now brainstorm within your group (60 min). Definitely choose a topic and start thinking about concrete questions if you can. Make sure the topic you choose is well suited for answering the broad range of questions you are interested in. Try to come up with one or a few topics of interest, either by yourselves or directly from the booklet (i.e. project templates).
 
 Tips:
@@ -43,6 +50,8 @@ In your next sessions, watch the [Modeling Steps 1-2 tutorials](https://deeplear
 * You will need to use your own project for some of this content. If you don’t yet have concrete ideas, or you haven’t done a research project before, use one of the provided project templates.
 * If you are using a project template, your goal is to translate the information from the slide and colab notebook into the 10-steps format. Some information might not be readily available in the slide or notebook, and you might have to find it in your literature review later this day.
 * Try to write down a few sentences for each of the two steps applied to your project. Putting thoughts into well-defined sentences and paragraphs helps at all stages of a project.
+
+*Stay tuned for your mentor assignments. Once you receive them, reach out to your mentor to set up a first meeting this week. Also try to arrange a meeting for W2D1, ideally the second half of the day, when their feedback on your abstract could be useful.*
 
 ## W1D4: Projects Day!
 
@@ -107,29 +116,31 @@ Abstract writing day should have helped you narrow down what results (positive o
 
 At the end of W3D4, you should also submit your slides via this [Airtable link](https://airtable.com/shr5NJa397fSYNDsO).
 
-## W3D5 (last day!): Presentations
+## W3D5: Final Presentations (Friday tutorial block for everyone)
 
-This is the day where you present your project to other groups. You can invite your project TA and mentor, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+This is the day where you present your project to other groups. Your mentor and your project TAs can be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 
 ### Schedule
 
-* 10 minutes of meet & greet. Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university and subject of study, as well as one interesting fact about themselves "Hi, I'm Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I build reinforcement learning models for robots, and in my free time I like to go on long bike rides".
+* 10 minutes of meet & greet. Do a round of introductions (one TA calls out names from the zoom list). Everyone says their name, pod name, position, university and subject of study, as well as one interesting fact about themselves "Hi, I'm Jonny from the wiggly caterpillars and I am a PhD student at University of Notre Dame in Paris. I do neuroscience experiments in flies, and in my free time I like to go on long bike rides".
 
 * 30-40 minutes of presentations, including questions. Each group should speak for approx 5 minutes (depending on group size), and then take questions for 1-2 minutes. The order of presentations should be the one from the email.
 
-* 10-20 minutes of group discussion. Use the following questions to guide the group discussion. Spend a few minutes on one or two of the questions below, or ask your own question.
-  * Could one of the datasets chosen by the other groups have helped you answer your question, or a part of it? What does the other group think?
+* 10-20 minutes of general discussion. Here are some ideas for questions you could ask:
+  * What was missing in the dataset that you would have really liked to have?
   * Does anyone plan to continue working on this project in the future? Perhaps a few students from the multiple groups would like to continue together?
-  * Which one of the 10 steps to modelling/research was hardest and why?
+  * Which one of the 10 steps to modeling/research was hardest and why?
   * Based on your experience with the NMA project, what project would you most like to do next? Make up your own, or pick from the NMA projects (a different dataset or project template which you did not use).
   * What surprised you the most about the process of doing a project? In what way was this project most different from other projects you have done in the past.
-  * What technique did you learn at NMA which you think you can immediately apply to your own project (if you are currently doing research)?
+  * What technique did you learn at NMA which you think you can immediately apply to your own project (if you are currently doing research)?  
 
 
 ### Logistics:
-* Check the general schedule for precise timing of events on W3D5.
-* You will present to other groups (3-5 groups per room).
-*  There is a strict schedule, so the TAs must ensure everyone gets a turn to present.
+
+* The lead TA for your megapod will make multiple subgroups of 3-5 research teams from across the entire megapod. Each subgroup gets a separate breakout room for their session.
+  * timeslots 1,3,5:   last hour of project time, -1:00 to 0:00 relative to start of your normal tutorial time (check the shared calendars in jupyterbook).
+  * timeslots 2,4: after the course feedback session (check the shared calendars in jupyterbook).
+  There is a hard cutoff at the one hour mark, so the TAs must ensure everyone gets a turn to present.  
 
 * Use this presentation style ([google slides](https://docs.google.com/presentation/d/1A1uaYarVot9YyCdbAAB4VDvsQfK6emqq-TwIZ9xVNwo/edit?usp=sharing) or [powerpoint](https://osf.io/ky6fj/download)) or create your own style!
 
@@ -144,13 +155,13 @@ This is the day where you present your project to other groups. You can invite y
 
 * The 1 minute, 1 slide rule might seem like an impossible limit. However, it is one of the most useful formats you can learn, often referred to as a "one minute elevator pitch". If you can become an expert at giving short pitches about your work, it will help you get the interest of a lot of people, for example when presenting posters at scientific conferences. Or when you accidentally find yourself in an elevator with Mark Zuckerberg: this could be your chance to secure a million dollars in research funds!
 
-* The key to a good presentation is to practice it by yourself many times. It is no different from other performing arts (acting, playing a musical instrument etc), where rehearsals are so crucial to a good performance.
+* The key to a good presentation is to practice it by yourself many times. It is not so different from other performing arts (acting, playing a musical instrument etc), where rehearsals are so crucial to a good performance.
 
 * If something in your presentation doesn't sound good or doesn't make sense, you WILL get annoyed by it when you say it the tenth time, and that will make you want to change it. (Secret: this how professors prepare all of their presentations and it's why they always sound like they know what they are talking about)
 
 * Always have an introduction slide and a conclusion slide. If your group is relatively large (>=5 people), then someone should be assigned to each of the intro and conclusion slides. If your group is small, then the same person can give intro + next slide, or conclusion slide + previous slide.
 
-* Short anecdotes can work like magic for engaging your audience. As a rule, most listeners are passive, bored, not paying attention. You have to grab their attention with that smart elevator pitch, or with a short anecdote about something that happened to your group while working on projects.
+* Short anecdotes can work like magic for engaging your audience. As a general rule, most listeners are passive, bored, not paying attention. You have to grab their attention with that smart elevator pitch, or with a short anecdote about something that happened to your group while working on projects.
 
 * Most groups won’t have a result and this is absolutely normal. However, the main goal anyway is to communicate the logic of your project proposal. Did you design a smart way to test the neural binding hypothesis, but then didn’t find the data to get answers? That can also be very interesting for others to hear about! Furthermore it will make it clear that research never stops. It continues as a series of questions and answers, not just within your own project, but at the level of the entire research field. Tell us what got you excited about this particular project, and try to dream big. One day, models like yours could be used to do what?
 
