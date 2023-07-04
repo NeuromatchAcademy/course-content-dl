@@ -22,16 +22,10 @@ def gradient_update(loss, params, lr=1e-3):
 
   with torch.no_grad():
     for par in params:
-      #################################################
-      ## TODO for students: update the value of the parameter ##
-      # raise NotImplementedError("Student exercise: implement gradient update")
-      #################################################
       # Here we work with the 'data' attribute of the parameter rather than the
       # parameter itself.
       # Hence - use the learning rate and the parameter's .grad.data attribute to perform an update
       par.data -= lr * par.grad.data
-
-
 
 
 set_seed(seed=SEED)
