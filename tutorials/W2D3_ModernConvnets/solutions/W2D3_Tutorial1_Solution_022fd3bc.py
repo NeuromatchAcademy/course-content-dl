@@ -40,7 +40,6 @@ def predict_top5(images, device, seed):
   return top5_names, top5_probs
 
 
-
 # Get batch of images
 dataiter = iter(imagenette_val_loader)
 images, labels = next(dataiter)
