@@ -176,7 +176,7 @@ Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?di
 ## W3D5 - Reinforcement Learning For Games And Dl Thinking3
 
 
-Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/4p2ek/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/r67j2/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 3 (Bonus)](https://mfr.ca-1.osf.io/render?url=https://osf.io/h4utj/?direct%26mode=render%26action=download%26mode=render) | [Bonus Lecture](https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render)
+Slides: [Tutorial 1](https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 2](https://mfr.ca-1.osf.io/render?url=https://osf.io/2f7ay/?direct%26mode=render%26action=download%26mode=render) | [Tutorial 3 (Bonus)](https://mfr.ca-1.osf.io/render?url=https://osf.io/h4utj/?direct%26mode=render%26action=download%26mode=render) | [Bonus Lecture](https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render)
 
 |   | Run | Run | View |
 | - | --- | --- | ---- |
