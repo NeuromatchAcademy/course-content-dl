@@ -12,8 +12,8 @@ Finally, on the last day of the course (W3D5), you will meet with other groups i
 
 ## Submission Links
 
-- W3D2 Abstract Submission [Airtable Link](https://airtable.com/shr0ozNAhXq6K1p8o)
-- W3D5 Project Submission [Airtable Link](https://airtable.com/shrvoz2N9UulAVqqU)
+- W3D2 Abstract Submission [Airtable Link](https://airtable.com/appoh6RKyBvxgiJ89/shrUeDqzGe8Cplk8u)
+- W3D5 Project Submission [Airtable Link](https://airtable.com/appoh6RKyBvxgiJ89/shr5NJa397fSYNDsO)
 
 ## Project templates
 
@@ -103,7 +103,7 @@ Likewise, it is always revealing to present your research to someone who has nev
 
 Finally, with your group, has the abstract refined or changed your question? Use the rest of this day to make a concrete plan for the final week of your project. If you already answered your question, then you will need to plan for control analyses, maybe including some simulated data that you need to also generate yourself.
 
-Once you are done, please submit the abstract [here](https://airtable.com/shrUeDqzGe8Cplk8u).
+Once you are done, please submit the abstract [here](https://airtable.com/appoh6RKyBvxgiJ89/shrUeDqzGe8Cplk8u).
 
 ## W3D3 and W3D4 (3h/day): Results
 
@@ -114,7 +114,7 @@ Abstract writing day should have helped you narrow down what results (positive o
 * If you find a negative answer to your question, that is absolutely ok! Please do report that. Then go back and think about how this affects your initial hypothesis. Does it rule it out, or could there be limitations in this particular data that lead to the negative result? What other data would you collect that would be better suited for answering this question? Try to design a new experiment in very specific detail and tell us about it. Who knows, somebody might run that experiment someday!
 * If you find a positive result (i.e. the data matches your hypothesis), then you should spend the rest of your time validating it to make absolutely sure it is really true. You will need to design controls using the data (shuffling controls), or using simulated data, and you need to check the logic of your pipeline from start to end. Did you accidentally select only neurons that were tuned to a behavior, and then showed that they respond to aspects of that behavior? Did you sort neurons by their peak response time and then found sequences in your data? That is circular reasoning! There are some obvious and some not-so-obvious circular analyses that can catch even experienced researchers off-guard. This is what the controls are especially useful at catching.
 
-At the end of W3D4, you should also submit your slides via this [Airtable link](https://airtable.com/shr5NJa397fSYNDsO).
+At the end of W3D4, you should also submit your slides via this [Airtable link](https://airtable.com/appoh6RKyBvxgiJ89/shr5NJa397fSYNDsO).
 
 ## W3D5: Final Presentations (Friday tutorial block for everyone)
 
