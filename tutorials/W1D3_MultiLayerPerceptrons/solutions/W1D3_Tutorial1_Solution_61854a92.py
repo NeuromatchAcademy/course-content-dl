@@ -42,6 +42,9 @@ def shuffle_and_split_data(X, y, seed):
 ## Uncomment below to test your function
 X_test, y_test, X_train, y_train = shuffle_and_split_data(X, y, seed=SEED)
 with plt.xkcd():
+  plt.figure()
   plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test)
+  plt.xlabel('x1')
+  plt.ylabel('x2')
   plt.title('Test data')
   plt.show()

@@ -13,7 +13,7 @@ class Net(nn.Module):
       input_feature_num: int
         Number of input features
       hidden_unit_nums: list
-        Number of units in the hidden layer
+        Number of units per hidden layer, list of integers
       output_feature_num: int
         Number of output features
 
