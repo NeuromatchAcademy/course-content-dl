@@ -1,0 +1,2314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using RL to Model Cognitive Tasks &#8212; Neuromatch Academy: Deep Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Natural Language Processing" href="../NaturalLanguageProcessing/README.html" />
+    <link rel="prev" title="Performance Analysis of DQN Algorithm on the Lunar Lander task" href="lunar_lander.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
+   Schedule
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
+     General schedule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+   Quick links and policies
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prereqs/DeepLearning.html">
+   Prerequisites and preparatory materials for NMA Deep Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics Module
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
+     Bonus Lecture: Yoshua Bengio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fine Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+   Optimization (W1D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+   Regularization (W2D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+   Deep Learning: The Basics and Fine Tuning Wrap-up
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ConvNets and Generative Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+   Convnets And Dl Thinking (W2D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 1: Cost Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
+     Bonus Lecture: Kyunghyun Cho
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
+     Bonus Tutorial: Facial recognition using modern convnets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+   Generative Models (W2D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
+     Tutorial 2: Diffusion models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
+     Tutorial 3: Image, Conditional Diffusion and Beyond
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
+     Bonus Lecture: Geoffrey Hinton
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Natural Language Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
+     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+   Time Series And Natural Language Processing (W3D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
+     Tutorial 1: Introduction to processing time series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
+     Tutorial 2: Natural Language Processing and LLMs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
+     Bonus Tutorial: Multilingual Embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+   Dl Thinking2 (W3D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
+     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+   Deep Learning: Convnets and NLP
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Unsupervised and Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
+     Bonus Lecture: Melanie Mitchell
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Basic Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
+     Bonus Lecture: Chealsea Finn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
+     Tutorial 1: Reinforcement Learning For Games
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
+     Bonus Tutorial: Planning with Monte Carlo Tree Search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
+     Bonus Lecture: Amita Kapoor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deploy Models on the Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+   Deploy Models (Bonus)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
+     Bonus Tutorial: Deploying Neural Networks on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../modelingsteps/intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">
+     Modeling Steps 1 - 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">
+     Modeling Steps 3 - 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">
+     Modeling Steps 5 - 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">
+     Modeling Steps 7 - 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">
+     Modeling Steps 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">
+     Example Data Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">
+     Example Model Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">
+     Example Deep Learning Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../docs/projects_overview.html">
+   Project Templates
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ComputerVision/README.html">
+     Computer Vision
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/em_synapses.html">
+       Knowledge Extraction from a Convolutional Neural Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/spectrogram_analysis.html">
+       Music classification and generation with spectrograms
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/screws.html">
+       Something Screwy - image recognition, detection, and classification of screws
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/data_augmentation.html">
+       Data Augmentation in image classification models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/transfer_learning.html">
+       Transfer Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="README.html">
+     Reinforcement Learning
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="robolympics.html">
+       NMA Robolympics: Controlling robots using reinforcement learning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="lunar_lander.html">
+       Performance Analysis of DQN Algorithm on the Lunar Lander task
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Using RL to Model Cognitive Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../NaturalLanguageProcessing/README.html">
+     Natural Language Processing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">
+       Twitter Sentiment Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">
+       Machine Translation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Neuroscience/README.html">
+     Neuroscience
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
+       Animal Pose Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
+       Segmentation and Denoising
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
+       Load algonauts videos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
+       Vision with Lost Glasses: Modelling how the brain deals with noisy input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
+       Moving beyond Labels: Finetuning CNNs on BOLD response
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
+       Focus on what matters: inferring low-dimensional dynamics from neural recordings
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/datasets_and_models.html">
+   Models and Data sets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/ReinforcementLearning/human_rl.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/ReinforcementLearning/human_rl.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using RL to Model Cognitive Tasks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datasets">
+     Datasets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#n-back-task">
+     N-back task
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cognitive-tests-environment">
+   Cognitive Tests Environment
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-dataset">
+     Human dataset
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-scheme">
+     Implementation scheme
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#environment">
+       Environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#define-a-random-agent">
+       Define a random agent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#initialize-the-environment-and-the-agent">
+       Initialize the environment and the agent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-the-loop">
+       Run the loop
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using RL to Model Cognitive Tasks</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using RL to Model Cognitive Tasks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datasets">
+     Datasets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#n-back-task">
+     N-back task
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cognitive-tests-environment">
+   Cognitive Tests Environment
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-dataset">
+     Human dataset
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-scheme">
+     Implementation scheme
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#environment">
+       Environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#define-a-random-agent">
+       Define a random agent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#initialize-the-environment-and-the-agent">
+       Initialize the environment and the agent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-the-loop">
+       Run the loop
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/ReinforcementLearning/human_rl.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/ReinforcementLearning/human_rl.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<div class="section" id="using-rl-to-model-cognitive-tasks">
+<h1>Using RL to Model Cognitive Tasks<a class="headerlink" href="#using-rl-to-model-cognitive-tasks" title="Permalink to this headline">¶</a></h1>
+<p><strong>By Neurmatch Academy</strong></p>
+<p><strong>Content creators:</strong> Morteza Ansarinia, Yamil Vidal</p>
+<p><strong>Production editor:</strong> Spiros Chavlis</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This project aims to use behavioral data to train an agent and then use the agent to investigate data produced by human subjects. Having a computational agent that mimics humans in such tests, we will be able to compare its mechanics with human data.</p></li>
+<li><p>In another conception, we could fit an agent that learns many cognitive tasks that require abstract-level constructs such as executive functions. This is a multi-task control problem.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
+!pip install jedi --quiet
+!pip install --upgrade pip setuptools wheel --quiet
+!pip install dm-acme[jax] --quiet
+!pip install dm-sonnet --quiet
+!pip install trfl --quiet
+!pip install numpy==1.23.3 --quiet --ignore-installed
+!pip uninstall seaborn -y --quiet
+!pip install seaborn --quiet
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">numba 0.56.4 requires numpy&lt;1.24,&gt;=1.18, but you have numpy 1.25.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">chex 0.1.81 requires numpy&gt;=1.25.0, but you have numpy 1.23.3 which is incompatible.</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sonnet</span> <span class="k">as</span> <span class="nn">snt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">dm_env</span>
+
+<span class="kn">import</span> <span class="nn">acme</span>
+<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">specs</span>
+<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">wrappers</span>
+<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">EnvironmentLoop</span>
+<span class="kn">from</span> <span class="nn">acme.agents.tf</span> <span class="kn">import</span> <span class="n">dqn</span>
+<span class="kn">from</span> <span class="nn">acme.utils</span> <span class="kn">import</span> <span class="n">loggers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Cognitive scientists use standard lab tests to tap into specific processes in the brain and behavior. Some examples of those tests are Stroop, N-back, Digit Span, TMT (Trail making tests), and WCST (Wisconsin Card Sorting Tests).</p></li>
+<li><p>Despite an extensive body of research that explains human performance using descriptive what-models, we still need a more sophisticated approach to gain a better understanding of the underlying processes (i.e., a how-model).</p></li>
+<li><p>Interestingly, many of such tests can be thought of as a continuous stream of stimuli and corresponding actions, that is in consonant with the RL formulation. In fact, RL itself is in part motivated by how the brain enables goal-directed behaviors using reward systems, making it a good choice to explain human performance.</p></li>
+<li><p>One behavioral test example would be the N-back task.</p>
+<ul>
+<li><p>In the N-back, participants view a sequence of stimuli, one by one, and are asked to categorize each stimulus as being either match or non-match. Stimuli are usually numbers, and feedback is given at both timestep and trajectory levels.</p></li>
+<li><p>The agent is rewarded when its response matches the stimulus that was shown N steps back in the episode. A simpler version of the N-back uses two-choice action schema, that is match vs non-match. Once the present stimulus matches the one presented N step back, then the agent is expected to respond to it as being a <code class="docutils literal notranslate"><span class="pre">match</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Given a trained RL agent, we then find correlates of its fitted parameters with the brain mechanisms. The most straightforward composition could be the correlation of model parameters with the brain activities.</p></li>
+</ul>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>HCP WM task (<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI">NMA-CN HCP notebooks</a>)</p></li>
+</ul>
+<p>Any dataset that used cognitive tests would work.
+Question: limit to behavioral data vs fMRI?
+Question: Which stimuli and actions to use?
+classic tests can be modeled using 1) bounded symbolic stimuli/actions (e.g., A, B, C), but more sophisticated one would require texts or images (e.g., face vs neutral images in social stroop dataset)
+The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive tests including various versions of N-back.</p>
+</div>
+<div class="section" id="n-back-task">
+<h2>N-back task<a class="headerlink" href="#n-back-task" title="Permalink to this headline">¶</a></h2>
+<p>In the N-back task, participants view a sequence of stimuli, one per time, and are asked to categorize each stimulus as being either match or non-match. Stimuli are usually numbers, and feedbacks are given at both timestep and trajectory levels.</p>
+<p>In a typical neuro setup, both accuracy and response time are measured, but here, for the sake of brevity, we focus only on accuracy of responses.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="cognitive-tests-environment">
+<h1>Cognitive Tests Environment<a class="headerlink" href="#cognitive-tests-environment" title="Permalink to this headline">¶</a></h1>
+<p>First we develop an environment in that agents perform a cognitive test, here the N-back.</p>
+<div class="section" id="human-dataset">
+<h2>Human dataset<a class="headerlink" href="#human-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We need a dataset of human perfoming a N-back test, with the following features:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">participant_id</span></code>: following the BIDS format, it contains a unique identifier for each participant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trial_index</span></code>: same as <code class="docutils literal notranslate"><span class="pre">time_step</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stimulus</span></code>: same as <code class="docutils literal notranslate"><span class="pre">observation</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code>: same as <code class="docutils literal notranslate"><span class="pre">action</span></code>, recorded response by the human subject.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_response</span></code>: correct response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_correct</span></code>: same as <code class="docutils literal notranslate"><span class="pre">reward</span></code>, whether the human subject responded correctly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response_time</span></code>: won’t be used here.</p></li>
+</ul>
+<p>Here we generate a mock dataset with those features, but remember to <strong>replace this with real human data.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_mock_nback_dataset</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                <span class="n">n_participants</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                <span class="n">n_trials</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+                                <span class="n">stimulus_choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">),</span>
+                                <span class="n">response_choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;match&#39;</span><span class="p">,</span> <span class="s1">&#39;non-match&#39;</span><span class="p">]):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Generate a mock dataset for the N-back task.&quot;&quot;&quot;</span>
+
+  <span class="n">n_rows</span> <span class="o">=</span> <span class="n">n_participants</span> <span class="o">*</span> <span class="n">n_trials</span>
+
+  <span class="n">participant_ids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;sub-</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_participants</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="n">n_trials</span><span class="p">)</span>
+  <span class="n">trial_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_trials</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">n_participants</span>
+  <span class="n">stimulus_sequence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">stimulus_choices</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">)</span>
+
+  <span class="n">responses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">response_choices</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">)</span>
+  <span class="n">response_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_rows</span><span class="p">)</span>
+
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+      <span class="s1">&#39;participant_id&#39;</span><span class="p">:</span> <span class="n">participant_ids</span><span class="p">,</span>
+      <span class="s1">&#39;trial_index&#39;</span><span class="p">:</span> <span class="n">trial_indices</span><span class="p">,</span>
+      <span class="s1">&#39;stimulus&#39;</span><span class="p">:</span> <span class="n">stimulus_sequence</span><span class="p">,</span>
+      <span class="s1">&#39;response&#39;</span><span class="p">:</span> <span class="n">responses</span><span class="p">,</span>
+      <span class="s1">&#39;response_time&#39;</span><span class="p">:</span> <span class="n">response_times</span>
+  <span class="p">})</span>
+
+  <span class="c1"># mark matchig stimuli</span>
+  <span class="n">_nback_stim</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stimulus&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;expected_response&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stimulus&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">_nback_stim</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s1">&#39;match&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s1">&#39;non-match&#39;</span><span class="p">})</span>
+
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;expected_response&#39;</span><span class="p">])</span>
+
+  <span class="c1"># we don&#39;t care about burn-in trials (trial &lt; N)</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trial_index&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;is_correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trial_index&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="s1">&#39;response_time&#39;</span><span class="p">,</span> <span class="s1">&#39;expected_response&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+  <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="c1"># ========</span>
+<span class="c1"># now generate the actual data with the provided function and plot some of its features</span>
+<span class="n">mock_nback_data</span> <span class="o">=</span> <span class="n">generate_mock_nback_dataset</span><span class="p">()</span>
+<span class="n">mock_nback_data</span><span class="p">[</span><span class="s1">&#39;is_correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mock_nback_data</span><span class="p">[</span><span class="s1">&#39;is_correct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mock_nback_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;response_time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;response time distribution of the mock N-back dataset&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mock_nback_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;is_correct&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Accuracy distribution of the mock N-back dataset&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.06</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mock_nback_data</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;is_correct&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;participant_id&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Accuracy distribution of the mock N-back dataset&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.06</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">mock_nback_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/human_rl_14_0.png" src="../../_images/human_rl_14_0.png" />
+<img alt="../../_images/human_rl_14_1.png" src="../../_images/human_rl_14_1.png" />
+<img alt="../../_images/human_rl_14_2.png" src="../../_images/human_rl_14_2.png" />
+<div class="output text_html">
+
+  <div id="df-76db6891-e0f3-4cdc-96f3-76360c999ad6">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>trial_index</th>
+      <th>stimulus</th>
+      <th>response</th>
+      <th>response_time</th>
+      <th>expected_response</th>
+      <th>is_correct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-1</td>
+      <td>1</td>
+      <td>A</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-1</td>
+      <td>2</td>
+      <td>D</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-1</td>
+      <td>3</td>
+      <td>A</td>
+      <td>non-match</td>
+      <td>1.697356</td>
+      <td>match</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-1</td>
+      <td>4</td>
+      <td>F</td>
+      <td>non-match</td>
+      <td>0.149110</td>
+      <td>non-match</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sub-1</td>
+      <td>5</td>
+      <td>D</td>
+      <td>non-match</td>
+      <td>0.277760</td>
+      <td>non-match</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-76db6891-e0f3-4cdc-96f3-76360c999ad6')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+
+
+    <div id="df-1b619d51-2d1e-4f0d-8533-668848da18cc">
+      <button class="colab-df-quickchart" onclick="quickchart('df-1b619d51-2d1e-4f0d-8533-668848da18cc')"
+              title="Suggest charts."
+              style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+    </div>
+
+<style>
+  .colab-df-quickchart {
+    background-color: #E8F0FE;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: #1967D2;
+    height: 32px;
+    padding: 0 0 0 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: #E2EBFA;
+    box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: #174EA6;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+    background-color: #3B4455;
+    fill: #D2E3FC;
+  }
+
+  [theme=dark] .colab-df-quickchart:hover {
+    background-color: #434B5C;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+    fill: #FFFFFF;
+  }
+</style>
+
+    <script>
+      async function quickchart(key) {
+        const containerElement = document.querySelector('#' + key);
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      }
+    </script>
+
+      <script>
+
+function displayQuickchartButton(domScope) {
+  let quickchartButtonEl =
+    domScope.querySelector('#df-1b619d51-2d1e-4f0d-8533-668848da18cc button.colab-df-quickchart');
+  quickchartButtonEl.style.display =
+    google.colab.kernel.accessAllowed ? 'block' : 'none';
+}
+
+        displayQuickchartButton(document);
+      </script>
+      <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-76db6891-e0f3-4cdc-96f3-76360c999ad6 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-76db6891-e0f3-4cdc-96f3-76360c999ad6');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</div>
+<div class="section" id="implementation-scheme">
+<h2>Implementation scheme<a class="headerlink" href="#implementation-scheme" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="environment">
+<h3>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<p>The following cell implments N-back envinronment, that we later use to train a RL agent on human data. It is capable of performing two kinds of simulation:</p>
+<ul class="simple">
+<li><p>rewards the agent once the action was correct (i.e., a normative model of the environment).</p></li>
+<li><p>receives human data (or mock data if you prefer), and returns what participants performed as the observation. This is more useful for preference-based RL.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NBack</span><span class="p">(</span><span class="n">dm_env</span><span class="o">.</span><span class="n">Environment</span><span class="p">):</span>
+
+  <span class="n">ACTIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;match&#39;</span><span class="p">,</span> <span class="s1">&#39;non-match&#39;</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+               <span class="n">episode_steps</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+               <span class="n">stimuli_choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">),</span>
+               <span class="n">human_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+               <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">      N: Number of steps to look back for the matched stimuli. Defaults to 2 (as in 2-back).</span>
+<span class="sd">      episode_steps</span>
+<span class="sd">      stimuli_choices</span>
+<span class="sd">      human_data</span>
+<span class="sd">      seed</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span> <span class="o">=</span> <span class="n">episode_steps</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">stimuli_choices</span> <span class="o">=</span> <span class="n">stimuli_choices</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">episode_steps</span><span class="p">)</span>  <span class="c1"># will be filled in the `reset()`</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># whether mimic humans or reward the agent once it responds optimally.</span>
+    <span class="k">if</span> <span class="n">human_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_imitate_human</span> <span class="o">=</span> <span class="kc">False</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">human_data</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_imitate_human</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">human_data</span> <span class="o">=</span> <span class="n">human_data</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="c1"># generate a random sequence instead of relying on human data</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">human_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="c1"># self.stimuli = np.random.choice(self.stimuli_choices, self.episode_steps)</span>
+      <span class="c1"># FIXME This is a fix for acme &amp; reverb issue with string observation. Agent should be able to handle strings</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli_choices</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># randomly choose a subject from the human data and follow her trials and responses.</span>
+      <span class="c1"># FIXME should we always use one specific human subject or randomly select one in each episode?</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">human_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;participant_id == participant_id.sample().iloc[0]&#39;</span><span class="p">,</span>
+                                                <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;trial_index&#39;</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span><span class="p">[</span><span class="s1">&#39;stimulus&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_observation</span><span class="p">())</span>
+
+
+  <span class="k">def</span> <span class="nf">_episode_return</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imitate_human</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="mf">0.0</span>
+
+  <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="n">agent_action</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">ACTIONS</span><span class="p">[</span><span class="n">action</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imitate_human</span><span class="p">:</span>
+      <span class="c1"># if it was the same action as the human subject, then reward the agent</span>
+      <span class="n">human_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span><span class="p">]</span>
+      <span class="n">step_reward</span> <span class="o">=</span> <span class="mf">0.</span> <span class="k">if</span> <span class="p">(</span><span class="n">agent_action</span> <span class="o">==</span> <span class="n">human_action</span><span class="p">)</span> <span class="k">else</span> <span class="o">-</span><span class="mf">1.</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># assume the agent is rationale and doesn&#39;t want to reproduce human, reward once the response it correct</span>
+      <span class="n">expected_action</span> <span class="o">=</span> <span class="s1">&#39;match&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">])</span> <span class="k">else</span> <span class="s1">&#39;non-match&#39;</span>
+      <span class="n">step_reward</span> <span class="o">=</span> <span class="mf">0.</span> <span class="k">if</span> <span class="p">(</span><span class="n">agent_action</span> <span class="o">==</span> <span class="n">expected_action</span><span class="p">)</span> <span class="k">else</span> <span class="o">-</span><span class="mf">1.</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent_action</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Check for termination.</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="c1"># we are using the mean of total time step rewards as the episode return</span>
+      <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">termination</span><span class="p">(</span><span class="n">reward</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_episode_return</span><span class="p">(),</span>
+                                <span class="n">observation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_observation</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">reward</span><span class="o">=</span><span class="n">step_reward</span><span class="p">,</span>
+                               <span class="n">observation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_observation</span><span class="p">())</span>
+
+  <span class="k">def</span> <span class="nf">observation_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">specs</span><span class="o">.</span><span class="n">BoundedArray</span><span class="p">(</span>
+        <span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;nback_stimuli&#39;</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli_choices</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">action_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">(</span>
+        <span class="n">num_values</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">NBack</span><span class="o">.</span><span class="n">ACTIONS</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;action&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_observation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+    <span class="c1"># agent observes only the current trial</span>
+    <span class="c1"># obs = self.stimuli[self._current_step - 1]</span>
+
+    <span class="c1"># agents observe stimuli up to the current trial</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">obs</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">obs</span>
+
+  <span class="k">def</span> <span class="nf">plot_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display current state of the environment.</span>
+
+<span class="sd">     Note: `M` mean `match`, and `.` is a `non-match`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stimuli</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span> <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;match&#39;</span> <span class="k">else</span> <span class="s1">&#39;.&#39;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;&lt;b&gt;Environment (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="si">}</span><span class="s1">-back):&lt;/b&gt;&lt;br /&gt;&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;&lt;pre&gt;&lt;b&gt;Stimuli:&lt;/b&gt; </span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="n">stimuli</span><span class="p">)))</span><span class="si">}</span><span class="s1">&lt;/pre&gt;&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;&lt;pre&gt;&lt;b&gt;Actions:&lt;/b&gt; </span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span><span class="si">}</span><span class="s1">&lt;/pre&gt;&#39;</span>
+    <span class="p">)</span>
+
+  <span class="nd">@staticmethod</span>
+  <span class="k">def</span> <span class="nf">create_environment</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Utility function to create a N-back environment and its spec.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Make sure the environment outputs single-precision floats.</span>
+    <span class="n">environment</span> <span class="o">=</span> <span class="n">wrappers</span><span class="o">.</span><span class="n">SinglePrecisionWrapper</span><span class="p">(</span><span class="n">NBack</span><span class="p">())</span>
+
+    <span class="c1"># Grab the spec of the environment.</span>
+    <span class="n">environment_spec</span> <span class="o">=</span> <span class="n">specs</span><span class="o">.</span><span class="n">make_environment_spec</span><span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">environment</span><span class="p">,</span> <span class="n">environment_spec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="define-a-random-agent">
+<h3>Define a random agent<a class="headerlink" href="#define-a-random-agent" title="Permalink to this headline">¶</a></h3>
+<p>For more information you can refer to NMA-DL W3D2 Basic Reinforcement learning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomAgent</span><span class="p">(</span><span class="n">acme</span><span class="o">.</span><span class="n">Actor</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_spec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the number of available actions from the environment spec.&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_num_actions</span> <span class="o">=</span> <span class="n">environment_spec</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">num_values</span>
+
+  <span class="k">def</span> <span class="nf">select_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Selects an action uniformly at random.&quot;&quot;&quot;</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_actions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">action</span>
+
+  <span class="k">def</span> <span class="nf">observe_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestep</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not record as the RandomAgent has no use for data.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+  <span class="k">def</span> <span class="nf">observe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">next_timestep</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not record as the RandomAgent has no use for data.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+  <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not update as the RandomAgent does not learn from data.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="initialize-the-environment-and-the-agent">
+<h3>Initialize the environment and the agent<a class="headerlink" href="#initialize-the-environment-and-the-agent" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="p">,</span> <span class="n">env_spec</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">create_environment</span><span class="p">()</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">RandomAgent</span><span class="p">(</span><span class="n">env_spec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;actions:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">env_spec</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;observations:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">env_spec</span><span class="o">.</span><span class="n">observations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rewards:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">env_spec</span><span class="o">.</span><span class="n">rewards</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>actions:
+ DiscreteArray(shape=(), dtype=int32, name=action, minimum=0, maximum=1, num_values=2)
+observations:
+ BoundedArray(shape=(32,), dtype=dtype(&#39;float32&#39;), name=&#39;nback_stimuli&#39;, minimum=0.0, maximum=7.0)
+rewards:
+ Array(shape=(), dtype=dtype(&#39;float32&#39;), name=&#39;reward&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-the-loop">
+<h3>Run the loop<a class="headerlink" href="#run-the-loop" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitting parameters</span>
+<span class="n">n_episodes</span> <span class="o">=</span> <span class="mi">1_000</span>
+<span class="n">n_total_steps</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">log_loss</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="n">n_episodes</span> <span class="o">*</span> <span class="mi">32</span>
+<span class="n">all_returns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># main loop</span>
+<span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">):</span>
+  <span class="n">episode_steps</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">episode_return</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">episode_loss</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+  <span class="n">timestep</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+  <span class="c1"># Make the first observation.</span>
+  <span class="n">agent</span><span class="o">.</span><span class="n">observe_first</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span>
+
+  <span class="c1"># Run an episode</span>
+  <span class="k">while</span> <span class="ow">not</span> <span class="n">timestep</span><span class="o">.</span><span class="n">last</span><span class="p">():</span>
+
+    <span class="c1"># DEBUG</span>
+    <span class="c1"># print(timestep)</span>
+
+    <span class="c1"># Generate an action from the agent&#39;s policy and step the environment.</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">select_action</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">observation</span><span class="p">)</span>
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+    <span class="c1"># Have the agent observe the timestep and let the agent update itself.</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">next_timestep</span><span class="o">=</span><span class="n">timestep</span><span class="p">)</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="c1"># Book-keeping.</span>
+    <span class="n">episode_steps</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">n_total_steps</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">episode_return</span> <span class="o">+=</span> <span class="n">timestep</span><span class="o">.</span><span class="n">reward</span>
+
+    <span class="k">if</span> <span class="n">log_loss</span><span class="p">:</span>
+      <span class="n">episode_loss</span> <span class="o">+=</span> <span class="n">agent</span><span class="o">.</span><span class="n">last_loss</span>
+
+    <span class="k">if</span> <span class="n">n_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_total_steps</span> <span class="o">&gt;=</span> <span class="n">n_steps</span><span class="p">:</span>
+      <span class="k">break</span>
+
+  <span class="c1"># Collect the results and combine with counts.</span>
+  <span class="n">steps_per_second</span> <span class="o">=</span> <span class="n">episode_steps</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;episode&#39;</span><span class="p">:</span> <span class="n">episode</span><span class="p">,</span>
+      <span class="s1">&#39;episode_length&#39;</span><span class="p">:</span> <span class="n">episode_steps</span><span class="p">,</span>
+      <span class="s1">&#39;episode_return&#39;</span><span class="p">:</span> <span class="n">episode_return</span><span class="p">,</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="n">log_loss</span><span class="p">:</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;loss_avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">episode_loss</span><span class="o">/</span><span class="n">episode_steps</span>
+
+  <span class="n">all_returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">episode_return</span><span class="p">)</span>
+
+  <span class="n">display</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">plot_state</span><span class="p">())</span>
+  <span class="c1"># Log the given results.</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">n_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_total_steps</span> <span class="o">&gt;=</span> <span class="n">n_steps</span><span class="p">:</span>
+    <span class="k">break</span>
+
+<span class="n">clear_output</span><span class="p">()</span>
+
+<span class="c1"># Histogram of all returns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">all_returns</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Return [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/human_rl_23_0.png" src="../../_images/human_rl_23_0.png" />
+</div>
+</div>
+<p><strong>Note:</strong> You can simplify the environment loop using <a class="reference external" href="https://github.com/deepmind/acme">DeepMind Acme</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># init a new N-back environment</span>
+<span class="n">env</span><span class="p">,</span> <span class="n">env_spec</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">create_environment</span><span class="p">()</span>
+
+<span class="c1"># DEBUG fake testing environment.</span>
+<span class="c1"># Uncomment this to debug your agent without using the N-back environment.</span>
+<span class="c1"># env = fakes.DiscreteEnvironment(</span>
+<span class="c1">#     num_actions=2,</span>
+<span class="c1">#     num_observations=1000,</span>
+<span class="c1">#     obs_dtype=np.float32,</span>
+<span class="c1">#     episode_length=32)</span>
+<span class="c1"># env_spec = specs.make_environment_spec(env)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dqn_make_network</span><span class="p">(</span><span class="n">action_spec</span><span class="p">:</span> <span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">snt</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
+  <span class="k">return</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+      <span class="n">snt</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+      <span class="n">snt</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">MLP</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">action_spec</span><span class="o">.</span><span class="n">num_values</span><span class="p">]),</span>
+  <span class="p">])</span>
+
+<span class="c1"># construct a DQN agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">dqn</span><span class="o">.</span><span class="n">DQN</span><span class="p">(</span>
+    <span class="n">environment_spec</span><span class="o">=</span><span class="n">env_spec</span><span class="p">,</span>
+    <span class="n">network</span><span class="o">=</span><span class="n">dqn_make_network</span><span class="p">(</span><span class="n">env_spec</span><span class="o">.</span><span class="n">actions</span><span class="p">),</span>
+    <span class="n">epsilon</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">],</span>
+    <span class="n">logger</span><span class="o">=</span><span class="n">loggers</span><span class="o">.</span><span class="n">InMemoryLogger</span><span class="p">(),</span>
+    <span class="n">checkpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we run the environment loop with the DQN agent and print the training log.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># training loop</span>
+<span class="n">loop</span> <span class="o">=</span> <span class="n">EnvironmentLoop</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">loggers</span><span class="o">.</span><span class="n">InMemoryLogger</span><span class="p">())</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">)</span>
+
+<span class="c1"># print logs</span>
+<span class="n">logs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">loop</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+<span class="n">logs</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+
+  <div id="df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>episode_length</th>
+      <th>episode_return</th>
+      <th>steps_per_second</th>
+      <th>episodes</th>
+      <th>steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>32</td>
+      <td>-10.0</td>
+      <td>329.379165</td>
+      <td>996</td>
+      <td>31872</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>32</td>
+      <td>-11.0</td>
+      <td>326.324034</td>
+      <td>997</td>
+      <td>31904</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>32</td>
+      <td>-9.0</td>
+      <td>373.017676</td>
+      <td>998</td>
+      <td>31936</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>32</td>
+      <td>-11.0</td>
+      <td>309.737031</td>
+      <td>999</td>
+      <td>31968</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>32</td>
+      <td>-9.0</td>
+      <td>405.329983</td>
+      <td>1000</td>
+      <td>32000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+
+
+    <div id="df-eede3aad-142d-47c9-a53f-da1082d63010">
+      <button class="colab-df-quickchart" onclick="quickchart('df-eede3aad-142d-47c9-a53f-da1082d63010')"
+              title="Suggest charts."
+              style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+    </div>
+
+<style>
+  .colab-df-quickchart {
+    background-color: #E8F0FE;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: #1967D2;
+    height: 32px;
+    padding: 0 0 0 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: #E2EBFA;
+    box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: #174EA6;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+    background-color: #3B4455;
+    fill: #D2E3FC;
+  }
+
+  [theme=dark] .colab-df-quickchart:hover {
+    background-color: #434B5C;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+    fill: #FFFFFF;
+  }
+</style>
+
+    <script>
+      async function quickchart(key) {
+        const containerElement = document.querySelector('#' + key);
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      }
+    </script>
+
+      <script>
+
+function displayQuickchartButton(domScope) {
+  let quickchartButtonEl =
+    domScope.querySelector('#df-eede3aad-142d-47c9-a53f-da1082d63010 button.colab-df-quickchart');
+  quickchartButtonEl.style.display =
+    google.colab.kernel.accessAllowed ? 'block' : 'none';
+}
+
+        displayQuickchartButton(document);
+      </script>
+      <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/ReinforcementLearning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lunar_lander.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Performance Analysis of DQN Algorithm on the Lunar Lander task</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../NaturalLanguageProcessing/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Natural Language Processing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

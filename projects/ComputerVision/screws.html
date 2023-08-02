@@ -1,0 +1,2269 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Something Screwy - image recognition, detection, and classification of screws &#8212; Neuromatch Academy: Deep Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data Augmentation in image classification models" href="data_augmentation.html" />
+    <link rel="prev" title="Music classification and generation with spectrograms" href="spectrogram_analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
+   Schedule
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
+     General schedule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+   Quick links and policies
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prereqs/DeepLearning.html">
+   Prerequisites and preparatory materials for NMA Deep Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics Module
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
+     Bonus Lecture: Yoshua Bengio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fine Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+   Optimization (W1D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+   Regularization (W2D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+   Deep Learning: The Basics and Fine Tuning Wrap-up
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ConvNets and Generative Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+   Convnets And Dl Thinking (W2D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 1: Cost Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
+     Bonus Lecture: Kyunghyun Cho
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
+     Bonus Tutorial: Facial recognition using modern convnets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+   Generative Models (W2D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
+     Tutorial 2: Diffusion models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
+     Tutorial 3: Image, Conditional Diffusion and Beyond
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
+     Bonus Lecture: Geoffrey Hinton
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Natural Language Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
+     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+   Time Series And Natural Language Processing (W3D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
+     Tutorial 1: Introduction to processing time series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
+     Tutorial 2: Natural Language Processing and LLMs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
+     Bonus Tutorial: Multilingual Embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+   Dl Thinking2 (W3D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
+     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+   Deep Learning: Convnets and NLP
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Unsupervised and Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
+     Bonus Lecture: Melanie Mitchell
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Basic Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
+     Bonus Lecture: Chealsea Finn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
+     Tutorial 1: Reinforcement Learning For Games
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
+     Bonus Tutorial: Planning with Monte Carlo Tree Search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
+     Bonus Lecture: Amita Kapoor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deploy Models on the Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+   Deploy Models (Bonus)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
+     Bonus Tutorial: Deploying Neural Networks on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../modelingsteps/intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">
+     Modeling Steps 1 - 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">
+     Modeling Steps 3 - 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">
+     Modeling Steps 5 - 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">
+     Modeling Steps 7 - 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">
+     Modeling Steps 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">
+     Example Data Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">
+     Example Model Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">
+     Example Deep Learning Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../docs/projects_overview.html">
+   Project Templates
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="README.html">
+     Computer Vision
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="em_synapses.html">
+       Knowledge Extraction from a Convolutional Neural Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spectrogram_analysis.html">
+       Music classification and generation with spectrograms
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Something Screwy - image recognition, detection, and classification of screws
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="data_augmentation.html">
+       Data Augmentation in image classification models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="transfer_learning.html">
+       Transfer Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ReinforcementLearning/README.html">
+     Reinforcement Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/robolympics.html">
+       NMA Robolympics: Controlling robots using reinforcement learning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">
+       Performance Analysis of DQN Algorithm on the Lunar Lander task
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/human_rl.html">
+       Using RL to Model Cognitive Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../NaturalLanguageProcessing/README.html">
+     Natural Language Processing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">
+       Twitter Sentiment Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">
+       Machine Translation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Neuroscience/README.html">
+     Neuroscience
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
+       Animal Pose Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
+       Segmentation and Denoising
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
+       Load algonauts videos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
+       Vision with Lost Glasses: Modelling how the brain deals with noisy input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
+       Moving beyond Labels: Finetuning CNNs on BOLD response
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
+       Focus on what matters: inferring low-dimensional dynamics from neural recordings
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/datasets_and_models.html">
+   Models and Data sets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/ComputerVision/screws.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/ComputerVision/screws.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Something Screwy - image recognition, detection, and classification of screws
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choose-device">
+     Choose device
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-check-out-some-data">
+     Let’s check out some data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-classification">
+   Object classification
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-for-our-first-challenge">
+     Setting up for our first challenge
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparing-our-first-network">
+     Preparing our first network
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#damaged-screw-detection">
+     Damaged screw detection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-class-classification">
+     Multi-class classification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-detection">
+   Object detection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-performance-introspection">
+     Network performance/introspection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oriented-bounding-boxes">
+     Oriented bounding boxes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-clustering">
+     Class clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perspective-and-scale">
+   Perspective and scale
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transfer-learning">
+     Transfer Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-links">
+   Useful links
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Something Screwy - image recognition, detection, and classification of screws</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Something Screwy - image recognition, detection, and classification of screws
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choose-device">
+     Choose device
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-check-out-some-data">
+     Let’s check out some data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-classification">
+   Object classification
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-for-our-first-challenge">
+     Setting up for our first challenge
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparing-our-first-network">
+     Preparing our first network
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#damaged-screw-detection">
+     Damaged screw detection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-class-classification">
+     Multi-class classification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-detection">
+   Object detection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-performance-introspection">
+     Network performance/introspection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oriented-bounding-boxes">
+     Oriented bounding boxes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-clustering">
+     Class clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perspective-and-scale">
+   Perspective and scale
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transfer-learning">
+     Transfer Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-links">
+   Useful links
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/ComputerVision/screws.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/ComputerVision/screws.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<div class="section" id="something-screwy-image-recognition-detection-and-classification-of-screws">
+<h1>Something Screwy - image recognition, detection, and classification of screws<a class="headerlink" href="#something-screwy-image-recognition-detection-and-classification-of-screws" title="Permalink to this headline">¶</a></h1>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> <a class="reference external" href="mailto:joe311&#37;&#52;&#48;gmail&#46;com">Joe Donovan</a></p>
+<p><strong>Production editor:</strong> Spiros Chavlis</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h1>
+<p>Useful link:
+NMA daily guide to projects - <a class="reference external" href="https://deeplearning.neuromatch.io/projects/docs/project_guidance.html">https://deeplearning.neuromatch.io/projects/docs/project_guidance.html</a></p>
+<p>The overall goal of the project is to learn about object recognition, classification, and detection.
+You’ll start with simple networks, and potentially work up to larger pretained models. Your loss function is to optimize learning, not model performance.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
+!pip install scikit-image --quiet
+!pip install torchsummary --quiet
+!pip install Shapely --quiet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry.polygon</span> <span class="kn">import</span> <span class="n">Polygon</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torchsummary</span> <span class="kn">import</span> <span class="n">summary</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions">
+<h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
+<span class="c1"># helpful function for extracting rotated subimages etc</span>
+<span class="k">def</span> <span class="nf">unpack_bbox</span><span class="p">(</span><span class="n">bbox</span><span class="p">):</span>
+  <span class="c1">#bbox as in the json/COCO data format (centerx, centery, width, height, theta is in radians)</span>
+
+  <span class="n">rot_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">width</span> <span class="o">=</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+  <span class="n">height</span> <span class="o">=</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">theta</span> <span class="o">=</span> <span class="o">-</span><span class="n">bbox</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="c1">#radians</span>
+  <span class="k">return</span> <span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span>
+
+
+<span class="k">def</span> <span class="nf">rotcorners_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+  <span class="n">rotation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)),</span>
+               <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))))</span>
+
+  <span class="n">wvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+  <span class="n">hvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+  <span class="n">corner_points</span> <span class="o">=</span> <span class="n">rot_center</span> <span class="o">+</span> <span class="p">[</span><span class="n">wvec</span><span class="o">+</span><span class="n">hvec</span><span class="p">,</span> <span class="n">wvec</span><span class="o">-</span><span class="n">hvec</span><span class="p">,</span> <span class="o">-</span><span class="n">wvec</span><span class="o">+</span><span class="n">hvec</span><span class="p">,</span> <span class="o">-</span><span class="n">wvec</span><span class="o">-</span><span class="n">hvec</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">corner_points</span>
+
+
+<span class="k">def</span> <span class="nf">rotbbox_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+  <span class="n">corner_points</span> <span class="o">=</span> <span class="n">rotcorners_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+  <span class="n">rot_bbox</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">corner_points</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">corner_points</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+  <span class="c1">#constrain inside image</span>
+  <span class="n">rot_bbox</span><span class="p">[</span><span class="n">rot_bbox</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">return</span> <span class="n">rot_bbox</span>
+
+
+<span class="k">def</span> <span class="nf">extract_subimg_bbox</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bbox</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">extract_subimg</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="o">*</span><span class="n">unpack_bbox</span><span class="p">(</span><span class="n">bbox</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">extract_subimg</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+  <span class="n">rot_bbox</span> <span class="o">=</span> <span class="n">rotbbox_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+
+  <span class="n">subimg</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]:</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]:</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+  <span class="n">rotated_im</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">subimg</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span>
+  <span class="n">newcenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rotated_im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+  <span class="n">rotated_im</span> <span class="o">=</span> <span class="n">rotated_im</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1">#drop alpha channel, if it&#39;s there</span>
+
+  <span class="k">return</span> <span class="n">rotated_im</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="choose-device">
+<h2>Choose device<a class="headerlink" href="#choose-device" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Choose device</span>
+<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+  <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+  <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU is not enabled in this notebook. </span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;If you want to enable it, in the menu under `Runtime` -&gt; </span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;`Hardware accelerator.` and select `GPU` from the dropdown menu&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU is enabled in this notebook. </span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;If you want to disable it, in the menu under `Runtime` -&gt; </span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;`Hardware accelerator.` and select `None` from the dropdown menu&quot;</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">device</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">gridspec</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span><span class="p">,</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">plt_transforms</span>
+
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span><span class="mi">14</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GPU is enabled in this notebook. 
+If you want to disable it, in the menu under `Runtime` -&gt; 
+`Hardware accelerator.` and select `None` from the dropdown menu
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="data-loading">
+<h1>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h1>
+<p>Let’s start by downloading the data and taking a look at it</p>
+<p>Properly understanding and exploring the structure of your data is a crucial step to any project</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download dataset, took around 4 minutes for me</span>
+<span class="c1"># &#39;https://www.mvtec.com/company/research/datasets/mvtec-screws&#39;</span>
+<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">tarfile</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://osf.io/ruca6/download&#39;</span>
+<span class="n">tarname</span> <span class="o">=</span> <span class="s1">&#39;mvtec_screws_v1.0.tar.gz&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">tarname</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data archive downloading...&#39;</span><span class="p">)</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tarname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Download completed.&#39;</span><span class="p">)</span>
+
+<span class="c1"># unpack tar datafile</span>
+<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;screwdata&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">datapath</span><span class="p">):</span>
+  <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tarname</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+    <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">datapath</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tarname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data archive downloading...
+Download completed.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some json files and a folder full of images</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">datapath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;images&#39;,
+ &#39;mvtec_screws_train.json&#39;,
+ &#39;mvtec_screws.hdict&#39;,
+ &#39;mvtec_screws_train.hdict&#39;,
+ &#39;mvtec_screws.json&#39;,
+ &#39;mvtec_screws_splitted.hdict&#39;,
+ &#39;mvtec_screws_val.json&#39;,
+ &#39;mvtec_screws_val.hdict&#39;,
+ &#39;README_v1.0.txt&#39;,
+ &#39;mvtec_screws_test.hdict&#39;,
+ &#39;mvtec_screws_test.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># There&#39;s some details in the readme</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;screwdata/README_v1.0.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*******************************************
+* MVTec Screws V1.0                       *
+*                                         *
+* Author: MVTec Software GmbH, July 2020. *
+*         https://www.mvtec.com           *
+*******************************************
+
+All files are as in the MVTec Screws example dataset for oriented object detection, released with
+HALCON version 19.05. The state of the dataset and images is as of release version 20.05.
+
+***********
+* License *
+***********
+
+The dataset, i.e. the images and the annotations, are licensed under the creative commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. See
+https://creativecommons.org/licenses/by-nc-sa/4.0/ for more information.
+For using the data in a way that falls under the commercial use clause of the license,
+please contact us.
+
+***************
+* Attribution *
+***************
+
+If you use this dataset in scientific work, please cite our paper:
+
+Markus Ulrich, Patrick Follmann, Jan-Hendrik Neudeck: 
+A comparison of shape-based matching with deep-learning-based object detection;
+in: Technisches Messen, 2019, DOI 10.1515/teme-2019-0076.
+
+************
+* Content: *
+************
+
+MVTec Screws contains 384 images of 13 different types of screws and nuts on a wooden background.
+The objects are labeled by oriented bounding boxes and their respective category. Overall, there
+are 4426 of such annotations.
+The exemplary splits are those that have been used in the above mentioned publication. Initially,
+they have been selected randomly, such that approximately 70% of the instances of each category are
+within the training split, and 15% each in the validation and test splits.
+
+* folder images contains the screw images.
+* mvtec_screws.json contains the annotations for all images in COCO format.
+* mvtec_screws_train/val/test.json contain examplary splits as mentioned above, in COCO format.
+* mvtec_screws.hdict contains the DLDataset unsplitted.
+* mvtec_screws_split.hdict contains the DLDataset with splits.
+
+******************************
+* Usage of DLDataset-format: *
+******************************
+
+The .hdict files can be used within HALCON by reading them, e.g. via
+
+read_dict (&lt;path_to_mvtec_screws.hdict&gt;, [], [], DLDataset)
+
+The image path has to be set to the location of the images folder &lt;path_to_images_folder&gt; by
+
+set_dict_tuple(DLDataset, &#39;image_dir&#39;, &lt;path_to_images_folder&gt;)
+
+To store this information within the dataset, the dataset should be written by
+write_dict (DLDataset, &lt;path_to_mvtec_screws.hdict&gt;, [], [])
+
+In HALCON object detection we use subpixel-precise annotations with a pixel-centered coordinate-system, i.e.
+the center of the top-left corner of the image is at (0.0, 0.0), while the top-left corner of the image is
+located at (-.5, -.5). Note that when used within HALCON the dataset does not need to be converted, as this
+format is also used within the deep learning based object detection of HALCON.
+
+***************
+* COCO Format *
+***************
+
+MVTec screws is a dataset for oriented box detection. We use a format that is very similar to that of the
+COCO dataset (cocodataset.org). However, we need 5 parameters per box annotation to store the orientation.
+We use the following labels.
+
+Each box contains 5 parameters (row, col, width, height, phi), where
+
+* &#39;row&#39; is the subpixel-precise center row (vertical axis of the coordinate system) of the box.
+* &#39;col&#39; is the subpixel-precise center column (horizontal axis of the coordinate system) of the box.
+* &#39;width&#39; is the subpixel-precise width of the box. I.e. the length of the box parallel to the orientation 
+  of the box.
+* &#39;height&#39; is the subpixel-precise width of the box. I.e. the length of the box perpendicular to the
+  orientation of the box.
+* &#39;phi&#39; is the orientation of the box in radian, given in a mathematically positive sense and with respect
+  to the horizontal (column) image axis. E.g. for phi = 0.0 the box is oriented towards the right side of 
+  the image, for phi = pi/2 towards the top, for phi = pi towards the left, and for phi=-pi/2 towards the 
+  bottom. Phi is always in the range (-pi, pi].
+
+Note that width and height are defined in contrast to the DLDataset format in HALCON, where we use 
+semi-axis lengths.
+
+Coordinate system: In comparison to the pixel-centered coordinate-system of HALCON mentioned above,
+                   for COCO it is common to set the origin to the top-left-corner of the top-left
+				   pixel, hence in comparison to the DLDataset-format, (row,col) are shifted by (.5, .5).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load the json file with the annotation metadata</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath</span><span class="p">,</span> <span class="s1">&#39;mvtec_screws.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;categories&#39;, &#39;images&#39;, &#39;annotations&#39;, &#39;licenses&#39;, &#39;info&#39;])
+{&#39;file_name&#39;: &#39;screws_001.png&#39;, &#39;height&#39;: 1440, &#39;width&#39;: 1920, &#39;id&#39;: 1, &#39;license&#39;: 1}
+{&#39;area&#39;: 3440.97, &#39;bbox&#39;: [184.5, 876.313, 55, 62.5631, 0], &#39;category_id&#39;: 7, &#39;id&#39;: 1001, &#39;image_id&#39;: 1, &#39;is_crowd&#39;: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load the images, and make some helpful dict to map the data</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">)</span>
+
+<span class="c1">#remap images to dict by id</span>
+<span class="n">imgdict</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span><span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]}</span>
+<span class="c1">#read in all images, can take some time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">imgdict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+  <span class="n">i</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imgdir</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]))[:,</span> <span class="p">:,:</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># drop alpha channel, if it&#39;s there</span>
+
+<span class="c1"># remap annotations to dict by image_id</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">annodict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">]:</span>
+  <span class="n">annodict</span><span class="p">[</span><span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;image_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annotation</span><span class="p">)</span>
+
+<span class="c1"># setup list of categories</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span>
+<span class="n">ncategories</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+<span class="n">cat_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">]</span>
+<span class="n">category_names</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;nut&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;wood screw&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;lag wood screw&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="s1">&#39;bolt&#39;</span><span class="p">,</span>
+                  <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;black oxide screw&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;shiny screw&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;short wood screw&#39;</span><span class="p">,</span>
+                  <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;long lag screw&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="s1">&#39;large nut&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="s1">&#39;nut&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="s1">&#39;nut&#39;</span><span class="p">,</span>
+                  <span class="mi">12</span><span class="p">:</span><span class="s1">&#39;machine screw&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span><span class="s1">&#39;short machine screw&#39;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-check-out-some-data">
+<h2>Let’s check out some data<a class="headerlink" href="#let-s-check-out-some-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s look at one image and it&#39;s associated annotations</span>
+<span class="n">imageid</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">imgdict</span><span class="p">[</span><span class="n">imageid</span><span class="p">][</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">annodict</span><span class="p">[</span><span class="n">imageid</span><span class="p">]),</span>
+                       <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span><span class="o">+</span><span class="p">[</span><span class="mf">.1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">annodict</span><span class="p">[</span><span class="n">imageid</span><span class="p">]),</span>
+                       <span class="n">wspace</span><span class="o">=</span><span class="mf">.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">cmap_normal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ncategories</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">annodict</span><span class="p">[</span><span class="n">imageid</span><span class="p">]):</span>
+  <span class="n">bbox</span> <span class="o">=</span> <span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]</span>
+
+  <span class="c1"># plt.scatter(*rot_center)</span>
+  <span class="c1"># plt.scatter(*corner_points.T, c=&#39;r&#39;)</span>
+
+  <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">color</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">(</span><span class="n">cmap_normal</span><span class="p">(</span><span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">]))</span>
+  <span class="n">rect</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="p">,</span>
+                            <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                           <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="n">plt_transforms</span><span class="o">.</span><span class="n">Affine2D</span><span class="p">()</span><span class="o">.</span><span class="n">rotate_around</span><span class="p">(</span><span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">bbox</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">rect</span><span class="o">.</span><span class="n">set_transform</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transData</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+  <span class="n">rotated_im</span> <span class="o">=</span> <span class="n">extract_subimg_bbox</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bbox</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rotated_im</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">ncategories</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ncategories</span> <span class="o">-</span> <span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/screws_21_1.png" src="../../_images/screws_21_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a dict mapping category id to all subimages, can take some time to run</span>
+<span class="n">cat_imgdict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">img_id</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">imgdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annodict</span><span class="p">[</span><span class="n">img_id</span><span class="p">]:</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]</span>
+    <span class="n">subimg</span> <span class="o">=</span> <span class="n">extract_subimg_bbox</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">],</span> <span class="n">bbox</span><span class="p">)</span>
+    <span class="n">cat_imgdict</span><span class="p">[</span><span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subimg</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many images are in each category?</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>  <span class="ow">in</span> <span class="n">cat_imgdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Category ID </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s2"> items&quot;</span><span class="p">)</span>  <span class="c1">#f-strings are neat - see https://realpython.com/python-f-strings/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Category ID 7 has 365 items
+Category ID 3 has 317 items
+Category ID 2 has 314 items
+Category ID 8 has 367 items
+Category ID 6 has 393 items
+Category ID 5 has 387 items
+Category ID 4 has 315 items
+Category ID 1 has 313 items
+Category ID 9 has 320 items
+Category ID 11 has 346 items
+Category ID 10 has 347 items
+Category ID 12 has 322 items
+Category ID 13 has 321 items
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot some examples from each category</span>
+<span class="k">for</span> <span class="n">catid</span><span class="p">,</span> <span class="n">examples</span> <span class="ow">in</span> <span class="n">cat_imgdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="n">num_examples</span> <span class="o">=</span> <span class="mi">5</span>
+  <span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">example</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">examples</span><span class="p">[:</span><span class="n">num_examples</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category_names</span><span class="p">[</span><span class="n">catid</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">catid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/screws_24_0.png" src="../../_images/screws_24_0.png" />
+<img alt="../../_images/screws_24_1.png" src="../../_images/screws_24_1.png" />
+<img alt="../../_images/screws_24_2.png" src="../../_images/screws_24_2.png" />
+<img alt="../../_images/screws_24_3.png" src="../../_images/screws_24_3.png" />
+<img alt="../../_images/screws_24_4.png" src="../../_images/screws_24_4.png" />
+<img alt="../../_images/screws_24_5.png" src="../../_images/screws_24_5.png" />
+<img alt="../../_images/screws_24_6.png" src="../../_images/screws_24_6.png" />
+<img alt="../../_images/screws_24_7.png" src="../../_images/screws_24_7.png" />
+<img alt="../../_images/screws_24_8.png" src="../../_images/screws_24_8.png" />
+<img alt="../../_images/screws_24_9.png" src="../../_images/screws_24_9.png" />
+<img alt="../../_images/screws_24_10.png" src="../../_images/screws_24_10.png" />
+<img alt="../../_images/screws_24_11.png" src="../../_images/screws_24_11.png" />
+<img alt="../../_images/screws_24_12.png" src="../../_images/screws_24_12.png" />
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="object-classification">
+<h1>Object classification<a class="headerlink" href="#object-classification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-for-our-first-challenge">
+<h2>Setting up for our first challenge<a class="headerlink" href="#setting-up-for-our-first-challenge" title="Permalink to this headline">¶</a></h2>
+<p>The challenge of detecting hetergogenously sized objects scattered throughout an image can be challenging, so let’s start with something simpler - detecting whether a fixed sized image contains a nut or is blank.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with fixed sized patches that either have a screw or not</span>
+<span class="n">use_categories</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="c1"># for screw patches use categories that have smaller bounding boxes</span>
+<span class="n">patch_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+<span class="n">num_patches_per_category</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="n">nut_patches</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">img_id</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">imgdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annodict</span><span class="p">[</span><span class="n">img_id</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">use_categories</span><span class="p">:</span>
+      <span class="n">bbox</span> <span class="o">=</span> <span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]</span>
+      <span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">unpack_bbox</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+      <span class="n">subimg</span> <span class="o">=</span> <span class="n">extract_subimg</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">],</span> <span class="n">rot_center</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">subimg</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">patch_size</span><span class="p">):</span>
+        <span class="n">nut_patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subimg</span><span class="p">)</span>
+      <span class="c1"># plt.figure()</span>
+      <span class="c1"># plt.imshow(subimg)</span>
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nut_patches</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">num_patches_per_category</span><span class="p">:</span>
+    <span class="k">break</span>
+
+<span class="c1">#Select random blank patches</span>
+<span class="n">blank_patches</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nut_patches</span><span class="p">)):</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#until a suitable random patch is found</span>
+    <span class="c1">#choose random image</span>
+    <span class="n">imgid</span><span class="p">,</span> <span class="n">imgobj</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">imgdict</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">imgobj</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+    <span class="c1">#choose random place at least half a patch size from edges</span>
+    <span class="n">rand_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">((</span><span class="n">patch_size</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">patch_size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">corners</span> <span class="o">=</span> <span class="n">rotcorners_from_coords</span><span class="p">(</span><span class="n">rand_center</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1">#check if the random patch intersects with any labeled objects</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">Polygon</span><span class="p">(</span><span class="n">corners</span><span class="p">)</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">rotcorners_from_coords</span><span class="p">(</span><span class="o">*</span><span class="n">unpack_bbox</span><span class="p">(</span><span class="n">annotation</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]))))</span> <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annodict</span><span class="p">[</span><span class="n">imgid</span><span class="p">]]):</span>
+      <span class="n">rand_patch</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">rand_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">patch_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="n">rand_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">patch_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">rand_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">patch_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="n">rand_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">patch_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+      <span class="n">blank_patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rand_patch</span><span class="p">)</span>
+      <span class="k">break</span>
+
+<span class="c1"># TODO seems like rarely the patches aren&#39;t fully blank - are some labels missing??</span>
+
+<span class="c1"># could also use some images from cifar etc.</span>
+<span class="n">num_examples</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_examples</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nut_patches</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blank_patches</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">patch_labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">nut_patches</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">blank_patches</span><span class="p">)</span>  <span class="c1">#1 if nut</span>
+<span class="n">all_patches</span> <span class="o">=</span> <span class="n">nut_patches</span> <span class="o">+</span> <span class="n">blank_patches</span> <span class="c1">#list concat</span>
+
+<span class="c1"># randomly shuffle</span>
+<span class="n">shuffle_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">patch_labels</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">patch_labels</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">patch_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">patch_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">shuffle_idx</span><span class="p">]</span>
+<span class="n">all_patches</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_patches</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">shuffle_idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/screws_27_1.png" src="../../_images/screws_27_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check shapes are correct</span>
+<span class="c1"># assert all([p.shape == (128,128,3) for p in all_patches])</span>
+<span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_patches</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-our-first-network">
+<h2>Preparing our first network<a class="headerlink" href="#preparing-our-first-network" title="Permalink to this headline">¶</a></h2>
+<p>Before immediately jumping into coding a network, first think about what the structure of the network should look like.
+Hint - it’s often helpful to start thinking about the shape/dimensionality of the inputs and outputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocess data</span>
+<span class="n">preprocess</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+   <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+   <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+<span class="p">])</span>
+
+<span class="n">train_frac</span> <span class="o">=</span> <span class="mf">.2</span>
+<span class="n">train_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_patches</span><span class="p">)</span><span class="o">*</span><span class="n">train_frac</span><span class="p">)</span>
+<span class="c1"># test_nuumber = all_patches.len()-train_number</span>
+<span class="n">train_patches</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">all_patches</span><span class="p">[:</span><span class="n">train_number</span><span class="p">],</span> <span class="n">patch_labels</span><span class="p">[:</span><span class="n">train_number</span><span class="p">]</span>
+<span class="n">test_patches</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">all_patches</span><span class="p">[</span><span class="n">train_number</span><span class="p">:],</span> <span class="n">patch_labels</span><span class="p">[</span><span class="n">train_number</span><span class="p">:]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">preprocess</span><span class="p">(</span><span class="n">all_patches</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/screws_30_1.png" src="../../_images/screws_30_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SimpleScrewNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="n">LeakyReLU</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">()</span>
+    <span class="n">MaxPool2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">LeakyReLU</span><span class="p">,</span>
+        <span class="n">MaxPool2d</span><span class="p">,</span>
+
+        <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+        <span class="c1"># nn.Conv2d(32, 32, kernel_size=5),</span>
+        <span class="n">LeakyReLU</span><span class="p">,</span>
+        <span class="n">MaxPool2d</span><span class="p">,</span>
+
+        <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+        <span class="n">LeakyReLU</span><span class="p">,</span>
+        <span class="n">MaxPool2d</span><span class="p">,</span>
+
+        <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
+        <span class="c1"># nn.Dropout(),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+
+        <span class="c1"># nn.Conv2d(3, 6, 5),</span>
+        <span class="c1"># nn.MaxPool2d(2, 2),</span>
+        <span class="c1"># nn.Conv2d(6, 16, 5),</span>
+        <span class="c1"># nn.Linear(16 * 5 * 5, 120),</span>
+        <span class="c1"># nn.Linear(120, 84),</span>
+        <span class="c1"># nn.Linear(84, 2),</span>
+
+    <span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Simply pass the data through the layers</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect model structure and layer sizes</span>
+<span class="n">snet</span> <span class="o">=</span> <span class="n">SimpleScrewNet</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">snet</span><span class="p">,</span> <span class="n">input_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 16, 61, 61]           2,368
+         LeakyReLU-2           [-1, 16, 61, 61]               0
+         MaxPool2d-3           [-1, 16, 30, 30]               0
+            Conv2d-4           [-1, 32, 26, 26]          12,832
+         LeakyReLU-5           [-1, 32, 26, 26]               0
+         MaxPool2d-6           [-1, 32, 13, 13]               0
+            Conv2d-7             [-1, 64, 9, 9]          51,264
+         LeakyReLU-8             [-1, 64, 9, 9]               0
+         MaxPool2d-9             [-1, 64, 4, 4]               0
+          Flatten-10                 [-1, 1024]               0
+           Linear-11                   [-1, 64]          65,600
+           Linear-12                    [-1, 2]             130
+================================================================
+Total params: 132,194
+Trainable params: 132,194
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.19
+Forward/backward pass size (MB): 1.48
+Params size (MB): 0.50
+Estimated Total Size (MB): 2.18
+----------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loss</span>
+<span class="n">loss_fn</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span><span class="o">=</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">snet</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span><span class="n">momentum</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train</span>
+<span class="n">num_epoch</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">train_losses</span><span class="o">=</span> <span class="p">[]</span>  <span class="c1"># loss per epoch</span>
+<span class="n">test_losses</span><span class="o">=</span> <span class="p">[]</span>  <span class="c1"># loss per epoch</span>
+<span class="n">test_corrects</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># % correct per epoch</span>
+
+<span class="n">test_correct</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">img</span><span class="p">,</span><span class="n">lbl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_patches</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">):</span>
+    <span class="n">img</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+    <span class="n">lbl</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+    <span class="n">predict</span><span class="o">=</span><span class="n">snet</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">test_correct</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">predict</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="o">==</span> <span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+<span class="n">test_correct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_correct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before starting: </span><span class="si">{</span><span class="n">test_correct</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% of test images correct&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epoch</span><span class="p">):</span>
+  <span class="n">train_loss</span><span class="o">=</span><span class="mf">0.0</span>
+  <span class="n">test_loss</span><span class="o">=</span><span class="mf">0.0</span>
+  <span class="n">test_correct</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="n">snet</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+  <span class="c1"># for img,lbl in train_ds_loader:</span>
+  <span class="k">for</span> <span class="n">img</span><span class="p">,</span><span class="n">lbl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_patches</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">):</span>
+    <span class="n">img</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+    <span class="n">lbl</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="c1"># print(img.shape)</span>
+    <span class="n">predict</span><span class="o">=</span><span class="n">snet</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">predict</span><span class="p">,</span><span class="n">lbl</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">train_loss</span><span class="o">+=</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">*</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">img</span><span class="p">,</span><span class="n">lbl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_patches</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">):</span>
+      <span class="n">img</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+      <span class="n">lbl</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+      <span class="n">predict</span><span class="o">=</span><span class="n">snet</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+      <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">predict</span><span class="p">,</span><span class="n">lbl</span><span class="p">)</span>
+      <span class="n">test_loss</span><span class="o">+=</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">*</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">test_correct</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">predict</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="o">==</span> <span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+  <span class="n">test_correct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_correct</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+  <span class="n">train_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+  <span class="n">test_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
+  <span class="n">test_corrects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_correct</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch:</span><span class="si">{}</span><span class="s1"> Train Loss:</span><span class="si">{:.3f}</span><span class="s1"> Test Losss:</span><span class="si">{:.3f}</span><span class="s1"> Percent correct: </span><span class="si">{:.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span><span class="n">train_loss</span><span class="p">,</span><span class="n">test_loss</span><span class="p">,</span> <span class="n">test_correct</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before starting: 50.37% of test images correct
+Epoch:0 Train Loss:97.973 Test Losss:256.380 Percent correct: 93.27%
+Epoch:1 Train Loss:49.839 Test Losss:197.818 Percent correct: 96.51%
+Epoch:2 Train Loss:39.270 Test Losss:161.713 Percent correct: 97.26%
+Epoch:3 Train Loss:32.547 Test Losss:137.508 Percent correct: 98.38%
+Epoch:4 Train Loss:27.970 Test Losss:120.993 Percent correct: 98.38%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate percentage correct</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">img</span><span class="p">,</span><span class="n">lbl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_patches</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">):</span>
+    <span class="n">img</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">lbl</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">predict</span><span class="o">=</span><span class="n">snet</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">predict</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="o">==</span> <span class="n">lbl</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">correct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">correct</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">% of test images correct&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.984% of test images correct
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_losses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_losses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Loss&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/screws_36_1.png" src="../../_images/screws_36_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="damaged-screw-detection">
+<h2>Damaged screw detection<a class="headerlink" href="#damaged-screw-detection" title="Permalink to this headline">¶</a></h2>
+<p>There’s a dataset with anamolous screws on Kaggle - <a class="reference external" href="https://www.kaggle.com/ruruamour/screw-dataset">https://www.kaggle.com/ruruamour/screw-dataset</a></p>
+<p>Download and inspect the dataset, then setup a network for classification of damaged or normal screw</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>import json, os
+# Here&#39;s a code snippet for downloading from kaggle
+dirname = &#39;~/.kaggle/&#39; 
+os.mkdir(dirname)
+
+file_path = f&quot;{dirname}{&#39;kaggle.json&#39;}&quot;
+# create an empty file
+with open(file_path, &#39;w&#39;) as fp:
+  pass
+
+# create/download api token from Kaggle -&gt; upper right side -&gt; account -&gt; API -&gt; create API token, and copy it here
+api_token = {&quot;username&quot;:&quot;username here&quot;,&quot;key&quot;:&quot;enter api key here&quot;}
+
+with open(&#39;/root/.kaggle/kaggle.json&#39;, &#39;w&#39;) as file:
+  json.dump(api_token, file)
+
+# chnage permissions
+s = &#39;600&#39;
+os.chmod(file_path, int(s, base=8))
+
+# download
+!kaggle datasets download -d ruruamour/screw-dataset
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-class-classification">
+<h2>Multi-class classification<a class="headerlink" href="#multi-class-classification" title="Permalink to this headline">¶</a></h2>
+<p>So far we’ve been doing object classification on single classes from the dataset.
+Change your network to use the 13 classes from the original dataset to classify images of fixed sized into the 13 classes.
+Note that not all classes are the same sized, so you’ll have to use larger image patches and likely change the configuration of your network some.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reminder, you can use extract_subimg(im, rot_center, width, height, theta) to extract image patches</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="object-detection">
+<h1>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this headline">¶</a></h1>
+<p>Object classification of fixed sized images with a single item is nice, but for many real world tasks detection of multiple objects throughout an image is crucial. Now we will try to create a network for object detection.</p>
+<p>Here’s a useful intro to some of the different types of object classification tasks:
+<a class="reference external" href="https://machinelearningmastery.com/object-recognition-with-deep-learning/">https://machinelearningmastery.com/object-recognition-with-deep-learning/</a></p>
+<p>First start by thinking about how the network could capture the location of multiple objects - a single classifer layer at the end of the network won’t be enough. The <a class="reference external" href="https://arxiv.org/abs/1506.02640">YOLO paper</a> might be a helpful read as well as <a class="reference external" href="https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e">this algorithm comparison</a>.
+Try to implement your own network (keep in mind for a practice training time you won’t be able to use as deep of a network as many of the papers).</p>
+<div class="section" id="network-performance-introspection">
+<h2>Network performance/introspection<a class="headerlink" href="#network-performance-introspection" title="Permalink to this headline">¶</a></h2>
+<p>An important skill for deep learning, as well as any data or programming task is to know how to inspect and debug the performance of your system.
+Check out what your intermediate layers are actually learning - does this give you any hints to improve your performance?
+The <a class="reference external" href="https://deeplearning.neuromatch.io/tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">W1D2 tutorial</a> might also be useful.</p>
+</div>
+<div class="section" id="oriented-bounding-boxes">
+<h2>Oriented bounding boxes<a class="headerlink" href="#oriented-bounding-boxes" title="Permalink to this headline">¶</a></h2>
+<p>The standard yolo just draws bounding boxes, and doesn’t handle rotated objects elegantly.</p>
+<p>There’s several works that extend <a class="reference external" href="https://github.com/feifeiwei/OBB-YOLOv3">yolo with oriented boxes</a> or have other network structures that can produce oriented bounding boxes(<a class="reference external" href="https://github.com/yijingru/BBAVectors-Oriented-Object-Detection">see here</a>).</p>
+</div>
+<div class="section" id="class-clustering">
+<h2>Class clustering<a class="headerlink" href="#class-clustering" title="Permalink to this headline">¶</a></h2>
+<p>We’ve been using provided labels to define our object classes (a form of supervised learning). For many datasets you won’t labels or they will be incomplete.</p>
+<p>Try unsupervised clustering to segment the data into groups.
+Either classical approaches which <a class="reference external" href="https://scikit-learn.org/stable/unsupervised_learning.html">sklearn</a> will be very helpful for, or using deep learning approaches (<a class="reference external" href="https://towardsdatascience.com/image-clustering-implementation-with-pytorch-587af1d14123">example 1</a>, <a class="reference external" href="https://github.com/facebookresearch/deepcluster">example 2</a>).</p>
+<p>How do the unsupervised clusters compare with the provided labels?</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="perspective-and-scale">
+<h1>Perspective and scale<a class="headerlink" href="#perspective-and-scale" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transfer-learning">
+<h2>Transfer Learning<a class="headerlink" href="#transfer-learning" title="Permalink to this headline">¶</a></h2>
+<p>There’s many models for object detection/segmentation, for instance:
+<a class="reference external" href="https://github.com/eriklindernoren/PyTorch-YOLOv3">yolo3 minimal</a>, <a class="reference external" href="https://github.com/ultralytics/yolov5">yolov5</a>, <a class="reference external" href="https://github.com/facebookresearch/detectron2">detetectron2</a>, <a class="reference external" href="https://models.roboflow.com/object-detection/scaled-yolov4">Scaled-YOLOv4</a>.</p>
+<p>I’d recommend reading the original <a class="reference external" href="https://arxiv.org/abs/1506.02640">YOLO paper</a> and then starting with <a class="reference external" href="https://github.com/eriklindernoren/PyTorch-YOLOv3">yolo3 minimal</a> (less performance, but more readable code than the more complicated frameworks).</p>
+<p>Starting from one of these pretrained networks train it on your screw dataset. How does it’s performance compare to your simpler network’s performance?</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="useful-links">
+<h1>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h1>
+<p>Library of open 3D cad models of bolts etc.: <a class="reference external" href="https://www.bolts-library.org/en/index.html">https://www.bolts-library.org/en/index.html</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/ComputerVision"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="spectrogram_analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Music classification and generation with spectrograms</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data_augmentation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Augmentation in image classification models</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

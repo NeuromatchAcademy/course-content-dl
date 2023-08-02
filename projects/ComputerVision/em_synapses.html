@@ -1,0 +1,2228 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Extraction from a Convolutional Neural Network &#8212; Neuromatch Academy: Deep Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Music classification and generation with spectrograms" href="spectrogram_analysis.html" />
+    <link rel="prev" title="Ideas" href="ideas_and_datasets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
+   Schedule
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
+     General schedule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+   Quick links and policies
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prereqs/DeepLearning.html">
+   Prerequisites and preparatory materials for NMA Deep Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics Module
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
+     Bonus Lecture: Yoshua Bengio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fine Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+   Optimization (W1D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+   Regularization (W2D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+   Deep Learning: The Basics and Fine Tuning Wrap-up
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ConvNets and Generative Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+   Convnets And Dl Thinking (W2D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 1: Cost Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
+     Bonus Lecture: Kyunghyun Cho
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
+     Bonus Tutorial: Facial recognition using modern convnets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+   Generative Models (W2D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
+     Tutorial 2: Diffusion models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
+     Tutorial 3: Image, Conditional Diffusion and Beyond
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
+     Bonus Lecture: Geoffrey Hinton
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Natural Language Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
+     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+   Time Series And Natural Language Processing (W3D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
+     Tutorial 1: Introduction to processing time series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
+     Tutorial 2: Natural Language Processing and LLMs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
+     Bonus Tutorial: Multilingual Embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+   Dl Thinking2 (W3D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
+     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+   Deep Learning: Convnets and NLP
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Unsupervised and Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
+     Bonus Lecture: Melanie Mitchell
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Basic Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
+     Bonus Lecture: Chealsea Finn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
+     Tutorial 1: Reinforcement Learning For Games
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
+     Bonus Tutorial: Planning with Monte Carlo Tree Search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
+     Bonus Lecture: Amita Kapoor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deploy Models on the Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+   Deploy Models (Bonus)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
+     Bonus Tutorial: Deploying Neural Networks on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../modelingsteps/intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">
+     Modeling Steps 1 - 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">
+     Modeling Steps 3 - 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">
+     Modeling Steps 5 - 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">
+     Modeling Steps 7 - 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">
+     Modeling Steps 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">
+     Example Data Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">
+     Example Model Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">
+     Example Deep Learning Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../docs/projects_overview.html">
+   Project Templates
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="README.html">
+     Computer Vision
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Knowledge Extraction from a Convolutional Neural Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spectrogram_analysis.html">
+       Music classification and generation with spectrograms
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="screws.html">
+       Something Screwy - image recognition, detection, and classification of screws
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="data_augmentation.html">
+       Data Augmentation in image classification models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="transfer_learning.html">
+       Transfer Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ReinforcementLearning/README.html">
+     Reinforcement Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/robolympics.html">
+       NMA Robolympics: Controlling robots using reinforcement learning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">
+       Performance Analysis of DQN Algorithm on the Lunar Lander task
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/human_rl.html">
+       Using RL to Model Cognitive Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../NaturalLanguageProcessing/README.html">
+     Natural Language Processing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">
+       Twitter Sentiment Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">
+       Machine Translation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Neuroscience/README.html">
+     Neuroscience
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
+       Animal Pose Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
+       Segmentation and Denoising
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
+       Load algonauts videos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
+       Vision with Lost Glasses: Modelling how the brain deals with noisy input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
+       Moving beyond Labels: Finetuning CNNs on BOLD response
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
+       Focus on what matters: inferring low-dimensional dynamics from neural recordings
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/datasets_and_models.html">
+   Models and Data sets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/ComputerVision/em_synapses.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/ComputerVision/em_synapses.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Knowledge Extraction from a Convolutional Neural Network
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-ideas">
+   Project Ideas
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgments">
+     Acknowledgments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-an-image-classifier">
+   Train an Image Classifier
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preparation">
+     Data Preparation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-the-data">
+       Download the data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classifier-training">
+     Classifier Training
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-and-inspect-datasets">
+       Create and Inspect Datasets
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-model-loss-and-optimizer">
+       Create a Model, Loss, and Optimizer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#train-the-model">
+       Train the Model
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-gan-to-translate-images">
+   Train a GAN to Translate Images
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-the-cyclegan-code-and-dependencies">
+     Get the CycleGAN code and dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Knowledge Extraction from a Convolutional Neural Network</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Knowledge Extraction from a Convolutional Neural Network
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-ideas">
+   Project Ideas
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgments">
+     Acknowledgments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-an-image-classifier">
+   Train an Image Classifier
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preparation">
+     Data Preparation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-the-data">
+       Download the data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classifier-training">
+     Classifier Training
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-and-inspect-datasets">
+       Create and Inspect Datasets
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-model-loss-and-optimizer">
+       Create a Model, Loss, and Optimizer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#train-the-model">
+       Train the Model
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-a-gan-to-translate-images">
+   Train a GAN to Translate Images
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-the-cyclegan-code-and-dependencies">
+     Get the CycleGAN code and dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/ComputerVision/em_synapses.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/ComputerVision/em_synapses.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<div class="section" id="knowledge-extraction-from-a-convolutional-neural-network">
+<h1>Knowledge Extraction from a Convolutional Neural Network<a class="headerlink" href="#knowledge-extraction-from-a-convolutional-neural-network" title="Permalink to this headline">¶</a></h1>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Jan Funke</p>
+<p><strong>Production editors:</strong> Spiros Chavlis</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h1>
+<p>Train a convolutional neural network to classify images and a CycleGAN to translate between images of different types.</p>
+<p>This notebook contains everything to train a VGG network on labelled images and to train a CycleGAN to translate between images.</p>
+<p>We will use electron microscopy images of Drosophila synapses for this project. Those images can be classified according to the neurotransmitter type they release.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-image<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pillow<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-image<span class="w"> </span>--quiet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">ImageFolder</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">random_split</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data.sampler</span> <span class="kn">import</span> <span class="n">WeightedRandomSampler</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="project-ideas">
+<h1>Project Ideas<a class="headerlink" href="#project-ideas" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Improve the classifier. This code uses a VGG network for the classification. On the synapse dataset, we will get a validation accuracy of around 80%. Try to see if you can improve the classifier accuracy.</p>
+<ul class="simple">
+<li><p>(easy) Data augmentation: The training code for the classifier is quite simple in this example. Enlarge the amount of available training data by adding augmentations (transpose and mirror the images, add noise, change the intensity, etc.).</p></li>
+<li><p>(easy) Network architecture: The VGG network has a few parameters that one can tune. Try a few to see what difference it makes.</p></li>
+<li><p>(easy) Inspect the classifier predictions: Take random samples from the test dataset and classify them. Show the images together with their predicted and actual labels.</p></li>
+<li><p>(medium) Other networks:  Try different architectures (e.g., a ResNet) and see if the accuracy can be improved.</p></li>
+<li><p>(medium) Inspect errors made by the classifier. Which classes are most accurately predicted? Which classes are confused with each other?</p></li>
+</ul>
+</li>
+<li><p>Explore the CycleGAN.</p>
+<ul class="simple">
+<li><p>(easy) The example code below shows how to translate between GABA and glutamate. Try different combinations, and also in the reverse direction. Can you start to see differences between some pairs of classes? Which are the ones where the differences are the most or the least obvious?</p></li>
+<li><p>(hard) Watching the CycleGAN train can be a bit boring. Find a way to show (periodically) the current image and its translation to see how the network is improving over time. Hint: The <code class="docutils literal notranslate"><span class="pre">cycle_gan</span></code> module has a <code class="docutils literal notranslate"><span class="pre">Visualizer</span></code>, which might be helpful.</p></li>
+</ul>
+</li>
+<li><p>Try on your own data!</p>
+<ul class="simple">
+<li><p>Have a look at how the synapse images are organized in <code class="docutils literal notranslate"><span class="pre">data/raw/synapses</span></code>. Copy the directory structure and use your own images. Depending on your data, you might have to adjust the image size (128x128 for the synapses) and number of channels in the VGG network and CycleGAN code.</p></li>
+</ul>
+</li>
+</ol>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>This notebook was written by Jan Funke, using code from Nils Eckstein and a modified version of the <a class="reference external" href="https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix">CycleGAN</a> implementation.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="train-an-image-classifier">
+<h1>Train an Image Classifier<a class="headerlink" href="#train-an-image-classifier" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we will implement and train a VGG classifier to classify images of synapses into one of six classes, corresponding to the neurotransmitter type that is released at the synapse: GABA, acethylcholine, glutamate, octopamine, serotonin, and dopamine.</p>
+<div class="section" id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-the-data">
+<h3>Download the data<a class="headerlink" href="#download-the-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download the data</span>
+<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+
+<span class="c1"># @markdown Download the resources for this tutorial (one zip file)</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;resources.zip&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/sh/ucpjfd3omjieu80/AAAvZynLtzvhyFx7_jwVhUK2a?dl=1&#39;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;data/&#39;</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data downlading...&#39;</span><span class="p">)</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Download is cmpleted.&#39;</span><span class="p">)</span>
+
+  <span class="c1"># @markdown Unzip the file</span>
+  <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;resources.zip&#39;</span>
+
+  <span class="c1"># specifying the zip file name</span>
+  <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">]</span>
+
+  <span class="c1"># opening the zip file in READ mode</span>
+  <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
+    <span class="c1"># extracting all the files</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting all the files now...&#39;</span><span class="p">)</span>
+    <span class="n">zf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+
+
+  <span class="c1"># @markdown Extract the data</span>
+  <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">]</span>
+
+  <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="c1"># opening the zip file in READ mode</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zh</span><span class="p">:</span>
+      <span class="c1"># extracting all the files</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Archive: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Extracting data...&quot;</span><span class="p">)</span>
+      <span class="n">zh</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+
+  <span class="c1"># @markdown Make sure the order of classes matches the pretrained model</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/0_gaba&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/acetylcholine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/1_acetylcholine&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/2_glutamate&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/3_serotonin&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/octopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/4_octopamine&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/5_dopamine&#39;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data are downloaded.&#39;</span><span class="p">)</span>
+
+<span class="c1"># @markdown Remove the archives</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;experiments.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;resources.zip&#39;</span><span class="p">]:</span>
+  <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data are downloaded.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="classifier-training">
+<h2>Classifier Training<a class="headerlink" href="#classifier-training" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-and-inspect-datasets">
+<h3>Create and Inspect Datasets<a class="headerlink" href="#create-and-inspect-datasets" title="Permalink to this headline">¶</a></h3>
+<p>First, we create a <code class="docutils literal notranslate"><span class="pre">torch</span></code> data loaders for training, validation, and testing. We will use weighted sampling to account for the class imbalance during training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_image</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+
+  <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="c1"># images are grescale, we only need one of the RGB channels</span>
+  <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+  <span class="c1"># img is uint8 in [0, 255], but we want float32 in [-1, 1]</span>
+  <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">/</span><span class="mf">255.0</span>
+  <span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="n">image</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mf">0.5</span>
+
+  <span class="k">return</span> <span class="n">image</span>
+
+
+<span class="c1"># create a dataset for all images of all classes</span>
+<span class="n">full_dataset</span> <span class="o">=</span> <span class="n">ImageFolder</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;data/raw/synapses&#39;</span><span class="p">,</span> <span class="n">loader</span><span class="o">=</span><span class="n">load_image</span><span class="p">)</span>
+
+<span class="c1"># randomly split the dataset into train, validation, and test</span>
+<span class="n">num_images</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_dataset</span><span class="p">)</span>
+<span class="c1"># ~70% for training</span>
+<span class="n">num_training</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="n">num_images</span><span class="p">)</span>
+<span class="c1"># ~15% for validation</span>
+<span class="n">num_validation</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.15</span> <span class="o">*</span> <span class="n">num_images</span><span class="p">)</span>
+<span class="c1"># ~15% for testing</span>
+<span class="n">num_test</span> <span class="o">=</span> <span class="n">num_images</span> <span class="o">-</span> <span class="p">(</span><span class="n">num_training</span> <span class="o">+</span> <span class="n">num_validation</span><span class="p">)</span>
+<span class="c1"># split the data randomly (but with a fixed random seed)</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">validation_dataset</span><span class="p">,</span> <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span>
+    <span class="n">full_dataset</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">num_training</span><span class="p">,</span> <span class="n">num_validation</span><span class="p">,</span> <span class="n">num_test</span><span class="p">],</span>
+    <span class="n">generator</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">23061912</span><span class="p">))</span>
+
+<span class="c1"># compute class weights in training dataset for uniform sampling</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="p">])</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span>
+<span class="n">label_weights</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">counts</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">label_weights</span><span class="p">[</span><span class="n">ys</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of images per class:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">full_dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">label_weights</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">:</span><span class="se">\t</span><span class="s2">n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="se">\t</span><span class="s2">weight=</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># create a data loader with uniform sampling</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">WeightedRandomSampler</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">))</span>
+<span class="c1"># this data loader will serve 8 images in a &quot;mini-batch&quot; at a time</span>
+<span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of images per class:
+	0_gaba:	n=15855	weight=6.30715862503942e-05
+	1_acetylcholine:	n=4911	weight=0.00020362451639177357
+	2_glutamate:	n=3550	weight=0.00028169014084507044
+	3_serotonin:	n=2297	weight=0.00043535045711797995
+	4_octopamine:	n=951	weight=0.0010515247108307045
+	5_dopamine:	n=4649	weight=0.00021510002151000216
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cell below visualizes a single, randomly chosen batch from the training data loader. Feel free to execute this cell multiple times to get a feeling for the dataset. See if you can tell the difference between synapses of different types!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_batch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()])</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># show a random batch from the data loader</span>
+<span class="c1"># (run this cell repeatedly to see different batches)</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+  <span class="n">show_batch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/em_synapses_16_0.png" src="../../_images/em_synapses_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="create-a-model-loss-and-optimizer">
+<h3>Create a Model, Loss, and Optimizer<a class="headerlink" href="#create-a-model-loss-and-optimizer" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vgg2D</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+          <span class="bp">self</span><span class="p">,</span>
+          <span class="n">input_size</span><span class="p">,</span>
+          <span class="n">fmaps</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+          <span class="n">downsample_factors</span><span class="o">=</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span>
+          <span class="n">output_classes</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+
+    <span class="nb">super</span><span class="p">(</span><span class="n">Vgg2D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">input_size</span> <span class="o">=</span> <span class="n">input_size</span>
+
+    <span class="n">current_fmaps</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">current_size</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">input_size</span><span class="p">)</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">downsample_factors</span><span class="p">)):</span>
+
+      <span class="n">features</span> <span class="o">+=</span> <span class="p">[</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+              <span class="n">current_fmaps</span><span class="p">,</span>
+              <span class="n">fmaps</span><span class="p">,</span>
+              <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+              <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">fmaps</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+              <span class="n">fmaps</span><span class="p">,</span>
+              <span class="n">fmaps</span><span class="p">,</span>
+              <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+              <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">fmaps</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+          <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">downsample_factors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="p">]</span>
+
+      <span class="n">current_fmaps</span> <span class="o">=</span> <span class="n">fmaps</span>
+      <span class="n">fmaps</span> <span class="o">*=</span> <span class="mi">2</span>
+
+      <span class="n">size</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+          <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">current_size</span><span class="p">,</span> <span class="n">downsample_factors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+      <span class="n">check</span> <span class="o">=</span> <span class="p">(</span>
+          <span class="n">s</span><span class="o">*</span><span class="n">d</span> <span class="o">==</span> <span class="n">c</span>
+          <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">downsample_factors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">current_size</span><span class="p">))</span>
+      <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">check</span><span class="p">),</span> \
+          <span class="s2">&quot;Can not downsample </span><span class="si">%s</span><span class="s2"> by chosen downsample factor&quot;</span> <span class="o">%</span> \
+          <span class="p">(</span><span class="n">current_size</span><span class="p">,)</span>
+      <span class="n">current_size</span> <span class="o">=</span> <span class="n">size</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">features</span><span class="p">)</span>
+
+    <span class="n">classifier</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+            <span class="n">current_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span>
+            <span class="n">current_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span>
+            <span class="n">current_fmaps</span><span class="p">,</span>
+            <span class="mi">4096</span><span class="p">),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+            <span class="mi">4096</span><span class="p">,</span>
+            <span class="mi">4096</span><span class="p">),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(),</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+            <span class="mi">4096</span><span class="p">,</span>
+            <span class="n">output_classes</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">classifier</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+
+    <span class="c1"># add a channel dimension to raw</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># compute features</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># classify</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the size of our images</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="p">:</span>
+  <span class="n">input_size</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+  <span class="k">break</span>
+
+<span class="c1"># create the model to train</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Vgg2D</span><span class="p">(</span><span class="n">input_size</span><span class="p">)</span>
+
+<span class="c1"># create a loss</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+
+<span class="c1"># create an optimzer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-the-model">
+<h3>Train the Model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use a GPU, if it is available</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Will use device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2"> for training&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Will use device cuda for training
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next cell merely defines some convenience functions for training, validation, and testing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Train the model for one epoch.&#39;&#39;&#39;</span>
+
+  <span class="c1"># set the model into train mode</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+  <span class="n">epoch_loss</span><span class="p">,</span> <span class="n">num_batches</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">):</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="n">epoch_loss</span> <span class="o">+=</span> <span class="n">l</span>
+    <span class="n">num_batches</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">return</span> <span class="n">epoch_loss</span><span class="o">/</span><span class="n">num_batches</span>
+
+
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+
+  <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">correct</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+  <span class="n">accuracy</span> <span class="o">=</span> <span class="n">correct</span><span class="o">/</span><span class="n">total</span>
+
+  <span class="k">return</span> <span class="n">accuracy</span>
+
+
+<span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">validation_dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the validation dataset.&#39;&#39;&#39;</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+  <span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">validation_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="s1">&#39;validate&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the test dataset.&#39;&#39;&#39;</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+  <span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are ready to train. After each epoch (roughly going through each training image once), we report the training loss and the validation accuracy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_from_scratch</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">validation_dataset</span><span class="p">,</span>
+                       <span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span>
+                       <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">):</span>
+
+  <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">epoch_loss</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">, training loss=</span><span class="si">{</span><span class="n">epoch_loss</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">validation_dataset</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">, validation accuracy=</span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">yes_I_want_the_pretrained_model</span> <span class="pre">=</span> <span class="pre">True</span></code> will load a checkpoint that we already prepared, whereas setting it to <code class="docutils literal notranslate"><span class="pre">False</span></code> will train the model from scratch.</p>
+<p>Unceck the box below and run the cell to train a model.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown</span>
+<span class="n">yes_I_want_the_pretrained_model</span> <span class="o">=</span>  <span class="kc">True</span> <span class="c1"># @param {type:&quot;boolean&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a pretrained model or train the model from scratch</span>
+
+<span class="c1"># set this to True and run this cell if you want a shortcut</span>
+
+<span class="k">if</span> <span class="n">yes_I_want_the_pretrained_model</span><span class="p">:</span>
+  <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;checkpoints/synapses/classifier/vgg_checkpoint&#39;</span><span class="p">,</span>
+                          <span class="n">map_location</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;model_state_dict&#39;</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">train_from_scratch</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">validation_dataset</span><span class="p">,</span>
+                     <span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span>
+                     <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final test accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final test accuracy: 0.8054750869061413
+</pre></div>
+</div>
+</div>
+</div>
+<p>This concludes the first section. We now have a classifier that can discriminate between images of different types.</p>
+<p>If you used the images we provided, the classifier is not perfect (you should get an accuracy of around 80%), but pretty good considering that there are six different types of images. Furthermore, it is not so clear for humans how the classifier does it. Feel free to explore the data a bit more and see for yourself if you can tell the difference betwee, say, GABAergic and glutamatergic synapses.</p>
+<p>So this is an interesting situation: The VGG network knows something we don’t quite know. In the next section, we will see how we can visualize the relevant differences between images of different types.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="train-a-gan-to-translate-images">
+<h1>Train a GAN to Translate Images<a class="headerlink" href="#train-a-gan-to-translate-images" title="Permalink to this headline">¶</a></h1>
+<p>We will train a so-called CycleGAN to translate images from one class to another.</p>
+<div class="section" id="get-the-cyclegan-code-and-dependencies">
+<h2>Get the CycleGAN code and dependencies<a class="headerlink" href="#get-the-cyclegan-code-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>GitHub repo: https://github.com/funkey/neuromatch_xai</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Get the CycleGAN code and dependencies</span>
+
+<span class="c1"># @markdown GitHub repo: https://github.com/funkey/neuromatch_xai</span>
+
+<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">io</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://osf.io/vutn5/download&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+<span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>dominate<span class="w"> </span>--quiet
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we will translate between GABAergic and glutamatergic synapses.</p>
+<p>First, we have to copy images of either type into a format that the CycleGAN library is happy with. Afterwards, we can start training on those images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cycle_gan</span>
+
+<span class="n">cycle_gan</span><span class="o">.</span><span class="n">prepare_dataset</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;0_gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;2_glutamate&#39;</span><span class="p">])</span>
+
+<span class="c1">## Uncomment if you want to enable the training procedure</span>
+<span class="c1"># cycle_gan.train(&#39;data/raw/synapses/&#39;, &#39;0_gaba&#39;, &#39;2_glutamate&#39;, 128)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Training the CycleGAN takes a lot longer than the VGG we trained above (on the synapse dataset, this will be around 7 days…).</p>
+<p>To continue, interrupt the kernel and continue with the next one, which will just use one of the pretrained CycleGAN models for the synapse dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># translate images from class A to B, and classify each with the VGG network trained above</span>
+<span class="n">cycle_gan</span><span class="o">.</span><span class="n">test</span><span class="p">(</span>
+    <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;data/raw/synapses/&#39;</span><span class="p">,</span>
+    <span class="n">class_A</span><span class="o">=</span><span class="s1">&#39;0_gaba&#39;</span><span class="p">,</span>
+    <span class="n">class_B</span><span class="o">=</span><span class="s1">&#39;2_glutamate&#39;</span><span class="p">,</span>
+    <span class="n">img_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">checkpoints_dir</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/cycle_gan/gaba_glutamate/&#39;</span><span class="p">,</span>
+    <span class="n">vgg_checkpoint</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/classifier/vgg_checkpoint&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------- Options ---------------
+             aspect_ratio: 1.0                           
+           aux_checkpoint: checkpoints/synapses/classifier/vgg_checkpoint	[default: None]
+   aux_downsample_factors: [(2, 2), (2, 2), (2, 2), (2, 2)]
+             aux_input_nc: 1                             
+           aux_input_size: 128                           
+                  aux_net: vgg2d                         
+       aux_output_classes: 6                             
+               batch_size: 1                             
+          checkpoints_dir: checkpoints/synapses/cycle_gan/gaba_glutamate	[default: ./checkpoints]
+                crop_size: 128                           
+                 dataroot: data/raw/synapses/cycle_gan/0_gaba_2_glutamate	[default: None]
+             dataset_mode: single                        
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: latest                        
+                     eval: False                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 1                             
+                  isTrain: False                         	[default: None]
+                load_iter: 0                             	[default: 0]
+                load_size: 128                           
+         max_dataset_size: inf                           
+                    model: test                          
+             model_suffix: _A                            	[default: ]
+               n_layers_D: 3                             
+                     name:                               	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+               no_dropout: True                          	[default: False]
+                  no_flip: True                          
+                     norm: instance                      
+                    ntest: inf                           
+                 num_test: 500                           	[default: 50]
+              num_threads: 1                             	[default: 4]
+                output_nc: 1                             
+                    phase: test                          
+               preprocess: none                          
+              results_dir: data/raw/synapses/cycle_gan/0_gaba_2_glutamate/results	[default: ./results/]
+           serial_batches: False                         
+                   suffix:                               
+                  verbose: True                          	[default: False]
+----------------- End -------------------
+dataset [SingleDataset] was created
+initialize network with normal
+model [TestModel] was created
+loading the model from checkpoints/synapses/cycle_gan/gaba_glutamate/latest_net_G_A.pth
+---------- Networks initialized -------------
+DataParallel(
+  (module): ResnetGenerator(
+    (model): Sequential(
+      (0): ReflectionPad2d((3, 3, 3, 3))
+      (1): Conv2d(1, 64, kernel_size=(7, 7), stride=(1, 1))
+      (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (3): ReLU(inplace=True)
+      (4): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (5): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (6): ReLU(inplace=True)
+      (7): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (8): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (9): ReLU(inplace=True)
+      (10): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (11): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (12): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (13): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (14): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (15): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (16): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (17): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (18): ResnetBlock(
+        (conv_block): Sequential(
+          (0): ReflectionPad2d((1, 1, 1, 1))
+          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (3): ReLU(inplace=True)
+          (4): ReflectionPad2d((1, 1, 1, 1))
+          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (19): ConvTranspose2d(256, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+      (20): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (21): ReLU(inplace=True)
+      (22): ConvTranspose2d(128, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+      (23): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (24): ReLU(inplace=True)
+      (25): ReflectionPad2d((3, 3, 3, 3))
+      (26): Conv2d(64, 1, kernel_size=(7, 7), stride=(1, 1))
+      (27): Tanh()
+    )
+  )
+)
+[Network G_A] Total number of parameters : 11.366 M
+-----------------------------------------------
+creating web directory data/raw/synapses/cycle_gan/0_gaba_2_glutamate/results/test_latest
+processing (0000)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/0_train.png&#39;]
+processing (0005)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10004_train.png&#39;]
+processing (0010)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10009_train.png&#39;]
+processing (0015)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10013_train.png&#39;]
+processing (0020)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10018_train.png&#39;]
+processing (0025)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10022_train.png&#39;]
+processing (0030)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10027_train.png&#39;]
+processing (0035)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10031_train.png&#39;]
+processing (0040)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10036_train.png&#39;]
+processing (0045)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10040_train.png&#39;]
+processing (0050)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10045_train.png&#39;]
+processing (0055)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1004_train.png&#39;]
+processing (0060)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10054_train.png&#39;]
+processing (0065)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10059_train.png&#39;]
+processing (0070)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10063_train.png&#39;]
+processing (0075)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10068_train.png&#39;]
+processing (0080)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10072_train.png&#39;]
+processing (0085)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10077_train.png&#39;]
+processing (0090)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10081_train.png&#39;]
+processing (0095)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10086_train.png&#39;]
+processing (0100)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10090_train.png&#39;]
+processing (0105)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10095_train.png&#39;]
+processing (0110)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1009_train.png&#39;]
+processing (0115)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10103_train.png&#39;]
+processing (0120)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10108_train.png&#39;]
+processing (0125)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10112_train.png&#39;]
+processing (0130)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10117_train.png&#39;]
+processing (0135)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10121_train.png&#39;]
+processing (0140)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10126_train.png&#39;]
+processing (0145)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10130_train.png&#39;]
+processing (0150)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10135_train.png&#39;]
+processing (0155)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1013_train.png&#39;]
+processing (0160)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10144_train.png&#39;]
+processing (0165)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10149_train.png&#39;]
+processing (0170)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10153_train.png&#39;]
+processing (0175)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10158_train.png&#39;]
+processing (0180)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10162_train.png&#39;]
+processing (0185)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10167_train.png&#39;]
+processing (0190)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10171_train.png&#39;]
+processing (0195)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10176_train.png&#39;]
+processing (0200)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10180_train.png&#39;]
+processing (0205)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10185_train.png&#39;]
+processing (0210)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1018_train.png&#39;]
+processing (0215)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10194_train.png&#39;]
+processing (0220)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10199_train.png&#39;]
+processing (0225)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10202_train.png&#39;]
+processing (0230)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10207_train.png&#39;]
+processing (0235)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10211_train.png&#39;]
+processing (0240)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10216_train.png&#39;]
+processing (0245)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10220_train.png&#39;]
+processing (0250)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10225_train.png&#39;]
+processing (0255)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1022_train.png&#39;]
+processing (0260)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10234_train.png&#39;]
+processing (0265)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10239_train.png&#39;]
+processing (0270)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10243_train.png&#39;]
+processing (0275)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10248_train.png&#39;]
+processing (0280)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10252_train.png&#39;]
+processing (0285)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10257_train.png&#39;]
+processing (0290)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10261_train.png&#39;]
+processing (0295)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10266_train.png&#39;]
+processing (0300)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10270_train.png&#39;]
+processing (0305)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10275_train.png&#39;]
+processing (0310)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1027_train.png&#39;]
+processing (0315)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10284_train.png&#39;]
+processing (0320)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10289_train.png&#39;]
+processing (0325)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10293_train.png&#39;]
+processing (0330)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10298_train.png&#39;]
+processing (0335)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10301_train.png&#39;]
+processing (0340)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10306_train.png&#39;]
+processing (0345)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10310_train.png&#39;]
+processing (0350)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10315_train.png&#39;]
+processing (0355)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1031_train.png&#39;]
+processing (0360)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10324_train.png&#39;]
+processing (0365)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10329_train.png&#39;]
+processing (0370)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10333_train.png&#39;]
+processing (0375)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10338_train.png&#39;]
+processing (0380)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10342_train.png&#39;]
+processing (0385)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10347_train.png&#39;]
+processing (0390)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10351_train.png&#39;]
+processing (0395)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10356_train.png&#39;]
+processing (0400)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10360_train.png&#39;]
+processing (0405)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10365_train.png&#39;]
+processing (0410)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1036_train.png&#39;]
+processing (0415)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10374_train.png&#39;]
+processing (0420)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10379_train.png&#39;]
+processing (0425)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10383_train.png&#39;]
+processing (0430)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10388_train.png&#39;]
+processing (0435)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10392_train.png&#39;]
+processing (0440)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10397_train.png&#39;]
+processing (0445)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10400_train.png&#39;]
+processing (0450)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10405_train.png&#39;]
+processing (0455)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1040_train.png&#39;]
+processing (0460)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10414_train.png&#39;]
+processing (0465)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10419_train.png&#39;]
+processing (0470)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10423_train.png&#39;]
+processing (0475)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10428_train.png&#39;]
+processing (0480)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10432_train.png&#39;]
+processing (0485)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10437_train.png&#39;]
+processing (0490)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10441_train.png&#39;]
+processing (0495)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10446_train.png&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read all translated images and sort them by how much the translation “fools” the VGG classifier trained above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_A_index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">class_B_index</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">result_dir</span> <span class="o">=</span> <span class="s1">&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/results/test_latest/images/&#39;</span>
+<span class="n">classification_results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">result_dir</span> <span class="o">+</span> <span class="s1">&#39;/*.json&#39;</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+  <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basename&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_aux.json&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+  <span class="n">classification_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">classification_results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;aux_real&#39;</span><span class="p">][</span><span class="n">class_A_index</span><span class="p">]</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;aux_fake&#39;</span><span class="p">][</span><span class="n">class_B_index</span><span class="p">],</span>
+    <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the top real and fake images that make the classifier change its mind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_pair</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">score_a</span><span class="p">,</span> <span class="n">score_b</span><span class="p">,</span> <span class="n">class_a</span><span class="p">,</span> <span class="n">class_b</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p(</span><span class="si">{</span><span class="n">class_a</span><span class="si">}</span><span class="s2">) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_a</span><span class="p">))</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p(</span><span class="si">{</span><span class="n">class_b</span><span class="si">}</span><span class="s2">) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_b</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># show the top successful translations (according to our VGG classifier)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">basename</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;basename&#39;</span><span class="p">]</span>
+  <span class="n">score_A</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_real&#39;</span><span class="p">][</span><span class="n">class_A_index</span><span class="p">]</span>
+  <span class="n">score_B</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_fake&#39;</span><span class="p">][</span><span class="n">class_B_index</span><span class="p">]</span>
+  <span class="n">real_A</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_real.png&#39;</span><span class="p">)</span>
+  <span class="n">fake_B</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_fake.png&#39;</span><span class="p">)</span>
+  <span class="n">show_pair</span><span class="p">(</span><span class="n">real_A</span><span class="p">,</span> <span class="n">fake_B</span><span class="p">,</span> <span class="n">score_A</span><span class="p">,</span> <span class="n">score_B</span><span class="p">,</span> <span class="s1">&#39;gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;glutamate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/em_synapses_43_0.png" src="../../_images/em_synapses_43_0.png" />
+<img alt="../../_images/em_synapses_43_1.png" src="../../_images/em_synapses_43_1.png" />
+<img alt="../../_images/em_synapses_43_2.png" src="../../_images/em_synapses_43_2.png" />
+<img alt="../../_images/em_synapses_43_3.png" src="../../_images/em_synapses_43_3.png" />
+<img alt="../../_images/em_synapses_43_4.png" src="../../_images/em_synapses_43_4.png" />
+<img alt="../../_images/em_synapses_43_5.png" src="../../_images/em_synapses_43_5.png" />
+<img alt="../../_images/em_synapses_43_6.png" src="../../_images/em_synapses_43_6.png" />
+<img alt="../../_images/em_synapses_43_7.png" src="../../_images/em_synapses_43_7.png" />
+<img alt="../../_images/em_synapses_43_8.png" src="../../_images/em_synapses_43_8.png" />
+<img alt="../../_images/em_synapses_43_9.png" src="../../_images/em_synapses_43_9.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/ComputerVision"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ideas_and_datasets.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ideas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="spectrogram_analysis.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Music classification and generation with spectrograms</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

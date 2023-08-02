@@ -1,0 +1,2265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Deep Learning Project &#8212; Neuromatch Academy: Deep Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project Templates" href="../docs/projects_overview.html" />
+    <link rel="prev" title="Example Model Project: the Train Illusion" href="TrainIllusionModelingProjectDL.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
+   Schedule
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
+     General schedule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+   Quick links and policies
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prereqs/DeepLearning.html">
+   Prerequisites and preparatory materials for NMA Deep Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics Module
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
+     Bonus Lecture: Yoshua Bengio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fine Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+   Optimization (W1D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+   Regularization (W2D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+   Deep Learning: The Basics and Fine Tuning Wrap-up
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ConvNets and Generative Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+   Convnets And Dl Thinking (W2D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 1: Cost Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
+     Bonus Lecture: Kyunghyun Cho
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
+     Bonus Tutorial: Facial recognition using modern convnets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+   Generative Models (W2D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
+     Tutorial 2: Diffusion models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
+     Tutorial 3: Image, Conditional Diffusion and Beyond
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
+     Bonus Lecture: Geoffrey Hinton
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Natural Language Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
+     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+   Time Series And Natural Language Processing (W3D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
+     Tutorial 1: Introduction to processing time series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
+     Tutorial 2: Natural Language Processing and LLMs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
+     Bonus Tutorial: Multilingual Embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+   Dl Thinking2 (W3D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
+     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+   Deep Learning: Convnets and NLP
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Unsupervised and Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
+     Bonus Lecture: Melanie Mitchell
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Basic Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
+     Bonus Lecture: Chealsea Finn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
+     Tutorial 1: Reinforcement Learning For Games
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
+     Bonus Tutorial: Planning with Monte Carlo Tree Search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
+     Bonus Lecture: Amita Kapoor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deploy Models on the Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+   Deploy Models (Bonus)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
+     Bonus Tutorial: Deploying Neural Networks on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModelingSteps_1through2_DL.html">
+     Modeling Steps 1 - 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModelingSteps_3through4_DL.html">
+     Modeling Steps 3 - 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModelingSteps_5through6_DL.html">
+     Modeling Steps 5 - 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModelingSteps_7through9_DL.html">
+     Modeling Steps 7 - 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModelingSteps_10_DL.html">
+     Modeling Steps 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TrainIllusionDataProjectDL.html">
+     Example Data Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TrainIllusionModelingProjectDL.html">
+     Example Model Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Example Deep Learning Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/projects_overview.html">
+   Project Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ComputerVision/README.html">
+     Computer Vision
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/em_synapses.html">
+       Knowledge Extraction from a Convolutional Neural Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/spectrogram_analysis.html">
+       Music classification and generation with spectrograms
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/screws.html">
+       Something Screwy - image recognition, detection, and classification of screws
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/data_augmentation.html">
+       Data Augmentation in image classification models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/transfer_learning.html">
+       Transfer Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ReinforcementLearning/README.html">
+     Reinforcement Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/robolympics.html">
+       NMA Robolympics: Controlling robots using reinforcement learning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">
+       Performance Analysis of DQN Algorithm on the Lunar Lander task
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/human_rl.html">
+       Using RL to Model Cognitive Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../NaturalLanguageProcessing/README.html">
+     Natural Language Processing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">
+       Twitter Sentiment Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">
+       Machine Translation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Neuroscience/README.html">
+     Neuroscience
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
+       Animal Pose Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
+       Segmentation and Denoising
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
+       Load algonauts videos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
+       Vision with Lost Glasses: Modelling how the brain deals with noisy input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
+       Moving beyond Labels: Finetuning CNNs on BOLD response
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
+       Focus on what matters: inferring low-dimensional dynamics from neural recordings
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/datasets_and_models.html">
+   Models and Data sets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/modelingsteps/Example_Deep_Learning_Project.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/modelingsteps/Example_Deep_Learning_Project.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Example Deep Learning Project
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-retrieval">
+     Data retrieval
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-question">
+   Step 1: Question
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-literature-review">
+   Step 2: literature review
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-ingredients">
+   Step 3: ingredients
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingredients">
+     Data ingredients
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-ingredients">
+     Model ingredients
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-hypotheses">
+   Step 4: hypotheses
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-toolkit-selection">
+   Step 5: toolkit selection
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-6-model-drafting">
+   Step 6: model drafting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-7-model-implementation">
+   Step 7: model implementation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model">
+     Build model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-8-modeling-completion">
+   Step 8: Modeling completion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-9-model-evaluation">
+   Step 9: Model evaluation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-10-publication">
+   Step 10: publication
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example Deep Learning Project</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Example Deep Learning Project
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-retrieval">
+     Data retrieval
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-question">
+   Step 1: Question
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-literature-review">
+   Step 2: literature review
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-ingredients">
+   Step 3: ingredients
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingredients">
+     Data ingredients
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-ingredients">
+     Model ingredients
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-hypotheses">
+   Step 4: hypotheses
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-toolkit-selection">
+   Step 5: toolkit selection
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-6-model-drafting">
+   Step 6: model drafting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-7-model-implementation">
+   Step 7: model implementation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model">
+     Build model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-8-modeling-completion">
+   Step 8: Modeling completion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-9-model-evaluation">
+   Step 9: Model evaluation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-10-publication">
+   Step 10: publication
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/modelingsteps/Example_Deep_Learning_Project.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/modelingsteps/Example_Deep_Learning_Project.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<div class="section" id="example-deep-learning-project">
+<h1>Example Deep Learning Project<a class="headerlink" href="#example-deep-learning-project" title="Permalink to this headline">¶</a></h1>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Marius ‘t Hart, Megan Peters, Vladimir Haltakov, Paul Schrater, Gunnar Blohm</p>
+<p><strong>Production editor:</strong> Spiros Chavlis</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="objectives">
+<h1>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h1>
+<p>We’re interested in automatically classifying movement. There is a great dataset (MoVi) with different modalities of movement recordings (videos, visual markers, accelerometers, skeletal motion reconstructions, etc). We will use a sub-set of this data, i.e. estimated skeletal motion, to perform a pilot study investigating whether we can classify different movements from the skeletal motion. And if so, which skeletal motions (if not all) are neccessary for good decoding performance?</p>
+<p>Please check out the different resources below to better understand the MoVi dataset and learn more about the movements.</p>
+<p><strong>Resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253157">see MoVi paper here</a></p></li>
+<li><p><a class="reference external" href="https://github.com/saeed1262/MoVi-Toolbox">GitHub page of MoVi</a></p></li>
+<li><p><a class="reference external" href="https://www.biomotionlab.ca/movi/">MoVi website and description</a></p></li>
+<li><p><a class="reference external" href="https://dataverse.scholarsportal.info/dataset.xhtml?persistentId=doi:10.5683/SP2/JRHDRN">full MoVi dataset (not needed for this demo)</a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>For your own project, you can put together a colab notebook by copy-pasting bits of code from the tutorials. We still recommend keeping the 4 setup cells at the top, like here; Imports, Figure Settings, Plotting functions, and Data retrieval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="c1"># get some matrices and plotting:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># get some pytorch:</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">MaxPool1d</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="c1"># confusion matrix from sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># to get some idea of how long stuff will take to complete:</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># to see how unbalanced the data is:</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span> <span class="c1">#interactive display</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-functions">
+<h2>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plotting functions</span>
+
+<span class="k">def</span> <span class="nf">plotConfusionMatrix</span><span class="p">(</span><span class="n">real_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">,</span> <span class="n">label_names</span><span class="p">):</span>
+
+  <span class="c1"># conver the labels to integers:</span>
+  <span class="n">real_labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">real_labels</span><span class="p">]</span>
+  <span class="n">predicted_labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">predicted_labels</span><span class="p">]</span>
+  <span class="n">tick_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">label_names</span><span class="p">]</span>
+
+  <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">real_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+
+  <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tick_names</span><span class="p">)),</span><span class="n">tick_names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tick_names</span><span class="p">)),</span><span class="n">tick_names</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;predicted move&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;real move&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-retrieval">
+<h2>Data retrieval<a class="headerlink" href="#data-retrieval" title="Permalink to this headline">¶</a></h2>
+<p>Run this cell to download the data for this example project.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Data retrieval</span>
+<span class="c1"># @markdown Run this cell to download the data for this example project.</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://osf.io/mnqb7/download&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failed to download data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">train_moves</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;train_moves&#39;</span><span class="p">]</span>
+  <span class="n">train_labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;train_labels&#39;</span><span class="p">]</span>
+  <span class="n">test_moves</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;test_moves&#39;</span><span class="p">]</span>
+  <span class="n">test_labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;test_labels&#39;</span><span class="p">]</span>
+  <span class="n">label_names</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;label_names&#39;</span><span class="p">]</span>
+  <span class="n">joint_names</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;joint_names&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-1-question">
+<h1>Step 1: Question<a class="headerlink" href="#step-1-question" title="Permalink to this headline">¶</a></h1>
+<p>There are many different questions we could ask with the MoVi dataset. We will start with a simple question: <strong>“Can we classify movements from skeletal motion data, and if so, which body parts are the most informative ones?”</strong></p>
+<p>Our goal is to perform a <em>pilot</em> study to see if this is possible in principle. We will therefore use “ground truth” skeletal motion data that has been computed using an inference algorithm (see <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253157">MoVi paper</a>). If this works out, then as a next step we might want to use the raw sensor data or even videos…</p>
+<p>The ultimate goal could for example be to figure out which body parts to record movements from (e.g. is just a wristband enough?) to classify movement.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-2-literature-review">
+<h1>Step 2: literature review<a class="headerlink" href="#step-2-literature-review" title="Permalink to this headline">¶</a></h1>
+<p>Most importantly, our literature review needs to address the following:</p>
+<ul class="simple">
+<li><p>what modeling approaches make it possible to classify time series data?</p></li>
+<li><p>how is human motion captured?</p></li>
+<li><p>what exactly is in the MoVi dataset?</p></li>
+<li><p>what is known regarding classification of human movement based on different measurements?</p></li>
+</ul>
+<p>What we learn from the literature review is too long to write out here… But we would like to point out that human motion classification has been done; we’re not proposing a very novel project here. But that’s ok for an NMA project!</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-3-ingredients">
+<h1>Step 3: ingredients<a class="headerlink" href="#step-3-ingredients" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-ingredients">
+<h2>Data ingredients<a class="headerlink" href="#data-ingredients" title="Permalink to this headline">¶</a></h2>
+<p>After downloading the data, we should have 6 numpy arrays:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train_moves</span></code>: the training set of 1032 movements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_labels</span></code>: the class labels for each of the 1032 training movements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_moves</span></code>: the test set of 172 movements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_labels</span></code>: the class labels for each of the 172 test movements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_names</span></code>: text labels for the values in the two arrays of class labels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">joint_names</span></code>: the names of the 24 joints used in each movement</p></li>
+</ul>
+<p>We’ll take a closer look at the data below. <em>Note</em>: data is split into training and test sets. If you don’t know what that means, NMA-DL will teach you!</p>
+<p><strong>Inputs</strong>:</p>
+<p>For simplicity, we take the first 24 joints of the whole MoVi dataset including all major limbs. The data was in an exponential map format, which has 3 rotations/angles for each joint (pitch, yaw, roll). The advantage of this type of data is that it is (mostly) agnostic about body size or shape. And since we care about movements only, we choose this representation of the data (there are other representations in the full data set).</p>
+<p>Since the joints are simply points, the 3rd angle (i.e. roll) contained no information, and that is already dropped from the data that we pre-formatted for this demo project. That is, the movements of each joint are described by 2 angles, that change over time. Furthermore, we normalized all the angles/rotations to fall between 0 and 1 so they are good input for PyTorch.</p>
+<p>Finally, the movements originally took various amounts of time, but we need the same input for each movement, so we sub-sampled and (linearly) interpolated the data to have 75 timepoints.</p>
+<p>Our training data is supposed to have 1032 movements, 2 x 24 joints = 48 channels and 75 timepoints. Let’s check and make sure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_moves</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1032, 48, 75)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cool!</p>
+<p><strong>Joints</strong>:</p>
+<p>For each movement we have 2 angles from 24 joints. Which joints are these?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">joint_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">joint_no</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">joint_names</span><span class="p">[</span><span class="n">joint_no</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0: Pelvis
+1: LeftHip
+2: RightHip
+3: Spine1
+4: LeftKnee
+5: RightKnee
+6: Spine2
+7: LeftAnkle
+8: RightAnkle
+9: Spine3
+10: LeftFoot
+11: RightFoot
+12: Neck
+13: LeftCollar
+14: RightCollar
+15: Head
+16: LeftShoulder
+17: RightShoulder
+18: LeftElbow
+19: RightElbow
+20: LeftWrist
+21: RightWrist
+22: LeftHand
+23: RightHand
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Labels</strong>:</p>
+<p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">train_labels</span></code> array too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  1  4 ...  6  2 11]
+(1032,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The labels are numbers, and there are 1032 of them, so that matches the number of movements in the data set. There are text versions too in the array called <code class="docutils literal notranslate"><span class="pre">label_names</span></code>. Let’s have a look. There are supposed to be 14 movement classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s check the values of the train_labels array:</span>
+<span class="n">label_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">label_numbers</span><span class="p">)</span>
+
+<span class="c1"># and use them as indices into the label_names array:</span>
+<span class="k">for</span> <span class="n">label_no</span> <span class="ow">in</span> <span class="n">label_numbers</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label_no</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">label_names</span><span class="p">[</span><span class="n">label_no</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13]
+0: crawling
+1: throw/catch
+2: walking
+3: running_in_spot
+4: cross_legged_sitting
+5: hand_clapping
+6: scratching_head
+7: kicking
+8: phone_talking
+9: sitting_down
+10: checking_watch
+11: pointing
+12: hand_waving
+13: taking_photo
+</pre></div>
+</div>
+</div>
+</div>
+<p>The test data set has similar data, but fewer movements. That’s ok. What’s important is that both the training and test datasets have an even spread of movement types, i.e. we want them to be balanced. Let’s see how balanced the data is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({0: 74,
+         1: 74,
+         6: 74,
+         7: 74,
+         8: 74,
+         9: 74,
+         10: 74,
+         11: 74,
+         12: 74,
+         13: 74,
+         4: 73,
+         5: 73,
+         3: 73,
+         2: 73})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({2: 13,
+         3: 13,
+         5: 13,
+         4: 13,
+         6: 12,
+         7: 12,
+         8: 12,
+         9: 12,
+         11: 12,
+         10: 12,
+         12: 12,
+         13: 12,
+         1: 12,
+         0: 12})
+</pre></div>
+</div>
+</div>
+</div>
+<p>So that looks more or less OK. Movements 2, 3, 4 and 5 occur once more in the training data than the other movements, and one time fewer in the test data. Not perfect, but probably doesn’t matter that much.</p>
+</div>
+<div class="section" id="model-ingredients">
+<h2>Model ingredients<a class="headerlink" href="#model-ingredients" title="Permalink to this headline">¶</a></h2>
+<p><strong>“Mechanisms”</strong>:</p>
+<ul class="simple">
+<li><p>Feature engineering? –&gt; Do we need anything else aside from angular time courses? For now we choose to only use the angular time courses (exponential maps), as our ultimate goal is to see how many joints we need for accurate movement classification so that we can decrease the number of measurements or devices for later work.</p></li>
+<li><p>Feature selection? –&gt; Which joint movements are most informative? These are related to our research questions and hypotheses, so this project will explicitly investigate which joints are most informative.</p></li>
+<li><p>Feature grouping? –&gt; Instead of trying all possible combinations of joints (very many) we could focus on limbs, by grouping joints. We could also try the model on individual joints.</p></li>
+<li><p>Classifier? –&gt; For our classifier we would like to keep it as simple as possible, but we will decide later.</p></li>
+<li><p>Input? –&gt; The training data (movements and labels) will be used to train the classifier.</p></li>
+<li><p>Output? –&gt; The test data will be used as input for the trained model and we will see if the predicted labels are the same as the actual labels.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-4-hypotheses">
+<h1>Step 4: hypotheses<a class="headerlink" href="#step-4-hypotheses" title="Permalink to this headline">¶</a></h1>
+<p>Since humans can easily distinguish different movement types from video data and also more abstract “stick figures”, a DL model should also be able to do so. Therefore, our hypotheses are more detailed with respect to parameters influencing model performance (and not just whether it will work or not).</p>
+<p>Remember, we’re interested in seeing how many joints are needed for classification. So we could hypothezise (Hypothesis 1) that arm and leg motions are sufficient for classification (meaning: head and torso data is not needed).</p>
+<ul class="simple">
+<li><p>Hypothesis 1: The performance of a model with four limbs plus torso and head is not higher than the performance of a model with only limbs.</p></li>
+</ul>
+<p>We could also hypothesize that data from only one side of the body is sufficient (Hypothesis 2), e.g. the right side, since our participants are right handed.</p>
+<ul class="simple">
+<li><p>Hypothesis 2: A model using only joints in the right arm will outperform a model using only the joints in the left arm.</p></li>
+</ul>
+<p>Writing those in mathematical terms:</p>
+<ul class="simple">
+<li><p>Hypothesis 1: <span class="math notranslate nohighlight">\(\mathbb{E}(perf_{limbs})&gt;\mathbb{E}(perf_{torso})\)</span></p></li>
+<li><p>Hypothesis 2: <span class="math notranslate nohighlight">\(\mathbb{E}(perf_{right arm})&gt;\mathbb{E}(perf_{left arm})\)</span></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-5-toolkit-selection">
+<h1>Step 5: toolkit selection<a class="headerlink" href="#step-5-toolkit-selection" title="Permalink to this headline">¶</a></h1>
+<p>We need a toolkit that can deal with time-varying data as input (e.g. 1d convnet, LSTM, transformer…). We want to keep it as simple as possible to start with. So let’s run with a 1d convnet. It allows us to answer our question, it will be able to speak to our hypotheses, and hopefully we can achieve our goal to see if automatic movement classification based on (sparse) body movement data is possible.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-6-model-drafting">
+<h1>Step 6: model drafting<a class="headerlink" href="#step-6-model-drafting" title="Permalink to this headline">¶</a></h1>
+<p>Here is our sketch of the model we wanted to build…</p>
+<p align='center'><img src='https://github.com/NeuromatchAcademy/course-content-dl/blob/main/projects/static/DL_model_schematic.jpg?raw=True'/></p></div>
+<hr class="docutils" />
+<div class="section" id="step-7-model-implementation">
+<h1>Step 7: model implementation<a class="headerlink" href="#step-7-model-implementation" title="Permalink to this headline">¶</a></h1>
+<p>It’s finally time to write some deep learning code… so here we go!</p>
+<p>The cell below creates an object class, and is based on https://pytorch.org/tutorials/beginner/basics/data_tutorial.html on the PyTorch website, adapted to work with our data.</p>
+<p>It is based on the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> object class in PyTorch and this is needed to set up a <code class="docutils literal notranslate"><span class="pre">Dataloader</span></code> object that will be used in the model.</p>
+<p>We can tell our dataset object to use the training or test data. We can also tell it which joints to return, so that we can build models that classify movements based on different sets of joints:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MoViJointDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;MoVi dataset.&quot;&quot;&quot;</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">joints</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">))):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">      train (boolean): Use the training data, or otherwise the test data.</span>
+<span class="sd">      joints (list): Indices of joints to return.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># select the training or test data:</span>
+    <span class="k">if</span> <span class="n">train</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">moves</span> <span class="o">=</span> <span class="n">train_moves</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">train_labels</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">moves</span> <span class="o">=</span> <span class="n">test_moves</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">test_labels</span>
+
+    <span class="c1"># convert joint indices to channel indices:</span>
+    <span class="n">joints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">joints</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="nb">list</span><span class="p">((</span><span class="n">joints</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 2 channels per joint</span>
+
+  <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">size</span>
+
+  <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">idx</span><span class="p">):</span>
+      <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">moves</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,:])),</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">sample</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to make sure that this object works the way we intended, so we try it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create training and test datasets</span>
+<span class="n">movi_train</span> <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">movi_test</span> <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">joints</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TRAINING:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">movi_train</span><span class="p">)):</span>
+  <span class="k">pass</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">movi_train</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">label_names</span><span class="p">[</span><span class="n">movi_train</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">TESTING:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">movi_test</span><span class="p">)):</span>
+  <span class="k">pass</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">movi_test</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">label_names</span><span class="p">[</span><span class="n">movi_test</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TRAINING:
+1031
+(48, 75) pointing
+
+TESTING:
+171
+(6, 75) cross_legged_sitting
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we see the movement number (minus 1), the shape of the dataset (e.g. 48 channels and 75 time points for the training set), and the name of the movement.</p>
+<div class="section" id="build-model">
+<h2>Build model<a class="headerlink" href="#build-model" title="Permalink to this headline">¶</a></h2>
+<p>pytorch expects as input not a single sample, but rather a minibatch of B samples stacked together along the “minibatch dimension”.
+So a “1D” CNN in pytorch expects a 3D tensor as input: BxCxT</p>
+<ul class="simple">
+<li><p><strong>B:</strong> batch size (however many examples are used in batch training)</p></li>
+<li><p><strong>C:</strong> channels (up to 24 joints x 2 coordinates)</p></li>
+<li><p><strong>T:</strong> timepoints (75 in our case)</p></li>
+</ul>
+<p>We need <code class="docutils literal notranslate"><span class="pre">Dataloader</span></code> objects that use our <code class="docutils literal notranslate"><span class="pre">MoViJointDataset</span></code> objects to do this. For this we can simply use PyTorch <code class="docutils literal notranslate"><span class="pre">Dataloader</span></code> objects, but it also needs one of our hyperparameters (batch size) to be set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hyperparameters</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># is this ever used?</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">516</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="c1"># Create training and test datasets</span>
+<span class="n">movi_train</span> <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">movi_test</span>  <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Data loader</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">movi_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_loader</span>  <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">movi_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we decided to use a simple 1D convnet. We want to specify the number of joints used and then use 2 input channels for every joint (2 dimensions of rotation). At the end of the convnet there are 14 probabilities, 1 for each class of movement, but we convert it to give the index of the highest probability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mov1DCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">njoints</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
+
+    <span class="nb">super</span><span class="p">(</span><span class="n">Mov1DCNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="n">njoints</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+      <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">dropout1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">126</span><span class="p">,</span> <span class="mi">2200</span><span class="p">)</span>  <span class="c1"># fix dimensions</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nl</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dropout2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2200</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout1</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="c1"># pick the most likely class:</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now instantiate the model object, with <em>all</em> joints, and set a criterion and optimizer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ADDING GPU ###</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+
+<span class="c1"># create the model object:</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Mov1DCNN</span><span class="p">(</span><span class="n">njoints</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># loss and optimizer:</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we are ready to train this model.</p>
+<p><strong>This takes up to ~20 seconds!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the model</span>
+<span class="n">total_step</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+<span class="n">loss_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">acc_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">motions</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+    <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">motions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># Run the forward pass</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">motions</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="c1"># Backprop and perform Adam optimisation</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="c1"># Track the accuracy</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">acc_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">correct</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch [</span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">num_epochs</span><span class="si">}</span><span class="s2">], Step [</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total_step</span><span class="si">}</span><span class="s2">], &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;Loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="p">((</span><span class="n">correct</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">------------------------------------------&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch [100/500], Step [1/2], Loss: 1.2196, Accuracy: 51.94%
+------------------------------------------
+Epoch [100/500], Step [2/2], Loss: 1.1094, Accuracy: 65.50%
+------------------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch [200/500], Step [1/2], Loss: 0.8992, Accuracy: 67.83%
+------------------------------------------
+Epoch [200/500], Step [2/2], Loss: 0.7800, Accuracy: 72.09%
+------------------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch [300/500], Step [1/2], Loss: 0.7246, Accuracy: 72.67%
+------------------------------------------
+Epoch [300/500], Step [2/2], Loss: 0.6393, Accuracy: 77.33%
+------------------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch [400/500], Step [1/2], Loss: 0.6083, Accuracy: 78.49%
+------------------------------------------
+Epoch [400/500], Step [2/2], Loss: 0.5850, Accuracy: 79.65%
+------------------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch [500/500], Step [1/2], Loss: 0.4980, Accuracy: 81.59%
+------------------------------------------
+Epoch [500/500], Step [2/2], Loss: 0.5318, Accuracy: 80.62%
+------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<p>The training accuracy usually starts out below <span class="math notranslate nohighlight">\(10\%\)</span>, which makes sense as chance <span class="math notranslate nohighlight">\(100/14 \approx 7\%\)</span>. It usually quickly goes up to around <span class="math notranslate nohighlight">\(80\%\)</span>. The model can get better if you run more epochs, but this is sufficient for now.</p>
+<p>Now we want to see performance on the test data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">real_labels</span><span class="p">,</span> <span class="n">predicted_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+  <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+    <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">motions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">real_labels</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">motions</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">predicted_labels</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">predicted</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test Accuracy of the model on the 172 test moves: </span><span class="si">{</span><span class="p">(</span><span class="n">correct</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test Accuracy of the model on the 172 test moves: 78.488%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Considering that we have a relatively small data set, and a fairly simple model that didn’t really converge, this is decent performance (chance is ~7%). Let’s look at where the errors are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.style.use(&#39;dark_background&#39;)  # uncomment if you&#39;re using dark mode...</span>
+<span class="n">plotConfusionMatrix</span><span class="p">(</span><span class="n">real_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">,</span> <span class="n">label_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Example_Deep_Learning_Project_48_0.png" src="../../_images/Example_Deep_Learning_Project_48_0.png" />
+</div>
+</div>
+<p>The errors vary each time the model is run, but a common error seems to be that head scratching is predicted from some other movements that also involve arms a lot: throw/catch, hand clapping, phone talking, checking watch, hand waving, taking photo. If we train the model longer, these errors tend to go away as well. For some reason, crossed legged sitting is sometimes misclassified for crawling, but this doesn’t always happen.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-8-modeling-completion">
+<h1>Step 8: Modeling completion<a class="headerlink" href="#step-8-modeling-completion" title="Permalink to this headline">¶</a></h1>
+<p>Are we done yet? In order to answer our questions, reach our goals and evaluate our hypotheses we need to be able to get test performance from the model, and might want to investigate any errors that the model makes. We will first make a function that fits the model on a specified set of joints</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testJointModel</span><span class="p">(</span><span class="n">joints</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">)),</span>
+                   <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+                   <span class="n">batch_size</span><span class="o">=</span><span class="mi">516</span><span class="p">,</span>
+                   <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">):</span>
+
+  <span class="c1"># Hyperparameters</span>
+  <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">14</span>
+
+  <span class="c1"># Create training and test datasets</span>
+  <span class="n">movi_train</span> <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">joints</span> <span class="o">=</span> <span class="n">joints</span><span class="p">)</span>
+  <span class="n">movi_test</span>  <span class="o">=</span> <span class="n">MoViJointDataset</span><span class="p">(</span><span class="n">train</span>  <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">joints</span> <span class="o">=</span> <span class="n">joints</span><span class="p">)</span>
+
+  <span class="c1"># Data loaders</span>
+  <span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">movi_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">test_loader</span>  <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">movi_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>  <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+  <span class="c1"># create the model object:</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">Mov1DCNN</span><span class="p">(</span><span class="n">njoints</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">joints</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+  <span class="c1"># loss and optimizer:</span>
+  <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+  <span class="c1"># Train the model</span>
+  <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">motions</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+      <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">motions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+      <span class="c1"># Run the forward pass</span>
+      <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">motions</span><span class="p">)</span>
+      <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+      <span class="n">loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+      <span class="c1"># Backprop and perform Adam optimisation</span>
+      <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+      <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+      <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+      <span class="c1"># Track the accuracy</span>
+      <span class="n">total</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="c1"># Test the model</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+  <span class="n">real_labels</span><span class="p">,</span> <span class="n">predicted_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+      <span class="n">motions</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">motions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+      <span class="n">real_labels</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+      <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">motions</span><span class="p">)</span>
+      <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">predicted_labels</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">predicted</span><span class="p">)</span>
+      <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+  <span class="n">performance</span> <span class="o">=</span> <span class="p">(</span><span class="n">correct</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+  <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;performance&#39;</span><span class="p">:</span> <span class="n">performance</span><span class="p">,</span>
+          <span class="s1">&#39;real_labels&#39;</span><span class="p">:</span> <span class="n">real_labels</span><span class="p">,</span>
+          <span class="s1">&#39;predicted_labels&#39;</span><span class="p">:</span> <span class="n">predicted_labels</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test this on a few select joints:</p>
+<p><strong>This takes up to ~10 seconds:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cnn6j</span> <span class="o">=</span> <span class="n">testJointModel</span><span class="p">(</span><span class="n">joints</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cnn6j</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">])</span>
+<span class="n">plotConfusionMatrix</span><span class="p">(</span><span class="n">real_labels</span> <span class="o">=</span> <span class="n">cnn6j</span><span class="p">[</span><span class="s1">&#39;real_labels&#39;</span><span class="p">],</span> <span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">cnn6j</span><span class="p">[</span><span class="s1">&#39;predicted_labels&#39;</span><span class="p">],</span> <span class="n">label_names</span><span class="o">=</span><span class="n">label_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68.02325581395348
+</pre></div>
+</div>
+<img alt="../../_images/Example_Deep_Learning_Project_53_1.png" src="../../_images/Example_Deep_Learning_Project_53_1.png" />
+</div>
+</div>
+<p>That is some pretty good performance based on only 6 / 24 joints!</p>
+<ul class="simple">
+<li><p>Can we answer our question? –&gt; YES, we can classify movement, and we can do so based on a sub-set of joints.</p></li>
+<li><p>Have we reached our goals? –&gt; YES, this pilot study shows that we can decode movement type based on skeletal joint motion data.</p></li>
+<li><p>Can we evaluate our hypotheses? –&gt; YES, we can now test the specific model performances and compare them.</p></li>
+</ul>
+<p>Good news, looks like we’re done with a first iteration of modeling!</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-9-model-evaluation">
+<h1>Step 9: Model evaluation<a class="headerlink" href="#step-9-model-evaluation" title="Permalink to this headline">¶</a></h1>
+<p>We can now see how well our model actual does, by running it to test our hypotheses. To test our hypotheses, we will group the joints into limbs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limb_joints</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Left Leg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+               <span class="s1">&#39;Right Leg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+               <span class="s1">&#39;Left Arm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+               <span class="s1">&#39;Right Arm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+               <span class="s1">&#39;Torso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+               <span class="s1">&#39;Head&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our second hypothesis was that since our participants are right handed, the right arm will give as better classification performance than the left arm. We will fit the model on each individual limb, and then we can compare performance on the left and right arm.</p>
+<p><strong>This should take up to ~1 minute!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limb_fits</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">limb</span> <span class="ow">in</span> <span class="n">limb_joints</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">*** FITTING: </span><span class="si">{</span><span class="n">limb</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+  <span class="n">joints</span> <span class="o">=</span> <span class="n">limb_joints</span><span class="p">[</span><span class="n">limb</span><span class="p">]</span>
+  <span class="n">limb_fit</span> <span class="o">=</span> <span class="n">testJointModel</span><span class="p">(</span><span class="n">joints</span><span class="o">=</span><span class="n">joints</span><span class="p">)</span>
+  <span class="n">limb_fits</span><span class="p">[</span><span class="n">limb</span><span class="p">]</span> <span class="o">=</span> <span class="n">limb_fit</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;limb performance: </span><span class="si">{</span><span class="n">limb_fit</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** FITTING: Left Leg
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 79.07%
+
+*** FITTING: Right Leg
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 69.19%
+
+*** FITTING: Left Arm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 62.21%
+
+*** FITTING: Right Arm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 46.51%
+
+*** FITTING: Torso
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 80.23%
+
+*** FITTING: Head
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>limb performance: 55.23%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every time we run this, we get something along these lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">LeftLeg</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">65.70</span><span class="o">%</span>
+<span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">RightLeg</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">50.58</span><span class="o">%</span>
+<span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">LeftArm</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">37.21</span><span class="o">%</span>
+<span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">RightArm</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">22.09</span><span class="o">%</span>
+<span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">Torso</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">73.84</span><span class="o">%</span>
+<span class="o">***</span> <span class="n">FITTING</span><span class="p">:</span> <span class="n">Head</span>
+<span class="n">limb</span> <span class="n">performance</span><span class="p">:</span> <span class="mf">39.53</span><span class="o">%</span>
+</pre></div>
+</div>
+<p>For a formal test, you’d fit each model a number of times and let it converge by using many more epochs. We don’t really have time for that here, but the pattern is fairly clear already. The head and arms are the worst, the legs are better, and the torso usually wins!</p>
+<p>The left arm seems to outperform the right arm in classifying movements. That was not what we expected. Maybe we should repeat this with left-handed participants to see if their right arm works better?</p>
+<p>We still want to test our first hypothesis, which we’re not so certain about any more, given the performance above: the torso outperforms the other limbs. But that doesn’t mean that a model with arms and legs only is necessarily worse than a model with arms, legs and head and torso as well.</p>
+<p>We will test each of these models six times, and take the median performance.</p>
+<p><strong>This takes up to ~4 minutes!</strong> (About 2 minutes per kind of model.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limb_sets</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;limbs only&#39;</span><span class="p">:[</span><span class="s1">&#39;Left Leg&#39;</span><span class="p">,</span> <span class="s1">&#39;Right Leg&#39;</span><span class="p">,</span> <span class="s1">&#39;Left Arm&#39;</span><span class="p">,</span> <span class="s1">&#39;Right Arm&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;limbs+torso+head&#39;</span><span class="p">:[</span><span class="s1">&#39;Left Leg&#39;</span><span class="p">,</span> <span class="s1">&#39;Right Leg&#39;</span><span class="p">,</span> <span class="s1">&#39;Left Arm&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;Right Arm&#39;</span><span class="p">,</span> <span class="s1">&#39;Torso&#39;</span><span class="p">,</span> <span class="s1">&#39;Head&#39;</span><span class="p">]}</span>
+
+<span class="k">for</span> <span class="n">limb_set</span> <span class="ow">in</span> <span class="n">limb_sets</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">*** FITTING: </span><span class="si">{</span><span class="n">limb_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+  <span class="n">limbs</span> <span class="o">=</span> <span class="n">limb_sets</span><span class="p">[</span><span class="n">limb_set</span><span class="p">]</span>
+
+  <span class="n">joints</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">limb</span> <span class="ow">in</span> <span class="n">limbs</span><span class="p">:</span>
+    <span class="n">joints</span> <span class="o">+=</span> <span class="n">limb_joints</span><span class="p">[</span><span class="n">limb</span><span class="p">]</span>
+
+  <span class="n">performances</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">repeat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">limb_set_fit</span> <span class="o">=</span> <span class="n">testJointModel</span><span class="p">(</span><span class="n">joints</span><span class="o">=</span><span class="n">joints</span><span class="p">)</span>
+    <span class="n">performances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">limb_set_fit</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;performance: </span><span class="si">{</span><span class="n">limb_set_fit</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;median performance: </span><span class="si">{</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">performances</span><span class="p">))</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** FITTING: limbs only
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 83.14%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 67.44%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 77.91%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 80.23%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 76.16%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 62.79%
+median performance: 77.03%
+
+*** FITTING: limbs+torso+head
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 83.14%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 81.98%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 82.56%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 80.23%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 85.47%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>performance: 83.72%
+median performance: 82.85%
+</pre></div>
+</div>
+</div>
+</div>
+<p>The models are not converging, or perfect, but almost every time we run this cell the extra information from the torso and head do make the model perform a little better.</p>
+<p>It seems that our spine is pretty fundamental for movement!</p>
+<p>Maybe we should see how well we can do with a minimal number of joints measured. Can we go as low as 1 joint? For example, since we usually carry a phone in our pocket, the inertal motion units (IMU), i.e., accelerometers + gyroscopes, on a phone might be sufficient to get us some idea of movements people are making. We could test individual joints as well, or combinations of 2 or 3 joints.</p>
+<p>Of course, in real life people make many more types of movements, so we might need more joints or IMU’s for decent classification. It will also be a problem to figure out when one movement type has ended and the next has begun.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-10-publication">
+<h1>Step 10: publication<a class="headerlink" href="#step-10-publication" title="Permalink to this headline">¶</a></h1>
+<p>Let’s write a simple abstract following the guidelines…</p>
+<p><strong>A. What is the phenomena</strong>?  Here summarize the part of the phenomena which your modeling addresses.</p>
+<p><em>Movement is well characterized by angular joint information.</em></p>
+<p><strong>B. What is the key scientific question?</strong>:  Clearly articulate the question which your modeling tries to answer.</p>
+<p><em>Here, we ask how many joints are needed to accurately classify movements, and which joints are the most informative for classification.</em></p>
+<p><strong>C. What was our hypothesis?</strong>:  Explain the key relationships which we relied on to simulate the phenomena.</p>
+<p><em>We hypothesized that limb motion was more informative than torso motion; and we hypothesized that right side limbs carry more information about movement types than left side limbs.</em></p>
+<p><strong>D. How did your modeling work?</strong> Give an overview of the model, it’s main components, and how the modeling works.  ‘’Here we … ‘’</p>
+<p><em>To investigate these hypotheses, we constructed a simple 1d convolutional neuroal network (CNN) and trained it on different subsets of the publicly available MoVi dataset.</em></p>
+<p><strong>E. What did you find? Did the modeling work?</strong> Explain the key outcomes of your modeling evaluation.</p>
+<p><em>Contrary to our expectations, we observed that the torso was more informative for classification then the rest of the joints. Furthermore the left limbs allowed for better classification than the right limbs.</em></p>
+<p><strong>F. What can you conclude?</strong> Conclude as much as you can <em>with reference to the hypothesis</em>, within the limits of the modeling.</p>
+<p><em>We conclude that while our model works to classify movements from subsets of joint rotations, the specific subsets of joints that were most informative were counter to our intuition.</em></p>
+<p><strong>G. What are the limitations and future directions?</strong> What is left to be learned? Briefly argue the plausibility of the approach and/or what you think is essential that may have been left out.</p>
+<p><em>Since our dataset contained limited number of movement types, generalization might be limited. Furthermore, our findings might be specific for our particular choice of model. Finally, classification of continuous movement presents an additional challenge since we used already segmented motion data here.</em></p>
+<blockquote>
+<div><p>If we put this all in one paragraph, we have our final complete abstract. But, first, do not include the letters in <em>your</em> abstract, and second, you might need to paraphrase the answers a little so they fit together.</p>
+</div></blockquote>
+<br>
+<p><strong>Abstract</strong></p>
+<p>(A) Movement is well characterized by angular joint information.
+(B) Here, we ask how many joints are needed to accurately classify movements, and which joints are the most informative for classification.
+(C) We hypothesized that limb motion was more informative than torso motion; and we hypothesized that right side limbs carry more information about movement types than left side limbs.
+(D) To investigate these hypotheses, we constructed a simple 1d convolutional neuroal network (CNN) and trained it on different subsets of the publicly available MoVi dataset.
+(E) Contrary to our expectations, we observed that the torso was more informative for classification then the rest of the joints. Furthermore the left limbs allowed for better classification than the right limbs.
+(F) We conclude that while our model works to classify movements from subsets of joint rotations, the specific subsets of joints that were most informative were counter to our intuition.
+(G) Since our dataset contained limited number of movement types, generalization might be limited. Furthermore, our findings might be specific for our particular choice of model. Finally, classification of continuous movement presents an additional challenge since we used already segmented motion data here.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/modelingsteps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="TrainIllusionModelingProjectDL.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Example Model Project: the Train Illusion</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../docs/projects_overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Templates</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

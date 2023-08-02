@@ -1,0 +1,2218 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Translation &#8212; Neuromatch Academy: Deep Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Neuroscience" href="../Neuroscience/README.html" />
+    <link rel="prev" title="Twitter Sentiment Analysis" href="sentiment_analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../tutorials/intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
+   Schedule
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
+     General schedule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+   Quick links and policies
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prereqs/DeepLearning.html">
+   Prerequisites and preparatory materials for NMA Deep Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics Module
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
+     Bonus Lecture: Yoshua Bengio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fine Tuning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+   Optimization (W1D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+   Regularization (W2D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+   Deep Learning: The Basics and Fine Tuning Wrap-up
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ConvNets and Generative Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+   Convnets And Dl Thinking (W2D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 1: Cost Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
+     Bonus Lecture: Kyunghyun Cho
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
+     Bonus Tutorial: Facial recognition using modern convnets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+   Generative Models (W2D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
+     Tutorial 2: Diffusion models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
+     Tutorial 3: Image, Conditional Diffusion and Beyond
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
+     Bonus Lecture: Geoffrey Hinton
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Natural Language Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
+     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+   Time Series And Natural Language Processing (W3D1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
+     Tutorial 1: Introduction to processing time series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
+     Tutorial 2: Natural Language Processing and LLMs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
+     Bonus Tutorial: Multilingual Embeddings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+   Dl Thinking2 (W3D2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
+     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+   Deep Learning: Convnets and NLP
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Unsupervised and Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
+     Bonus Lecture: Melanie Mitchell
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D4)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Basic Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
+     Bonus Lecture: Chealsea Finn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
+     Tutorial 1: Reinforcement Learning For Games
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
+     Tutorial 2: Deep Learning Thinking 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
+     Bonus Tutorial: Planning with Monte Carlo Tree Search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
+     Bonus Lecture: Amita Kapoor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deploy Models on the Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+   Deploy Models (Bonus)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
+     Bonus Tutorial: Deploying Neural Networks on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../modelingsteps/intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">
+     Modeling Steps 1 - 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">
+     Modeling Steps 3 - 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">
+     Modeling Steps 5 - 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">
+     Modeling Steps 7 - 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">
+     Modeling Steps 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">
+     Example Data Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">
+     Example Model Project: the Train Illusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">
+     Example Deep Learning Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../docs/projects_overview.html">
+   Project Templates
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ComputerVision/README.html">
+     Computer Vision
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/em_synapses.html">
+       Knowledge Extraction from a Convolutional Neural Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/spectrogram_analysis.html">
+       Music classification and generation with spectrograms
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/screws.html">
+       Something Screwy - image recognition, detection, and classification of screws
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/data_augmentation.html">
+       Data Augmentation in image classification models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ComputerVision/transfer_learning.html">
+       Transfer Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ReinforcementLearning/README.html">
+     Reinforcement Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/robolympics.html">
+       NMA Robolympics: Controlling robots using reinforcement learning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">
+       Performance Analysis of DQN Algorithm on the Lunar Lander task
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ReinforcementLearning/human_rl.html">
+       Using RL to Model Cognitive Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="README.html">
+     Natural Language Processing
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sentiment_analysis.html">
+       Twitter Sentiment Analysis
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Machine Translation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Neuroscience/README.html">
+     Neuroscience
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/slides.html">
+       Slides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
+       Ideas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
+       Animal Pose Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
+       Segmentation and Denoising
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
+       Load algonauts videos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
+       Vision with Lost Glasses: Modelling how the brain deals with noisy input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
+       Moving beyond Labels: Finetuning CNNs on BOLD response
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
+       Focus on what matters: inferring low-dimensional dynamics from neural recordings
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/datasets_and_models.html">
+   Models and Data sets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/NaturalLanguageProcessing/machine_translation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/NaturalLanguageProcessing/machine_translation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Machine Translation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representing-the-data">
+   Representing the data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#language-word-distributions">
+     Language word distributions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-rnn">
+     The RNN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representing-the-text">
+   Representing the text
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-and-generation">
+   Prediction and generation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-a-translation">
+   Generating a translation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-dos">
+   To dos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Machine Translation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Machine Translation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representing-the-data">
+   Representing the data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#language-word-distributions">
+     Language word distributions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-rnn">
+     The RNN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representing-the-text">
+   Representing the text
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-and-generation">
+   Prediction and generation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-a-translation">
+   Generating a translation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-dos">
+   To dos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/NaturalLanguageProcessing/machine_translation.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/NaturalLanguageProcessing/machine_translation.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<div class="section" id="machine-translation">
+<h1>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">¶</a></h1>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Juan Manuel Rodriguez, Salomey Osei</p>
+<p><strong>Production editors:</strong> Amita Kapoor, Spiros Chavlis</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h1>
+<p>The main goal of this project is to train a sequence to sequence NN that transtlate a language into another language, e.g. french to english. This notebook is based on this <a class="reference external" href="https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html">Pytorch tutorial</a>, but change several thing.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">unicodedata</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
+<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span>
+
+<span class="n">zip_file_url</span> <span class="o">=</span> <span class="s1">&#39;https://download.pytorch.org/tutorial/data.zip&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">zip_file_url</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+<span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># print the 10 first lines</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/eng-fra.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Go.	Va !
+Run!	Cours !
+Run!	Courez !
+Wow!	Ça alors !
+Fire!	Au feu !
+Help!	À l&#39;aide !
+Jump.	Saute.
+Stop!	Ça suffit !
+Stop!	Stop !
+Stop!	Arrête-toi !
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="representing-the-data">
+<h1>Representing the data<a class="headerlink" href="#representing-the-data" title="Permalink to this headline">¶</a></h1>
+<p>We create a language representation defining indixes for each word. In addition to the words, our languages have three special tokens:</p>
+<ul class="simple">
+<li><p>SOS: Start Of Sentence</p></li>
+<li><p>EOS: End Of Sentence</p></li>
+<li><p>PAD: Padding token used to fill inputs vectors where there are no other words.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SOS_token</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">EOS_token</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">Lang</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">word2index</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">word2count</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">index2word</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;SOS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;EOS&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;PAD&quot;</span><span class="p">}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">n_words</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Count SOS and EOS and PAD</span>
+
+  <span class="k">def</span> <span class="nf">addSentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">addWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">addWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">word2index</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">word2index</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_words</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">word2count</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">n_words</span><span class="p">]</span> <span class="o">=</span> <span class="n">word</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">n_words</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">word2count</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">unicodeToAscii</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+  <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+      <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;NFD&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">category</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;Mn&#39;</span>
+  <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">normalizeString</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">unicodeToAscii</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;([.!?])&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot; \1&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^a-zA-Z.!?]+&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">s</span>
+
+
+<span class="k">def</span> <span class="nf">readLangs</span><span class="p">(</span><span class="n">lang1</span><span class="p">,</span> <span class="n">lang2</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading lines...&quot;</span><span class="p">)</span>
+
+  <span class="c1"># Read the file and split into lines</span>
+  <span class="n">lines</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;data/</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">.txt&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lang1</span><span class="p">,</span> <span class="n">lang2</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span>\
+      <span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Split every line into pairs and normalize</span>
+  <span class="n">pairs</span> <span class="o">=</span> <span class="p">[[</span><span class="n">normalizeString</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+  <span class="c1"># Reverse pairs, make Lang instances</span>
+  <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span>
+      <span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">]</span>
+      <span class="n">input_lang</span> <span class="o">=</span> <span class="n">Lang</span><span class="p">(</span><span class="n">lang2</span><span class="p">)</span>
+      <span class="n">output_lang</span> <span class="o">=</span> <span class="n">Lang</span><span class="p">(</span><span class="n">lang1</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="n">input_lang</span> <span class="o">=</span> <span class="n">Lang</span><span class="p">(</span><span class="n">lang1</span><span class="p">)</span>
+      <span class="n">output_lang</span> <span class="o">=</span> <span class="n">Lang</span><span class="p">(</span><span class="n">lang2</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">eng_prefixes</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;i am &quot;</span><span class="p">,</span> <span class="s2">&quot;i m &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;he is&quot;</span><span class="p">,</span> <span class="s2">&quot;he s &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;she is&quot;</span><span class="p">,</span> <span class="s2">&quot;she s &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;you are&quot;</span><span class="p">,</span> <span class="s2">&quot;you re &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;we are&quot;</span><span class="p">,</span> <span class="s2">&quot;we re &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;they are&quot;</span><span class="p">,</span> <span class="s2">&quot;they re &quot;</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">filterPair</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">MAX_LENGTH</span> <span class="ow">and</span> \
+      <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">MAX_LENGTH</span> <span class="ow">and</span> \
+      <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">eng_prefixes</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">filterPairs</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">pair</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span> <span class="k">if</span> <span class="n">filterPair</span><span class="p">(</span><span class="n">pair</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepareData</span><span class="p">(</span><span class="n">lang1</span><span class="p">,</span> <span class="n">lang2</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span> <span class="o">=</span> <span class="n">readLangs</span><span class="p">(</span><span class="n">lang1</span><span class="p">,</span> <span class="n">lang2</span><span class="p">,</span> <span class="n">reverse</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read </span><span class="si">%s</span><span class="s2"> sentence pairs&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">))</span>
+  <span class="n">pairs</span> <span class="o">=</span> <span class="n">filterPairs</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trimmed to </span><span class="si">%s</span><span class="s2"> sentence pairs&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counting words...&quot;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">input_lang</span><span class="o">.</span><span class="n">addSentence</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">output_lang</span><span class="o">.</span><span class="n">addSentence</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counted words:&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">input_lang</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">input_lang</span><span class="o">.</span><span class="n">n_words</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">output_lang</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">output_lang</span><span class="o">.</span><span class="n">n_words</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span>
+
+
+<span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span> <span class="o">=</span> <span class="n">prepareData</span><span class="p">(</span><span class="s1">&#39;eng&#39;</span><span class="p">,</span> <span class="s1">&#39;fra&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pairs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading lines...
+Read 135842 sentence pairs
+Trimmed to 10599 sentence pairs
+Counting words...
+Counted words:
+fra 4346
+eng 2804
+[&#39;nous sommes sans emploi .&#39;, &#39;we re unemployed .&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="language-word-distributions">
+<h2>Language word distributions<a class="headerlink" href="#language-word-distributions" title="Permalink to this headline">¶</a></h2>
+<p>We can check which is the word distribution in our dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_lang</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+  <span class="n">words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lang</span><span class="o">.</span><span class="n">word2count</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">lang</span><span class="o">.</span><span class="n">word2count</span><span class="p">[</span><span class="n">w</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="n">top_k</span><span class="p">])</span>
+  <span class="n">count_occurences</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lang</span><span class="o">.</span><span class="n">word2count</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+  <span class="n">accumulated</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">while</span> <span class="n">accumulated</span> <span class="o">&lt;</span> <span class="n">count_occurences</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">:</span>
+    <span class="n">accumulated</span> <span class="o">+=</span> <span class="n">lang</span><span class="o">.</span><span class="n">word2count</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="n">counter</span><span class="p">]]</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">counter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="si">}</span><span class="s2">% most common words &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;account for the </span><span class="si">{</span><span class="n">accumulated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count_occurences</span><span class="si">}</span><span class="s2">% of the occurrences&quot;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="p">[</span><span class="n">lang</span><span class="o">.</span><span class="n">word2count</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[:</span><span class="n">top_k</span><span class="p">]])</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_lang</span><span class="p">(</span><span class="n">input_lang</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;je&#39;, &#39;suis&#39;, &#39;est&#39;, &#39;vous&#39;, &#39;pas&#39;, &#39;de&#39;, &#39;il&#39;, &#39;nous&#39;, &#39;tu&#39;, &#39;etes&#39;, &#39;ne&#39;, &#39;es&#39;, &#39;en&#39;, &#39;a&#39;, &#39;n&#39;, &#39;un&#39;, &#39;sommes&#39;, &#39;elle&#39;, &#39;la&#39;, &#39;tres&#39;, &#39;c&#39;, &#39;que&#39;, &#39;le&#39;, &#39;sont&#39;, &#39;j&#39;, &#39;une&#39;, &#39;d&#39;, &#39;ai&#39;, &#39;pour&#39;, &#39;l&#39;, &#39;ils&#39;, &#39;plus&#39;, &#39;ce&#39;, &#39;des&#39;, &#39;me&#39;, &#39;vais&#39;, &#39;elles&#39;, &#39;moi&#39;, &#39;!&#39;, &#39;mon&#39;, &#39;trop&#39;, &#39;train&#39;, &#39;fort&#39;, &#39;si&#39;, &#39;ici&#39;, &#39;du&#39;, &#39;toujours&#39;, &#39;toi&#39;, &#39;tout&#39;, &#39;tous&#39;, &#39;les&#39;, &#39;?&#39;, &#39;vraiment&#39;, &#39;sur&#39;, &#39;t&#39;, &#39;te&#39;, &#39;m&#39;, &#39;dans&#39;, &#39;avec&#39;, &#39;avoir&#39;, &#39;encore&#39;, &#39;qu&#39;, &#39;tom&#39;, &#39;votre&#39;, &#39;au&#39;, &#39;peur&#39;, &#39;y&#39;, &#39;desole&#39;, &#39;bien&#39;, &#39;ca&#39;, &#39;bon&#39;, &#39;fais&#39;, &#39;toutes&#39;, &#39;heureux&#39;, &#39;faire&#39;, &#39;etre&#39;, &#39;son&#39;, &#39;aussi&#39;, &#39;assez&#39;, &#39;lui&#39;, &#39;tellement&#39;, &#39;ma&#39;, &#39;mes&#39;, &#39;fatigue&#39;, &#39;par&#39;, &#39;et&#39;, &#39;fait&#39;, &#39;ton&#39;, &#39;se&#39;, &#39;juste&#39;, &#39;maintenant&#39;, &#39;grand&#39;, &#39;desolee&#39;, &#39;avons&#39;, &#39;allons&#39;, &#39;peu&#39;, &#39;deux&#39;, &#39;on&#39;, &#39;vieux&#39;]
+The 4.674188349067465% most common words account for the 80.0371543427945% of the occurrences
+</pre></div>
+</div>
+<img alt="../../_images/machine_translation_13_1.png" src="../../_images/machine_translation_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_lang</span><span class="p">(</span><span class="n">output_lang</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;i&#39;, &#39;re&#39;, &#39;you&#39;, &#39;m&#39;, &#39;he&#39;, &#39;not&#39;, &#39;is&#39;, &#39;a&#39;, &#39;to&#39;, &#39;we&#39;, &#39;s&#39;, &#39;the&#39;, &#39;very&#39;, &#39;are&#39;, &#39;of&#39;, &#39;she&#39;, &#39;am&#39;, &#39;they&#39;, &#39;in&#39;, &#39;going&#39;, &#39;my&#39;, &#39;for&#39;, &#39;all&#39;, &#39;at&#39;, &#39;here&#39;, &#39;with&#39;, &#39;that&#39;, &#39;good&#39;, &#39;as&#39;, &#39;your&#39;, &#39;t&#39;, &#39;me&#39;, &#39;too&#39;, &#39;this&#39;, &#39;sorry&#39;, &#39;on&#39;, &#39;glad&#39;, &#39;it&#39;, &#39;than&#39;, &#39;now&#39;, &#39;happy&#39;, &#39;about&#39;, &#39;?&#39;, &#39;aren&#39;, &#39;so&#39;, &#39;tired&#39;, &#39;afraid&#39;, &#39;sure&#39;, &#39;right&#39;, &#39;an&#39;, &#39;his&#39;, &#39;out&#39;, &#39;really&#39;, &#39;one&#39;, &#39;busy&#39;, &#39;still&#39;, &#39;just&#39;, &#39;old&#39;, &#39;always&#39;, &#39;tom&#39;, &#39;looking&#39;, &#39;be&#39;, &#39;friend&#39;, &#39;no&#39;, &#39;her&#39;, &#39;ready&#39;, &#39;by&#39;, &#39;!&#39;, &#39;and&#39;, &#39;teacher&#39;, &#39;from&#39;, &#39;getting&#39;, &#39;him&#39;, &#39;alone&#39;, &#39;being&#39;, &#39;home&#39;, &#39;up&#39;, &#39;have&#39;, &#39;go&#39;, &#39;doing&#39;, &#39;help&#39;, &#39;see&#39;, &#39;proud&#39;, &#39;man&#39;, &#39;married&#39;, &#39;kind&#39;, &#39;who&#39;, &#39;waiting&#39;, &#39;yet&#39;, &#39;young&#39;, &#39;person&#39;, &#39;done&#39;, &#39;late&#39;, &#39;friends&#39;, &#39;new&#39;, &#39;anymore&#39;, &#39;hungry&#39;, &#39;such&#39;, &#39;sick&#39;]
+The 4.85540878257765% most common words account for the 80.00500226665207% of the occurrences
+</pre></div>
+</div>
+<img alt="../../_images/machine_translation_14_1.png" src="../../_images/machine_translation_14_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-rnn">
+<h2>The RNN<a class="headerlink" href="#the-rnn" title="Permalink to this headline">¶</a></h2>
+<p>Our goal is to create a network that takes an input sentence in one language and then provides the translation of the sentence in an output language.  Our network will use an RNN which will consist of an encoder, and a decoder. The encoder will first transform our input sentence into a vector, and pass this condensed vector into the decoder which will then translate the text in our given language. The process of this is further explained in the diagram below:</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/static/seq2seq.png"><img alt="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/static/seq2seq.png" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/static/seq2seq.png" style="width: 600px; height: 300px;" /></a>
+<p><strong>Note:</strong> Please note that this same approach can be used for next sentence prediction task</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EncoderRNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">EncoderRNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hidden</span><span class="p">):</span>
+    <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="c1">#.view(1, 1, -1)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">embedded</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">hidden</span>
+
+  <span class="k">def</span> <span class="nf">initHidden</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DecoderRNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">DecoderRNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">output_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hidden</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">hidden</span>
+
+  <span class="k">def</span> <span class="nf">initHidden</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="representing-the-text">
+<h1>Representing the text<a class="headerlink" href="#representing-the-text" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_train</span><span class="p">(</span><span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="n">MAX_LENGTH</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">x_input</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">x_output</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">target</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">s_i</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_len</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">input_lang</span><span class="o">.</span><span class="n">word2index</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">s_o</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">output_lang</span><span class="o">.</span><span class="n">word2index</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_len</span>
+    <span class="n">s_to</span> <span class="o">=</span> <span class="n">s_o</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">x_input</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_i</span><span class="p">[</span><span class="o">-</span><span class="n">max_len</span><span class="p">:])</span>
+    <span class="n">x_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_o</span><span class="p">[:</span><span class="n">max_len</span><span class="p">])</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_to</span><span class="p">[:</span><span class="n">max_len</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">x_input</span><span class="p">,</span> <span class="n">x_output</span><span class="p">,</span> <span class="n">target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_input</span><span class="p">,</span> <span class="n">x_partial</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">to_train</span><span class="p">(</span><span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span> <span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Representation of an input sentece:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_input</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">input_lang</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x_input</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Representation of an partial sentece:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_partial</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">output_lang</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x_partial</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Representation of an target sentece:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">output_lang</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Representation of an input sentece:
+[2, 2, 2, 2, 2, 2, 0, 3, 4, 5, 6, 1]
+PAD PAD PAD PAD PAD PAD SOS j ai ans . EOS
+
+Representation of an partial sentece:
+[0, 3, 4, 5, 1, 2, 2, 2, 2, 2, 2, 2]
+SOS i m . EOS PAD PAD PAD PAD PAD PAD PAD
+
+Representation of an target sentece:
+[3, 4, 5, 1, 2, 2, 2, 2, 2, 2, 2, 2]
+i m . EOS PAD PAD PAD PAD PAD PAD PAD PAD
+</pre></div>
+</div>
+</div>
+</div>
+<p>We represent the input sentence using left padding because the GRU network process the sentence left to rignt, and we want that the output is as close to our sentence as possible. In contrast, we use right padding to the partial translation sentence because we want that our context is process inmediatly by our decoder. Finally, our target is our partial translation left-shifted.</p>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>Using this representation, we can train our model. Notice that our feed the full sentences as partial translations instanted of feeding partial sentences. This speed-ups our training, as next words in the sentence do not affects the output of the network and the gradients up to that point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+  <span class="n">_</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="n">encoder</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">encoder</span><span class="o">.</span><span class="n">initHidden</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+  <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">out</span>
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+
+  <span class="n">plot_losses</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">plot_full_losses</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="n">encoder_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">encoder</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+  <span class="n">decoder_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">decoder</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)):</span>
+    <span class="n">c_input</span><span class="p">,</span> <span class="n">c_output</span><span class="p">,</span> <span class="n">c_target</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">c_input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">c_input</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">c_output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">c_output</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">c_target</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">c_target</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">acc_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c_target</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">):</span>
+      <span class="n">c_batch_size</span> <span class="o">=</span> <span class="n">c_target</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">encoder_optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+      <span class="n">decoder_optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+      <span class="n">out</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">c_input</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">c_output</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+      <span class="c1">#Reshapes the output and target to use the expected loss format.</span>
+      <span class="c1"># N x Classes for the output</span>
+      <span class="c1"># N for the targets</span>
+      <span class="c1"># Where N is the batch size</span>
+      <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">c_batch_size</span> <span class="o">*</span> <span class="n">c_input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+      <span class="n">r_target</span> <span class="o">=</span> <span class="n">c_target</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">c_batch_size</span> <span class="o">*</span> <span class="n">c_input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+      <span class="n">c_loss</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">r_target</span><span class="p">)</span>
+      <span class="c1"># Mask the errors for padding as they are not usefull!</span>
+      <span class="n">valid</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">r_target</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">c_loss</span> <span class="o">=</span> <span class="n">c_loss</span> <span class="o">*</span> <span class="n">valid</span>
+      <span class="n">c_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">c_loss</span><span class="p">)</span> <span class="c1">#/ torch.sum(valid)</span>
+
+      <span class="n">c_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+      <span class="n">encoder_optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+      <span class="n">decoder_optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+      <span class="n">plot_full_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+      <span class="n">acc_loss</span> <span class="o">+=</span> <span class="n">c_loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">plot_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_loss</span> <span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">c_target</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">plot_losses</span><span class="p">,</span> <span class="n">plot_full_losses</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Change this to 50 (original value!)</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">EncoderRNN</span><span class="p">(</span><span class="n">input_lang</span><span class="o">.</span><span class="n">n_words</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">DecoderRNN</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_lang</span><span class="o">.</span><span class="n">n_words</span><span class="p">)</span>
+<span class="n">epoch_error</span><span class="p">,</span> <span class="n">batch_error</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span>
+                                 <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">),</span>
+                                 <span class="n">x_input</span><span class="p">,</span> <span class="n">x_partial</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                 <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d4c45ca270a54e1685d015d6fa91e220", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(epoch_error)</span>
+<span class="c1">#print(batch_error)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">batch_error</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;model loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;minibatch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_error</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;model loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;epoch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/machine_translation_25_0.png" src="../../_images/machine_translation_25_0.png" />
+<img alt="../../_images/machine_translation_25_1.png" src="../../_images/machine_translation_25_1.png" />
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="prediction-and-generation">
+<h1>Prediction and generation<a class="headerlink" href="#prediction-and-generation" title="Permalink to this headline">¶</a></h1>
+<p>In the following cells, we can can see how our Seq2Seq model produces a prediction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">x_input</span><span class="p">[</span><span class="mi">40</span><span class="p">]],</span>
+                                           <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span>
+                                           <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">x_partial</span><span class="p">[</span><span class="mi">40</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">))</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_partial</span><span class="p">[</span><span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  3   4 103   5   1   5   5   5   5   5   5   5]]
+[0, 3, 4, 32, 5, 1, 2, 2, 2, 2, 2, 2]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="generating-a-translation">
+<h1>Generating a translation<a class="headerlink" href="#generating-a-translation" title="Permalink to this headline">¶</a></h1>
+<p>The generation is a very simple iterative process:</p>
+<ol class="simple">
+<li><p>Initialize the partiar translation using only the start of sentence token ‘
+SOS’ (its id, which is 0).</p></li>
+<li><p>Repeat:</p>
+<ol class="simple">
+<li><p>Predict the probability distribution for the next token given the partial translation.</p></li>
+<li><p>Pick the most probable token. (other option is to sample the distribution).</p></li>
+<li><p>Add that token to the translation.</p></li>
+<li><p>If the token is EOF, break the loop.</p></li>
+</ol>
+</li>
+<li><p>Return the partial translation, which is now a full translation.</p></li>
+</ol>
+<p>If we want to generate several candidates, we can use other generation algorithm. <a class="reference external" href="https://www.youtube.com/watch?v=RLWuzLLSIgw">Beam Search</a> is a great option for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gen_translation</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">,</span>
+                    <span class="n">max_len</span><span class="o">=</span><span class="n">MAX_LENGTH</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+
+  <span class="n">text</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_len</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">input_lang</span><span class="o">.</span><span class="n">word2index</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">text</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="n">max_len</span><span class="p">:]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_len</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">[:</span><span class="n">max_len</span><span class="p">]]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
+    <span class="n">pt_out</span> <span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">pt_out</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="k">break</span>
+
+  <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">output_lang</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen_translation</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">pairs</span><span class="p">[</span><span class="mi">40</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">input_lang</span><span class="p">,</span> <span class="n">output_lang</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SOS i m in trouble . EOS PAD PAD PAD PAD PAD&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pairs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;= </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pairs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gen_translation</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span>
+                                      <span class="n">pairs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                                      <span class="n">input_lang</span><span class="p">,</span>
+                                      <span class="n">output_lang</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; j ai ans .
+= i m .
+&lt; SOS i m really . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je vais bien .
+= i m ok .
+&lt; SOS i m going to go . EOS PAD PAD PAD PAD
+****************************************
+&gt; ca va .
+= i m ok .
+&lt; SOS i m going to go . EOS PAD PAD PAD PAD
+****************************************
+&gt; je suis gras .
+= i m fat .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis gros .
+= i m fat .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis en forme .
+= i m fit .
+&lt; SOS i m in trouble . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis touche !
+= i m hit !
+&lt; SOS i m so ! EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis touchee !
+= i m hit !
+&lt; SOS i m so ! EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis malade .
+= i m ill .
+&lt; SOS i m a teacher . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis triste .
+= i m sad .
+&lt; SOS i m your friend . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis timide .
+= i m shy .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis mouille .
+= i m wet .
+&lt; SOS i m being . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis mouillee .
+= i m wet .
+&lt; SOS i m your friend . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; il est mouille .
+= he s wet .
+&lt; SOS he is a teacher . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis gras .
+= i am fat .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis revenu .
+= i m back .
+&lt; SOS i m being . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; me revoila .
+= i m back .
+&lt; SOS i m being serious . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis chauve .
+= i m bald .
+&lt; SOS i m still married . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis occupe .
+= i m busy .
+&lt; SOS i m busy . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis occupee .
+= i m busy .
+&lt; SOS i m busy . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis calme .
+= i m calm .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; j ai froid .
+= i m cold .
+&lt; SOS i m in trouble . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; j en ai fini .
+= i m done .
+&lt; SOS i m done . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; tout va bien .
+= i m fine .
+&lt; SOS i m all done . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je vais bien .
+= i m fine .
+&lt; SOS i m going to go . EOS PAD PAD PAD PAD
+****************************************
+&gt; ca va .
+= i m fine .
+&lt; SOS i m going to go . EOS PAD PAD PAD PAD
+****************************************
+&gt; je suis libre !
+= i m free !
+&lt; SOS i m so ! EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis libre .
+= i m free .
+&lt; SOS i m in trouble . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis disponible .
+= i m free .
+&lt; SOS i m a teacher . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis repu !
+= i m full .
+&lt; SOS i m so ! EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis rassasie !
+= i m full .
+&lt; SOS i m so ! EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis content .
+= i m glad .
+&lt; SOS i m happy . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis chez moi .
+= i m home .
+&lt; SOS i m just tired . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis en retard .
+= i m late .
+&lt; SOS i m in trouble . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis paresseux .
+= i m lazy .
+&lt; SOS i m in . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis faineant .
+= i m lazy .
+&lt; SOS i m in . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis paresseuse .
+= i m lazy .
+&lt; SOS i m a teacher . EOS PAD PAD PAD PAD PAD
+****************************************
+&gt; je suis faineante .
+= i m lazy .
+&lt; SOS i m exhausted . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; je vais bien .
+= i m okay .
+&lt; SOS i m going to go . EOS PAD PAD PAD PAD
+****************************************
+&gt; je me porte bien .
+= i m okay .
+&lt; SOS i m all hungry . EOS PAD PAD PAD PAD PAD
+****************************************
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pairs</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;= </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pairs</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gen_translation</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span>
+                                      <span class="n">pairs</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                                      <span class="n">input_lang</span><span class="p">,</span>
+                                      <span class="n">output_lang</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; j ai ans .
+= i m .
+&lt; SOS i m really . EOS PAD PAD PAD PAD PAD PAD
+****************************************
+&gt; il est un des candidats aux presidentielles americaines .
+= he is one of the american presidential candidates .
+&lt; SOS he is a good at the mood . EOS PAD PAD
+****************************************
+&gt; ils collectent des dons pour l eglise .
+= they are collecting contributions for the church .
+&lt; SOS they are in the same age . EOS PAD PAD PAD
+****************************************
+&gt; j ai quelques difficultes a compiler ce programme .
+= i m having some problems compiling this software .
+&lt; SOS i m going to go out of this . EOS PAD
+****************************************
+&gt; il entreprend des experiences dans son laboratoire .
+= he is carrying out experiments in his laboratory .
+&lt; SOS he is afraid of his success . EOS PAD PAD PAD
+****************************************
+&gt; elle est non seulement belle mais aussi intelligente .
+= she is not only beautiful but also intelligent .
+&lt; SOS she is not as smart as me . EOS PAD PAD
+****************************************
+&gt; nous enquetons sur le meurtre de tom jackson .
+= we re investigating the murder of tom jackson .
+&lt; SOS we re going to be late . EOS PAD PAD PAD
+****************************************
+&gt; elle est tres receptive a la suggestion hypnotique .
+= she s very susceptible to hypnotic suggestion .
+&lt; SOS she is very good at the job . EOS PAD PAD
+****************************************
+&gt; elle trouve toujours a redire aux autres .
+= she is always finding fault with other people .
+&lt; SOS she is always complaining for her car . EOS PAD PAD
+****************************************
+&gt; je pense apprendre le coreen le semestre prochain .
+= i m thinking of learning korean next semester .
+&lt; SOS i m the one who trained me . EOS PAD PAD
+****************************************
+&gt; tu es probablement trop jeune pour le comprendre .
+= you re probably too young to understand this .
+&lt; SOS you re too old for this . EOS PAD PAD PAD
+****************************************
+&gt; vous etes probablement trop jeune pour le comprendre .
+= you re probably too young to understand this .
+&lt; SOS you re too old for this . EOS PAD PAD PAD
+****************************************
+&gt; tu es trop critique des defauts des autres .
+= you are too critical of others shortcomings .
+&lt; SOS you are too young to me . EOS PAD PAD PAD
+****************************************
+&gt; vous etes trop critique des defauts des autres .
+= you are too critical of others shortcomings .
+&lt; SOS you are too young to me . EOS PAD PAD PAD
+****************************************
+&gt; nous attendons la publication de son ouvrage .
+= we are expecting the publication of his book .
+&lt; SOS we are going to the same age . EOS PAD PAD
+****************************************
+&gt; elle est forte pour inventer des histoires interessantes .
+= she is good at making up interesting stories .
+&lt; SOS she is always complaining for her . EOS PAD PAD PAD
+****************************************
+&gt; elle trouve toujours des defauts a son mari .
+= she is always finding fault with her husband .
+&lt; SOS she is always complaining of her car . EOS PAD PAD
+****************************************
+&gt; je lui dis constamment de bien se comporter .
+= i m constantly telling her to behave herself .
+&lt; SOS i m going to be your help . EOS PAD PAD
+****************************************
+&gt; c est un interprete dans une banque internationale .
+= he s an interpreter in an international bank .
+&lt; SOS he is a man of a teacher . EOS PAD PAD
+****************************************
+&gt; il est expert en litterature francaise .
+= he is well acquainted with french literature .
+&lt; SOS he is in his own . EOS PAD PAD PAD PAD
+****************************************
+&gt; il bataille encore avec les croyances religieuses .
+= he is still grappling with religious beliefs .
+&lt; SOS he is always complaining with me . EOS PAD PAD PAD
+****************************************
+&gt; il est competent en espagnol et en italien .
+= he is proficient in both spanish and italian .
+&lt; SOS he is in love with his own . EOS PAD PAD
+****************************************
+&gt; il quitte narita pour hawaii ce soir .
+= he is leaving narita for hawaii this evening .
+&lt; SOS he is always complaining to go to go . EOS PAD
+****************************************
+&gt; il s amuse en jouant aux jeux videos .
+= he is amusing himself by playing video games .
+&lt; SOS he is always complaining of his success . EOS PAD PAD
+****************************************
+&gt; il trouve toujours a redire aux autres .
+= he is always finding fault with other people .
+&lt; SOS he is always complaining to go . EOS PAD PAD PAD
+****************************************
+&gt; nous discuterons du probleme demain .
+= we re going to discuss the problem tomorrow .
+&lt; SOS we re going to be late . EOS PAD PAD PAD
+****************************************
+&gt; nous avons des problemes avec notre nouveau voisin .
+= we are having trouble with our new neighbor .
+&lt; SOS we are going to be in trouble . EOS PAD PAD
+****************************************
+&gt; il me tarde de recevoir votre reponse .
+= i m looking forward to receiving your reply .
+&lt; SOS i m sure of you are . EOS PAD PAD PAD
+****************************************
+&gt; j ai hate de recevoir ta reponse .
+= i m looking forward to receiving your reply .
+&lt; SOS i m sorry if i frightened you . EOS PAD PAD
+****************************************
+&gt; je pense cloturer mon compte d epargne .
+= i am thinking of closing my savings account .
+&lt; SOS i m sure of my father . EOS PAD PAD PAD
+****************************************
+&gt; je suis etonne par ton attitude irresponsable .
+= i am alarmed by your irresponsible attitude .
+&lt; SOS i m your friend of your friend . EOS PAD PAD
+****************************************
+&gt; je suis inquiet de votre attitude irresponsable .
+= i am alarmed by your irresponsible attitude .
+&lt; SOS i m your friend of your friend . EOS PAD PAD
+****************************************
+&gt; il est une autorite reconnue sur le sujet .
+= he is a recognized authority on the subject .
+&lt; SOS he is a good at the mood . EOS PAD PAD
+****************************************
+&gt; nous avons des invites ce soir .
+= we re having some guests over this evening .
+&lt; SOS we re going to be in this . EOS PAD PAD
+****************************************
+&gt; nous nous rejouissons de vous revoir .
+= we are looking forward to seeing you again .
+&lt; SOS we re going to be your help . EOS PAD PAD
+****************************************
+&gt; elles sont disposees a discuter du probleme .
+= they are willing to talk about the problem .
+&lt; SOS they are all the same age . EOS PAD PAD PAD
+****************************************
+&gt; ils sont disposes a discuter du probleme .
+= they are willing to talk about the problem .
+&lt; SOS they are about to the same . EOS PAD PAD PAD
+****************************************
+&gt; ils parlent de ce qu ils vont chanter .
+= they are talking about what they will sing .
+&lt; SOS they are going to be in the same age . EOS
+****************************************
+&gt; je suis le porte parole de cette institution .
+= i m the spokesperson for this organization .
+&lt; SOS i m the one who trained me . EOS PAD PAD
+****************************************
+&gt; je suis le porte parole de cette organisation .
+= i m the spokesperson for this organization .
+&lt; SOS i m the one who trained me . EOS PAD PAD
+****************************************
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="to-dos">
+<h1>To dos<a class="headerlink" href="#to-dos" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>We use the full dataset to train/test. This is not a great idea, you should split the dataset into training/test.</p></li>
+<li><p>We did some empirical evaluation looking at the translated senteces. Other evaluation can be done using metrics like <a class="reference external" href="https://www.nltk.org/api/nltk.translate.html?highlight=bleu_score#module-nltk.translate.bleu_score">BLUE</a> score.</p></li>
+<li><p>We try it with languages that are writting in a left-rigth as input and output. What happens if the languages are not written in this way? <a class="reference external" href="https://www.manythings.org/anki/">Datasets</a> <a class="reference external" href="https://tatoeba.org/en/downloads">Even more</a></p></li>
+<li><p>It would be possible to do machine translation using other NN architectures, such as attention based model.</p></li>
+<li><p>We are not handling proper nouns, and that could be a problem.</p></li>
+<li><p>This can be applied to next sentence prediction.</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="further-reading">
+<h1>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1409.0473">Neural machine translation by jointly learning to align and translate</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1508.04025">Effective Approaches to Attention-based Neural Machine Translation</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/NaturalLanguageProcessing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="sentiment_analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Twitter Sentiment Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Neuroscience/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Neuroscience</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
