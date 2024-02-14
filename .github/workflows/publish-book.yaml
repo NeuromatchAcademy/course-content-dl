@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install jupyter-book==0.10.2 ghp-import
+          pip install jupyter-book==0.14.0 ghp-import
           pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
 
       - name: Install XKCD fonts
