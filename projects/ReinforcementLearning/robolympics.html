@@ -1,109 +1,650 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>NMA Robolympics: Controlling robots using reinforcement learning &#8212; Neuromatch Academy: Deep Learning</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/ReinforcementLearning/robolympics';</script>
     <link rel="shortcut icon" href="../../_static/nma-dl-logo-square-4xp.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Performance Analysis of DQN Algorithm on the Lunar Lander task" href="lunar_lander.html" />
     <link rel="prev" title="Ideas" href="ideas_and_datasets.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/DeepLearning.html">
+                        Prerequisites and preparatory materials for NMA Deep Learning
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+                        Basics And Pytorch (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+                        Linear Deep Learning (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+                        Multi Layer Perceptrons (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+                        Optimization (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+                        Regularization (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+                        Deep Learning: The Basics and Fine Tuning Wrap-up
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+                        Convnets And Dl Thinking (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+                        Modern Convnets (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+                        Generative Models (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+                        Attention And Transformers (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+                        Time Series And Natural Language Processing (W3D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+                        Dl Thinking2 (W3D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+                        Deep Learning: Convnets and NLP
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+                        Unsupervised And Self Supervised Learning (W3D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+                        Basic Reinforcement Learning (W3D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+                        Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+                        Deploy Models (Bonus)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modelingsteps/intro.html">
+                        Modeling Step-by-Step Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../docs/projects_overview.html">
+                        Project Templates
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/datasets_and_models.html">
+                        Models and Data sets
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../prereqs/DeepLearning.html">
+                        Prerequisites and preparatory materials for NMA Deep Learning
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
+                        Basics And Pytorch (W1D1)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
+                        Linear Deep Learning (W1D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
+                        Multi Layer Perceptrons (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
+                        Optimization (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
+                        Regularization (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
+                        Deep Learning: The Basics and Fine Tuning Wrap-up
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
+                        Convnets And Dl Thinking (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
+                        Modern Convnets (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
+                        Generative Models (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
+                        Attention And Transformers (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
+                        Time Series And Natural Language Processing (W3D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
+                        Dl Thinking2 (W3D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
+                        Deep Learning: Convnets and NLP
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+                        Unsupervised And Self Supervised Learning (W3D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
+                        Basic Reinforcement Learning (W3D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
+                        Reinforcement Learning For Games And Dl Thinking3 (W3D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
+                        Deploy Models (Bonus)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modelingsteps/intro.html">
+                        Modeling Step-by-Step Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../docs/projects_overview.html">
+                        Project Templates
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/datasets_and_models.html">
+                        Models and Data sets
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../tutorials/intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/nma-dl-logo-square-4xp.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,1409 +654,990 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">
-   Schedule
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">
-     General schedule
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">
-     Shared calendars
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">
-     Timezone widget
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">
-   Technical Help
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">
-     Using jupyterbook
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">
-       Using Google Colab
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">
-       Using Kaggle
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">
-     Using Discord
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/TechnicalHelp/Discord.html">Using Discord</a></li>
+</ul>
+</li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">
-   Quick links and policies
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../prereqs/DeepLearning.html">
-   Prerequisites and preparatory materials for NMA Deep Learning
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs/DeepLearning.html">Prerequisites and preparatory materials for NMA Deep Learning</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Basics Module
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics Module</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">
-   Basics And Pytorch (W1D1)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
-     Tutorial 1: PyTorch
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">
-   Linear Deep Learning (W1D2)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
-     Tutorial 1: Gradient Descent and AutoGrad
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
-     Tutorial 2: Learning Hyperparameters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
-     Tutorial 3: Deep linear neural networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">
-     Bonus Lecture: Yoshua Bengio
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">
-   Multi Layer Perceptrons (W1D3)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
-     Tutorial 1: Biological vs. Artificial Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
-     Tutorial 2: Deep MLPs
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/chapter_title.html">Basics And Pytorch (W1D1)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">Tutorial 1: PyTorch</a></li>
+
+
+
+
+
+
+
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Fine Tuning
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/chapter_title.html">Linear Deep Learning (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">Tutorial 1: Gradient Descent and AutoGrad</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">Tutorial 2: Learning Hyperparameters</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">Tutorial 3: Deep linear neural networks</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D2_LinearDeepLearning/student/W1D2_BonusLecture.html">Bonus Lecture: Yoshua Bengio</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/chapter_title.html">Multi Layer Perceptrons (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">Tutorial 1: Biological vs. Artificial Neural Networks</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">Tutorial 2: Deep MLPs</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fine Tuning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">
-   Optimization (W1D5)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">
-     Tutorial 1: Optimization techniques
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">
-   Regularization (W2D1)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">
-     Tutorial 1: Regularization techniques part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">
-     Tutorial 2: Regularization techniques part 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">
-   Deep Learning: The Basics and Fine Tuning Wrap-up
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W1D5_Optimization/chapter_title.html">Optimization (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W1D5_Optimization/student/W1D5_Tutorial1.html">Tutorial 1: Optimization techniques</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  ConvNets and Generative Models
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D1_Regularization/chapter_title.html">Regularization (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial1.html">Tutorial 1: Regularization techniques part 1</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D1_Regularization/student/W2D1_Tutorial2.html">Tutorial 2: Regularization techniques part 2</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/Module_WrapUps/FineTuning.html">Deep Learning: The Basics and Fine Tuning Wrap-up</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ConvNets and Generative Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">
-   Convnets And Dl Thinking (W2D2)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">
-     Tutorial 1: Introduction to CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">
-     Tutorial 2: Deep Learning Thinking 1: Cost Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">
-     Bonus Lecture: Kyunghyun Cho
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">
-   Modern Convnets (W2D3)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">
-     Tutorial 1: Learn how to use modern convnets
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">
-     Bonus Tutorial: Facial recognition using modern convnets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">
-   Generative Models (W2D4)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">
-     Tutorial 1: Variational Autoencoders (VAEs)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">
-     Tutorial 2: Diffusion models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">
-     Tutorial 3: Image, Conditional Diffusion and Beyond
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">
-     Bonus Lecture: Geoffrey Hinton
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html">Convnets And Dl Thinking (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial1.html">Tutorial 1: Introduction to CNNs</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_Tutorial2.html">Tutorial 2: Deep Learning Thinking 1: Cost Functions</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_ConvnetsAndDlThinking/student/W2D2_BonusLecture.html">Bonus Lecture: Kyunghyun Cho</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Natural Language Processing
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/chapter_title.html">Modern Convnets (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial1.html">Tutorial 1: Learn how to use modern convnets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_ModernConvnets/student/W2D3_Tutorial2.html">Bonus Tutorial: Facial recognition using modern convnets</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/chapter_title.html">Generative Models (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial1.html">Tutorial 1: Variational Autoencoders (VAEs)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial2.html">Tutorial 2: Diffusion models</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_Tutorial3.html">Tutorial 3: Image, Conditional Diffusion and Beyond</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D4_GenerativeModels/student/W2D4_BonusLecture.html">Bonus Lecture: Geoffrey Hinton</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural Language Processing</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">
-   Attention And Transformers (W2D5)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">
-     Tutorial 1: Learn how to work with Transformers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">
-     Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">
-   Time Series And Natural Language Processing (W3D1)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">
-     Tutorial 1: Introduction to processing time series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">
-     Tutorial 2: Natural Language Processing and LLMs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">
-     Bonus Tutorial: Multilingual Embeddings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">
-   Dl Thinking2 (W3D2)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">
-     Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">
-   Deep Learning: Convnets and NLP
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/chapter_title.html">Attention And Transformers (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial1.html">Tutorial 1: Learn how to work with Transformers</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D5_AttentionAndTransformers/student/W2D5_Tutorial2.html">Bonus Tutorial: Understanding Pre-training, Fine-tuning and Robustness of Transformers</a></li>
+
+
+
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Unsupervised and Reinforcement Learning
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html">Time Series And Natural Language Processing (W3D1)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial1.html">Tutorial 1: Introduction to processing time series</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial2.html">Tutorial 2: Natural Language Processing and LLMs</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/student/W3D1_Tutorial3.html">Bonus Tutorial: Multilingual Embeddings</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D2_DlThinking2/chapter_title.html">Dl Thinking2 (W3D2)</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D2_DlThinking2/student/W3D2_Tutorial1.html">Tutorial 1: Deep Learning Thinking 2: Architectures and Multimodal DL thinking</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/Module_WrapUps/NaturalLanguageProcessing.html">Deep Learning: Convnets and NLP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Unsupervised and Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
-   Unsupervised And Self Supervised Learning (W3D3)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">
-     Tutorial 1: Un/Self-supervised learning methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">
-     Bonus Lecture: Melanie Mitchell
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">
-   Basic Reinforcement Learning (W3D4)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">
-     Tutorial 1: Basic Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">
-     Bonus Lecture: Chealsea Finn
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">
-   Reinforcement Learning For Games And Dl Thinking3 (W3D5)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-  <label for="toctree-checkbox-17">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">
-     Tutorial 1: Reinforcement Learning For Games
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">
-     Tutorial 2: Deep Learning Thinking 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">
-     Bonus Tutorial: Planning with Monte Carlo Tree Search
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">
-     Bonus Lecture: Amita Kapoor
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">Unsupervised And Self Supervised Learning (W3D3)</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_Tutorial1.html">Tutorial 1: Un/Self-supervised learning methods</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/student/W3D3_BonusLecture.html">Bonus Lecture: Melanie Mitchell</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Deploy Models on the Web
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/chapter_title.html">Basic Reinforcement Learning (W3D4)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html">Tutorial 1: Basic Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D4_BasicReinforcementLearning/student/W3D4_BonusLecture.html">Bonus Lecture: Chealsea Finn</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/chapter_title.html">Reinforcement Learning For Games And Dl Thinking3 (W3D5)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial1.html">Tutorial 1: Reinforcement Learning For Games</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial2.html">Tutorial 2: Deep Learning Thinking 3</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_Tutorial3.html">Bonus Tutorial: Planning with Monte Carlo Tree Search</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_ReinforcementLearningForGamesAndDlThinking3/student/W3D5_BonusLecture.html">Bonus Lecture: Amita Kapoor</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deploy Models on the Web</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">
-   Deploy Models (Bonus)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">
-     Bonus Tutorial: Deploying Neural Networks on the Web
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/Bonus_DeployModels/chapter_title.html">Deploy Models (Bonus)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/Bonus_DeployModels/student/Bonus_Tutorial1.html">Bonus Tutorial: Deploying Neural Networks on the Web</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Project Booklet
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Introduction to projects
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/project_guidance.html">
-   Daily guide for projects
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../modelingsteps/intro.html">
-   Modeling Step-by-Step Guide
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">
-     Modeling Steps 1 - 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">
-     Modeling Steps 3 - 4
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">
-     Modeling Steps 5 - 6
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">
-     Modeling Steps 7 - 9
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">
-     Modeling Steps 10
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">
-     Example Data Project: the Train Illusion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">
-     Example Model Project: the Train Illusion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">
-     Example Deep Learning Project
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../docs/projects_overview.html">
-   Project Templates
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../ComputerVision/README.html">
-     Computer Vision
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-    <label for="toctree-checkbox-21">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/slides.html">
-       Slides
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/ideas_and_datasets.html">
-       Ideas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/em_synapses.html">
-       Knowledge Extraction from a Convolutional Neural Network
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/spectrogram_analysis.html">
-       Music classification and generation with spectrograms
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/screws.html">
-       Something Screwy - image recognition, detection, and classification of screws
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/data_augmentation.html">
-       Data Augmentation in image classification models
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../ComputerVision/transfer_learning.html">
-       Transfer Learning
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="README.html">
-     Reinforcement Learning
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-    <label for="toctree-checkbox-22">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="slides.html">
-       Slides
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="ideas_and_datasets.html">
-       Ideas
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       NMA Robolympics: Controlling robots using reinforcement learning
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="lunar_lander.html">
-       Performance Analysis of DQN Algorithm on the Lunar Lander task
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="human_rl.html">
-       Using RL to Model Cognitive Tasks
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../NaturalLanguageProcessing/README.html">
-     Natural Language Processing
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../NaturalLanguageProcessing/slides.html">
-       Slides
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">
-       Ideas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">
-       Twitter Sentiment Analysis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">
-       Machine Translation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../Neuroscience/README.html">
-     Neuroscience
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/slides.html">
-       Slides
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">
-       Ideas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/pose_estimation.html">
-       Animal Pose Estimation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/cellular_segmentation.html">
-       Segmentation and Denoising
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/algonauts_videos.html">
-       Load algonauts videos
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/blurry_vision.html">
-       Vision with Lost Glasses: Modelling how the brain deals with noisy input
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/finetuning_fmri.html">
-       Moving beyond Labels: Finetuning CNNs on BOLD response
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">
-       Focus on what matters: inferring low-dimensional dynamics from neural recordings
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/datasets_and_models.html">
-   Models and Data sets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction to projects</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_3through4_DL.html">Modeling Steps 3 - 4</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_5through6_DL.html">Modeling Steps 5 - 6</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_7through9_DL.html">Modeling Steps 7 - 9</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_10_DL.html">Modeling Steps 10</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/TrainIllusionDataProjectDL.html">Example Data Project: the Train Illusion</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/TrainIllusionModelingProjectDL.html">Example Model Project: the Train Illusion</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modelingsteps/Example_Deep_Learning_Project.html">Example Deep Learning Project</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../docs/projects_overview.html">Project Templates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ComputerVision/README.html">Computer Vision</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/slides.html">Slides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/ideas_and_datasets.html">Ideas</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/em_synapses.html">Knowledge Extraction from a Convolutional Neural Network</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/spectrogram_analysis.html">Music classification and generation with spectrograms</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/screws.html">Something Screwy - image recognition, detection, and classification of screws</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/data_augmentation.html">Data Augmentation in image classification models</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../ComputerVision/transfer_learning.html">Transfer Learning</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="README.html">Reinforcement Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="slides.html">Slides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ideas_and_datasets.html">Ideas</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">NMA Robolympics: Controlling robots using reinforcement learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="lunar_lander.html">Performance Analysis of DQN Algorithm on the Lunar Lander task</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="human_rl.html">Using RL to Model Cognitive Tasks</a></li>
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NaturalLanguageProcessing/README.html">Natural Language Processing</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NaturalLanguageProcessing/slides.html">Slides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NaturalLanguageProcessing/ideas_and_datasets.html">Ideas</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../NaturalLanguageProcessing/sentiment_analysis.html">Twitter Sentiment Analysis</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../NaturalLanguageProcessing/machine_translation.html">Machine Translation</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Neuroscience/README.html">Neuroscience</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/slides.html">Slides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/ideas_and_datasets.html">Ideas</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/pose_estimation.html">Animal Pose Estimation</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/cellular_segmentation.html">Segmentation and Denoising</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/algonauts_videos.html">Load algonauts videos</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/blurry_vision.html">Vision with Lost Glasses: Modelling how the brain deals with noisy input</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/finetuning_fmri.html">Moving beyond Labels: Finetuning CNNs on BOLD response</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../Neuroscience/neuro_seq_to_seq.html">Focus on what matters: inferring low-dimensional dynamics from neural recordings</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/datasets_and_models.html">Models and Data sets</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
+  <ul class="dropdown-menu">
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/NeuromatchAcademy/course-content-dl"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/NeuromatchAcademy/course-content-dl" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/ReinforcementLearning/robolympics.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/ReinforcementLearning/robolympics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/ReinforcementLearning/robolympics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/projects/ReinforcementLearning/robolympics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   NMA Robolympics: Controlling robots using reinforcement learning
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objective">
-   Objective
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#colab-limits">
-   Colab limits
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-dependencies">
-     Install dependencies
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-pybullet-locomotion-environments">
-     Import
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pybullet
-      </span>
-     </code>
-     locomotion environments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#figure-settings">
-     Figure settings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-for-saving-and-restoring-checkpoints">
-   Functions for saving and restoring checkpoints
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#before-runtime-restart">
-     Before runtime restart:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#after-runtime-restart">
-     After runtime restart:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convenience-function-for-creating-videos">
-   Convenience function for creating videos
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#network-factory-methods-for-select-continuous-control-agents">
-   Network factory methods for select continuous control agents
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-of-all-pybullet-environments">
-   List of all
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pybullet
-    </span>
-   </code>
-   environments
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modifying-the-environment-base-class">
-   Modifying the environment base class
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiate-the-environment">
-   Instantiate the environment
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-default-task">
-   The default task
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-inspect-the-environment-a-bit">
-   Let’s inspect the environment a bit
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-one-frame-of-the-environment">
-     Plot one frame of the environment
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-the-environment-with-random-actions">
-     Run the environment with random actions
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-take-a-look-at-some-other-environment-properties">
-     Lets take a look at some other environment properties
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inspect-some-of-the-robot-properties">
-     Inspect some of the robot properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-the-dm-acme-agent">
-   Create the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     dm-acme
-    </span>
-   </code>
-   agent
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#d4pg-agent">
-   D4PG agent
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#training">
-   Training
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#examine-trained-policy">
-     Examine trained policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-reward">
-     Plot the reward
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#total-reward">
-     Total reward
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-and-restoring-training-checkpoints-to-from-google-drive">
-     Saving and restoring training checkpoints to/from Google Drive
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mount-drive-to-temporarily-save-checkpoints">
-       1. Mount drive to temporarily save checkpoints
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#before-restarting-the-runtime-save-checkpoint-to-drive">
-       2. BEFORE restarting the runtime, save checkpoint to drive
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#after-restarting-the-runtime-restore-checkpoint-from-drive">
-       3. AFTER restarting the runtime, restore checkpoint from drive
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#optionally-unmount-drive">
-       4. Optionally, unmount drive
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples-of-two-additional-agents">
-   Examples of two additional agents:
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dmpo-agent">
-     DMPO agent
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ddpg-agent">
-     DDPG agent
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#good-luck">
-   Good luck :)
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>NMA Robolympics: Controlling robots using reinforcement learning</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   NMA Robolympics: Controlling robots using reinforcement learning
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objective">
-   Objective
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#colab-limits">
-   Colab limits
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-dependencies">
-     Install dependencies
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-pybullet-locomotion-environments">
-     Import
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pybullet
-      </span>
-     </code>
-     locomotion environments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#figure-settings">
-     Figure settings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-for-saving-and-restoring-checkpoints">
-   Functions for saving and restoring checkpoints
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#before-runtime-restart">
-     Before runtime restart:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#after-runtime-restart">
-     After runtime restart:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convenience-function-for-creating-videos">
-   Convenience function for creating videos
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#network-factory-methods-for-select-continuous-control-agents">
-   Network factory methods for select continuous control agents
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-of-all-pybullet-environments">
-   List of all
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pybullet
-    </span>
-   </code>
-   environments
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modifying-the-environment-base-class">
-   Modifying the environment base class
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiate-the-environment">
-   Instantiate the environment
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-default-task">
-   The default task
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-inspect-the-environment-a-bit">
-   Let’s inspect the environment a bit
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-one-frame-of-the-environment">
-     Plot one frame of the environment
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-the-environment-with-random-actions">
-     Run the environment with random actions
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-take-a-look-at-some-other-environment-properties">
-     Lets take a look at some other environment properties
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inspect-some-of-the-robot-properties">
-     Inspect some of the robot properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-the-dm-acme-agent">
-   Create the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     dm-acme
-    </span>
-   </code>
-   agent
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#d4pg-agent">
-   D4PG agent
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#training">
-   Training
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#examine-trained-policy">
-     Examine trained policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-reward">
-     Plot the reward
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#total-reward">
-     Total reward
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-and-restoring-training-checkpoints-to-from-google-drive">
-     Saving and restoring training checkpoints to/from Google Drive
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mount-drive-to-temporarily-save-checkpoints">
-       1. Mount drive to temporarily save checkpoints
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#before-restarting-the-runtime-save-checkpoint-to-drive">
-       2. BEFORE restarting the runtime, save checkpoint to drive
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#after-restarting-the-runtime-restore-checkpoint-from-drive">
-       3. AFTER restarting the runtime, restore checkpoint from drive
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#optionally-unmount-drive">
-       4. Optionally, unmount drive
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples-of-two-additional-agents">
-   Examples of two additional agents:
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dmpo-agent">
-     DMPO agent
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ddpg-agent">
-     DDPG agent
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#good-luck">
-   Good luck :)
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NMA Robolympics: Controlling robots using reinforcement learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   NMA Robolympics: Controlling robots using reinforcement learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colab-limits">
+   Colab limits
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-pybullet-locomotion-environments">
+     Import
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pybullet
+      </span>
+     </code>
+     locomotion environments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-for-saving-and-restoring-checkpoints">
+   Functions for saving and restoring checkpoints
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#before-runtime-restart">
+     Before runtime restart:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#after-runtime-restart">
+     After runtime restart:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convenience-function-for-creating-videos">
+   Convenience function for creating videos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#network-factory-methods-for-select-continuous-control-agents">
+   Network factory methods for select continuous control agents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-all-pybullet-environments">
+   List of all
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pybullet
+    </span>
+   </code>
+   environments
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifying-the-environment-base-class">
+   Modifying the environment base class
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-the-environment">
+   Instantiate the environment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-default-task">
+   The default task
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-inspect-the-environment-a-bit">
+   Let’s inspect the environment a bit
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-one-frame-of-the-environment">
+     Plot one frame of the environment
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-environment-with-random-actions">
+     Run the environment with random actions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-take-a-look-at-some-other-environment-properties">
+     Lets take a look at some other environment properties
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-some-of-the-robot-properties">
+     Inspect some of the robot properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-dm-acme-agent">
+   Create the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dm-acme
+    </span>
+   </code>
+   agent
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d4pg-agent">
+   D4PG agent
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training">
+   Training
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-trained-policy">
+     Examine trained policy
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-reward">
+     Plot the reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-reward">
+     Total reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saving-and-restoring-training-checkpoints-to-from-google-drive">
+     Saving and restoring training checkpoints to/from Google Drive
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mount-drive-to-temporarily-save-checkpoints">
+       1. Mount drive to temporarily save checkpoints
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#before-restarting-the-runtime-save-checkpoint-to-drive">
+       2. BEFORE restarting the runtime, save checkpoint to drive
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#after-restarting-the-runtime-restore-checkpoint-from-drive">
+       3. AFTER restarting the runtime, restore checkpoint from drive
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optionally-unmount-drive">
+       4. Optionally, unmount drive
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-two-additional-agents">
+   Examples of two additional agents:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dmpo-agent">
+     DMPO agent
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ddpg-agent">
+     DDPG agent
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#good-luck">
+   Good luck :)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/ReinforcementLearning/robolympics.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/ReinforcementLearning/robolympics.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
-<div class="section" id="nma-robolympics-controlling-robots-using-reinforcement-learning">
-<h1>NMA Robolympics: Controlling robots using reinforcement learning<a class="headerlink" href="#nma-robolympics-controlling-robots-using-reinforcement-learning" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="nma-robolympics-controlling-robots-using-reinforcement-learning">
+<h1>NMA Robolympics: Controlling robots using reinforcement learning<a class="headerlink" href="#nma-robolympics-controlling-robots-using-reinforcement-learning" title="Permalink to this heading">#</a></h1>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong> Roman Vaxenburg, Diptodip Deb, Srinivas Turaga</p>
 <p><strong>Production editors:</strong> Spiros Chavlis</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="objective">
-<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h1>
 <p>This notebook provides a minimal but complete example of the reinforcement learning infrastructure, training sequence, and result visualization. We will use a <a class="reference external" href="https://github.com/bulletphysics/bullet3">pybullet</a> locomotion environment and <a class="reference external" href="https://github.com/deepmind/acme">dm-acme</a> reinforcement learning agents to learn a policy to perform a simple task with the 2D <code class="docutils literal notranslate"><span class="pre">Hopper</span></code> robot.</p>
 <p>We will show how to create and inspect the environment and how to start modifying it to have robots perform various tasks. This example should provide a good starting point for your own exploration!</p>
 <p>Even though this example uses a very simple robot, you can start experimenting with more complicated ones, such as <code class="docutils literal notranslate"><span class="pre">Ant</span></code> and <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> by just importing and modifying them as shown in this example. Also, start exploring the source code of the environments so you can modify them more easily later.</p>
 <p>We would also suggest going over the <code class="docutils literal notranslate"><span class="pre">dm-acme</span></code> <a class="reference external" href="https://github.com/deepmind/acme/blob/master/examples/tutorial.ipynb">tutorial notebook</a>.</p>
 <p>For a general introduction to Reinforcement Learning, it’s worth checking out <a class="reference external" href="https://deepmind.com/learning-resources/-introduction-reinforcement-learning-david-silver">this course</a>.</p>
-</div>
-<div class="section" id="colab-limits">
-<h1>Colab limits<a class="headerlink" href="#colab-limits" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="colab-limits">
+<h1>Colab limits<a class="headerlink" href="#colab-limits" title="Permalink to this heading">#</a></h1>
 <p>Please note that due to the Colab usage limits on the one hand, and the compute requirements of the project on the other hand, most likely you won’t be able to leverage Colab’s GPU for a sufficient amount of time. Instead, we suggest working in CPU-only mode (it shouldn’t slow you down very much, typical RL workloads are CPU-bound anyway). Make sure you’re not using GPU by doing Runtime -&gt; Change runtime type -&gt; Hardware accelerator -&gt; None.</p>
 <p>Also, when instantiating the environments, make sure to keep the default setting <code class="docutils literal notranslate"><span class="pre">render=False</span></code>.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="setup">
-<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install-dependencies">
-<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h1>
+<section id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">#</a></h2>
 <p>In the first cell we’ll install all of the necessary dependencies.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
 # @markdown In the first cell we&#39;ll install all of the necessary dependencies.
@@ -1532,6 +1654,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">55.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">804.0/804.0 kB</span> <span class=" -Color -Color-Red">14.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
@@ -1596,10 +1719,15 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-</div>
-<div class="section" id="import-pybullet-locomotion-environments">
-<h2>Import <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> locomotion environments<a class="headerlink" href="#import-pybullet-locomotion-environments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="import-pybullet-locomotion-environments">
+<h2>Import <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> locomotion environments<a class="headerlink" href="#import-pybullet-locomotion-environments" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Import `pybullet` locomotion environments</span>
 
@@ -1611,13 +1739,19 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 </div>
 </div>
-</div>
-<div class="section" id="figure-settings">
-<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
@@ -1627,22 +1761,23 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="functions-for-saving-and-restoring-checkpoints">
-<h1>Functions for saving and restoring checkpoints<a class="headerlink" href="#functions-for-saving-and-restoring-checkpoints" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="functions-for-saving-and-restoring-checkpoints">
+<h1>Functions for saving and restoring checkpoints<a class="headerlink" href="#functions-for-saving-and-restoring-checkpoints" title="Permalink to this heading">#</a></h1>
 <p>Due to Colab usage limits, the Colab runtime will be restarting periodically. In order to preserve the most recent training checkpoint during a restart, please use the functions below.</p>
 <p>To do so, you’ll have to first mount Google Drive (will be shown below).</p>
-<div class="section" id="before-runtime-restart">
-<h2>Before runtime restart:<a class="headerlink" href="#before-runtime-restart" title="Permalink to this headline">¶</a></h2>
+<section id="before-runtime-restart">
+<h2>Before runtime restart:<a class="headerlink" href="#before-runtime-restart" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">save_ckpt_to_drive</span></code> to locate the checkpoint and save it to your Google Drive in a directory <code class="docutils literal notranslate"><span class="pre">/acme_ckpt</span></code></p>
-</div>
-<div class="section" id="after-runtime-restart">
-<h2>After runtime restart:<a class="headerlink" href="#after-runtime-restart" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="after-runtime-restart">
+<h2>After runtime restart:<a class="headerlink" href="#after-runtime-restart" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">restore_ckpt_from_drive</span></code> to recover the checkpoint from Google Drive and copy it back to the restarted Colab virtual machine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1689,11 +1824,11 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="convenience-function-for-creating-videos">
-<h1>Convenience function for creating videos<a class="headerlink" href="#convenience-function-for-creating-videos" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="convenience-function-for-creating-videos">
+<h1>Convenience function for creating videos<a class="headerlink" href="#convenience-function-for-creating-videos" title="Permalink to this heading">#</a></h1>
 <p>Use this function to generate videos of your experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1728,10 +1863,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="network-factory-methods-for-select-continuous-control-agents">
-<h1>Network factory methods for select continuous control agents<a class="headerlink" href="#network-factory-methods-for-select-continuous-control-agents" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="network-factory-methods-for-select-continuous-control-agents">
+<h1>Network factory methods for select continuous control agents<a class="headerlink" href="#network-factory-methods-for-select-continuous-control-agents" title="Permalink to this heading">#</a></h1>
 <p>The functions below initialize and return the policy and critic networks for several continuous control agents (DDPG, D4PG, DMPO) used later in this notebook. Feel free to explore other agents as well. For more information on these and other agents, their implementations, and links to their corresponding papers see <a class="reference external" href="https://github.com/deepmind/acme/tree/master/acme/agents">here</a>.</p>
 <p>Please note that the hyperparameters <code class="docutils literal notranslate"><span class="pre">layer_sizes</span></code>, <code class="docutils literal notranslate"><span class="pre">vmin</span></code>, <code class="docutils literal notranslate"><span class="pre">vmax</span></code>, <code class="docutils literal notranslate"><span class="pre">num_atoms</span></code> are set to reasonable default values, but may reqiure adjustment. Especially, <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code> should be used with care. Please see the <a class="reference external" href="https://github.com/deepmind/acme/blob/master/acme/agents/tf/d4pg/README.md">acme github repo</a> for more information.</p>
 <div class="cell docutils container">
@@ -1829,10 +1964,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="list-of-all-pybullet-environments">
-<h1>List of all <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> environments<a class="headerlink" href="#list-of-all-pybullet-environments" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="list-of-all-pybullet-environments">
+<h1>List of all <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> environments<a class="headerlink" href="#list-of-all-pybullet-environments" title="Permalink to this heading">#</a></h1>
 <p>You can print the full list of environments by running the cell below. Only a subset of them are locomotion environments but feel free to explore the other ones if you’re interested.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1876,10 +2011,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="modifying-the-environment-base-class">
-<h1>Modifying the environment base class<a class="headerlink" href="#modifying-the-environment-base-class" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="modifying-the-environment-base-class">
+<h1>Modifying the environment base class<a class="headerlink" href="#modifying-the-environment-base-class" title="Permalink to this heading">#</a></h1>
 <p>You may start your exploration of the <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> locomotion environment code from this entry point, going up and down the hierarchy of classes: see <a class="reference external" href="https://github.com/bulletphysics/bullet3/blob/master/examples/pybullet/gym/pybullet_envs/gym_locomotion_envs.py">here</a>.</p>
 <p>For our experiments, we will be using the <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> locomotion environments with several different robots (<code class="docutils literal notranslate"><span class="pre">Hopper</span></code>, <code class="docutils literal notranslate"><span class="pre">Ant</span></code>, <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code>, etc.). In order to have the robots perform different tasks, we’ll need to modify some parts of the environments’ code. This will (mainly) amount to modifying the environments’ reward calculation in the <code class="docutils literal notranslate"><span class="pre">step</span></code> method.</p>
 <p>In the cell below we provide a minimal example modifying the <code class="docutils literal notranslate"><span class="pre">HopperBulletEnv</span></code> environment class. Normally, to create a Hopper environment you would just create an instance of the HopperBulletEnv class:</p>
@@ -1964,10 +2099,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="instantiate-the-environment">
-<h1>Instantiate the environment<a class="headerlink" href="#instantiate-the-environment" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="instantiate-the-environment">
+<h1>Instantiate the environment<a class="headerlink" href="#instantiate-the-environment" title="Permalink to this heading">#</a></h1>
 <p>Here, we are creating an example <code class="docutils literal notranslate"><span class="pre">Hopper</span></code> environment. Once created, we are wrapping it with <code class="docutils literal notranslate"><span class="pre">GymWrapper</span></code> to make the native <code class="docutils literal notranslate"><span class="pre">Gym</span></code> environment interface compatible with the one used in the <code class="docutils literal notranslate"><span class="pre">dm-acme</span></code> library, which is the reinforcement learning package that we will be using. <code class="docutils literal notranslate"><span class="pre">dm-acme</span></code> adheres to the interface defined <a class="reference external" href="https://github.com/deepmind/dm_env">here</a>. Finally, we also use <code class="docutils literal notranslate"><span class="pre">SinglePrecisionWrapper</span></code> to enforce single-precision on a potentially double-precision environment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1982,10 +2117,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="the-default-task">
-<h1>The default task<a class="headerlink" href="#the-default-task" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="the-default-task">
+<h1>The default task<a class="headerlink" href="#the-default-task" title="Permalink to this heading">#</a></h1>
 <p>If not modified, the default task of the <code class="docutils literal notranslate"><span class="pre">HopperBulletEnv</span></code> environment is to have the robot hop to the target location located 1 km away. The target location is stored as an attribute of the <code class="docutils literal notranslate"><span class="pre">robot</span></code> object and can be accessed as in the cell below.</p>
 <p>The task also contains other constraints, such as <code class="docutils literal notranslate"><span class="pre">electricity_cost</span></code>, and certain episode termination conditions. Please start from our custom <code class="docutils literal notranslate"><span class="pre">Hopper</span></code> class in the above cell and work your way backwards to the the environment code for more details!</p>
 <div class="cell docutils container">
@@ -2001,12 +2136,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="let-s-inspect-the-environment-a-bit">
-<h1>Let’s inspect the environment a bit<a class="headerlink" href="#let-s-inspect-the-environment-a-bit" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="plot-one-frame-of-the-environment">
-<h2>Plot one frame of the environment<a class="headerlink" href="#plot-one-frame-of-the-environment" title="Permalink to this headline">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="let-s-inspect-the-environment-a-bit">
+<h1>Let’s inspect the environment a bit<a class="headerlink" href="#let-s-inspect-the-environment-a-bit" title="Permalink to this heading">#</a></h1>
+<section id="plot-one-frame-of-the-environment">
+<h2>Plot one frame of the environment<a class="headerlink" href="#plot-one-frame-of-the-environment" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
@@ -2019,12 +2154,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/robolympics_29_1.png" src="../../_images/robolympics_29_1.png" />
+<img alt="../../_images/9e602bc9c86f8372f34dd4a350bcdb2859a2595f647c135916ef2521942e2759.png" src="../../_images/9e602bc9c86f8372f34dd4a350bcdb2859a2595f647c135916ef2521942e2759.png" />
 </div>
 </div>
-</div>
-<div class="section" id="run-the-environment-with-random-actions">
-<h2>Run the environment with random actions<a class="headerlink" href="#run-the-environment-with-random-actions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="run-the-environment-with-random-actions">
+<h2>Run the environment with random actions<a class="headerlink" href="#run-the-environment-with-random-actions" title="Permalink to this heading">#</a></h2>
 <p>We haven’t trained the policy yet, but we can still see the environment in action by passing a random control sequence to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8001,9 +8136,9 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</div>
-<div class="section" id="lets-take-a-look-at-some-other-environment-properties">
-<h2>Lets take a look at some other environment properties<a class="headerlink" href="#lets-take-a-look-at-some-other-environment-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lets-take-a-look-at-some-other-environment-properties">
+<h2>Lets take a look at some other environment properties<a class="headerlink" href="#lets-take-a-look-at-some-other-environment-properties" title="Permalink to this heading">#</a></h2>
 <p>Notice the shapes and min/max limits</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8025,9 +8160,9 @@ Rewards:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="inspect-some-of-the-robot-properties">
-<h2>Inspect some of the robot properties<a class="headerlink" href="#inspect-some-of-the-robot-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="inspect-some-of-the-robot-properties">
+<h2>Inspect some of the robot properties<a class="headerlink" href="#inspect-some-of-the-robot-properties" title="Permalink to this heading">#</a></h2>
 <p>Let’s examine the (Cartesian) coordinates of different body parts of the robot and its speed. Notice that <code class="docutils literal notranslate"><span class="pre">robot</span></code> is an attribute of the <code class="docutils literal notranslate"><span class="pre">env</span></code> class. Also, note how the body parts are accessed as you may need it for adjusting the reward calculation in your project.</p>
 <p>Feel free to explore other properties (attributes) of the <code class="docutils literal notranslate"><span class="pre">env.robot</span></code> object, such as velocities, joint angles, etc.</p>
 <div class="cell docutils container">
@@ -8067,11 +8202,11 @@ floor      [0. 0. 0.]
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="create-the-dm-acme-agent">
-<h1>Create the <code class="docutils literal notranslate"><span class="pre">dm-acme</span></code> agent<a class="headerlink" href="#create-the-dm-acme-agent" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="create-the-dm-acme-agent">
+<h1>Create the <code class="docutils literal notranslate"><span class="pre">dm-acme</span></code> agent<a class="headerlink" href="#create-the-dm-acme-agent" title="Permalink to this heading">#</a></h1>
 <p>Now we are ready to create the agent. Below we provide examples of creating instances of three select agents (DDPG, D4PG, DMPO) that we implemented above. Please feel free to explore other agents as well. For more information on these and other agents, their implementations, and links to their corresponding papers see the acme github <a class="reference external" href="https://github.com/deepmind/acme/tree/master/acme/agents">repo</a>.</p>
 <p>The direct links to the implementation of these three agents for you to start exploring are:</p>
 <ul class="simple">
@@ -8101,10 +8236,10 @@ floor      [0. 0. 0.]
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="d4pg-agent">
-<h1>D4PG agent<a class="headerlink" href="#d4pg-agent" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="d4pg-agent">
+<h1>D4PG agent<a class="headerlink" href="#d4pg-agent" title="Permalink to this heading">#</a></h1>
 <p>As an example, in the next cell we instantiate the D4PG agent. Examples of other agents (DDPG, DMPO) are provided at the end of the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8124,10 +8259,10 @@ floor      [0. 0. 0.]
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="training">
-<h1>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="training">
+<h1>Training<a class="headerlink" href="#training" title="Permalink to this heading">#</a></h1>
 <p>Finally, we are ready to start training!</p>
 <p>Please refer to the <a class="reference external" href="https://github.com/deepmind/acme/blob/master/acme/environment_loop.py">source code</a> to see how to use the environment loop.</p>
 <p>The training checkpoint (containing the network weights, optimizer parameters, etc.) will be saved every 10 minutes. Please remember to save and then restore the checkpoint from Google Drive if you are restarting the Colab runtime. See example below.</p>
@@ -8147,8 +8282,8 @@ floor      [0. 0. 0.]
 <div class="cell_output docutils container">
 </div>
 </div>
-<div class="section" id="examine-trained-policy">
-<h2>Examine trained policy<a class="headerlink" href="#examine-trained-policy" title="Permalink to this headline">¶</a></h2>
+<section id="examine-trained-policy">
+<h2>Examine trained policy<a class="headerlink" href="#examine-trained-policy" title="Permalink to this heading">#</a></h2>
 <p>As the policy has (hopefully) been trained by now, let’s test it in the environment and examine the result.</p>
 <p>Note that we will also collect the reward at each timestep and plot it later.</p>
 <div class="cell docutils container">
@@ -20472,9 +20607,9 @@ qXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</div>
-<div class="section" id="plot-the-reward">
-<h2>Plot the reward<a class="headerlink" href="#plot-the-reward" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plot-the-reward">
+<h2>Plot the reward<a class="headerlink" href="#plot-the-reward" title="Permalink to this heading">#</a></h2>
 <p>Each color represent a separate episode.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -20490,12 +20625,12 @@ qXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/robolympics_49_1.png" src="../../_images/robolympics_49_1.png" />
+<img alt="../../_images/dab1076aa7d831f165a912d99b4ea0a9f1c3acb82cd3633ba7ad5cc40dff1112.png" src="../../_images/dab1076aa7d831f165a912d99b4ea0a9f1c3acb82cd3633ba7ad5cc40dff1112.png" />
 </div>
 </div>
-</div>
-<div class="section" id="total-reward">
-<h2>Total reward<a class="headerlink" href="#total-reward" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="total-reward">
+<h2>Total reward<a class="headerlink" href="#total-reward" title="Permalink to this heading">#</a></h2>
 <p>Finally, let’s print the total reward for the test episodes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -20524,12 +20659,12 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="saving-and-restoring-training-checkpoints-to-from-google-drive">
-<h2>Saving and restoring training checkpoints to/from Google Drive<a class="headerlink" href="#saving-and-restoring-training-checkpoints-to-from-google-drive" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="saving-and-restoring-training-checkpoints-to-from-google-drive">
+<h2>Saving and restoring training checkpoints to/from Google Drive<a class="headerlink" href="#saving-and-restoring-training-checkpoints-to-from-google-drive" title="Permalink to this heading">#</a></h2>
 <p>To avoid losing the training checkpoints during runtime restart, follow these steps:</p>
-<div class="section" id="mount-drive-to-temporarily-save-checkpoints">
-<h3>1. Mount drive to temporarily save checkpoints<a class="headerlink" href="#mount-drive-to-temporarily-save-checkpoints" title="Permalink to this headline">¶</a></h3>
+<section id="mount-drive-to-temporarily-save-checkpoints">
+<h3>1. Mount drive to temporarily save checkpoints<a class="headerlink" href="#mount-drive-to-temporarily-save-checkpoints" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mount drive. -- You may want to add your gDrive</span>
@@ -20538,9 +20673,9 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="before-restarting-the-runtime-save-checkpoint-to-drive">
-<h3>2. BEFORE restarting the runtime, save checkpoint to drive<a class="headerlink" href="#before-restarting-the-runtime-save-checkpoint-to-drive" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="before-restarting-the-runtime-save-checkpoint-to-drive">
+<h3>2. BEFORE restarting the runtime, save checkpoint to drive<a class="headerlink" href="#before-restarting-the-runtime-save-checkpoint-to-drive" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save agent checkpoint to drive.</span>
@@ -20554,11 +20689,11 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="after-restarting-the-runtime-restore-checkpoint-from-drive">
-<h3>3. AFTER restarting the runtime, restore checkpoint from drive<a class="headerlink" href="#after-restarting-the-runtime-restore-checkpoint-from-drive" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="after-restarting-the-runtime-restore-checkpoint-from-drive">
+<h3>3. AFTER restarting the runtime, restore checkpoint from drive<a class="headerlink" href="#after-restarting-the-runtime-restore-checkpoint-from-drive" title="Permalink to this heading">#</a></h3>
 <p>To restore a checkpoint in the restarted Colab runtime:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Re-install all the libraries and run all the cells as before, including the agent instantiation, <strong>except</strong> the training cell.</p></li>
 <li><p>Run the cell below.</p></li>
 <li><p>Run the cell that instantiates the agent <strong>again</strong>.</p></li>
@@ -20576,9 +20711,9 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="optionally-unmount-drive">
-<h3>4. Optionally, unmount drive<a class="headerlink" href="#optionally-unmount-drive" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="optionally-unmount-drive">
+<h3>4. Optionally, unmount drive<a class="headerlink" href="#optionally-unmount-drive" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unmount drive.</span>
@@ -20592,14 +20727,14 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="examples-of-two-additional-agents">
-<h1>Examples of two additional agents:<a class="headerlink" href="#examples-of-two-additional-agents" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dmpo-agent">
-<h2>DMPO agent<a class="headerlink" href="#dmpo-agent" title="Permalink to this headline">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="examples-of-two-additional-agents">
+<h1>Examples of two additional agents:<a class="headerlink" href="#examples-of-two-additional-agents" title="Permalink to this heading">#</a></h1>
+<section id="dmpo-agent">
+<h2>DMPO agent<a class="headerlink" href="#dmpo-agent" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create networks.</span>
@@ -20620,9 +20755,9 @@ Total reward in episode 14: 10.22
 <div class="cell_output docutils container">
 </div>
 </div>
-</div>
-<div class="section" id="ddpg-agent">
-<h2>DDPG agent<a class="headerlink" href="#ddpg-agent" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ddpg-agent">
+<h2>DDPG agent<a class="headerlink" href="#ddpg-agent" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create networks.</span>
@@ -20639,12 +20774,12 @@ Total reward in episode 14: 10.22
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="good-luck">
-<h1>Good luck :)<a class="headerlink" href="#good-luck" title="Permalink to this headline">¶</a></h1>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="good-luck">
+<h1>Good luck :)<a class="headerlink" href="#good-luck" title="Permalink to this heading">#</a></h1>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -20658,7 +20793,7 @@ Total reward in episode 14: 10.22
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./projects/ReinforcementLearning"
         },
         predefinedOutput: true
@@ -20666,58 +20801,313 @@ Total reward in episode 14: 10.22
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ideas_and_datasets.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Ideas</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="lunar_lander.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Performance Analysis of DQN Algorithm on the Lunar Lander task</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="ideas_and_datasets.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Ideas</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="lunar_lander.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Performance Analysis of DQN Algorithm on the Lunar Lander task</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   NMA Robolympics: Controlling robots using reinforcement learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colab-limits">
+   Colab limits
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-pybullet-locomotion-environments">
+     Import
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pybullet
+      </span>
+     </code>
+     locomotion environments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-for-saving-and-restoring-checkpoints">
+   Functions for saving and restoring checkpoints
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#before-runtime-restart">
+     Before runtime restart:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#after-runtime-restart">
+     After runtime restart:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convenience-function-for-creating-videos">
+   Convenience function for creating videos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#network-factory-methods-for-select-continuous-control-agents">
+   Network factory methods for select continuous control agents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-all-pybullet-environments">
+   List of all
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pybullet
+    </span>
+   </code>
+   environments
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifying-the-environment-base-class">
+   Modifying the environment base class
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-the-environment">
+   Instantiate the environment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-default-task">
+   The default task
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-inspect-the-environment-a-bit">
+   Let’s inspect the environment a bit
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-one-frame-of-the-environment">
+     Plot one frame of the environment
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-environment-with-random-actions">
+     Run the environment with random actions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-take-a-look-at-some-other-environment-properties">
+     Lets take a look at some other environment properties
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-some-of-the-robot-properties">
+     Inspect some of the robot properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-dm-acme-agent">
+   Create the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dm-acme
+    </span>
+   </code>
+   agent
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d4pg-agent">
+   D4PG agent
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training">
+   Training
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-trained-policy">
+     Examine trained policy
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-reward">
+     Plot the reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-reward">
+     Total reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saving-and-restoring-training-checkpoints-to-from-google-drive">
+     Saving and restoring training checkpoints to/from Google Drive
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mount-drive-to-temporarily-save-checkpoints">
+       1. Mount drive to temporarily save checkpoints
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#before-restarting-the-runtime-save-checkpoint-to-drive">
+       2. BEFORE restarting the runtime, save checkpoint to drive
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#after-restarting-the-runtime-restore-checkpoint-from-drive">
+       3. AFTER restarting the runtime, restore checkpoint from drive
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optionally-unmount-drive">
+       4. Optionally, unmount drive
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-two-additional-agents">
+   Examples of two additional agents:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dmpo-agent">
+     DMPO agent
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ddpg-agent">
+     DDPG agent
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#good-luck">
+   Good luck :)
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
         </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-    By Neuromatch<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neuromatch
+</p>
+
+  </div>
   
-    <div class="extra_footer">
-      <div>
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
 <a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
 <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
 The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
 </div>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
-
-
-      </div>
-    </div>
+  </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+</div>
+          </div>
+        </footer>
+        
 
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
