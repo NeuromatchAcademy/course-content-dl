@@ -1,35 +1,35 @@
 # General schedule
 
-## 2023 course will run: July 10 - 28
+## 2024 course will run: July 8 - 26, 2024
 
 Course live events: TBD — will update 
 
 ## Course overview
 
-* Sun, July 9: Opening Ceremonies
+* Sun, July 7: Opening Ceremonies
    * 8:30 am UTC
    * 5:30 pm UTC
 
 * Week 1
-   * Mon, July 10: Basics and Pytorch
-   * Tue, July 11: Linear Deep Learning
-   * Wed, July 12: Multilayer Perceptrons
-   * Thu, July 13: Projects day
-   * Fri, July 14: Optimization
+   * Mon, July 8: Basics and Pytorch
+   * Tue, July 9: Linear Deep Learning
+   * Wed, July 10: Multilayer Perceptrons
+   * Thu, July 11: Projects day
+   * Fri, July 12: Optimization
 
 * Week 2
-   * Mon, July 17: Regularization
-   * Tue, July 18: Convnets and DL Thinking 1
-   * Wed, July 19: Modern Convnets
-   * Thu, July 20: Generative models (VAEs and Diffusion models)
-   * Fri, July 21: Attention and Transformers
+   * Mon, July 15: Regularization
+   * Tue, July 16: Convnets and DL Thinking 1
+   * Wed, July 17: Modern Convnets
+   * Thu, July 18: Generative models (VAEs and Diffusion models)
+   * Fri, July 19: Attention and Transformers
 
 * Week 3: Advanced concepts
-   * Mon, July 24: Time Series and Natural Language Processing
-   * Tue, July 25: DL Thinking 2 & Half Projects Day (Abstract Writing)
-   * Wed, July 26: Unsupervised and Self-supervised learning
-   * Thu, July 27: Basic Reinforcement Learning
-   * Fri, July 28: Reinforcement Learning for Games & DL Thinking 3
+   * Mon, July 22: Time Series and Natural Language Processing
+   * Tue, July 23: DL Thinking 2 & Half Projects Day (Abstract Writing)
+   * Wed, July 24: Unsupervised and Self-supervised learning
+   * Thu, July 25: Basic Reinforcement Learning
+   * Fri, July 26: Reinforcement Learning for Games & DL Thinking 3
 ----
 
 ## Daily coursework schedule
@@ -50,7 +50,7 @@ All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time
 \* : Note that the synchronous coursework session starts at 0:00 with the first pod discussion.
 
 ### Project time
-In addition to course time, each day will have 3 hours of project time. Check the time slot widget to see when project time is scheduled for your slot.
+In addition to course time, each day will have 3 hours of project time. Check the [time slot widget](https://neuromatchacademy.github.io/widgets/tz.html) to see when project time is scheduled for your slot.
 
 _Note: Slots 1, 3, and 4 **will not** have project time on W1D1._
 
@@ -81,14 +81,13 @@ During next available project time (which could be on the next day):
 |    Time (Hour)   |    Component                              |
 |------------------|-------------------------------------------|
 |    0:00-1:00\*   |    Individual Abstract Editing            |
-|    1:00-1:45\**  |    Mentor Meeting                         |
+|    1:00-1:45     |    Group Abstract Review                  |
 |    1:45-2:00     |    Break                                  |
 |    2:00-2:40     |    Pod Abstract Swap                      |
 |    2:40-3:00     |    Finalize Abstract                      |
 
 \* : Note that this refers to the start of the projects time, not the coursework time like usual
 
-\** : Timing of this mentor meeting may need to vary based on mentor availability
 
 #### W3D5: Final Day of Course
 
@@ -113,11 +112,11 @@ During next available project time (which could be on the next day):
 
 \** : Note that these events occur after the normal coursework time.
 
-Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time!
+Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final survey is required to access your certificate in the portal after the course. 
 
 Pod farewell: This is just a chance for your pod to say goodbye to each other. No structure imposed or requirements here!
 
-Closing Ceremony/Graduation: We will do this all together on crowdcast.
+Closing Ceremony/Graduation: We will do this all together on Zoom.
 
 **Slot 3:**
 |    Time (Hour)    |    Lecture                               |
@@ -140,13 +139,12 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 \** : Note that these events occur after the normal coursework time.
 
 
-Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time!
+Course Review & Feedback: We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final survey is required to access your certificate in the portal after the course. 
 
 Pod farewell: This is just a chance for your pod to say goodbye to each other. No structure imposed or requirements here!
 
 Closing Ceremony/Graduation: We will do this all together on crowdcast.
 
 ### Professional Development Panels
-*Note that these have been scheduled to be before or after the coursework time for each time slot. In some cases, they overlap by 15 - 30 minutes with projects time - please start on projects time late or end early in order to attend these events*
 
 Course live events: TBD — will update 
