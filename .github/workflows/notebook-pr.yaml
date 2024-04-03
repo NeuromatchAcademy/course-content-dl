@@ -23,10 +23,10 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      # - name: Get commit message
-      #   run: |
-      #     readonly local msg=$(git log -1 --pretty=format:"%s")
-      #     echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
+      - name: Get commit message
+        run: |
+          readonly local msg=$(git log -1 --pretty=format:"%s")
+          echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
 
       - name: Set up Python
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
@@ -86,13 +86,13 @@ jobs:
           python ci/verify_exercises.py $nbs --c "$COMMIT_MESSAGE"
           python ci/make_pr_comment.py $nbs --branch $branch --o comment.txt
 
-      - name: Add PR comment
-        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
-        uses: machine-learning-apps/pr-comment@1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          path: comment.txt
+      # - name: Add PR comment
+      #   if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+      #   uses: machine-learning-apps/pr-comment@1.0.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     path: comment.txt
 
       - name: Update READMEs
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
