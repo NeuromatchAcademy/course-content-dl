@@ -86,6 +86,7 @@ jobs:
           python ci/verify_exercises.py $nbs --c "$COMMIT_MESSAGE"
           python ci/make_pr_comment.py $nbs --branch $branch --o comment.txt
 
+      # This package is  outdated and no longer maintained
       # - name: Add PR comment
       #   if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
       #   uses: machine-learning-apps/pr-comment@1.0.0
