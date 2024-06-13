@@ -1772,8 +1772,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>Previous literature predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bacf2d7b-f60d-43bc-9c19-24bcf2549822">
-<span class="eqno">(126)<a class="headerlink" href="#equation-bacf2d7b-f60d-43bc-9c19-24bcf2549822" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-87376974-c49b-40e2-a038-4467d6413558">
+<span class="eqno">(126)<a class="headerlink" href="#equation-87376974-c49b-40e2-a038-4467d6413558" title="Permalink to this equation">#</a></span>\[\begin{align}
 N &amp;= 40 \\
 M &amp;= 400
 \end{align}\]</div>
@@ -1824,7 +1824,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12309e1b0f5f8b2678fe9ce4f50df80f08c0a5c46dd3ef0d18aefa6382df374b.png" src="../../_images/12309e1b0f5f8b2678fe9ce4f50df80f08c0a5c46dd3ef0d18aefa6382df374b.png" />
+<img alt="../../_images/1175a382f8f924037d4dc2970d71f8c69d2b3ceabcaa12efbc063abc6b55560e.png" src="../../_images/1175a382f8f924037d4dc2970d71f8c69d2b3ceabcaa12efbc063abc6b55560e.png" />
 </div>
 </div>
 <p>Blue is the no-motion condition, and produces flat average spike counts across the 3 s time interval. The orange and green line do show a bell-shaped curve that corresponds to the acceleration profile. But there also seems to be considerable noise: exactly what we need. Let’s see what the spike trains for a single trial look like:</p>
@@ -1836,9 +1836,9 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6fbd1e5b4f33d1bd8d6047d2263785e28305ea8ee5c46874e97cb634148224a4.png" src="../../_images/6fbd1e5b4f33d1bd8d6047d2263785e28305ea8ee5c46874e97cb634148224a4.png" />
-<img alt="../../_images/434b95f0afef8e61b449992591137c1368f3dace3f520f30e5de25a90e62bc3d.png" src="../../_images/434b95f0afef8e61b449992591137c1368f3dace3f520f30e5de25a90e62bc3d.png" />
-<img alt="../../_images/c66b47652a1108d84fc48ff6084ec8a491fc75c66614eccf023d769bb9d1889e.png" src="../../_images/c66b47652a1108d84fc48ff6084ec8a491fc75c66614eccf023d769bb9d1889e.png" />
+<img alt="../../_images/a472317f2beadf2022192fbe4226046e89009efd9e33aebba03cfedac1b3eee6.png" src="../../_images/a472317f2beadf2022192fbe4226046e89009efd9e33aebba03cfedac1b3eee6.png" />
+<img alt="../../_images/a0e9273044846a9d60939847663b93eb609bdb81b126069f94eebb668bbfc07a.png" src="../../_images/a0e9273044846a9d60939847663b93eb609bdb81b126069f94eebb668bbfc07a.png" />
+<img alt="../../_images/f6d9e7b04568f163ff46cdbcc8e2fa8665c331e363994e62bc4e050d9031ea85.png" src="../../_images/f6d9e7b04568f163ff46cdbcc8e2fa8665c331e363994e62bc4e050d9031ea85.png" />
 </div>
 </div>
 <p>You can change the trial number in the bit of code above to compare what the rasterplots look like in different trials. You’ll notice that they all look kind of the same: the 3 conditions are very hard (impossible?) to distinguish by eye-balling.</p>
@@ -1986,7 +1986,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f0e8f6d99d4b7ea50d65e7ac08504675500847058d0a74bb06e228699b609634.png" src="../../_images/f0e8f6d99d4b7ea50d65e7ac08504675500847058d0a74bb06e228699b609634.png" />
+<img alt="../../_images/9843ae2810ff2c115ec287c5109cdc9ff42917007482c1f4c35a579fa62e5254.png" src="../../_images/9843ae2810ff2c115ec287c5109cdc9ff42917007482c1f4c35a579fa62e5254.png" />
 </div>
 </div>
 <p>We asked for 8 cross validations, which show up as the blue dots in the graph (two have the same accuracy). Prediction accuracy ranges from 56% to 72%, with the average at 65%, and the orange line is the median. Given the noisy data, that is not too bad actually.</p>
@@ -2037,7 +2037,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f0e8f6d99d4b7ea50d65e7ac08504675500847058d0a74bb06e228699b609634.png" src="../../_images/f0e8f6d99d4b7ea50d65e7ac08504675500847058d0a74bb06e228699b609634.png" />
+<img alt="../../_images/9843ae2810ff2c115ec287c5109cdc9ff42917007482c1f4c35a579fa62e5254.png" src="../../_images/9843ae2810ff2c115ec287c5109cdc9ff42917007482c1f4c35a579fa62e5254.png" />
 </div>
 </div>
 <p>This is the exact same figure as before, so our function <code class="docutils literal notranslate"><span class="pre">classifyMotionFromSpikes()</span></code> also works as intended.</p>
@@ -2174,7 +2174,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f04470b0ce7dd4df80a6d3eb32bc7a026ddd3df7c45c65a45cf960fa4954d5aa.png" src="../../_images/f04470b0ce7dd4df80a6d3eb32bc7a026ddd3df7c45c65a45cf960fa4954d5aa.png" />
+<img alt="../../_images/4b9adda99b42d92a00984fab52314f12f16e4c80f8a855116c1c85a0dfba6227.png" src="../../_images/4b9adda99b42d92a00984fab52314f12f16e4c80f8a855116c1c85a0dfba6227.png" />
 </div>
 </div>
 <p>Well, that’s interesting! The logistic regression doesn’t do a perfect job, but there is information in these results.</p>

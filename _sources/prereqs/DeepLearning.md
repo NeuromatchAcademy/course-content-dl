@@ -1,6 +1,6 @@
 # Prerequisites and preparatory materials for NMA Deep Learning
 
-Welcome to the [Neuromatch Academy](https://academy.neuromatch.io/)! We're really excited to bring deep learning to such a wide and varied audience. We're preparing an amazing set of lectures and tutorials for you!
+Welcome to the [Neuromatch Academy](https://neuromatch.io/deep-learning-course/)! We're really excited to bring deep learning to such a wide and varied audience. We're preparing an amazing set of lectures and tutorials for you!
 
 ## Preparing yourself for the course
 

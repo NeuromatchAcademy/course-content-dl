@@ -28,15 +28,11 @@ Project TAs are your friendly topic experts to consult with on all issues relate
 
 Sometimes the project TAs might need to schedule meetings slightly earlier or later. Please try to be flexible, they are doing a lot of "virtual footwork" to make sure all the groups have enough support during projects. We also encourage you to reach out to them for extra meetings whenever you need them, and to post questions on discord in the #topic channels. 
 
-## Project Mentors
-
-Project mentors are more senior figures in the field, typically senior postdocs, professors, or industry researchers. Each project group will have a mentor to help them refine their hypotheses and navigate the scientific process. They won't be around as often as the TAs, but they are another source of guidance and perspective.
-
 ## Week 1: Getting started
 
 Depending on your time slot, you may or may not have project time on the first day of the course. Regardless of whether your first project meeting is day 1 or day 2, spend your first session doing the following:
 
-* Split into groups alphabetically. First sort yourselves by the first letter of your name. The first half of the students are in group 1, the second in group 2. If the split is not well-balanced, move one or two people around.
+* Split into groups. We recommend intentionally creating groups with diverse skill sets. Groups should have students who are very confident in Python and those who are just learning. Through the project, students can work together to strengthen each other's skills. We want to make sure that all members of each group get a chance to do all parts of the project. We ask that folks who are good with Python share what they know and hand off tasks to peers who are learning so they can improve their skills.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
 * Listen carefully as others talk about their interests.
 * Individual reading time (30 min): browse the projects booklet which includes this guide (skim the entire thing) + 16 project templates with slides and code + docs with further ideas and datasets
@@ -50,8 +46,6 @@ In your next sessions, watch the [Modeling Steps 1-2 tutorials](https://deeplear
 * You will need to use your own project for some of this content. If you don’t yet have concrete ideas, or you haven’t done a research project before, use one of the provided project templates.
 * If you are using a project template, your goal is to translate the information from the slide and colab notebook into the 10-steps format. Some information might not be readily available in the slide or notebook, and you might have to find it in your literature review later this day.
 * Try to write down a few sentences for each of the two steps applied to your project. Putting thoughts into well-defined sentences and paragraphs helps at all stages of a project.
-
-*Stay tuned for your mentor assignments. Once you receive them, reach out to your mentor to set up a first meeting this week. Also try to arrange a meeting for W2D1, ideally the second half of the day, when their feedback on your abstract could be useful.*
 
 ## W1D4: Projects Day!
 
@@ -97,7 +91,7 @@ Then,
 * You should now have as many copies of your abstract as there are students in your group. Put them all into the same google doc, and try to see what you all did the same / differently. What sounds better? Pick and choose different sentences from different abstracts.
 
 
-Try to schedule a meeting with your project TA and/or mentor during this day and show them your abstract. Try to get explicit feedback and edit the abstract together in a google doc.
+Try to schedule a meeting with your project TA during this day and show them your abstract. Try to get explicit feedback and edit the abstract together in a google doc.
 
 Likewise, it is always revealing to present your research to someone who has never heard about it. Take turns in your pod to read the other group's abstract and provide feedback. What did you understand and what didn't make sense? Give detailed writing feedback if you can (use "suggestion mode" in google docs). If there is no other project group in your pod, ask your TA to reach out to other pods to find a group you can workshop your abstract with.
 
@@ -120,7 +114,7 @@ At the end of W3D4, you should also submit your slides via this [Airtable link](
 
 Please see final day schedule and shared calendars for timing details: [https://deeplearning.neuromatch.io/tutorials/Schedule/daily_schedules.html#w3d5-final-day-of-course](https://deeplearning.neuromatch.io/tutorials/Schedule/daily_schedules.html#w3d5-final-day-of-course)
 
-This is the day where you present your project to other groups. Your mentor and your project TAs can be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
+This is the day where you present your project to other groups. Your project TAs can be invited too, but they are busy so they might not make it. The groups will take turns to share their screens. You can use figures and other graphics, but this is meant to be told as a story, and everyone from your group should take a turn telling a part of the story. Tell us about the different hypotheses you’ve had at different points and how you refined them using some of the tools we taught.
 
 ### Schedule
 

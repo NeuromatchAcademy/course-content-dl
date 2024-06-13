@@ -4,7 +4,7 @@ Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
     result = await obj
   File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_client/channels.py", line 230, in get_msg
-    res = self._recv()
+    return res
 _queue.Empty
 
 During handling of the above exception, another exception occurred:

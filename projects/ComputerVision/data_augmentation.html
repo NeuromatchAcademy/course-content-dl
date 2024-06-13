@@ -1763,8 +1763,8 @@ GPU is enabled in this notebook.
 <section id="mixup">
 <h2>Mixup<a class="headerlink" href="#mixup" title="Permalink to this heading">#</a></h2>
 <p>Mixup is a data augmentation technique that combines pairs of examples via a convex combination of the images and the labels. Given images <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> with labels <span class="math notranslate nohighlight">\(y_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span>, respectively, and <span class="math notranslate nohighlight">\(\lambda \in [0, 1]\)</span>, mixup creates a new image <span class="math notranslate nohighlight">\(\hat{x}\)</span> with label <span class="math notranslate nohighlight">\(\hat{y}\)</span> the following way:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4a0abc1-1bbd-472d-8c3f-025daccdd721">
-<span class="eqno">(128)<a class="headerlink" href="#equation-a4a0abc1-1bbd-472d-8c3f-025daccdd721" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-14356126-e765-4652-94c2-a8e36873215c">
+<span class="eqno">(128)<a class="headerlink" href="#equation-14356126-e765-4652-94c2-a8e36873215c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \hat{x} &amp;= \lambda x_i + (1 - \lambda) x_j \\
 \hat{y} &amp;= \lambda y_i + (1 - \lambda) y_j
 \end{align}\]</div>
