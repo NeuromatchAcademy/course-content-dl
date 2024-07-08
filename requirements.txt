@@ -11,3 +11,5 @@ pathlib
 xkcd
 decorator==5.0.9
 pyvirtualdisplay
+tensorboard
+moviepy
