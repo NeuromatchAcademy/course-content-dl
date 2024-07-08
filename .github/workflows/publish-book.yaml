@@ -14,7 +14,22 @@ jobs:
   build-and-deploy-book:
     runs-on: ubuntu-latest
     steps:
-
+      - name: Free up disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+          
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+        
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -46,7 +61,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install jupyter-book==0.10.2 ghp-import
+          pip install jupyter-book==0.14.0 ghp-import
           pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
 
       - name: Install XKCD fonts
@@ -70,6 +85,7 @@ jobs:
       - name: Build the book
         run: |
           python ci/generate_book_dl.py student
+          jupyter-book toc migrate /home/runner/work/course-content-dl/course-content-dl/book/_toc.yml -o /home/runner/work/course-content-dl/course-content-dl/book/_toc.yml
           ln -s ../tutorials book/tutorials
           ln -s ../projects book/projects
           ln -s ../prereqs book/prereqs

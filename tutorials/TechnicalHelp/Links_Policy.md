@@ -6,7 +6,7 @@ Course materials: [https://deeplearning.neuromatch.io/](https://deeplearning.neu
 
 Portal: [https://portal.neuromatchacademy.org/](https://portal.neuromatchacademy.org/)
 
-Website: [https://academy.neuromatch.io/](https://academy.neuromatch.io/)
+Website: [https://neuromatch.io/deep-learning-course/](https://neuromatch.io/deep-learning-course/)
 
 Crowdcast: [https://www.crowdcast.io/e/neuromatch-academy-2022-](https://www.crowdcast.io/e/neuromatch-academy-2022-)
 
