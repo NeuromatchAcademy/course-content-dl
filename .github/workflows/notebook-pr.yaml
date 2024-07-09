@@ -63,6 +63,7 @@ jobs:
       - name: Install dependencies
         if: "!contains(env.COMMIT_MESSAGE, 'skip ci') && contains(env.COMMIT_MESSAGE, 'ci:execute')"
         run: |
+          # Install dependencies for github processing
           sudo apt install nvidia-cuda-toolkit -y
           sudo apt-get update && sudo apt install xvfb -y
           python -m pip install --upgrade pip wheel
