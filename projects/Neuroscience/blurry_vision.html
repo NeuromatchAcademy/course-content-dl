@@ -1560,11 +1560,6 @@ title="Print to PDF"
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for torch-intermediate-layer-getter (setup.py) ... ?25l?25hdone
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1653,7 +1648,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 42 has been set.
-GPU is enabled in this notebook.
+WARNING: For this notebook to perform best, if possible, in the menu under `Runtime` -&gt; `Change runtime type.`  select `GPU` 
 </pre></div>
 </div>
 </div>
@@ -1829,7 +1824,7 @@ GPU is enabled in this notebook.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7eea51fd8c814cacf97e44d4787c8882b9c2bb8abfb6296dbb973c7aecb6c376.png" src="../../_images/7eea51fd8c814cacf97e44d4787c8882b9c2bb8abfb6296dbb973c7aecb6c376.png" />
+<img alt="../../_images/ff4ccb297c79bd79d53223f7ff9a1f205ff7d2e261bc678a413a335d1cc0f669.png" src="../../_images/ff4ccb297c79bd79d53223f7ff9a1f205ff7d2e261bc678a413a335d1cc0f669.png" />
 </div>
 </div>
 </section>
@@ -1939,18 +1934,21 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/javascript">
-        (async () => {
-            const url = new URL(await google.colab.kernel.proxyPort(6006, {'cache': true}));
-            url.searchParams.set('tensorboardColab', 'true');
-            const iframe = document.createElement('iframe');
-            iframe.src = url;
-            iframe.setAttribute('width', '100%');
-            iframe.setAttribute('height', '800');
-            iframe.setAttribute('frameborder', 0);
-            document.body.appendChild(iframe);
+<div class="output text_html">
+      <iframe id="tensorboard-frame-1c80317fa3b1799d" width="100%" height="800" frameborder="0">
+      </iframe>
+      <script>
+        (function() {
+          const frame = document.getElementById("tensorboard-frame-1c80317fa3b1799d");
+          const url = new URL("/", window.location);
+          const port = 6006;
+          if (port) {
+            url.port = port;
+          }
+          frame.src = url;
         })();
-    </script></div>
+      </script>
+    </div></div>
 </div>
 <section id="training-loop">
 <h2>Training Loop<a class="headerlink" href="#training-loop" title="Permalink to this heading">#</a></h2>
@@ -2087,23 +2085,23 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac2074d4eba742ea8b69d976e2c75935", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "9f8ee2b3d9b34c91a426a614f243a9ea", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples before training: 50.00
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "392a6a9408c14847a3611bf0ae7a4eee", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6eb2c853b47e4290ba30efdd0e1edbb1", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples before training: 50.00
 Accuracy on the 2494 clear testing samples before training: 50.00
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a17279272eb6494f84136b77a617fcae", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e081de51b9904b5f936d9bd0ee2660df", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples before training: 50.00
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7bf39b3fd12241b6a9721fa437147be0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "a0acb0f29f0e4c6ab2248c021ce251f1", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples before training: 50.00
 Accuracy on the 2494 blurry testing samples before training: 50.00
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "22ca6448031d4ce8b53dc202a64f9719", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "9b8a17a98e9e4eadb9f2c96ef4ad6630", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "b1454536906d4faa84a760528adbfd1d", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after training: 64.09
-Accuracy on the 2494 clear testing samples after training: 63.19
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5c8c0aacb4754e55a31f86ce2abbd9f3", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "962f8548de614a4182c11e2c43f35cf0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5e58c8594ba3462cbfd08e03fc066dc2", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after training: 62.42
+Accuracy on the 2494 clear testing samples after training: 62.35
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "62dbd641a41244af9ebdf0328de90dce", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "d12425601e5d4aa78193914e2b823f4c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after training: 73.98
-Accuracy on the 2494 blurry testing samples after training: 71.97
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "942fd3d11d4946b785eead22422670dc", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "d792cfe2ff29424eb84485da1301989c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after training: 71.32
+Accuracy on the 2494 blurry testing samples after training: 71.13
 </pre></div>
 </div>
-<img alt="../../_images/d668d2bc5e6c72ea130b9243f296ce9bb0957abc1ed048cf86bb831b54fbd20b.png" src="../../_images/d668d2bc5e6c72ea130b9243f296ce9bb0957abc1ed048cf86bb831b54fbd20b.png" />
+<img alt="../../_images/d311c0d83afbda1210345e5b6948872b2017c275c57a9a17e3f3112abdd182a3.png" src="../../_images/d311c0d83afbda1210345e5b6948872b2017c275c57a9a17e3f3112abdd182a3.png" />
 </div>
 </div>
 </section>
@@ -2175,31 +2173,31 @@ Accuracy on the 2494 blurry testing samples after training: 71.97
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1c3f2bd364ff418abea54cee28520382", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "50416897e5da43cd8cf7ee956bd00bb6", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples before training: 50.00
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bf689e2de4ea4dd5ad625a6793625892", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "18871e3700ad42e0a9826ea229cf1703", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples before training: 50.00
 Accuracy on the 2494 clear testing samples before training: 50.00
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "02534dcb995f4de59d7cf43055a11753", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e34fec1ee9354229879f7848888cea66", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples before training: 50.00
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ff4e4f2568b4147afab5154da08b944", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "d4ed04edb46445f8a6a5d5f18e6b86e6", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples before training: 50.00
 Accuracy on the 2494 blurry testing samples before training: 50.00
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ffd74459a1541b7b0c3badbd41e3675", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "37bef7a6d95f4cc48c26c8bbb908ad32", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "2ba68c5d0f384d53b91205006cc69d85", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after pretraining: 76.43
-Accuracy on the 2494 clear testing samples after pretraining: 75.74
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a26a05b2f164f918f5e123891b40d4c", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "30155460f3bf42eeb129da606fcf75c2", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "02009c120e9741afbcb5357f22941e25", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after pretraining: 77.26
+Accuracy on the 2494 clear testing samples after pretraining: 76.50
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3fd54eb969b94ad686555d9e08ef9c8a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "df9d9ed605c74840bbd0e0c912c291b2", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after pretraining: 61.01
-Accuracy on the 2494 blurry testing samples after pretraining: 60.06
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5b6bdeeee35a49008b5e89e607d417bb", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "a301f6de7bb74d9a9afb05cf73703a96", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after pretraining: 58.27
+Accuracy on the 2494 blurry testing samples after pretraining: 57.62
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5ca2a99ef00d4b76871b6b5162c46f43", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7a0e7f9f69f248828d437270299447b5", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "4b5ca373beb0414fbf6d218d6c1133ac", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after training: 72.82
-Accuracy on the 2494 clear testing samples after training: 72.29
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "550e7f421fdb4727bee5f99ba61053ad", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "00221bd901984f60a292641bc771749d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "1bc6003fe88b49c48f071ff6dc1e8abf", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 clear training samples after training: 76.25
+Accuracy on the 2494 clear testing samples after training: 75.82
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d34b7c39753a46a3bca91717b7e1f0c4", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbe594f8af104a1eab5f3e53c2566297", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after training: 77.60
-Accuracy on the 2494 blurry testing samples after training: 77.71
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4270771b1bd44e08b9f89291ee943877", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "019c872eea0a44fda4e42adc8e5929f2", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the 17953 blurry training samples after training: 76.87
+Accuracy on the 2494 blurry testing samples after training: 77.19
 </pre></div>
 </div>
-<img alt="../../_images/8958bf80387189a9ba08ee12fa6638017fe408e539df606eeb37b4f25708f355.png" src="../../_images/8958bf80387189a9ba08ee12fa6638017fe408e539df606eeb37b4f25708f355.png" />
+<img alt="../../_images/d282a25509616087aa0ef9fa21838c256736e6eb672c9152c50d0217dba7bc67.png" src="../../_images/d282a25509616087aa0ef9fa21838c256736e6eb672c9152c50d0217dba7bc67.png" />
 </div>
 </div>
 <p>Wow thats interesting! The model of the visual system has a hard time to distinguish between blurry cats and dogs even after having seen images of cats and dog before! It takes further training on the blurry images to be able to learn the difference well. Even then, it is only a little better than the naive model. Would it be same for a human being?</p>
@@ -2263,8 +2261,8 @@ Accuracy on the 2494 blurry testing samples after training: 77.71
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/901ecad9563e29d18b8abf0d0bfe3579ac507a5690f15bf82ce3ef16df98b910.png" src="../../_images/901ecad9563e29d18b8abf0d0bfe3579ac507a5690f15bf82ce3ef16df98b910.png" />
-<img alt="../../_images/714c44b4cda688b19a6b23500b3b84b2d9fc3e30580c31db89b0a6f8a5e85c71.png" src="../../_images/714c44b4cda688b19a6b23500b3b84b2d9fc3e30580c31db89b0a6f8a5e85c71.png" />
+<img alt="../../_images/bbfc180f17a64522942b9181cb4409892274d3ece2b0663a012e28b7bfca7b6c.png" src="../../_images/bbfc180f17a64522942b9181cb4409892274d3ece2b0663a012e28b7bfca7b6c.png" />
+<img alt="../../_images/d46a4383c30d4dc0a5ea4ea035482477e41da4949bb6975cfabd3a14c8a3def5.png" src="../../_images/d46a4383c30d4dc0a5ea4ea035482477e41da4949bb6975cfabd3a14c8a3def5.png" />
 </div>
 </div>
 </section>
@@ -2290,9 +2288,9 @@ Accuracy on the 2494 blurry testing samples after training: 77.71
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d0292844b76663896ccc3e4d7f8ad7b93a6307b45fe4eb6107985a781d5c8194.png" src="../../_images/d0292844b76663896ccc3e4d7f8ad7b93a6307b45fe4eb6107985a781d5c8194.png" />
-<img alt="../../_images/5878d98d2ef3f982c15ab912f2666e1c2fae619141dbd778f188585e90c9d2bd.png" src="../../_images/5878d98d2ef3f982c15ab912f2666e1c2fae619141dbd778f188585e90c9d2bd.png" />
-<img alt="../../_images/91bee10d99a1dd4a550d28b2ca791794128b3362f788efcf933c88212747f466.png" src="../../_images/91bee10d99a1dd4a550d28b2ca791794128b3362f788efcf933c88212747f466.png" />
+<img alt="../../_images/e9eefca80a488f9d989f36f46adce02e84cb0558a52af59d0850752b3cf1c690.png" src="../../_images/e9eefca80a488f9d989f36f46adce02e84cb0558a52af59d0850752b3cf1c690.png" />
+<img alt="../../_images/b30be4559e149adef2463239fa95b8c120cb74f9247e576a0b77c6a7395abaa5.png" src="../../_images/b30be4559e149adef2463239fa95b8c120cb74f9247e576a0b77c6a7395abaa5.png" />
+<img alt="../../_images/38fa3d895d37c8d565a0c56b55250aa3a76d6af32b2ee2d9cee37f21a3e69715.png" src="../../_images/38fa3d895d37c8d565a0c56b55250aa3a76d6af32b2ee2d9cee37f21a3e69715.png" />
 </div>
 </div>
 <p>Looks like with the small amount of training, the filters are not very meaningful. Also, there seem to be only very small differences are visible at the first layer.</p>
@@ -2378,13 +2376,13 @@ Accuracy on the 2494 blurry testing samples after training: 77.71
 Before Training
 </pre></div>
 </div>
-<img alt="../../_images/e0b3a6cf505cfffcfffc9c79a4f89730b451af8c08fb55105aad84b91205044b.png" src="../../_images/e0b3a6cf505cfffcfffc9c79a4f89730b451af8c08fb55105aad84b91205044b.png" />
-<img alt="../../_images/49893098255320175765ac9808bf4f695c02c08803a612d60ff54e37192029da.png" src="../../_images/49893098255320175765ac9808bf4f695c02c08803a612d60ff54e37192029da.png" />
+<img alt="../../_images/dc0f3a9a47e30e64785f4cf5fd041834f8e4529a018293da574a9c7f127b3775.png" src="../../_images/dc0f3a9a47e30e64785f4cf5fd041834f8e4529a018293da574a9c7f127b3775.png" />
+<img alt="../../_images/334fe8ed43261225876a7f3c3ab4383e94d091e2d9cbb6cafc1b3852a39279a9.png" src="../../_images/334fe8ed43261225876a7f3c3ab4383e94d091e2d9cbb6cafc1b3852a39279a9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Training
 </pre></div>
 </div>
-<img alt="../../_images/ad59ced92bb8152363a31cb9ea60241b18421e7554d4cdfac54b8e3ef4d8bcf5.png" src="../../_images/ad59ced92bb8152363a31cb9ea60241b18421e7554d4cdfac54b8e3ef4d8bcf5.png" />
-<img alt="../../_images/35561822ab8aaeb0f53fef840aea66fe50efc7aede74773c83aa18942cd14c74.png" src="../../_images/35561822ab8aaeb0f53fef840aea66fe50efc7aede74773c83aa18942cd14c74.png" />
+<img alt="../../_images/4647e77042fbcec0d0bb035bfec4f6149c31fe80eb609952b747bdee1b4842a7.png" src="../../_images/4647e77042fbcec0d0bb035bfec4f6149c31fe80eb609952b747bdee1b4842a7.png" />
+<img alt="../../_images/4d2b9de9646f8eded1d23c65cd67c3a7bcef426f73ae249c4728716566a64144.png" src="../../_images/4d2b9de9646f8eded1d23c65cd67c3a7bcef426f73ae249c4728716566a64144.png" />
 </div>
 </div>
 <p>Over training, the naive model seems to have learnt more complex features as apparent from the intermediate layer outputs.</p>
@@ -2423,18 +2421,18 @@ Before Training
 Before Training
 </pre></div>
 </div>
-<img alt="../../_images/fba76d664b4207b76430087b27bf245df91952eae1ba9cfa53d5a5d766d54903.png" src="../../_images/fba76d664b4207b76430087b27bf245df91952eae1ba9cfa53d5a5d766d54903.png" />
-<img alt="../../_images/21966a256cc4d796c47f572b181ea2f074f23d4fd098f9d3494de7c398f5528b.png" src="../../_images/21966a256cc4d796c47f572b181ea2f074f23d4fd098f9d3494de7c398f5528b.png" />
+<img alt="../../_images/bbf0494d745b879174efc08335e9ea5e5b782b04b45fdfb93bff921f26f45ccb.png" src="../../_images/bbf0494d745b879174efc08335e9ea5e5b782b04b45fdfb93bff921f26f45ccb.png" />
+<img alt="../../_images/914f81029aa0000bcf59238b19972788c8f0c4cc7351597bc0edca81d604527d.png" src="../../_images/914f81029aa0000bcf59238b19972788c8f0c4cc7351597bc0edca81d604527d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Pretraining
 </pre></div>
 </div>
-<img alt="../../_images/b460b284337d4d257622bf30556f66c9a262466352e82555b3c075bb6b3f6dee.png" src="../../_images/b460b284337d4d257622bf30556f66c9a262466352e82555b3c075bb6b3f6dee.png" />
-<img alt="../../_images/f11c3ad39eaf334c949cf542e1412d03bcf52fbd913c19715fe836f3e1874724.png" src="../../_images/f11c3ad39eaf334c949cf542e1412d03bcf52fbd913c19715fe836f3e1874724.png" />
+<img alt="../../_images/dcb76028bc82209fcdd0c9e984c2f67474eb47837bcaaca613ca7c0a756d86be.png" src="../../_images/dcb76028bc82209fcdd0c9e984c2f67474eb47837bcaaca613ca7c0a756d86be.png" />
+<img alt="../../_images/32dda0727f47def67dead03e4fdc7ecfe154267b3e64cdde506ba8ea6823a8b5.png" src="../../_images/32dda0727f47def67dead03e4fdc7ecfe154267b3e64cdde506ba8ea6823a8b5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Training
 </pre></div>
 </div>
-<img alt="../../_images/22c03e45cf5fba7a15d9bab38b4a795dde6e3c25a0682e72b3430206889cfe23.png" src="../../_images/22c03e45cf5fba7a15d9bab38b4a795dde6e3c25a0682e72b3430206889cfe23.png" />
-<img alt="../../_images/122003857445b760e8720f61cc90f888de167fba1cb607e7995c0d4b48202cea.png" src="../../_images/122003857445b760e8720f61cc90f888de167fba1cb607e7995c0d4b48202cea.png" />
+<img alt="../../_images/d864da7c51caf9d0e8a07fd7dd1bb5a25e7a1b552708179965397f403887483a.png" src="../../_images/d864da7c51caf9d0e8a07fd7dd1bb5a25e7a1b552708179965397f403887483a.png" />
+<img alt="../../_images/4e4f3a77e8ea1193ef72a937ba395c726abeebd917dba9738766f0ad8f0c0c2a.png" src="../../_images/4e4f3a77e8ea1193ef72a937ba395c726abeebd917dba9738766f0ad8f0c0c2a.png" />
 </div>
 </div>
 <p>Clearly, the network output is only somewhat similar between pretraining and training. The differences seem to suggest that the process of learning over blurred images did change the features the network focused which probably contibuted to improved response to blurry images.</p>
@@ -2455,7 +2453,7 @@ Before Training
 <span class="c1"># # Download the Data</span>
 <span class="c1"># if &quot;cats-and-dogs.zip&quot; not in os.listdir():</span>
 <span class="c1">#   !wget --no-check-certificate \</span>
-<span class="c1">#     &quot;https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip&quot; \</span>
+<span class="c1">#     &quot;https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_5340.zip&quot; \</span>
 <span class="c1">#     -O &quot;cats-and-dogs.zip&quot;</span>
 
 <span class="c1"># local_zip = &#39;cats-and-dogs.zip&#39;</span>

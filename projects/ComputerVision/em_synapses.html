@@ -1487,7 +1487,7 @@ title="Print to PDF"
 <h1>Knowledge Extraction from a Convolutional Neural Network<a class="headerlink" href="#knowledge-extraction-from-a-convolutional-neural-network" title="Permalink to this heading">#</a></h1>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong> Jan Funke</p>
-<p><strong>Production editors:</strong> Spiros Chavlis</p>
+<p><strong>Production editors:</strong> Spiros Chavlis, Konstantine Tsafatinos</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="objective">
@@ -1516,6 +1516,18 @@ title="Print to PDF"
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1535,6 +1547,8 @@ title="Print to PDF"
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
 </div>
 </div>
 </section>
@@ -1588,64 +1602,115 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
 
+<span class="k">def</span> <span class="nf">download_file_parts</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download file parts from given URLs and save them in the specified directory.</span>
+
+<span class="sd">    :param urls: List of URLs to download</span>
+<span class="sd">    :param output_directory: Directory to save the downloaded parts (default is current directory)</span>
+<span class="sd">    :return: List of downloaded file paths</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_directory</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
+
+    <span class="n">downloaded_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  <span class="c1"># Raises an HTTPError for bad requests</span>
+
+            <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;part</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_directory</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">32768</span><span class="p">):</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+            <span class="n">downloaded_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded: </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error downloading </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">downloaded_files</span>
+
+<span class="k">def</span> <span class="nf">reassemble_file</span><span class="p">(</span><span class="n">output_file</span><span class="p">):</span>
+    <span class="n">chunk_number</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">chunk_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;part</span><span class="si">{</span><span class="n">chunk_number</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">chunk_name</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">chunk_name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">chunk_number</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;part1&#39;</span><span class="p">,</span> <span class="s1">&#39;part2&#39;</span><span class="p">,</span> <span class="s1">&#39;part3&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded files have been removed!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reassembled </span><span class="si">{</span><span class="n">chunk_number</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2"> parts into </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+
 <span class="c1"># @markdown Download the resources for this tutorial (one zip file)</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;resources.zip&#39;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/sh/ucpjfd3omjieu80/AAAvZynLtzvhyFx7_jwVhUK2a?dl=1&#39;</span>
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://osf.io/download/4x7p3/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://osf.io/download/fzwea/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://osf.io/download/qpbcv/&quot;</span>
+<span class="p">]</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;data/&#39;</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data downlading...&#39;</span><span class="p">)</span>
-  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
-    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Download is cmpleted.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data downloading...&#39;</span><span class="p">)</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+    <span class="n">downloaded_parts</span> <span class="o">=</span> <span class="n">download_file_parts</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Download is completed.&#39;</span><span class="p">)</span>
 
-  <span class="c1"># @markdown Unzip the file</span>
-  <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;resources.zip&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reassembling Files...&#39;</span><span class="p">)</span>
+    <span class="n">base_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">reassemble_file</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 
-  <span class="c1"># specifying the zip file name</span>
-  <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">]</span>
+    <span class="c1"># @markdown Unzip the file</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
+        <span class="c1"># extracting all the files</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting all the files now...&#39;</span><span class="p">)</span>
+        <span class="n">zf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
 
-  <span class="c1"># opening the zip file in READ mode</span>
-  <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
-    <span class="c1"># extracting all the files</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting all the files now...&#39;</span><span class="p">)</span>
-    <span class="n">zf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="c1"># # @markdown Extract the data</span>
+    <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zh</span><span class="p">:</span>
+            <span class="c1"># extracting all the files</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Archive: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Extracting data...&quot;</span><span class="p">)</span>
+            <span class="n">zh</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
 
+    <span class="c1"># @markdown Make sure the order of classes matches the pretrained model</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/0_gaba&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/acetylcholine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/1_acetylcholine&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/2_glutamate&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/3_serotonin&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/octopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/4_octopamine&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/5_dopamine&#39;</span><span class="p">)</span>
 
-  <span class="c1"># @markdown Extract the data</span>
-  <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">]</span>
-
-  <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
-    <span class="c1"># opening the zip file in READ mode</span>
-    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zh</span><span class="p">:</span>
-      <span class="c1"># extracting all the files</span>
-      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Archive: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Extracting data...&quot;</span><span class="p">)</span>
-      <span class="n">zh</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
-
-  <span class="c1"># @markdown Make sure the order of classes matches the pretrained model</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/0_gaba&#39;</span><span class="p">)</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/acetylcholine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/1_acetylcholine&#39;</span><span class="p">)</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/2_glutamate&#39;</span><span class="p">)</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/3_serotonin&#39;</span><span class="p">)</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/octopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/4_octopamine&#39;</span><span class="p">)</span>
-  <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;data/raw/synapses/dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;data/raw/synapses/5_dopamine&#39;</span><span class="p">)</span>
+    <span class="c1"># @markdown Remove the archives</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;experiments.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;resources.zip&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data are downloaded.&#39;</span><span class="p">)</span>
-
-<span class="c1"># @markdown Remove the archives</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;checkpoints.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;experiments.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;data.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;resources.zip&#39;</span><span class="p">]:</span>
-  <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data are already downloaded.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data are downloaded.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data are already downloaded.
 </pre></div>
 </div>
 </div>
@@ -1708,12 +1773,13 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of images per class:
-	0_gaba:	n=15855	weight=6.30715862503942e-05
-	1_acetylcholine:	n=4911	weight=0.00020362451639177357
-	2_glutamate:	n=3550	weight=0.00028169014084507044
-	3_serotonin:	n=2297	weight=0.00043535045711797995
-	4_octopamine:	n=951	weight=0.0010515247108307045
-	5_dopamine:	n=4649	weight=0.00021510002151000216
+	0_gaba:	n=15945	weight=6.271558482282847e-05
+	1_acetylcholine:	n=4852	weight=0.00020610057708161583
+	2_glutamate:	n=3556	weight=0.00028121484814398203
+	3_serotonin:	n=2316	weight=0.0004317789291882556
+	4_octopamine:	n=934	weight=0.0010706638115631692
+	5_dopamine:	n=4640	weight=0.00021551724137931034
+	cycle_gan:	n=19383	weight=5.159160088737554e-05
 </pre></div>
 </div>
 </div>
@@ -1737,7 +1803,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b429c09a7311ce6a64090804efab07fa4cb677ca4c0673e4c1d0511ac4b3a885.png" src="../../_images/b429c09a7311ce6a64090804efab07fa4cb677ca4c0673e4c1d0511ac4b3a885.png" />
+<img alt="../../_images/8f9075fcda24135cdc6a8bcb404f520111c5a4603215a31f42edb0670dd6b1f1.png" src="../../_images/8f9075fcda24135cdc6a8bcb404f520111c5a4603215a31f42edb0670dd6b1f1.png" />
 </div>
 </div>
 </section>
@@ -1868,7 +1934,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Will use device cuda for training
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Will use device cpu for training
 </pre></div>
 </div>
 </div>
@@ -1999,7 +2065,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final test accuracy: 0.8054750869061413
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final test accuracy: 0.49737888647866957
 </pre></div>
 </div>
 </div>
@@ -2040,6 +2106,12 @@ title="Print to PDF"
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>In this example, we will translate between GABAergic and glutamatergic synapses.</p>
 <p>First, we have to copy images of either type into a format that the CycleGAN library is happy with. Afterwards, we can start training on those images.</p>
@@ -2062,297 +2134,16 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># translate images from class A to B, and classify each with the VGG network trained above</span>
-<span class="n">cycle_gan</span><span class="o">.</span><span class="n">test</span><span class="p">(</span>
-    <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;data/raw/synapses/&#39;</span><span class="p">,</span>
-    <span class="n">class_A</span><span class="o">=</span><span class="s1">&#39;0_gaba&#39;</span><span class="p">,</span>
-    <span class="n">class_B</span><span class="o">=</span><span class="s1">&#39;2_glutamate&#39;</span><span class="p">,</span>
-    <span class="n">img_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-    <span class="n">checkpoints_dir</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/cycle_gan/gaba_glutamate/&#39;</span><span class="p">,</span>
-    <span class="n">vgg_checkpoint</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/classifier/vgg_checkpoint&#39;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------- Options ---------------
-             aspect_ratio: 1.0                           
-           aux_checkpoint: checkpoints/synapses/classifier/vgg_checkpoint	[default: None]
-   aux_downsample_factors: [(2, 2), (2, 2), (2, 2), (2, 2)]
-             aux_input_nc: 1                             
-           aux_input_size: 128                           
-                  aux_net: vgg2d                         
-       aux_output_classes: 6                             
-               batch_size: 1                             
-          checkpoints_dir: checkpoints/synapses/cycle_gan/gaba_glutamate	[default: ./checkpoints]
-                crop_size: 128                           
-                 dataroot: data/raw/synapses/cycle_gan/0_gaba_2_glutamate	[default: None]
-             dataset_mode: single                        
-                direction: AtoB                          
-          display_winsize: 256                           
-                    epoch: latest                        
-                     eval: False                         
-                  gpu_ids: 0                             
-                init_gain: 0.02                          
-                init_type: normal                        
-                 input_nc: 1                             
-                  isTrain: False                         	[default: None]
-                load_iter: 0                             	[default: 0]
-                load_size: 128                           
-         max_dataset_size: inf                           
-                    model: test                          
-             model_suffix: _A                            	[default: ]
-               n_layers_D: 3                             
-                     name:                               	[default: experiment_name]
-                      ndf: 64                            
-                     netD: basic                         
-                     netG: resnet_9blocks                
-                      ngf: 64                            
-               no_dropout: True                          	[default: False]
-                  no_flip: True                          
-                     norm: instance                      
-                    ntest: inf                           
-                 num_test: 500                           	[default: 50]
-              num_threads: 1                             	[default: 4]
-                output_nc: 1                             
-                    phase: test                          
-               preprocess: none                          
-              results_dir: data/raw/synapses/cycle_gan/0_gaba_2_glutamate/results	[default: ./results/]
-           serial_batches: False                         
-                   suffix:                               
-                  verbose: True                          	[default: False]
------------------ End -------------------
-dataset [SingleDataset] was created
-initialize network with normal
-model [TestModel] was created
-loading the model from checkpoints/synapses/cycle_gan/gaba_glutamate/latest_net_G_A.pth
----------- Networks initialized -------------
-DataParallel(
-  (module): ResnetGenerator(
-    (model): Sequential(
-      (0): ReflectionPad2d((3, 3, 3, 3))
-      (1): Conv2d(1, 64, kernel_size=(7, 7), stride=(1, 1))
-      (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-      (3): ReLU(inplace=True)
-      (4): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-      (5): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-      (6): ReLU(inplace=True)
-      (7): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-      (8): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-      (9): ReLU(inplace=True)
-      (10): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (11): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (12): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (13): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (14): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (15): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (16): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (17): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (18): ResnetBlock(
-        (conv_block): Sequential(
-          (0): ReflectionPad2d((1, 1, 1, 1))
-          (1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (2): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-          (3): ReLU(inplace=True)
-          (4): ReflectionPad2d((1, 1, 1, 1))
-          (5): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
-          (6): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-        )
-      )
-      (19): ConvTranspose2d(256, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-      (20): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-      (21): ReLU(inplace=True)
-      (22): ConvTranspose2d(128, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-      (23): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
-      (24): ReLU(inplace=True)
-      (25): ReflectionPad2d((3, 3, 3, 3))
-      (26): Conv2d(64, 1, kernel_size=(7, 7), stride=(1, 1))
-      (27): Tanh()
-    )
-  )
-)
-[Network G_A] Total number of parameters : 11.366 M
------------------------------------------------
-creating web directory data/raw/synapses/cycle_gan/0_gaba_2_glutamate/results/test_latest
-processing (0000)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/0_train.png&#39;]
-processing (0005)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10004_train.png&#39;]
-processing (0010)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10009_train.png&#39;]
-processing (0015)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10013_train.png&#39;]
-processing (0020)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10018_train.png&#39;]
-processing (0025)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10022_train.png&#39;]
-processing (0030)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10027_train.png&#39;]
-processing (0035)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10031_train.png&#39;]
-processing (0040)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10036_train.png&#39;]
-processing (0045)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10040_train.png&#39;]
-processing (0050)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10045_train.png&#39;]
-processing (0055)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1004_train.png&#39;]
-processing (0060)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10054_train.png&#39;]
-processing (0065)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10059_train.png&#39;]
-processing (0070)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10063_train.png&#39;]
-processing (0075)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10068_train.png&#39;]
-processing (0080)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10072_train.png&#39;]
-processing (0085)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10077_train.png&#39;]
-processing (0090)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10081_train.png&#39;]
-processing (0095)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10086_train.png&#39;]
-processing (0100)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10090_train.png&#39;]
-processing (0105)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10095_train.png&#39;]
-processing (0110)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1009_train.png&#39;]
-processing (0115)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10103_train.png&#39;]
-processing (0120)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10108_train.png&#39;]
-processing (0125)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10112_train.png&#39;]
-processing (0130)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10117_train.png&#39;]
-processing (0135)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10121_train.png&#39;]
-processing (0140)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10126_train.png&#39;]
-processing (0145)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10130_train.png&#39;]
-processing (0150)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10135_train.png&#39;]
-processing (0155)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1013_train.png&#39;]
-processing (0160)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10144_train.png&#39;]
-processing (0165)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10149_train.png&#39;]
-processing (0170)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10153_train.png&#39;]
-processing (0175)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10158_train.png&#39;]
-processing (0180)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10162_train.png&#39;]
-processing (0185)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10167_train.png&#39;]
-processing (0190)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10171_train.png&#39;]
-processing (0195)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10176_train.png&#39;]
-processing (0200)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10180_train.png&#39;]
-processing (0205)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10185_train.png&#39;]
-processing (0210)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1018_train.png&#39;]
-processing (0215)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10194_train.png&#39;]
-processing (0220)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10199_train.png&#39;]
-processing (0225)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10202_train.png&#39;]
-processing (0230)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10207_train.png&#39;]
-processing (0235)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10211_train.png&#39;]
-processing (0240)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10216_train.png&#39;]
-processing (0245)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10220_train.png&#39;]
-processing (0250)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10225_train.png&#39;]
-processing (0255)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1022_train.png&#39;]
-processing (0260)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10234_train.png&#39;]
-processing (0265)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10239_train.png&#39;]
-processing (0270)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10243_train.png&#39;]
-processing (0275)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10248_train.png&#39;]
-processing (0280)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10252_train.png&#39;]
-processing (0285)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10257_train.png&#39;]
-processing (0290)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10261_train.png&#39;]
-processing (0295)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10266_train.png&#39;]
-processing (0300)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10270_train.png&#39;]
-processing (0305)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10275_train.png&#39;]
-processing (0310)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1027_train.png&#39;]
-processing (0315)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10284_train.png&#39;]
-processing (0320)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10289_train.png&#39;]
-processing (0325)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10293_train.png&#39;]
-processing (0330)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10298_train.png&#39;]
-processing (0335)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10301_train.png&#39;]
-processing (0340)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10306_train.png&#39;]
-processing (0345)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10310_train.png&#39;]
-processing (0350)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10315_train.png&#39;]
-processing (0355)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1031_train.png&#39;]
-processing (0360)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10324_train.png&#39;]
-processing (0365)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10329_train.png&#39;]
-processing (0370)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10333_train.png&#39;]
-processing (0375)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10338_train.png&#39;]
-processing (0380)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10342_train.png&#39;]
-processing (0385)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10347_train.png&#39;]
-processing (0390)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10351_train.png&#39;]
-processing (0395)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10356_train.png&#39;]
-processing (0400)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10360_train.png&#39;]
-processing (0405)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10365_train.png&#39;]
-processing (0410)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1036_train.png&#39;]
-processing (0415)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10374_train.png&#39;]
-processing (0420)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10379_train.png&#39;]
-processing (0425)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10383_train.png&#39;]
-processing (0430)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10388_train.png&#39;]
-processing (0435)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10392_train.png&#39;]
-processing (0440)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10397_train.png&#39;]
-processing (0445)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10400_train.png&#39;]
-processing (0450)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10405_train.png&#39;]
-processing (0455)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/1040_train.png&#39;]
-processing (0460)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10414_train.png&#39;]
-processing (0465)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10419_train.png&#39;]
-processing (0470)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10423_train.png&#39;]
-processing (0475)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10428_train.png&#39;]
-processing (0480)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10432_train.png&#39;]
-processing (0485)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10437_train.png&#39;]
-processing (0490)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10441_train.png&#39;]
-processing (0495)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutamate/trainA/10446_train.png&#39;]
+<span class="c1"># Note: cycle_gan requires CUDA devices</span>
+<span class="k">if</span> <span class="n">device</span> <span class="o">==</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
+    <span class="n">cycle_gan</span><span class="o">.</span><span class="n">test</span><span class="p">(</span>
+        <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;data/raw/synapses/&#39;</span><span class="p">,</span>
+        <span class="n">class_A</span><span class="o">=</span><span class="s1">&#39;0_gaba&#39;</span><span class="p">,</span>
+        <span class="n">class_B</span><span class="o">=</span><span class="s1">&#39;2_glutamate&#39;</span><span class="p">,</span>
+        <span class="n">img_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+        <span class="n">checkpoints_dir</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/cycle_gan/gaba_glutamate/&#39;</span><span class="p">,</span>
+        <span class="n">vgg_checkpoint</span><span class="o">=</span><span class="s1">&#39;checkpoints/synapses/classifier/vgg_checkpoint&#39;</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2389,27 +2180,17 @@ processing (0495)-th image... [&#39;data/raw/synapses/cycle_gan/0_gaba_2_glutama
 
 
 <span class="c1"># show the top successful translations (according to our VGG classifier)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-  <span class="n">basename</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;basename&#39;</span><span class="p">]</span>
-  <span class="n">score_A</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_real&#39;</span><span class="p">][</span><span class="n">class_A_index</span><span class="p">]</span>
-  <span class="n">score_B</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_fake&#39;</span><span class="p">][</span><span class="n">class_B_index</span><span class="p">]</span>
-  <span class="n">real_A</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_real.png&#39;</span><span class="p">)</span>
-  <span class="n">fake_B</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_fake.png&#39;</span><span class="p">)</span>
-  <span class="n">show_pair</span><span class="p">(</span><span class="n">real_A</span><span class="p">,</span> <span class="n">fake_B</span><span class="p">,</span> <span class="n">score_A</span><span class="p">,</span> <span class="n">score_B</span><span class="p">,</span> <span class="s1">&#39;gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;glutamate&#39;</span><span class="p">)</span>
+<span class="c1"># Note: only run if cycle_gan ran successfully</span>
+<span class="k">if</span> <span class="n">classification_results</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+      <span class="n">basename</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;basename&#39;</span><span class="p">]</span>
+      <span class="n">score_A</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_real&#39;</span><span class="p">][</span><span class="n">class_A_index</span><span class="p">]</span>
+      <span class="n">score_B</span> <span class="o">=</span> <span class="n">classification_results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;aux_fake&#39;</span><span class="p">][</span><span class="n">class_B_index</span><span class="p">]</span>
+      <span class="n">real_A</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_real.png&#39;</span><span class="p">)</span>
+      <span class="n">fake_B</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;_fake.png&#39;</span><span class="p">)</span>
+      <span class="n">show_pair</span><span class="p">(</span><span class="n">real_A</span><span class="p">,</span> <span class="n">fake_B</span><span class="p">,</span> <span class="n">score_A</span><span class="p">,</span> <span class="n">score_B</span><span class="p">,</span> <span class="s1">&#39;gaba&#39;</span><span class="p">,</span> <span class="s1">&#39;glutamate&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/44e3057e87f4d96965689a45c31e2b784ca68583247d15af8c34e76ed7eb743a.png" src="../../_images/44e3057e87f4d96965689a45c31e2b784ca68583247d15af8c34e76ed7eb743a.png" />
-<img alt="../../_images/07544cdccfef75ffc5a18866439427e4de5a604b7b470ce312adfb687bce36ff.png" src="../../_images/07544cdccfef75ffc5a18866439427e4de5a604b7b470ce312adfb687bce36ff.png" />
-<img alt="../../_images/fe150ca1c4d2939dabb0f2452191896e83aa5655232f48bc40462abb6e4b00e8.png" src="../../_images/fe150ca1c4d2939dabb0f2452191896e83aa5655232f48bc40462abb6e4b00e8.png" />
-<img alt="../../_images/93d013f194c5ebd23eeeca50dc3e3e21f663f9d5e9b1650edcdcacfc29f04654.png" src="../../_images/93d013f194c5ebd23eeeca50dc3e3e21f663f9d5e9b1650edcdcacfc29f04654.png" />
-<img alt="../../_images/23ee255ac097480e9ade380480578ac68f060a7fff07ed326eeca904a58999da.png" src="../../_images/23ee255ac097480e9ade380480578ac68f060a7fff07ed326eeca904a58999da.png" />
-<img alt="../../_images/87bfb1994e827af20b405db7d77c470d06ab8cf7ae1ac12685d061abe31af818.png" src="../../_images/87bfb1994e827af20b405db7d77c470d06ab8cf7ae1ac12685d061abe31af818.png" />
-<img alt="../../_images/4d42a9022458c2ee960bdc4720c4fa364bd0637535be6cbc4df0c4aeb2164b0e.png" src="../../_images/4d42a9022458c2ee960bdc4720c4fa364bd0637535be6cbc4df0c4aeb2164b0e.png" />
-<img alt="../../_images/859436960c882af289388ae4814c0cf3504b8d70d537adfd439f0c678b4c0faa.png" src="../../_images/859436960c882af289388ae4814c0cf3504b8d70d537adfd439f0c678b4c0faa.png" />
-<img alt="../../_images/671be3dfc7ef0a784f6bac615607197df4e1ff8b5cdd6a00813c4e2286affcbb.png" src="../../_images/671be3dfc7ef0a784f6bac615607197df4e1ff8b5cdd6a00813c4e2286affcbb.png" />
-<img alt="../../_images/89faf63e2591c221fd22e90f27cd1faf34d43d5e0561b07ec3daf0862e692248.png" src="../../_images/89faf63e2591c221fd22e90f27cd1faf34d43d5e0561b07ec3daf0862e692248.png" />
 </div>
 </div>
 </section>

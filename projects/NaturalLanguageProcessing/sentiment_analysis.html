@@ -1495,17 +1495,27 @@ title="Print to PDF"
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
-!pip install pandas --quiet
-!pip install torchtext --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>torchtext<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>datasets<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">torchvision 0.14.0 requires torch==1.13.0, but you have torch 2.3.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">torchvision 0.14.0 requires torch==1.13.0, but you have torch 2.3.1 which is incompatible.</span>
+
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We import some libraries to load the dataset</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We import some libraries to load the dataset</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1531,27 +1541,28 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
 </div>
-<p>You can find the dataset we are going to use in <a class="reference external" href="http://help.sentiment140.com/for-students/">this website</a>.</p>
+</div>
+<p>You can find the dataset we are going to use in <a class="reference external" href="https://huggingface.co/datasets/stanfordnlp/sentiment140">this website</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">io</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip&#39;</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
-<span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;stanfordnlp/sentiment140&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cd6b527daf25440a8acc7a7645af679d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5b7c93b4ee524a01adec2669170ee097", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "19e6cbe3cb7648b4b5e0b2ce60c12d6b", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5bfc518fd6a48deb991309cec03facd", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "983915e475a747bd920d53cd924eb7ca", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We load the dataset</span>
-<span class="n">header_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;polarity&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;training.1600000.processed.noemoticon.csv&#39;</span><span class="p">,</span>
-                 <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">header_list</span><span class="p">)</span>
-
-<span class="c1"># Let&#39;s have a look at it</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We load the dataset</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sentiment&#39;</span><span class="p">:</span> <span class="s1">&#39;polarity&#39;</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;polarity&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1576,7 +1587,7 @@ title="Print to PDF"
     <tr style="text-align: right;">
       <th></th>
       <th>polarity</th>
-      <th>id</th>
+      <th>user</th>
       <th>date</th>
       <th>query</th>
       <th>user</th>
@@ -1587,7 +1598,7 @@ title="Print to PDF"
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>1467810369</td>
+      <td>_TheSpecialOne_</td>
       <td>Mon Apr 06 22:19:45 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>_TheSpecialOne_</td>
@@ -1596,7 +1607,7 @@ title="Print to PDF"
     <tr>
       <th>1</th>
       <td>0</td>
-      <td>1467810672</td>
+      <td>scotthamilton</td>
       <td>Mon Apr 06 22:19:49 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>scotthamilton</td>
@@ -1605,7 +1616,7 @@ title="Print to PDF"
     <tr>
       <th>2</th>
       <td>0</td>
-      <td>1467810917</td>
+      <td>mattycus</td>
       <td>Mon Apr 06 22:19:53 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>mattycus</td>
@@ -1614,7 +1625,7 @@ title="Print to PDF"
     <tr>
       <th>3</th>
       <td>0</td>
-      <td>1467811184</td>
+      <td>ElleCTF</td>
       <td>Mon Apr 06 22:19:57 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>ElleCTF</td>
@@ -1623,7 +1634,7 @@ title="Print to PDF"
     <tr>
       <th>4</th>
       <td>0</td>
-      <td>1467811193</td>
+      <td>Karoli</td>
       <td>Mon Apr 06 22:19:57 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>Karoli</td>
@@ -1636,7 +1647,7 @@ title="Print to PDF"
 <p>For this project we will use only the text and the polarity of the tweet. Notice that polarity is 0 for negative tweets and 4 for positive tweet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># Changes values from [0,4] to [0,1]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">polarity</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -1651,7 +1662,7 @@ title="Print to PDF"
 <p>The first thing we have to do before working on the models is to familiarize ourselves with the dataset. This is called Exploratory Data Analisys (EDA).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">5</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">5</span><span class="p">]):</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1669,7 +1680,7 @@ title="Print to PDF"
 <p>An interesting thing to analyze is the Word Distribution. In order to count the occurrences of each word, we should tokenize the sentences first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_tokenizer</span><span class="p">(</span><span class="s2">&quot;basic_english&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_tokenizer</span><span class="p">(</span><span class="s2">&quot;basic_english&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before Tokenize: &#39;</span><span class="p">,</span> <span class="n">x_train_text</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After Tokenize: &#39;</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
@@ -1685,24 +1696,18 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_train_token</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train_token</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">)]</span>
 <span class="n">x_test_token</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">x_test_text</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "499e7fb54aa048afb3cba78dd8d6bb0e", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fff9bd0ae74e46b0ad97ad980a834a58", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cd7802db570b408eb5f29af92ca95be1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "dcc80b45cf1c40769f49d27d96bbeaed", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>We can count the words occurences and see how many different words are present in our dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">x_train_token</span><span class="p">:</span>
   <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
     <span class="n">words</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1724,7 +1729,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 <p>Now we can plot their distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_occurences</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">words</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_occurences</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">words</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
 <span class="n">accumulated</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1746,13 +1751,13 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sorted_words</span><span class="p">[:</span><span class="mi">100</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sorted_words</span><span class="p">[:</span><span class="mi">100</span><span class="p">]])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7af19a5ffe689321409ba54c7f54892a0529d3eda83c1990c1fd4981a5bfee21.png" src="../../_images/7af19a5ffe689321409ba54c7f54892a0529d3eda83c1990c1fd4981a5bfee21.png" />
+<img alt="../../_images/903ea4eafdfec9b01b1591c6b030e0967e82a9bc09fc4a838bfdc03f96c517d9.png" src="../../_images/903ea4eafdfec9b01b1591c6b030e0967e82a9bc09fc4a838bfdc03f96c517d9.png" />
 </div>
 </div>
 <p>It is very common to find this kind of distribution when analyzing corpus of text. This is referred to as the <a class="reference external" href="https://en.wikipedia.org/wiki/Zipf%27s_law">zipf’s law</a>.</p>
@@ -1786,7 +1791,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 <p>We will represent our senteces using binary vectorization. This means that our data would be represented as a matrix of instances by word with a one if the word is in the instance, and zero otherwise. Sklean vectorizers can also do things such as stop-word removal and puntuation removal, you can read more about in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">the documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">x_train_cv</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train_text</span><span class="p">)</span>
 <span class="n">x_test_cv</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test_text</span><span class="p">)</span>
 </pre></div>
@@ -1795,7 +1800,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before Vectorize: &#39;</span><span class="p">,</span> <span class="n">x_train_text</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before Vectorize: &#39;</span><span class="p">,</span> <span class="n">x_train_text</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1807,7 +1812,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notice that the matriz is sparse</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notice that the matriz is sparse</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After Vectorize: &#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x_train_cv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
@@ -1828,24 +1833,421 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 <p>Now we can train our model. You can check the documentation of this logistic regressor <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic#sklearn.linear_model.LogisticRegression">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_cv</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-                   intercept_scaling=1, l1_ratio=None, max_iter=100,
-                   multi_class=&#39;auto&#39;, n_jobs=None, penalty=&#39;l2&#39;,
-                   random_state=None, solver=&#39;saga&#39;, tol=0.0001, verbose=0,
-                   warm_start=False)
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_cv</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_cv</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
@@ -1870,7 +2272,7 @@ weighted avg       0.80      0.80      0.80    320000
 <p>The best thing about logistic regresion is that it is simple, and we can get some explanations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">))</span>
 
 <span class="n">words_sk</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -1887,64 +2289,64 @@ weighted avg       0.80      0.80      0.80    320000
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words_sk</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words_sk</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roni: -3.862597673594883
-inaperfectworld: -3.5734362290886375
-dontyouhate: -3.500197620227523
-xbllygbsn: -3.412645372640648
-anqju: -3.336405291553548
-sad: -3.200522312464158
-pakcricket: -3.1949158120163412
-condolences: -3.132498019366488
-heartbreaking: -3.066508733796654
-saddest: -3.041999809733714
-sadd: -3.029070563580306
-heartbroken: -3.0287688233900174
-boohoo: -3.022608649696793
-sadface: -2.9918411285807234
-rachelle_lefevr: -2.925057253107806
-disappointing: -2.902524113779547
-lvbu: -2.894705935001672
-saddens: -2.8855127179984654
-bummed: -2.83650014970307
-neda: -2.792944556837498
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roni: -3.8625743295204957
+inaperfectworld: -3.5734332703128837
+dontyouhate: -3.5001974848534263
+xbllygbsn: -3.4126706055950495
+anqju: -3.3363734662876445
+sad: -3.200515320038219
+pakcricket: -3.1949201520762647
+condolences: -3.1325044251779404
+heartbreaking: -3.066490736238656
+saddest: -3.0420206470077464
+sadd: -3.0290359193094782
+heartbroken: -3.028758057376751
+boohoo: -3.0225999274601483
+sadface: -2.9918433622017107
+rachelle_lefevr: -2.9250755659458325
+disappointing: -2.9025305172931777
+lvbu: -2.8947126358841744
+saddens: -2.885505898962137
+bummed: -2.8364963698917003
+neda: -2.792965453263205
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">words_sk</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">words_sk</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]):</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iamsoannoyed: 2.8494314732277672
-myfax: 2.797451563471618
-jennamadison: 2.5667257393706113
-yeyy: 2.478028598852801
-tryout: 2.4383315790116677
-goldymom: 2.4374026022205535
-wooohooo: 2.40297322137544
-thesupergirl: 2.3565118467330004
-iammaxathotspot: 2.311648368632618
-londicreations: 2.3074490293400993
-smilin: 2.2991891636718216
-worries: 2.2899429774914717
-sinfulsignorita: 2.2798963640981817
-finchensnail: 2.264302079155878
-smackthis: 2.2376679263761083
-kv: 2.2158393907798413
-tojosan: 2.211784259253832
-russmarshalek: 2.2095374025599384
-traciknoppe: 2.1768297770350835
-congratulations: 2.171590496227557
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iamsoannoyed: 2.849404979800149
+myfax: 2.7974231693128444
+jennamadison: 2.566709062644627
+yeyy: 2.4780376468589687
+tryout: 2.4383326853311327
+goldymom: 2.4374101525708456
+wooohooo: 2.4029624310379774
+thesupergirl: 2.3565547667359015
+iammaxathotspot: 2.3116516945468017
+londicreations: 2.3074597815514477
+smilin: 2.2991641364971334
+worries: 2.2899475148214545
+sinfulsignorita: 2.2798843862743605
+finchensnail: 2.264277870479377
+smackthis: 2.237665085200092
+kv: 2.215872609715896
+tojosan: 2.2117820541821733
+russmarshalek: 2.2095325084648705
+traciknoppe: 2.1768517653116426
+congratulations: 2.1715832459661644
 </pre></div>
 </div>
 </div>
@@ -1962,7 +2364,7 @@ congratulations: 2.171590496227557
 <p>Let’s start by importing the relevant libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
   <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
   <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: For this notebook to perform best, &quot;</span>
@@ -1978,13 +2380,13 @@ congratulations: 2.171590496227557
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the device (check if gpu is available)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the device (check if gpu is available)</span>
 <span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GPU is enabled in this notebook.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: For this notebook to perform best, if possible, in the menu under `Runtime` -&gt; `Change runtime type.`  select `GPU` 
 </pre></div>
 </div>
 </div>
@@ -1992,7 +2394,7 @@ congratulations: 2.171590496227557
 <p>First we will create a Dictionary (<code class="docutils literal notranslate"><span class="pre">word_to_idx</span></code>). This dictionary will map each Token (usually words) to an index (an integer number). We want to limit our dictionary to a certain number of tokens (<code class="docutils literal notranslate"><span class="pre">num_words_dict</span></code>), so we will include in our ditionary those with more occurrences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># From previous section, we have a list with the most used tokens</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From previous section, we have a list with the most used tokens</span>
 <span class="n">sorted_words</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -2006,7 +2408,7 @@ congratulations: 2.171590496227557
 <p>Let’s select only the most used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_words_dict</span> <span class="o">=</span> <span class="mi">30000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_words_dict</span> <span class="o">=</span> <span class="mi">30000</span>
 <span class="c1"># We reserve two numbers for special tokens.</span>
 <span class="n">most_used_words</span> <span class="o">=</span> <span class="n">sorted_words</span><span class="p">[:</span><span class="n">num_words_dict</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
@@ -2016,7 +2418,7 @@ congratulations: 2.171590496227557
 <p>We will add two extra Tokens to the dictionary, one for words outside the dictionary (<code class="docutils literal notranslate"><span class="pre">'UNK'</span></code>) and one for padding the sequences (<code class="docutils literal notranslate"><span class="pre">'PAD'</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dictionary to go from words to idx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dictionary to go from words to idx</span>
 <span class="n">word_to_idx</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="c1"># dictionary to go from idx to words (just in case)</span>
 <span class="n">idx_to_word</span> <span class="o">=</span> <span class="p">{}</span>
@@ -2043,7 +2445,7 @@ congratulations: 2.171590496227557
 <p>Our goal now is to transform each tweet from a sequence of tokens to a sequence of indexes. These sequences of indexes will be the input to our pytorch model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function to convert list of tokens to list of indexes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function to convert list of tokens to list of indexes</span>
 <span class="k">def</span> <span class="nf">tokens_to_idx</span><span class="p">(</span><span class="n">sentences_tokens</span><span class="p">,</span><span class="n">word_to_idx</span><span class="p">):</span>
   <span class="n">sentences_idx</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentences_tokens</span><span class="p">:</span>
@@ -2061,7 +2463,7 @@ congratulations: 2.171590496227557
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_train_idx</span> <span class="o">=</span> <span class="n">tokens_to_idx</span><span class="p">(</span><span class="n">x_train_token</span><span class="p">,</span><span class="n">word_to_idx</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train_idx</span> <span class="o">=</span> <span class="n">tokens_to_idx</span><span class="p">(</span><span class="n">x_train_token</span><span class="p">,</span><span class="n">word_to_idx</span><span class="p">)</span>
 <span class="n">x_test_idx</span> <span class="o">=</span> <span class="n">tokens_to_idx</span><span class="p">(</span><span class="n">x_test_token</span><span class="p">,</span><span class="n">word_to_idx</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2069,7 +2471,7 @@ congratulations: 2.171590496227557
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_number</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_number</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before converting: &#39;</span><span class="p">,</span> <span class="n">x_train_token</span><span class="p">[</span><span class="n">some_number</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After converting: &#39;</span><span class="p">,</span> <span class="n">x_train_idx</span><span class="p">[</span><span class="n">some_number</span><span class="p">])</span>
 </pre></div>
@@ -2085,7 +2487,7 @@ After converting:  [721, 458, 237]
 <p>We need all the sequences to have the same length. To select an adequate sequence length, let’s explore some statistics about the length of the tweets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_lens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">x_train_idx</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_lens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">x_train_idx</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max tweet word length: &#39;</span><span class="p">,</span><span class="n">tweet_lens</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean tweet word length: &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">tweet_lens</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99% percent under: &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">tweet_lens</span><span class="p">,</span><span class="mf">0.99</span><span class="p">))</span>
@@ -2103,7 +2505,7 @@ Mean tweet word length:  15.0
 <p>We cut the sequences which are larger than our chosen maximum length (<code class="docutils literal notranslate"><span class="pre">max_lenght</span></code>) and fill with zeros the ones that are shorter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># We choose the max length</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># We choose the max length</span>
  <span class="n">max_length</span> <span class="o">=</span> <span class="mi">40</span>
 
 <span class="c1"># A function to make all the sequence have the same lenght</span>
@@ -2126,7 +2528,7 @@ Mean tweet word length:  15.0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We convert our list of tokens into a numpy matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We convert our list of tokens into a numpy matrix</span>
 <span class="c1"># where all instances have the same lenght</span>
 <span class="n">x_train_pad</span> <span class="o">=</span> <span class="n">padding</span><span class="p">(</span><span class="n">x_train_idx</span><span class="p">,</span><span class="n">max_length</span><span class="p">)</span>
 <span class="n">x_test_pad</span> <span class="o">=</span> <span class="n">padding</span><span class="p">(</span><span class="n">x_test_idx</span><span class="p">,</span><span class="n">max_length</span><span class="p">)</span>
@@ -2140,7 +2542,7 @@ Mean tweet word length:  15.0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_number</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_number</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before padding: &#39;</span><span class="p">,</span> <span class="n">x_train_idx</span><span class="p">[</span><span class="n">some_number</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After padding: &#39;</span><span class="p">,</span> <span class="n">x_train_pad</span><span class="p">[</span><span class="n">some_number</span><span class="p">])</span>
 </pre></div>
@@ -2158,7 +2560,7 @@ After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    
 <p>Now, let’s convert the data to pytorch format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Tensor datasets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Tensor datasets</span>
 <span class="n">train_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x_train_pad</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y_train_np</span><span class="p">))</span>
 <span class="n">valid_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x_test_pad</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y_test_np</span><span class="p">))</span>
 
@@ -2176,9 +2578,9 @@ After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    
 <p>Each batch of data in our traning proccess will have the folllowing format:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain one batch of training data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain one batch of training data</span>
 <span class="n">dataiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
-<span class="n">sample_x</span><span class="p">,</span> <span class="n">sample_y</span> <span class="o">=</span> <span class="n">dataiter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="n">sample_x</span><span class="p">,</span> <span class="n">sample_y</span> <span class="o">=</span> <span class="n">dataiter</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample input size: &#39;</span><span class="p">,</span> <span class="n">sample_x</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="c1"># batch_size, seq_length</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample input: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sample_x</span><span class="p">)</span>
@@ -2189,19 +2591,19 @@ After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample input size:  torch.Size([100, 40])
 Sample input: 
- tensor([[    0,     0,     0,  ...,     4,     4,     4],
-        [    0,     0,     0,  ...,  7447, 14027,     2],
-        [    0,     0,     0,  ...,   100, 22241,     4],
+ tensor([[    0,     0,     0,  ...,    12,  4491,     2],
+        [    0,     0,     0,  ...,     0,     1,   383],
+        [    0,     0,     0,  ...,     6,   246,     2],
         ...,
-        [    0,     0,     0,  ...,  2702,  4409,     2],
-        [    0,     0,     0,  ...,   162,    17,     1],
-        [    0,     0,     0,  ...,    67, 12904,    49]])
+        [    0,     0,     0,  ...,   108,    14,     4],
+        [    0,     0,     0,  ...,  2434,    29,     1],
+        [    0,     0,     0,  ...,  1150, 20247,     2]])
 Sample input: 
- tensor([0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0,
-        0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1,
-        0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0,
-        1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0,
-        0, 0, 1, 0])
+ tensor([1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1,
+        1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1,
+        1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0,
+        0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0,
+        0, 0, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -2221,7 +2623,7 @@ Sample input:
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SentimentRNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SentimentRNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">no_layers</span><span class="p">,</span><span class="n">vocab_size</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">embedding_dim</span><span class="p">,</span><span class="n">drop_prob</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">SentimentRNN</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -2289,7 +2691,7 @@ Sample input:
 <p>We choose the parameters of the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters of our network</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters of our network</span>
 
 <span class="c1"># Size of our vocabulary</span>
 <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">num_words_dict</span>
@@ -2314,7 +2716,7 @@ Sample input:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define our model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define our model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">SentimentRNN</span><span class="p">(</span><span class="n">no_layers</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span>
                      <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">drop_prob</span><span class="o">=</span><span class="n">drop_prob</span><span class="p">)</span>
 <span class="c1"># Moving to gpu</span>
@@ -2337,7 +2739,7 @@ Sample input:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many trainable parameters does our model have?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many trainable parameters does our model have?</span>
 <span class="n">model_parameters</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 <span class="n">params</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model_parameters</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total Number of parameters: &#39;</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
@@ -2353,7 +2755,7 @@ Sample input:
 <p>We choose the losses and the optimizer for the training procces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loss and optimization functions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loss and optimization functions</span>
 <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.001</span>
 
 <span class="c1"># Binary crossentropy is a good loss function for a binary classification problem</span>
@@ -2369,18 +2771,20 @@ Sample input:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+</div>
 </div>
 <p>We are ready to train our model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of training Epochs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of training Epochs</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="c1"># Maximum absolute value accepted for the gradeint</span>
 <span class="n">clip</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="c1"># Initial Loss value (assumed big)</span>
-<span class="n">valid_loss_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span>
+<span class="n">valid_loss_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
 <span class="c1"># Lists to follow the evolution of the loss and accuracy</span>
 <span class="n">epoch_tr_loss</span><span class="p">,</span><span class="n">epoch_vl_loss</span> <span class="o">=</span> <span class="p">[],[]</span>
@@ -2467,29 +2871,29 @@ Sample input:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1
-train_loss : 0.4367361353733577 val_loss : 0.39174133955966683
-train_accuracy : 79.530625 val_accuracy : 82.3628125
-Validation loss decreased (inf --&gt; 0.391741).  Saving model ...
+train_loss : 0.4357354193425272 val_loss : 0.3897459434857592
+train_accuracy : 79.552578125 val_accuracy : 82.34125
+Validation loss decreased (inf --&gt; 0.389746).  Saving model ...
 ==================================================
 Epoch 2
-train_loss : 0.3765802335098851 val_loss : 0.3724124691961333
-train_accuracy : 83.19140625 val_accuracy : 83.42031250000001
-Validation loss decreased (0.391741 --&gt; 0.372412).  Saving model ...
+train_loss : 0.3756973787629977 val_loss : 0.37125814022496345
+train_accuracy : 83.20953125 val_accuracy : 83.41875
+Validation loss decreased (0.389746 --&gt; 0.371258).  Saving model ...
 ==================================================
 Epoch 3
-train_loss : 0.35746844720793886 val_loss : 0.365050206175074
-train_accuracy : 84.16882812499999 val_accuracy : 83.7440625
-Validation loss decreased (0.372412 --&gt; 0.365050).  Saving model ...
+train_loss : 0.35649536208133215 val_loss : 0.36528081766329706
+train_accuracy : 84.24179687499999 val_accuracy : 83.76593749999999
+Validation loss decreased (0.371258 --&gt; 0.365281).  Saving model ...
 ==================================================
 Epoch 4
-train_loss : 0.34491546426317654 val_loss : 0.36467386982403693
-train_accuracy : 84.879140625 val_accuracy : 83.77
-Validation loss decreased (0.365050 --&gt; 0.364674).  Saving model ...
+train_loss : 0.3434784019400831 val_loss : 0.361129659358412
+train_accuracy : 84.91164062499999 val_accuracy : 83.9671875
+Validation loss decreased (0.365281 --&gt; 0.361130).  Saving model ...
 ==================================================
 Epoch 5
-train_loss : 0.33429012800217606 val_loss : 0.36189084346871825
-train_accuracy : 85.44296875 val_accuracy : 84.0221875
-Validation loss decreased (0.364674 --&gt; 0.361891).  Saving model ...
+train_loss : 0.33264520978555084 val_loss : 0.3602768037747592
+train_accuracy : 85.53132812499999 val_accuracy : 84.0209375
+Validation loss decreased (0.361130 --&gt; 0.360277).  Saving model ...
 ==================================================
 </pre></div>
 </div>
@@ -2497,7 +2901,7 @@ Validation loss decreased (0.364674 --&gt; 0.361891).  Saving model ...
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_tr_acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train Acc&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_vl_acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Acc&#39;</span><span class="p">)</span>
@@ -2517,7 +2921,7 @@ Validation loss decreased (0.364674 --&gt; 0.361891).  Saving model ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8c390fff1acfd84d13eabe16563983ec735106d33f3e8842dd65cb28325a0a3f.png" src="../../_images/8c390fff1acfd84d13eabe16563983ec735106d33f3e8842dd65cb28325a0a3f.png" />
+<img alt="../../_images/33d3011681e7d94ced32c6da525cf58b97e52769de18d8baa0742cd23f45b991.png" src="../../_images/33d3011681e7d94ced32c6da525cf58b97e52769de18d8baa0742cd23f45b991.png" />
 </div>
 </div>
 </section>

@@ -1547,10 +1547,10 @@ title="Print to PDF"
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
-!pip install opencv-python --quiet
-!pip install numba --quiet
-!pip install tifffile --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>opencv-python<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>numba<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tifffile<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
@@ -1558,7 +1558,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">tqdm</span>
@@ -1631,7 +1631,7 @@ This Notebook was developed by Carsen Stringer. It borrows from:</p>
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download and normalize data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download and normalize data</span>
 <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cells_train.npz&quot;</span><span class="p">,</span>
              <span class="s2">&quot;cells_test.npz&quot;</span><span class="p">]</span>
 <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://osf.io/z3h78/download&quot;</span><span class="p">,</span>
@@ -1683,7 +1683,7 @@ This Notebook was developed by Carsen Stringer. It borrows from:</p>
 <p>Plot a random training image and its masks. Note the masks are labels from 1, … to the number of cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">irand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imgs_train</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imgs_train</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1703,27 +1703,27 @@ This Notebook was developed by Carsen Stringer. It borrows from:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there are 68 cells in this image
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there are 45 cells in this image
 </pre></div>
 </div>
-<img alt="../../_images/d081dc2cef0ef9eb23163c0257be7010bfe39d166413d64e858cc121ebf2a618.png" src="../../_images/d081dc2cef0ef9eb23163c0257be7010bfe39d166413d64e858cc121ebf2a618.png" />
+<img alt="../../_images/97ee44840938e3670800dbf01d816301466f121dca602fbe4a6988d780348ba6.png" src="../../_images/97ee44840938e3670800dbf01d816301466f121dca602fbe4a6988d780348ba6.png" />
 </div>
 </div>
 <p>What labels will we use? We can’t use numbers like masks.
 The standard approach is to create a “not-cell” and a “cell” probability map for the network to learn. Then this map is thresholded (the threshold is found with a validation set) to find cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labels_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">masks_train</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">masks_train</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span>
                          <span class="n">masks_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
                          <span class="n">masks_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
-                        <span class="n">np</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">longlong</span><span class="p">)</span>
 <span class="n">labels_train</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">masks_train</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">labels_train</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">masks_train</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
 <span class="n">labels_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">masks_test</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span>
                         <span class="n">masks_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
                         <span class="n">masks_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
-                       <span class="n">np</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+                       <span class="n">np</span><span class="o">.</span><span class="n">longlong</span><span class="p">)</span>
 <span class="n">labels_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">masks_test</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">labels_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">masks_test</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </pre></div>
@@ -1737,7 +1737,7 @@ The standard approach is to create a “not-cell” and a “cell” probability
 <p>adapted from <a class="reference external" href="https://github.com/MouseLand/cellpose/blob/master/cellpose/transforms.py">cellpose/transforms.py</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_rotate_and_resize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_range</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_rotate_and_resize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_range</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
                              <span class="n">do_flip</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Augmentation by random rotation and resizing</span>
@@ -1864,7 +1864,7 @@ The standard approach is to create a “not-cell” and a “cell” probability
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c17a6ea35ff717e8ba5d16bb9b835a29e3947c0eeb59a5c4480a2467a5fb2492.png" src="../../_images/c17a6ea35ff717e8ba5d16bb9b835a29e3947c0eeb59a5c4480a2467a5fb2492.png" />
+<img alt="../../_images/f26ba15c06d105e7c90608b409b9205675d32c6a8134a60d55fe5f83c71f4b80.png" src="../../_images/f26ba15c06d105e7c90608b409b9205675d32c6a8134a60d55fe5f83c71f4b80.png" />
 </div>
 </div>
 </section>
@@ -1880,7 +1880,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>adapted from <a class="reference external" href="https://github.com/MouseLand/cellpose/blob/master/cellpose/resnet_torch.py">cellpose/resnet_torch.py</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
       <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">sz</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span>
       <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">),</span>
@@ -1894,12 +1894,12 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="bp">self</span><span class="o">.</span><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
       <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">t</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">t</span>,
                              <span class="n">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span>
                                            <span class="n">out_channels</span><span class="p">,</span>
                                            <span class="n">kernel_size</span><span class="p">))</span>
       <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">t</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">t</span>,
                              <span class="n">convbatchrelu</span><span class="p">(</span><span class="n">out_channels</span><span class="p">,</span>
                                            <span class="n">out_channels</span><span class="p">,</span>
                                            <span class="n">kernel_size</span><span class="p">))</span>
@@ -1916,7 +1916,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="bp">self</span><span class="o">.</span><span class="n">down</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">maxpool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nbase</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">down</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_down_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">n</span><span class="p">,</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">down</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_down_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">n</span>,
                            <span class="n">convdown</span><span class="p">(</span><span class="n">nbase</span><span class="p">[</span><span class="n">n</span><span class="p">],</span>
                                     <span class="n">nbase</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
                                     <span class="n">kernel_size</span><span class="p">))</span>
@@ -2008,7 +2008,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <h3>Define the network<a class="headerlink" href="#define-the-network" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_size</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_size</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">nbase</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">]</span>  <span class="c1"># number of channels per layer</span>
 <span class="n">nout</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># number of outputs</span>
 
@@ -2027,7 +2027,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>Note we probably should be evaluating test performance throughout training – implement that yourself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># train the network</span>
 <span class="c1"># parameters related to training the network</span>
@@ -2091,12 +2091,15 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="k">for</span> <span class="n">ibatch</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
       <span class="c1"># augment the data</span>
       <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ibatch</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_train</span><span class="p">,</span> <span class="n">ibatch</span><span class="o">+</span><span class="n">batch_size</span><span class="p">))</span>
+      <span class="n">train_data</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+      <span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
       <span class="n">imgs</span><span class="p">,</span> <span class="n">lbls</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">random_rotate_and_resize</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="n">inds</span><span class="p">],</span>
                                                <span class="n">train_labels</span><span class="p">[</span><span class="n">inds</span><span class="p">])</span>
 
       <span class="c1"># transfer to torch + GPU</span>
       <span class="n">imgs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
       <span class="n">lbls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">lbls</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+      <span class="n">lbls</span> <span class="o">=</span> <span class="n">lbls</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
 
       <span class="c1"># compute the loss</span>
       <span class="n">y</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
@@ -2149,7 +2152,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Padding code for test images</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Padding code for test images</span>
 
 <span class="k">def</span> <span class="nf">pad_image_ND</span><span class="p">(</span><span class="n">img0</span><span class="p">,</span> <span class="n">div</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; pad image for test-time so that its dimensions are a multiple of 16 (2D or 3D)</span>
@@ -2198,7 +2201,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute results on test images</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute results on test images</span>
 <span class="c1"># (note for unet to run correctly we need to pad images to be divisible by 2**(number of layers))</span>
 
 <span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
@@ -2229,7 +2232,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28b96b1b94997780fd81550e4c4ec79b74ea57ccd1e834a36db8f28f11a13f34.png" src="../../_images/28b96b1b94997780fd81550e4c4ec79b74ea57ccd1e834a36db8f28f11a13f34.png" />
+<img alt="../../_images/efad4cb1acdb03e380c8a805310778394c1d981d5488f25a5f350cf9cd0dca79.png" src="../../_images/efad4cb1acdb03e380c8a805310778394c1d981d5488f25a5f350cf9cd0dca79.png" />
 </div>
 </div>
 </section>
@@ -2246,7 +2249,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
 
 <span class="c1"># @markdown `fill_holes_and_remove_small_masks` function</span>
 <span class="k">def</span> <span class="nf">fill_holes_and_remove_small_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
@@ -2413,7 +2416,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_masks_unet</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cell_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_masks_unet</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cell_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; create masks using NOT CELL probability and CELL probability</span>
 
 <span class="sd">  min_size: minimum number of pixels in the masks</span>
@@ -2459,16 +2462,16 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5039152
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.41304153
 </pre></div>
 </div>
-<img alt="../../_images/50c277b0fa92f129134fc1faeed38dd0bba2e2a24dbc83812c9b7ee1c3da8061.png" src="../../_images/50c277b0fa92f129134fc1faeed38dd0bba2e2a24dbc83812c9b7ee1c3da8061.png" />
+<img alt="../../_images/88d4f85c175b3c2c15c181238049544d62e8f8388e883350f11250420893dbf5.png" src="../../_images/88d4f85c175b3c2c15c181238049544d62e8f8388e883350f11250420893dbf5.png" />
 </div>
 </div>
 <p>Once you choose a threshold, you’ll want to use it on your test images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="c1"># (depending on GPU capacity you may need to run this in a loop)</span>
 <span class="n">test_padded</span><span class="p">,</span> <span class="n">slices</span> <span class="o">=</span> <span class="n">pad_image_ND</span><span class="p">(</span><span class="n">imgs_test</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">test_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">test_padded</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -2494,10 +2497,10 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.58384985
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5627842
 </pre></div>
 </div>
-<img alt="../../_images/3c3556e9415a3cf41303e482435763ed094823d89fe18e74d3afe93fcd4c099d.png" src="../../_images/3c3556e9415a3cf41303e482435763ed094823d89fe18e74d3afe93fcd4c099d.png" />
+<img alt="../../_images/f3d25066271ad283dbabc1478bc308e0a37b70e6992bbb90a7b5b5d627ac7674.png" src="../../_images/f3d25066271ad283dbabc1478bc308e0a37b70e6992bbb90a7b5b5d627ac7674.png" />
 </div>
 </div>
 <p>What kinds of errors is the network making?</p>
@@ -2506,7 +2509,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>Below you can see that we are plotting the ground truth masks (the true masks) and the masks that the algorithm predicted. It may be sort of hard to compare the masks in a jupyter-notebook. One useful tool to visualize imaging data is <a class="reference external" href="https://www.napari.org">napari</a>. You can try running it on your local computer and visualizing your predictions overlaid on the original images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masks_test</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ground truth masks&#39;</span><span class="p">)</span>
@@ -2518,7 +2521,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9c4ce717457236f65dbec3f281e3781231944aae2949c185ba148d35d69c5c1f.png" src="../../_images/9c4ce717457236f65dbec3f281e3781231944aae2949c185ba148d35d69c5c1f.png" />
+<img alt="../../_images/1bd55c8251212e708d896d7eac6e6b9975d0bc5da1ee0a90ddd45870349f8486.png" src="../../_images/1bd55c8251212e708d896d7eac6e6b9975d0bc5da1ee0a90ddd45870349f8486.png" />
 </div>
 </div>
 </section>
@@ -2538,11 +2541,11 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download and load the data.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download and load the data.</span>
 <span class="kn">from</span> <span class="nn">tifffile</span> <span class="kn">import</span> <span class="n">imread</span>
 
 <span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;gt1.tif&quot;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.suite2p.org/test_data/gt1.tif&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.suite2p.org/test_data/gt1.tif&quot;</span> <span class="c1"># This URL does not exist.</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
   <span class="k">try</span><span class="p">:</span>
@@ -2575,7 +2578,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>This process can be improved by adding training data to the model and/or improving the type of filtering done by the image and/or by finding cells using temporal information. We’ve used our previously trained network to find some cells as a starting point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot max image across time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot max image across time</span>
 <span class="n">max_img</span> <span class="o">=</span> <span class="n">normalize99</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">max_img</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2584,12 +2587,12 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/73e7a24478dfb6684043c48a9685d4a24a03be41aac63bc598d6e8a82b6d0a5c.png" src="../../_images/73e7a24478dfb6684043c48a9685d4a24a03be41aac63bc598d6e8a82b6d0a5c.png" />
+<img alt="../../_images/16bd1d56ff287ddc8792ca6052e9f8f57034e245c46c54e597cc9e35939525a8.png" src="../../_images/16bd1d56ff287ddc8792ca6052e9f8f57034e245c46c54e597cc9e35939525a8.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalize intensity across image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalize intensity across image</span>
 <span class="n">max_img_filtered</span> <span class="o">=</span> <span class="n">max_img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">/</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">max_img</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="c1"># high pass filter</span>
 <span class="n">max_img_filtered</span> <span class="o">=</span> <span class="n">max_img_filtered</span> <span class="o">-</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">max_img</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -2627,7 +2630,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3051daffd4d62f06e21979025edce88d8aa2731101f8226f091afb541f8de2fe.png" src="../../_images/3051daffd4d62f06e21979025edce88d8aa2731101f8226f091afb541f8de2fe.png" />
+<img alt="../../_images/00c1700c1afaf9da1e0a20625351060c212f99a62999e9cecff945d889a4fcc5.png" src="../../_images/00c1700c1afaf9da1e0a20625351060c212f99a62999e9cecff945d889a4fcc5.png" />
 </div>
 </div>
 </section>
@@ -2636,7 +2639,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>We can use these masks to find neural activity:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_cells</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_cells</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">fluorescence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_cells</span><span class="p">,</span> <span class="n">n_time</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cells</span><span class="p">):</span>
   <span class="n">fluorescence</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">masks</span><span class="o">==</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2648,7 +2651,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/df7dc9e6a8ae5ffcbd92dd0ca6c6ca8de80ac416bb295ef45f262183709bd904.png" src="../../_images/df7dc9e6a8ae5ffcbd92dd0ca6c6ca8de80ac416bb295ef45f262183709bd904.png" />
+<img alt="../../_images/c03ca9d933bea4c6ee313dc15d2a56c6327ae5a6318ea035a34e74cf1eaf5f81.png" src="../../_images/c03ca9d933bea4c6ee313dc15d2a56c6327ae5a6318ea035a34e74cf1eaf5f81.png" />
 </div>
 </div>
 </section>

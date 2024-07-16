@@ -1505,24 +1505,23 @@ title="Print to PDF"
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># @title Install dependencies
-!pip install jedi --quiet
-!pip install --upgrade pip setuptools wheel --quiet
-!pip install dm-acme[jax] --quiet
-!pip install dm-sonnet --quiet
-!pip install trfl --quiet
-!pip install numpy==1.23.3 --quiet --ignore-installed
-!pip uninstall seaborn -y --quiet
-!pip install seaborn --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jedi<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;dm-acme[jax]&#39;</span><span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>dm-sonnet<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>trfl<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.24.1<span class="w"> </span>--quiet<span class="w"> </span>--ignore-installed<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>uninstall<span class="w"> </span>seaborn<span class="w"> </span>-y<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>seaborn<span class="w"> </span>--quiet<span class="w"> </span>--root-user-action<span class="o">=</span>ignore
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">numba 0.56.4 requires numpy&lt;1.24,&gt;=1.18, but you have numpy 1.25.1 which is incompatible.</span>
-<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">chex 0.1.81 requires numpy&gt;=1.25.0, but you have numpy 1.23.3 which is incompatible.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+<span class=" -Color -Color-Yellow">WARNING: Skipping seaborn as it is not installed.</span>
 
 </pre></div>
 </div>
@@ -1530,7 +1529,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1562,16 +1561,14 @@ title="Print to PDF"
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-</div>
 </div>
 </section>
 </section>
@@ -1626,7 +1623,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 <p>Here we generate a mock dataset with those features, but remember to <strong>replace this with real human data.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_mock_nback_dataset</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_mock_nback_dataset</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                 <span class="n">n_participants</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                 <span class="n">n_trials</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
                                 <span class="n">stimulus_choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">),</span>
@@ -1685,14 +1682,10 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/646f734f90bee2767a025c5810d65bd168c94a4989907d176b81332c066524a8.png" src="../../_images/646f734f90bee2767a025c5810d65bd168c94a4989907d176b81332c066524a8.png" />
-<img alt="../../_images/ac495b6db01de23490d5bcf7c1b4851e2a80dd35cdafa147410931a99cde1882.png" src="../../_images/ac495b6db01de23490d5bcf7c1b4851e2a80dd35cdafa147410931a99cde1882.png" />
-<img alt="../../_images/f123828c82b1b12a73062916a983eb7a95dc30fe94153e53c025fbb23b00d761.png" src="../../_images/f123828c82b1b12a73062916a983eb7a95dc30fe94153e53c025fbb23b00d761.png" />
-<div class="output text_html">
-
-  <div id="df-76db6891-e0f3-4cdc-96f3-76360c999ad6">
-    <div class="colab-df-container">
-      <div>
+<img alt="../../_images/c8ff6621bdfded65eaba25284ebf7b3660aa9b1ad0a5ce034336b9f57be222a8.png" src="../../_images/c8ff6621bdfded65eaba25284ebf7b3660aa9b1ad0a5ce034336b9f57be222a8.png" />
+<img alt="../../_images/26e1c6034d8eaae33dfe9315533997eefbd6cbd717be04db04153c48ee4deb56.png" src="../../_images/26e1c6034d8eaae33dfe9315533997eefbd6cbd717be04db04153c48ee4deb56.png" />
+<img alt="../../_images/9de3313f3474bc75d0f444f2f8088767117fc77560198aced4e0ec58471005fc.png" src="../../_images/9de3313f3474bc75d0f444f2f8088767117fc77560198aced4e0ec58471005fc.png" />
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1734,7 +1727,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
       <th>1</th>
       <td>sub-1</td>
       <td>2</td>
-      <td>D</td>
+      <td>C</td>
       <td>None</td>
       <td>NaN</td>
       <td>None</td>
@@ -1744,178 +1737,35 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
       <th>2</th>
       <td>sub-1</td>
       <td>3</td>
-      <td>A</td>
+      <td>C</td>
       <td>non-match</td>
-      <td>1.697356</td>
-      <td>match</td>
-      <td>0</td>
+      <td>0.317768</td>
+      <td>non-match</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>sub-1</td>
       <td>4</td>
-      <td>F</td>
+      <td>C</td>
       <td>non-match</td>
-      <td>0.149110</td>
-      <td>non-match</td>
-      <td>1</td>
+      <td>1.096391</td>
+      <td>match</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>sub-1</td>
       <td>5</td>
-      <td>D</td>
+      <td>F</td>
       <td>non-match</td>
-      <td>0.277760</td>
+      <td>0.843995</td>
       <td>non-match</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-76db6891-e0f3-4cdc-96f3-76360c999ad6')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-
-
-
-    <div id="df-1b619d51-2d1e-4f0d-8533-668848da18cc">
-      <button class="colab-df-quickchart" onclick="quickchart('df-1b619d51-2d1e-4f0d-8533-668848da18cc')"
-              title="Suggest charts."
-              style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-      </button>
-    </div>
-
-<style>
-  .colab-df-quickchart {
-    background-color: #E8F0FE;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: #1967D2;
-    height: 32px;
-    padding: 0 0 0 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: #E2EBFA;
-    box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: #174EA6;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-    background-color: #3B4455;
-    fill: #D2E3FC;
-  }
-
-  [theme=dark] .colab-df-quickchart:hover {
-    background-color: #434B5C;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-    fill: #FFFFFF;
-  }
-</style>
-
-    <script>
-      async function quickchart(key) {
-        const containerElement = document.querySelector('#' + key);
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      }
-    </script>
-
-      <script>
-
-function displayQuickchartButton(domScope) {
-  let quickchartButtonEl =
-    domScope.querySelector('#df-1b619d51-2d1e-4f0d-8533-668848da18cc button.colab-df-quickchart');
-  quickchartButtonEl.style.display =
-    google.colab.kernel.accessAllowed ? 'block' : 'none';
-}
-
-        displayQuickchartButton(document);
-      </script>
-      <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-76db6891-e0f3-4cdc-96f3-76360c999ad6 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-76db6891-e0f3-4cdc-96f3-76360c999ad6');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-</div></div>
+</div></div></div>
 </div>
 </section>
 <section id="implementation-scheme">
@@ -1929,7 +1779,7 @@ function displayQuickchartButton(domScope) {
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NBack</span><span class="p">(</span><span class="n">dm_env</span><span class="o">.</span><span class="n">Environment</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NBack</span><span class="p">(</span><span class="n">dm_env</span><span class="o">.</span><span class="n">Environment</span><span class="p">):</span>
 
   <span class="n">ACTIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;match&#39;</span><span class="p">,</span> <span class="s1">&#39;non-match&#39;</span><span class="p">]</span>
 
@@ -2074,8 +1924,6 @@ function displayQuickchartButton(domScope) {
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-</div>
 </div>
 </section>
 <section id="define-a-random-agent">
@@ -2083,7 +1931,7 @@ function displayQuickchartButton(domScope) {
 <p>For more information you can refer to NMA-DL W3D2 Basic Reinforcement learning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomAgent</span><span class="p">(</span><span class="n">acme</span><span class="o">.</span><span class="n">Actor</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomAgent</span><span class="p">(</span><span class="n">acme</span><span class="o">.</span><span class="n">Actor</span><span class="p">):</span>
 
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_spec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the number of available actions from the environment spec.&quot;&quot;&quot;</span>
@@ -2114,7 +1962,7 @@ function displayQuickchartButton(domScope) {
 <h3>Initialize the environment and the agent<a class="headerlink" href="#initialize-the-environment-and-the-agent" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="p">,</span> <span class="n">env_spec</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">create_environment</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="p">,</span> <span class="n">env_spec</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">create_environment</span><span class="p">()</span>
 <span class="n">agent</span> <span class="o">=</span> <span class="n">RandomAgent</span><span class="p">(</span><span class="n">env_spec</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;actions:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">env_spec</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
@@ -2139,7 +1987,7 @@ rewards:
 <h3>Run the loop<a class="headerlink" href="#run-the-loop" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitting parameters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitting parameters</span>
 <span class="n">n_episodes</span> <span class="o">=</span> <span class="mi">1_000</span>
 <span class="n">n_total_steps</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">log_loss</span> <span class="o">=</span> <span class="kc">False</span>
@@ -2215,13 +2063,13 @@ rewards:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/70db50da455fd0132e4ea8f17530d0f46d34517f49a66417a5d9912a182489b6.png" src="../../_images/70db50da455fd0132e4ea8f17530d0f46d34517f49a66417a5d9912a182489b6.png" />
+<img alt="../../_images/3ef2c8890810d73dc75124f9a1ffc48bd7050ce0dbdfaf154dfaaadb676e3114.png" src="../../_images/3ef2c8890810d73dc75124f9a1ffc48bd7050ce0dbdfaf154dfaaadb676e3114.png" />
 </div>
 </div>
 <p><strong>Note:</strong> You can simplify the environment loop using <a class="reference external" href="https://github.com/deepmind/acme">DeepMind Acme</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># init a new N-back environment</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># init a new N-back environment</span>
 <span class="n">env</span><span class="p">,</span> <span class="n">env_spec</span> <span class="o">=</span> <span class="n">NBack</span><span class="o">.</span><span class="n">create_environment</span><span class="p">()</span>
 
 <span class="c1"># DEBUG fake testing environment.</span>
@@ -2235,12 +2083,10 @@ rewards:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dqn_make_network</span><span class="p">(</span><span class="n">action_spec</span><span class="p">:</span> <span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">snt</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dqn_make_network</span><span class="p">(</span><span class="n">action_spec</span><span class="p">:</span> <span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">snt</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
   <span class="k">return</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
       <span class="n">snt</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
       <span class="n">snt</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">MLP</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">action_spec</span><span class="o">.</span><span class="n">num_values</span><span class="p">]),</span>
@@ -2257,11 +2103,13 @@ rewards:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+</div>
 </div>
 <p>Now, we run the environment loop with the DQN agent and print the training log.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># training loop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training loop</span>
 <span class="n">loop</span> <span class="o">=</span> <span class="n">EnvironmentLoop</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">loggers</span><span class="o">.</span><span class="n">InMemoryLogger</span><span class="p">())</span>
 <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">)</span>
 
@@ -2272,11 +2120,7 @@ rewards:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-
-  <div id="df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2305,189 +2149,46 @@ rewards:
     <tr>
       <th>995</th>
       <td>32</td>
-      <td>-10.0</td>
-      <td>329.379165</td>
+      <td>-13.0</td>
+      <td>1049.248175</td>
       <td>996</td>
       <td>31872</td>
     </tr>
     <tr>
       <th>996</th>
       <td>32</td>
-      <td>-11.0</td>
-      <td>326.324034</td>
+      <td>-13.0</td>
+      <td>1113.221097</td>
       <td>997</td>
       <td>31904</td>
     </tr>
     <tr>
       <th>997</th>
       <td>32</td>
-      <td>-9.0</td>
-      <td>373.017676</td>
+      <td>-14.0</td>
+      <td>1053.158887</td>
       <td>998</td>
       <td>31936</td>
     </tr>
     <tr>
       <th>998</th>
       <td>32</td>
-      <td>-11.0</td>
-      <td>309.737031</td>
+      <td>-19.0</td>
+      <td>1213.915019</td>
       <td>999</td>
       <td>31968</td>
     </tr>
     <tr>
       <th>999</th>
       <td>32</td>
-      <td>-9.0</td>
-      <td>405.329983</td>
+      <td>-11.0</td>
+      <td>1209.724540</td>
       <td>1000</td>
       <td>32000</td>
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-
-
-
-    <div id="df-eede3aad-142d-47c9-a53f-da1082d63010">
-      <button class="colab-df-quickchart" onclick="quickchart('df-eede3aad-142d-47c9-a53f-da1082d63010')"
-              title="Suggest charts."
-              style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-      </button>
-    </div>
-
-<style>
-  .colab-df-quickchart {
-    background-color: #E8F0FE;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: #1967D2;
-    height: 32px;
-    padding: 0 0 0 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: #E2EBFA;
-    box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: #174EA6;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-    background-color: #3B4455;
-    fill: #D2E3FC;
-  }
-
-  [theme=dark] .colab-df-quickchart:hover {
-    background-color: #434B5C;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-    fill: #FFFFFF;
-  }
-</style>
-
-    <script>
-      async function quickchart(key) {
-        const containerElement = document.querySelector('#' + key);
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      }
-    </script>
-
-      <script>
-
-function displayQuickchartButton(domScope) {
-  let quickchartButtonEl =
-    domScope.querySelector('#df-eede3aad-142d-47c9-a53f-da1082d63010 button.colab-df-quickchart');
-  quickchartButtonEl.style.display =
-    google.colab.kernel.accessAllowed ? 'block' : 'none';
-}
-
-        displayQuickchartButton(document);
-      </script>
-      <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-97eb8704-6a83-4b6e-ac13-dd80bc9f49f1');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-</div></div>
+</div></div></div>
 </div>
 </section>
 </section>
