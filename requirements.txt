@@ -3,7 +3,7 @@ numpy==1.26.4
 scipy
 matplotlib
 scikit-learn
-torch==1.13.0
+torch==1.13.1
 torchvision==0.14.0
 ipywidgets
 tqdm
