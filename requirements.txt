@@ -4,7 +4,7 @@ scipy
 matplotlib
 scikit-learn
 torch==1.13.1
-torchvision==0.14.0
+torchvision==0.14.1
 ipywidgets
 tqdm
 torchvision
