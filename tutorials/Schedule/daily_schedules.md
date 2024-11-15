@@ -1,39 +1,33 @@
 # General schedule
 
-## 2024 course will run: July 8 - 26, 2024
-
-Course live events: TBD — will update 
+## 2025 course will run: July 7 - 25, 2025
 
 ## Course overview
 
-* Sun, July 7: Opening Ceremonies
-   * 8:30 am UTC
-   * 5:30 pm UTC
-
 * Week 1
-   * Mon, July 8: Basics and Pytorch
-   * Tue, July 9: Linear Deep Learning
-   * Wed, July 10: Multilayer Perceptrons
-   * Thu, July 11: Projects day
-   * Fri, July 12: Optimization
+   * Mon, July 7: Basics and Pytorch
+   * Tue, July 8: Linear Deep Learning
+   * Wed, July 9: Multilayer Perceptrons
+   * Thu, July 10: Projects day
+   * Fri, July 11: Optimization
 
 * Week 2
-   * Mon, July 15: Regularization
-   * Tue, July 16: Convnets and DL Thinking 1
-   * Wed, July 17: Modern Convnets
-   * Thu, July 18: Generative models (VAEs and Diffusion models)
-   * Fri, July 19: Attention and Transformers
+   * Mon, July 14: Regularization
+   * Tue, July 15: Convnets and DL Thinking 1
+   * Wed, July 16: Modern Convnets
+   * Thu, July 17: Generative models (VAEs and Diffusion models)
+   * Fri, July 18: Attention and Transformers
 
 * Week 3: Advanced concepts
-   * Mon, July 22: Time Series and Natural Language Processing
-   * Tue, July 23: DL Thinking 2 & Half Projects Day (Abstract Writing)
-   * Wed, July 24: Unsupervised and Self-supervised learning
-   * Thu, July 25: Basic Reinforcement Learning
-   * Fri, July 26: Reinforcement Learning for Games & DL Thinking 3
+   * Mon, July 21: Time Series and Natural Language Processing
+   * Tue, July 22: DL Thinking 2 & Half Projects Day (Abstract Writing)
+   * Wed, July 23: Unsupervised and Self-supervised learning
+   * Thu, July 24: Basic Reinforcement Learning
+   * Fri, July 25: Reinforcement Learning for Games & DL Thinking 3
 ----
 
 ## Daily coursework schedule
-These schedules refer to the coursework time.
+### 2025 course schedule coming soon. Below is the 2024 course schedule. 
 
 ### General schedule
 All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
