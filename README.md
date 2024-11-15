@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*July 10-28, 2023*
+*July 7 - 25, 2025*
 
 **Objectives**: Gain hands-on, code-first experience with deep learning theories, models, and skills that are useful for applications and for advancing science. We focus on how to decide which problems can be tackled with deep learning, how to determine what model is best, how to best implement a model, how to visualize / justify findings, and how neuroscience can inspire deep learning. And throughout we emphasize the ethical use of DL. 
 
@@ -11,7 +11,7 @@ Please check out [expected prerequisites here](https://github.com/NeuromatchAcad
 
 The content should primarily be accessed from our ebook: https://deeplearning.neuromatch.io/ [under continuous development]
 
-Schedule for 2023: https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/Schedule/daily_schedules.md
+Schedule: https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/Schedule/daily_schedules.md
 
 ----
 
