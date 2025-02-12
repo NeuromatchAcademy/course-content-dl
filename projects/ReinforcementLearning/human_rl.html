@@ -1024,6 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1530,21 +1531,21 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sonnet</span> <span class="k">as</span> <span class="nn">snt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sonnet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">snt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">dm_env</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dm_env</span>
 
-<span class="kn">import</span> <span class="nn">acme</span>
-<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">specs</span>
-<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">wrappers</span>
-<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">EnvironmentLoop</span>
-<span class="kn">from</span> <span class="nn">acme.agents.tf</span> <span class="kn">import</span> <span class="n">dqn</span>
-<span class="kn">from</span> <span class="nn">acme.utils</span> <span class="kn">import</span> <span class="n">loggers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">acme</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme</span><span class="w"> </span><span class="kn">import</span> <span class="n">specs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme</span><span class="w"> </span><span class="kn">import</span> <span class="n">wrappers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnvironmentLoop</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.agents.tf</span><span class="w"> </span><span class="kn">import</span> <span class="n">dqn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">loggers</span>
 </pre></div>
 </div>
 </div>
@@ -1562,7 +1563,7 @@ title="Print to PDF"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 </pre></div>
@@ -1623,7 +1624,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 <p>Here we generate a mock dataset with those features, but remember to <strong>replace this with real human data.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_mock_nback_dataset</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_mock_nback_dataset</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                 <span class="n">n_participants</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                 <span class="n">n_trials</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
                                 <span class="n">stimulus_choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">),</span>
@@ -1779,11 +1780,11 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NBack</span><span class="p">(</span><span class="n">dm_env</span><span class="o">.</span><span class="n">Environment</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NBack</span><span class="p">(</span><span class="n">dm_env</span><span class="o">.</span><span class="n">Environment</span><span class="p">):</span>
 
   <span class="n">ACTIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;match&#39;</span><span class="p">,</span> <span class="s1">&#39;non-match&#39;</span><span class="p">]</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                <span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                <span class="n">episode_steps</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
                <span class="n">stimuli_choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">),</span>
@@ -1818,7 +1819,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span> <span class="o">=</span> <span class="p">[]</span>
 
-  <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_current_step</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1839,13 +1840,13 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
     <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_observation</span><span class="p">())</span>
 
 
-  <span class="k">def</span> <span class="nf">_episode_return</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">_episode_return</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imitate_human</span><span class="p">:</span>
       <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">human_subject_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_history</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
       <span class="k">return</span> <span class="mf">0.0</span>
 
-  <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reset_next_step</span><span class="p">:</span>
       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
@@ -1874,19 +1875,19 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
       <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">reward</span><span class="o">=</span><span class="n">step_reward</span><span class="p">,</span>
                                <span class="n">observation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_observation</span><span class="p">())</span>
 
-  <span class="k">def</span> <span class="nf">observation_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">observation_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">specs</span><span class="o">.</span><span class="n">BoundedArray</span><span class="p">(</span>
         <span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
         <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;nback_stimuli&#39;</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimuli_choices</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">action_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">action_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">dm_env</span><span class="o">.</span><span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">(</span>
         <span class="n">num_values</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">NBack</span><span class="o">.</span><span class="n">ACTIONS</span><span class="p">),</span>
         <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;action&#39;</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">_observation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">_observation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
     <span class="c1"># agent observes only the current trial</span>
     <span class="c1"># obs = self.stimuli[self._current_step - 1]</span>
@@ -1897,7 +1898,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 
     <span class="k">return</span> <span class="n">obs</span>
 
-  <span class="k">def</span> <span class="nf">plot_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">plot_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display current state of the environment.</span>
 
 <span class="sd">     Note: `M` mean `match`, and `.` is a `non-match`.</span>
@@ -1911,7 +1912,7 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
     <span class="p">)</span>
 
   <span class="nd">@staticmethod</span>
-  <span class="k">def</span> <span class="nf">create_environment</span><span class="p">():</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">create_environment</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Utility function to create a N-back environment and its spec.&quot;&quot;&quot;</span>
 
     <span class="c1"># Make sure the environment outputs single-precision floats.</span>
@@ -1931,26 +1932,26 @@ The HCP dataset from NMA-CN contains behavioral and imaging data for 7 cognitive
 <p>For more information you can refer to NMA-DL W3D2 Basic Reinforcement learning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomAgent</span><span class="p">(</span><span class="n">acme</span><span class="o">.</span><span class="n">Actor</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RandomAgent</span><span class="p">(</span><span class="n">acme</span><span class="o">.</span><span class="n">Actor</span><span class="p">):</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_spec</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_spec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the number of available actions from the environment spec.&quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_num_actions</span> <span class="o">=</span> <span class="n">environment_spec</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">num_values</span>
 
-  <span class="k">def</span> <span class="nf">select_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">select_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Selects an action uniformly at random.&quot;&quot;&quot;</span>
     <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_actions</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">action</span>
 
-  <span class="k">def</span> <span class="nf">observe_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestep</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">observe_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestep</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not record as the RandomAgent has no use for data.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
-  <span class="k">def</span> <span class="nf">observe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">next_timestep</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">observe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">next_timestep</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not record as the RandomAgent has no use for data.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
-  <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Does not update as the RandomAgent does not learn from data.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </pre></div>
@@ -2086,7 +2087,7 @@ rewards:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dqn_make_network</span><span class="p">(</span><span class="n">action_spec</span><span class="p">:</span> <span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">snt</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dqn_make_network</span><span class="p">(</span><span class="n">action_spec</span><span class="p">:</span> <span class="n">specs</span><span class="o">.</span><span class="n">DiscreteArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">snt</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
   <span class="k">return</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
       <span class="n">snt</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
       <span class="n">snt</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">MLP</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">action_spec</span><span class="o">.</span><span class="n">num_values</span><span class="p">]),</span>

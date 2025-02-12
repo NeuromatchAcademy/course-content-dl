@@ -1024,6 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1693,26 +1694,26 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">pybullet_envs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pybullet_envs</span>
 
-<span class="kn">from</span> <span class="nn">acme.utils</span> <span class="kn">import</span> <span class="n">loggers</span>
-<span class="kn">from</span> <span class="nn">acme.tf</span> <span class="kn">import</span> <span class="n">networks</span>
-<span class="kn">from</span> <span class="nn">acme.tf</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">tf2_utils</span>
-<span class="kn">from</span> <span class="nn">acme.agents.tf.d4pg</span> <span class="kn">import</span> <span class="n">D4PG</span>
-<span class="kn">from</span> <span class="nn">acme.agents.tf.ddpg</span> <span class="kn">import</span> <span class="n">DDPG</span>
-<span class="kn">from</span> <span class="nn">acme.agents.tf.dmpo</span> <span class="kn">import</span> <span class="n">DistributionalMPO</span>
-<span class="kn">from</span> <span class="nn">acme</span> <span class="kn">import</span> <span class="n">wrappers</span><span class="p">,</span> <span class="n">specs</span><span class="p">,</span> <span class="n">environment_loop</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">loggers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.tf</span><span class="w"> </span><span class="kn">import</span> <span class="n">networks</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.tf</span><span class="w"> </span><span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">tf2_utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.agents.tf.d4pg</span><span class="w"> </span><span class="kn">import</span> <span class="n">D4PG</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.agents.tf.ddpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">DDPG</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.agents.tf.dmpo</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributionalMPO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme</span><span class="w"> </span><span class="kn">import</span> <span class="n">wrappers</span><span class="p">,</span> <span class="n">specs</span><span class="p">,</span> <span class="n">environment_loop</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">sonnet</span> <span class="k">as</span> <span class="nn">snt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sonnet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">snt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
 
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
@@ -1731,11 +1732,11 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Import `pybullet` locomotion environments</span>
 
-<span class="kn">from</span> <span class="nn">pybullet_envs.gym_locomotion_envs</span> <span class="kn">import</span> <span class="n">HopperBulletEnv</span>
-<span class="kn">from</span> <span class="nn">pybullet_envs.gym_locomotion_envs</span> <span class="kn">import</span> <span class="n">Walker2DBulletEnv</span>
-<span class="kn">from</span> <span class="nn">pybullet_envs.gym_locomotion_envs</span> <span class="kn">import</span> <span class="n">HalfCheetahBulletEnv</span>
-<span class="kn">from</span> <span class="nn">pybullet_envs.gym_locomotion_envs</span> <span class="kn">import</span> <span class="n">AntBulletEnv</span>
-<span class="kn">from</span> <span class="nn">pybullet_envs.gym_locomotion_envs</span> <span class="kn">import</span> <span class="n">HumanoidBulletEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybullet_envs.gym_locomotion_envs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HopperBulletEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybullet_envs.gym_locomotion_envs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Walker2DBulletEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybullet_envs.gym_locomotion_envs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HalfCheetahBulletEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybullet_envs.gym_locomotion_envs</span><span class="w"> </span><span class="kn">import</span> <span class="n">AntBulletEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybullet_envs.gym_locomotion_envs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HumanoidBulletEnv</span>
 </pre></div>
 </div>
 </div>
@@ -1754,7 +1755,7 @@ title="Print to PDF"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>       <span class="c1"># interactive display</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">&#39;retina&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle&quot;</span><span class="p">)</span>
@@ -1781,7 +1782,7 @@ title="Print to PDF"
 <p>Use <code class="docutils literal notranslate"><span class="pre">restore_ckpt_from_drive</span></code> to recover the checkpoint from Google Drive and copy it back to the restarted Colab virtual machine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_ckpt_to_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_ckpt_to_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;Saves agent checkpoint directory to Google Drive.</span>
 
 <span class="sd">  WARNING: Will replace the entire content of the</span>
@@ -1798,7 +1799,7 @@ title="Print to PDF"
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved </span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">restore_ckpt_from_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">restore_ckpt_from_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;Restores agent checkpoint directory from Google Drive.</span>
 
 <span class="sd">  The name of the local checkpoint directory will be different</span>
@@ -1832,7 +1833,7 @@ title="Print to PDF"
 <p>Use this function to generate videos of your experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_video</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_video</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;Generates video from `frames`.</span>
 
 <span class="sd">  Args:</span>
@@ -1852,7 +1853,7 @@ title="Print to PDF"
   <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
   <span class="n">ax</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
   <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">frames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-  <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
     <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">im</span><span class="p">]</span>
   <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">/</span><span class="n">framerate</span>
@@ -1871,7 +1872,7 @@ title="Print to PDF"
 <p>Please note that the hyperparameters <code class="docutils literal notranslate"><span class="pre">layer_sizes</span></code>, <code class="docutils literal notranslate"><span class="pre">vmin</span></code>, <code class="docutils literal notranslate"><span class="pre">vmax</span></code>, <code class="docutils literal notranslate"><span class="pre">num_atoms</span></code> are set to reasonable default values, but may reqiure adjustment. Especially, <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code> should be used with care. Please see the <a class="reference external" href="https://github.com/deepmind/acme/blob/master/acme/agents/tf/d4pg/README.md">acme github repo</a> for more information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_networks_d4pg</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_networks_d4pg</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
                        <span class="n">policy_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">critic_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">vmin</span><span class="o">=-</span><span class="mf">150.</span><span class="p">,</span>
@@ -1901,7 +1902,7 @@ title="Print to PDF"
   <span class="k">return</span> <span class="n">policy_network</span><span class="p">,</span> <span class="n">critic_network</span>
 
 
-<span class="k">def</span> <span class="nf">make_networks_ddpg</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_networks_ddpg</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
                        <span class="n">policy_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">critic_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                       <span class="p">):</span>
@@ -1923,7 +1924,7 @@ title="Print to PDF"
   <span class="k">return</span> <span class="n">policy_network</span><span class="p">,</span> <span class="n">critic_network</span>
 
 
-<span class="k">def</span> <span class="nf">make_networks_dmpo</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_networks_dmpo</span><span class="p">(</span><span class="n">action_spec</span><span class="p">,</span>
                        <span class="n">policy_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">critic_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">vmin</span><span class="o">=-</span><span class="mf">150.</span><span class="p">,</span>
@@ -2029,24 +2030,24 @@ title="Print to PDF"
 <p>You can use this approach and this example as the starting point of your project. In many cases, this custom class can be used as is (with only a name change) with other robots in the <code class="docutils literal notranslate"><span class="pre">pybullet</span></code> locomotion environments by inheriting from their respective original environment classes instead of from <code class="docutils literal notranslate"><span class="pre">HopperBulletEnv</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hopper</span><span class="p">(</span><span class="n">HopperBulletEnv</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Hopper</span><span class="p">(</span><span class="n">HopperBulletEnv</span><span class="p">):</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">episode_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">episode_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `__init__` in `HopperBulletEnv` parent class.&quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span> <span class="o">=</span> <span class="n">episode_steps</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">render</span><span class="o">=</span><span class="n">render</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `reset` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
-  <span class="k">def</span> <span class="nf">_isDone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">_isDone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `_isDone` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span>
             <span class="ow">or</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_isDone</span><span class="p">())</span>
 
-  <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fully overrides `step` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">+=</span> <span class="mi">1</span>

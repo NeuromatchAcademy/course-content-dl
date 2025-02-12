@@ -1024,6 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1496,16 +1497,16 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 
-<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nilearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nilearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotting</span>
 
 <span class="n">fsaverage</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage</span><span class="p">()</span>
 </pre></div>
@@ -1543,7 +1544,7 @@ title="Print to PDF"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Run the cell</span>
-<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span><span class="o">,</span><span class="w"> </span><span class="nn">io</span>
 
 <span class="c1"># Use the dropbox link to download the data</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dropbox link: </span><span class="si">{</span><span class="n">dropbox_link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1607,11 +1608,11 @@ The dataset contains 1,000 3-second videos + fMRI human brain data of 10 subject
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Utility functions for data loading</span>
-<span class="k">def</span> <span class="nf">save_dict</span><span class="p">(</span><span class="n">di_</span><span class="p">,</span> <span class="n">filename_</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_dict</span><span class="p">(</span><span class="n">di_</span><span class="p">,</span> <span class="n">filename_</span><span class="p">):</span>
   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename_</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
       <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">di_</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="n">filename_</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_dict</span><span class="p">(</span><span class="n">filename_</span><span class="p">):</span>
   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename_</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">_Unpickler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">u</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;latin1&#39;</span>
@@ -1621,7 +1622,7 @@ The dataset contains 1,000 3-second videos + fMRI human brain data of 10 subject
   <span class="k">return</span> <span class="n">ret_di</span>
 
 
-<span class="k">def</span> <span class="nf">visualize_activity</span><span class="p">(</span><span class="n">vid_id</span><span class="p">,</span><span class="n">sub</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">visualize_activity</span><span class="p">(</span><span class="n">vid_id</span><span class="p">,</span><span class="n">sub</span><span class="p">):</span>
   <span class="c1"># Setting up the paths for whole brain data</span>
   <span class="n">fmri_dir</span> <span class="o">=</span> <span class="s1">&#39;./participants_data_v2021&#39;</span>
   <span class="n">track</span> <span class="o">=</span> <span class="s2">&quot;full_track&quot;</span>
@@ -1649,7 +1650,7 @@ The dataset contains 1,000 3-second videos + fMRI human brain data of 10 subject
                           <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;lyr&#39;</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_fmri</span><span class="p">(</span><span class="n">fmri_dir</span><span class="p">,</span> <span class="n">ROI</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_fmri</span><span class="p">(</span><span class="n">fmri_dir</span><span class="p">,</span> <span class="n">ROI</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;This function loads fMRI data into a numpy array for to a given ROI.</span>
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
@@ -1677,7 +1678,7 @@ The dataset contains 1,000 3-second videos + fMRI human brain data of 10 subject
 
   <span class="k">return</span> <span class="n">ROI_data_train</span>
 
-<span class="k">def</span> <span class="nf">saveasnii</span><span class="p">(</span><span class="n">brain_mask</span><span class="p">,</span><span class="n">nii_save_path</span><span class="p">,</span><span class="n">nii_data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">saveasnii</span><span class="p">(</span><span class="n">brain_mask</span><span class="p">,</span><span class="n">nii_save_path</span><span class="p">,</span><span class="n">nii_data</span><span class="p">):</span>
   <span class="n">img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">brain_mask</span><span class="p">)</span>
   <span class="n">nii_img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">nii_data</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">affine</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
   <span class="n">nib</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">nii_img</span><span class="p">,</span> <span class="n">nii_save_path</span><span class="p">)</span>
@@ -1751,8 +1752,8 @@ The dataset contains 1,000 3-second videos + fMRI human brain data of 10 subject
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Visualize video</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="kn">import</span> <span class="n">b64encode</span>
 
 <span class="n">vid_id</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># @param {type: &quot;integer&quot;}</span>
 <span class="n">video_dir</span> <span class="o">=</span> <span class="s1">&#39;./AlgonautsVideos268_All_30fpsmax&#39;</span>

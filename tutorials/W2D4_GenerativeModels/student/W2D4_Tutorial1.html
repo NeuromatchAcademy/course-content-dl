@@ -1100,7 +1100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "919a47764b0243d5a16b86d57a3efdcc"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7d62cd8474c54b05b9375ab0e0a906e3"}</script></div>
 </div>
 </section>
 <hr class="docutils"/>
@@ -1141,8 +1141,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>vibecheck<span class="w"> </span>datatops<span class="w"> </span>--quiet
 
-<span class="kn">from</span> <span class="nn">vibecheck</span> <span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
-<span class="k">def</span> <span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vibecheck</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">DatatopsContentReviewContainer</span><span class="p">(</span>
         <span class="s2">""</span><span class="p">,</span>  <span class="c1"># No text prompt</span>
         <span class="n">notebook_section</span><span class="p">,</span>
@@ -1163,22 +1163,22 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span>
 
-<span class="kn">import</span> <span class="nn">torchvision</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
 
-<span class="kn">from</span> <span class="nn">pytorch_pretrained_biggan</span> <span class="kn">import</span> <span class="n">one_hot_from_names</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytorch_pretrained_biggan</span><span class="w"> </span><span class="kn">import</span> <span class="n">one_hot_from_names</span>
 
-<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span><span class="p">,</span> <span class="n">trange</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span><span class="p">,</span> <span class="n">trange</span>
 </pre></div>
 </div>
 </div>
@@ -1194,12 +1194,12 @@ const thebe_selector_output = ".output, .cell_output"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">'matplotlib.font_manager'</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">VBox</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interactive_output</span><span class="p">,</span> <span class="n">Dropdown</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">VBox</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interactive_output</span><span class="p">,</span> <span class="n">Dropdown</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina'
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle"</span><span class="p">)</span>
@@ -1221,7 +1221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
 
 
-<span class="k">def</span> <span class="nf">image_moments</span><span class="p">(</span><span class="n">image_batches</span><span class="p">,</span> <span class="n">n_batches</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">image_moments</span><span class="p">(</span><span class="n">image_batches</span><span class="p">,</span> <span class="n">n_batches</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Compute mean and covariance of all pixels</span>
 <span class="sd">  from batches of images</span>
@@ -1253,7 +1253,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="k">return</span> <span class="n">m1</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span> <span class="n">cov</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">num_interps</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">num_interps</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Function to interpolate between images.</span>
 <span class="sd">  It does this by linearly interpolating between the</span>
@@ -1277,7 +1277,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">B</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">kl_q_p</span><span class="p">(</span><span class="n">zs</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">kl_q_p</span><span class="p">(</span><span class="n">zs</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Given [b,n,k] samples of z drawn</span>
 <span class="sd">  from q, compute estimate of KL(q||p).</span>
@@ -1305,7 +1305,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="k">return</span> <span class="p">(</span><span class="n">log_q</span> <span class="o">-</span> <span class="n">log_p</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">log_p_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu_xs</span><span class="p">,</span> <span class="n">sig_x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_p_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu_xs</span><span class="p">,</span> <span class="n">sig_x</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Given [batch, ...] input x and</span>
 <span class="sd">  [batch, n, ...] reconstructions, compute</span>
@@ -1340,7 +1340,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="n">squared_error</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sig_x</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">pca_encoder_decoder</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pca_encoder_decoder</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Compute encoder and decoder matrices</span>
 <span class="sd">  for PCA dimensionality reduction</span>
@@ -1361,7 +1361,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">W_encode</span> <span class="o">=</span> <span class="n">v</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
   <span class="n">W_decode</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">pca_encode</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">pca_encode</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Encoder: Subtract mean image and</span>
 <span class="sd">    project onto top K eigenvectors of</span>
@@ -1376,7 +1376,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">mu</span><span class="o">.</span><span class="n">numel</span><span class="p">())</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">@</span> <span class="n">W_encode</span>
 
-  <span class="k">def</span> <span class="nf">pca_decode</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">pca_decode</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Decoder: un-project then add back in the mean</span>
 
@@ -1392,7 +1392,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="k">return</span> <span class="n">pca_encode</span><span class="p">,</span> <span class="n">pca_decode</span>
 
 
-<span class="k">def</span> <span class="nf">cout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Unnecessarily complicated but complete way to</span>
 <span class="sd">  calculate the output depth, height</span>
@@ -1437,7 +1437,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plotting functions</span>
 
-<span class="k">def</span> <span class="nf">plot_gen_samples_ppca</span><span class="p">(</span><span class="n">therm1</span><span class="p">,</span> <span class="n">therm2</span><span class="p">,</span> <span class="n">therm_data_sim</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_gen_samples_ppca</span><span class="p">(</span><span class="n">therm1</span><span class="p">,</span> <span class="n">therm2</span><span class="p">,</span> <span class="n">therm_data_sim</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Plotting generated samples</span>
 
@@ -1461,7 +1461,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">plot_linear_ae</span><span class="p">(</span><span class="n">lin_losses</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_linear_ae</span><span class="p">(</span><span class="n">lin_losses</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Plotting linear autoencoder</span>
 
@@ -1480,7 +1480,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">plot_conv_ae</span><span class="p">(</span><span class="n">lin_losses</span><span class="p">,</span> <span class="n">conv_losses</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_conv_ae</span><span class="p">(</span><span class="n">lin_losses</span><span class="p">,</span> <span class="n">conv_losses</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Plotting convolutional autoencoder</span>
 
@@ -1505,7 +1505,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">plt_title</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">plt_title</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Helper function to plot images</span>
 
@@ -1530,7 +1530,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">plot_phi</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_phi</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Contour plot of relative entropy across samples</span>
 
@@ -1559,7 +1559,7 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">plot_torch_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_torch_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Helper function to plot torch image</span>
 
@@ -1614,10 +1614,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># Read more here: https://pytorch.org/docs/stable/notes/randomness.html</span>
 
 <span class="c1"># Call `set_seed` function in the exercises to ensure reproducibility.</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Function that controls randomness. NumPy and random modules must be imported.</span>
 
@@ -1646,7 +1646,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <span class="c1"># In case that `DataLoader` is used</span>
-<span class="k">def</span> <span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  DataLoader will reseed workers following randomness in</span>
 <span class="sd">  multi-process data loading algorithm.</span>
@@ -1683,7 +1683,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Inform the user if the notebook uses GPU or CPU.</span>
 
-<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">():</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Set the device. CUDA if available, CPU otherwise</span>
 
@@ -1741,7 +1741,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <span class="sd">nltk.download('wordnet')</span>
 <span class="sd">"""</span>
 
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'NLTK_DATA'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'nltk_data/'</span>
 
@@ -1772,7 +1772,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <h2>Video 1: Generative Modeling<a class="headerlink" href="#video-1-generative-modeling" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fcfbc7f25a3e48af82ff7e1db4915356"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "579338eee79642deba0d11419e2590f1"}</script></div>
 </div>
 </section>
 <section id="submit-your-feedback">
@@ -1791,7 +1791,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1c882b5d9f624c66b56780c017a6fd77"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "dbbfe440025748f38507cf575ae0b7b7"}</script></div>
 </div>
 <p>Download BigGAN (a generative model) and a few standard image datasets</p>
 <div class="cell tag_hide-input docutils container">
@@ -1842,8 +1842,8 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <span class="c1"># z_magnitude = .1 # @param {type:"slider", min:0, max:1, step:.1}</span>
 
 
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">truncnorm</span>
-<span class="k">def</span> <span class="nf">truncated_noise_sample</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim_z</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">truncnorm</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">truncated_noise_sample</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim_z</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">""" Create a truncated noise vector.</span>
 <span class="sd">        Params:</span>
 <span class="sd">            batch_size: batch size.</span>
@@ -1858,7 +1858,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
     <span class="k">return</span> <span class="n">truncation</span> <span class="o">*</span> <span class="n">values</span>
 
 
-<span class="k">def</span> <span class="nf">sample_from_biggan</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">z_magnitude</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sample_from_biggan</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">z_magnitude</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Sample from BigGAN Image Generator</span>
 
@@ -1935,7 +1935,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "03866350c83f4dc3a54a01f2bd13b64d"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3d1b828c053f4f73a1e91932627326df"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "85d471ab51ce4459a09fd03eb0d80272"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5fa81f884a3640cb92fe8ebeb3cca615"}</script></div>
 </div>
 </section>
 <section id="think-1-1-generated-images">
@@ -1959,7 +1959,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ad3bdb59c7a44401931a9e8030f0ed36"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "de9306e4169f40dcb0cbe87fde98e90d"}</script></div>
 </div>
 </section>
 </section>
@@ -1979,7 +1979,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown BigGAN Interpolation Widget (the updates may take a few seconds)</span>
 
-<span class="k">def</span> <span class="nf">interpolate_biggan</span><span class="p">(</span><span class="n">category_A</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate_biggan</span><span class="p">(</span><span class="n">category_A</span><span class="p">,</span>
                        <span class="n">category_B</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Interpolation function with BigGan</span>
@@ -2002,7 +2002,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
   <span class="c1"># z_magnitude_B = 0 #@param {type:"slider", min:-10, max:10, step:1}</span>
 
 
-  <span class="k">def</span> <span class="nf">interpolate_and_shape</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">num_interps</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">interpolate_and_shape</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">num_interps</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Function to interpolate and shape images.</span>
 <span class="sd">    It does this by linearly interpolating between the</span>
@@ -2109,7 +2109,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "38e1e0d28c2e46bbb96d60a65959b19e"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "cc4a892f38924017a3d0dc3b04b71f29"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f75c03171d2a44e4a6a15f4bb81b421d"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b54bb15871f4498782cbd71de4d1a846"}</script></div>
 </div>
 <section id="id2">
 <h4>Submit your feedback<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
@@ -2127,7 +2127,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "216dc8ade36345b59bc4a1f0882824ec"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0b1cdc162e5f4f128f67207a79a2aaad"}</script></div>
 </div>
 </section>
 </section>
@@ -2151,7 +2151,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "96209240e6ff4e74a04688ca3dbf16ee"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1c4e30e46a15468d88632b28806349a6"}</script></div>
 </div>
 </section>
 </section>
@@ -2165,7 +2165,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <h2>Video 2: Latent Variable Models<a class="headerlink" href="#video-2-latent-variable-models" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "89bb4ab2bc964c4c8fba50533c1cd96a"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3e6697cbccf24a7eaed8eebe97c909a5"}</script></div>
 </div>
 </section>
 <section id="id4">
@@ -2184,7 +2184,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d4ddbe7339aa4e1ba1790e07b86f0d91"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fc92e9ae41f447f8a8ce549bc1745307"}</script></div>
 </div>
 <p>In the video, the concept of a latent variable model was introduced. We saw how PCA (principal component analysis) can be extended into a generative model with latent variables called probabilistic PCA (pPCA). For pPCA the latent variables (z in the video) are the projections onto the principal component axes.</p>
 <p>The dimensionality of the principal components is typically set to be substantially lower-dimensional than the original data. Thus, the latent variables (the projection onto the principal component axes) are a lower-dimensional representation of the original data (dimensionality reduction!). With pPCA we can estimate the original distribution of the high dimensional data. This allows us to generate data with a distribution that “looks” more like the original data than if we were to only use PCA to generate data from the latent variables. Let’s see how that might look with a simple example.</p>
@@ -2202,7 +2202,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Generate example datapoints from the two thermometers</span>
 
-<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">mean_of_temps</span><span class="p">,</span> <span class="n">cov_of_temps</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">mean_of_temps</span><span class="p">,</span> <span class="n">cov_of_temps</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Generate random data, normally distributed</span>
 
@@ -2245,7 +2245,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/f1194a3ab71175b03cb18b1c51b2fd7b322d726de110ee7f804c0e43ed65d7f8.png" src="../../../_images/f1194a3ab71175b03cb18b1c51b2fd7b322d726de110ee7f804c0e43ed65d7f8.png">
+<img alt="../../../_images/815e2f43c9c1ece9034d9c2ebde87a2ed3a8e19ef8c4d9291cc366fa707b0021.png" src="../../../_images/815e2f43c9c1ece9034d9c2ebde87a2ed3a8e19ef8c4d9291cc366fa707b0021.png">
 </img></div>
 </div>
 <p>Let’s model these data with a single principal component. Given that the thermometers are measuring the same actual temperature, the principal component axes will be the identity line. The direction of this axes can be indicated by the unit vector <span class="math notranslate nohighlight">\([1 ~~ 1]~/~\sqrt2\)</span>.  We could estimate this axes by applying PCA. We can plot this axes, it tells us something about the data, but we can’t generate from it:</p>
@@ -2271,7 +2271,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/010b2f105c7c2aae426820e5657852c364a5807173dfba07de1037c0566d292b.png" src="../../../_images/010b2f105c7c2aae426820e5657852c364a5807173dfba07de1037c0566d292b.png">
+<img alt="../../../_images/4ac11ee7fadf6b00575986d2aa20dc97b9247cdaf3df6ff6f094643d02c20274.png" src="../../../_images/4ac11ee7fadf6b00575986d2aa20dc97b9247cdaf3df6ff6f094643d02c20274.png">
 </img></div>
 </div>
 <p><strong>Step 1:</strong> Calculate the parameters of the pPCA model</p>
@@ -2304,13 +2304,13 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 <p><strong>Step 2</strong>: “Generate” from the pPCA model of the thermometer data.</p>
 <p>Complete the code so we generate data by sampling according to the pPCA model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37b9c2bf-4568-40f3-a593-719ff412b935">
-<span class="eqno">(86)<a class="headerlink" href="#equation-37b9c2bf-4568-40f3-a593-719ff412b935" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-80214c22-ef49-4492-b2c8-215571af04fd">
+<span class="eqno">(86)<a class="headerlink" href="#equation-80214c22-ef49-4492-b2c8-215571af04fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma^2 \mathbf{I})
 \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gen_from_pPCA</span><span class="p">(</span><span class="n">noise_var</span><span class="p">,</span> <span class="n">data_mean</span><span class="p">,</span> <span class="n">pc_axes</span><span class="p">,</span> <span class="n">pc_variance</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_from_pPCA</span><span class="p">(</span><span class="n">noise_var</span><span class="p">,</span> <span class="n">data_mean</span><span class="p">,</span> <span class="n">pc_axes</span><span class="p">,</span> <span class="n">pc_variance</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Generate samples from pPCA</span>
 
@@ -2380,7 +2380,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a103596037714b6dbe3da1d655c2c1a1"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0a38b67b1fc74747ac1fcf1f2c832d12"}</script></div>
 </div>
 </section>
 </section>
@@ -2394,7 +2394,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 <h2>Video 3: Autoencoders<a class="headerlink" href="#video-3-autoencoders" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0c22a8bf06754f17931da429b2fcedda"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f6bdc36cd6624ce390f830bd6f4fa92b"}</script></div>
 </div>
 </section>
 <section id="id6">
@@ -2413,7 +2413,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "28fc28f70a06437db727e76ce4e15b58"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b544461ef37946eb9a3175b20bfed0be"}</script></div>
 </div>
 <p>Download MNIST and CIFAR10 datasets</p>
 <div class="cell tag_hide-input docutils container">
@@ -2424,7 +2424,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Download MNIST and CIFAR10 datasets</span>
-<span class="kn">import</span> <span class="nn">tarfile</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">fname</span> <span class="o">=</span> <span class="s1">'MNIST.tar.gz'</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s1">'mnist'</span>
@@ -2531,7 +2531,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to enable helper function `get_data`</span>
 
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'mnist'</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'mnist'</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Get data</span>
 
@@ -2583,13 +2583,13 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 <section id="section-3-1-conceptual-introduction-to-autoencoders">
 <h2>Section 3.1: Conceptual introduction to AutoEncoders<a class="headerlink" href="#section-3-1-conceptual-introduction-to-autoencoders" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll create our first autoencoder. It will reduce images down to <span class="math notranslate nohighlight">\(K\)</span> dimensions. The architecture will be quite simple: the input will be linearly mapped to a single hidden (or latent) layer <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> with <span class="math notranslate nohighlight">\(K\)</span> units, which will then be linearly mapped back to an output that is the same size as the input:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71884eed-a605-4950-b95a-f0f69173414d">
-<span class="eqno">(87)<a class="headerlink" href="#equation-71884eed-a605-4950-b95a-f0f69173414d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79abe607-cf42-4550-b430-2193d0584de0">
+<span class="eqno">(87)<a class="headerlink" href="#equation-79abe607-cf42-4550-b430-2193d0584de0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{x} \longrightarrow \mathbf{h} \longrightarrow \mathbf{x'}
 \end{equation}\]</div>
 <p>The loss function we’ll use will simply be mean squared error (MSE) quantifying how well the reconstruction (<span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>) matches the original image (<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a3db440-960d-4cbb-804e-34c7640fb3ef">
-<span class="eqno">(88)<a class="headerlink" href="#equation-4a3db440-960d-4cbb-804e-34c7640fb3ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7150da0c-6c6f-49f4-a084-aceb395f0fd4">
+<span class="eqno">(88)<a class="headerlink" href="#equation-7150da0c-6c6f-49f4-a084-aceb395f0fd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{MSE Loss} = \sum_{i=1}^{N} ||\mathbf{x}_i - \mathbf{x'}_i||^2_2
 \end{equation}\]</div>
 <p>If all goes well, then the AutoEncoder will learn, <strong>end to end</strong>, a good “encoding” or “compression” of inputs to a latent representation (<span class="math notranslate nohighlight">\(\mathbf{x \longrightarrow h}\)</span>) as well as a good “decoding” of that latent representation to a reconstruction of the original input (<span class="math notranslate nohighlight">\(\mathbf{h \longrightarrow x'}\)</span>).</p>
@@ -2612,7 +2612,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 <span class="c1"># @markdown `train_autoencoder(autoencoder, dataset, device, epochs=20, batch_size=250, seed=0)`</span>
 
 
-<span class="k">def</span> <span class="nf">train_autoencoder</span><span class="p">(</span><span class="n">autoencoder</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train_autoencoder</span><span class="p">(</span><span class="n">autoencoder</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
                       <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Function to train autoencoder</span>
@@ -2677,12 +2677,12 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearAutoEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">LinearAutoEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Linear Autoencoder</span>
 <span class="sd">  """</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A Linear AutoEncoder</span>
 
@@ -2706,7 +2706,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
     <span class="c1"># Decoder layer (a linear mapping from K to x_dim)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">dec_lin</span> <span class="o">=</span> <span class="o">...</span>
 
-  <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Encoder function</span>
 
@@ -2725,7 +2725,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
     <span class="n">h</span> <span class="o">=</span> <span class="o">...</span>
     <span class="k">return</span> <span class="n">h</span>
 
-  <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Decoder function</span>
 
@@ -2744,7 +2744,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
     <span class="n">x_prime</span> <span class="o">=</span> <span class="o">...</span>
     <span class="k">return</span> <span class="n">x_prime</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Forward pass</span>
 
@@ -2794,7 +2794,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5731ee72c58944c0ae5da5da2e0f8967"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b53b9b8daa5d4a94bd77b934fe1ae2e7"}</script></div>
 </div>
 </section>
 </section>
@@ -2824,7 +2824,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "743aa462c41c4f988bdb6792c3e511a7"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f28c23f3dacb4a839d9b8d5b6dc27610"}</script></div>
 </div>
 <p>Let’s visualize some of the reconstructions (<span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>) side-by-side with the input images (<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>).</p>
 <p>Visualize the reconstructions <span class="math notranslate nohighlight">\(\mathbf{x}'\)</span>, run this code a few times to see different examples.</p>
@@ -2893,7 +2893,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9ee4140a371341959df6ba801c3aa0f0"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "22e1063c0ab4400e8c2de24d09e62ada"}</script></div>
 </div>
 </section>
 </section>
@@ -2907,12 +2907,12 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
 <p>For some conceptual continuity with both PCA and the <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> layers above, the next block defines a custom <code class="docutils literal notranslate"><span class="pre">BiasLayer</span></code> for adding a learnable per-pixel offset. This custom layer will be used twice: as the first stage of the encoder and as the final stage of the decoder. Ideally, this means that the rest of the neural net can focus on fitting more interesting fine-grained structure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BiasLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BiasLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Bias Layer</span>
 <span class="sd">  """</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Initialise parameters of bias layer</span>
 
@@ -2927,7 +2927,7 @@ x = \mu + W z + \epsilon, \,\text{where}\,~~ \epsilon \sim \mathcal{N}(0,~\sigma
     <span class="n">init_bias</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">init_bias</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Forward pass</span>
 
@@ -2986,12 +2986,12 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 <p><strong>Do you expect the convolutional autoencoder or the linear autoencoder to reach a lower value of mean squared error (MSE)?</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ConvAutoEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ConvAutoEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  A Convolutional AutoEncoder</span>
 <span class="sd">  """</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">,</span> <span class="n">n_filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">filter_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">,</span> <span class="n">n_filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">filter_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Initialize parameters of ConvAutoEncoder</span>
 
@@ -3056,7 +3056,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="c1"># Decoder output bias layer</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">dec_bias</span> <span class="o">=</span> <span class="n">BiasLayer</span><span class="p">(</span><span class="n">x_dim</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Encoder</span>
 
@@ -3075,7 +3075,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc_lin</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">h</span>
 
-  <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Decoder</span>
 
@@ -3094,7 +3094,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="n">x_prime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dec_bias</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x_prime</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Forward pass</span>
 
@@ -3188,7 +3188,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c064c65afc1b43e6b8af59ad37ff75c1"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "796e8d6eb8e6448d8b3ac32964d0ebba"}</script></div>
 </div>
 </section>
 </section>
@@ -3203,7 +3203,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 <h2>Video 4: Variational Autoencoders<a class="headerlink" href="#video-4-variational-autoencoders" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9ea6804954504150acb816797c570216"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ee59849751ab4921969e20361fa102d4"}</script></div>
 </div>
 </section>
 <section id="id10">
@@ -3222,7 +3222,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e1579a689f7d4f558a491a00a7faadcf"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0632076bc72c494bb302109564863f9c"}</script></div>
 </div>
 <p>Train a VAE for MNIST while watching the video. (Note: this VAE has a 2D latent space. If you are feeling ambitious, edit the code and modify the latent space dimensionality and see what happens.)</p>
 <div class="cell tag_hide-input docutils container">
@@ -3236,11 +3236,11 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 <span class="n">K_VAE</span> <span class="o">=</span> <span class="mi">2</span>
 
 
-<span class="k">class</span> <span class="nc">ConvVAE</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConvVAE</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Convolutional Variational Autoencoder</span>
 <span class="sd">  """</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">num_filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">filter_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">num_filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">filter_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Initialize parameters of ConvVAE</span>
 
@@ -3297,7 +3297,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="c1"># scalar sig_x for all pixels</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">log_sig_x</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(()))</span>
 
-  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Map (batch of) x to (batch of) phi which</span>
 <span class="sd">    can then be passed to</span>
@@ -3318,7 +3318,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_fc_phi</span><span class="p">(</span><span class="n">flat_s</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">phi</span>
 
-  <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zs</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Map [b,n,k] sized samples of z to</span>
 <span class="sd">    [b,n,p] sized images</span>
@@ -3343,7 +3343,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="n">mu_xs</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mu_xs</span>
 
-  <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zs</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Decoder</span>
 
@@ -3357,7 +3357,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="c1"># Included for compatability with conv-AE code</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">zs</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Forward pass</span>
 
@@ -3376,7 +3376,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="n">zs</span> <span class="o">=</span> <span class="n">rsample</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">zs</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
 
-  <span class="k">def</span> <span class="nf">elbo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">elbo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Run input end to end through the VAE</span>
 <span class="sd">    and compute the ELBO using n</span>
@@ -3397,7 +3397,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
     <span class="k">return</span> <span class="n">log_p_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu_xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_sig_x</span><span class="o">.</span><span class="n">exp</span><span class="p">())</span> <span class="o">-</span> <span class="n">kl_q_p</span><span class="p">(</span><span class="n">zs</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">expected_z</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">expected_z</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Expected sample entropy</span>
 
@@ -3411,7 +3411,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
   <span class="k">return</span> <span class="n">phi</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">rsample</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rsample</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Sample z ~ q(z;phi)</span>
 <span class="sd">  Output z is size [b,n_samples,K] given</span>
@@ -3440,7 +3440,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
   <span class="k">return</span> <span class="n">eps</span><span class="o">*</span><span class="n">sig</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">train_vae</span><span class="p">(</span><span class="n">vae</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train_vae</span><span class="p">(</span><span class="n">vae</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Train VAE</span>
 
@@ -3496,7 +3496,7 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "34b0e983348b484faf4d05aeabf27648"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "db043f538ac94bc58a34212ddb17828a"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b6d89df11c4e4872915cd836c77d64ac"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "334df16f66c842e4b3fb52d27f16842c"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a419f76850234604a3d843d567b3b426"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f3c6e54130644890b3c6b81216ce8bb5"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ec8173b3df484192a75de0bbf19a49f2"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a1ae087111148d39f7b2da187adc8e8"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "322702ee91064ebf9526ff1e12e25097"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "943734b7808e42f99fbe65f551763b09"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6ba32f1518104d28835565b792b4de76"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e232e62f976b4c50a9da230564d3dd29"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4c352a94da8642c59b4770764eb7e292"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "03f3266d53ee422b9dc50da93d50fec1"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "644b22f54be24b2798e81fb0f70aa7c6"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f0056d4282e442288de875e9e42e8a92"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1fd33b125d36413296f8c18b05945e3d"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d703eda1853c470890a77ef62abe3073"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "bc96474e9b434272a1ecde76b08caca9"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1e2b7c5148834e80a58d3107e0524e6b"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "34cfd18758ce43a7a479045746a6e26a"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "39b13a83d0a64b34a04264d4e9fdc4a5"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">247</span>
 <span class="g g-Whitespace">    </span><span class="mi">243</span>   <span class="k">return</span> <span class="n">elbo_vals</span>
@@ -3508,39 +3508,83 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 <span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="c1"># ELBO is the loss function used to train VAEs</span>
 <span class="g g-Whitespace">    </span><span class="mi">254</span> <span class="c1"># (see lecture!)</span>
 
-<span class="nn">Cell In[46], line 237,</span> in <span class="ni">train_vae</span><span class="nt">(vae, dataset, epochs, n_samples)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span> <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">vae</span><span class="o">.</span><span class="n">elbo</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">237</span> <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span> <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="n">elbo_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+<span class="nn">Cell In[46], line 233,</span> in <span class="ni">train_vae</span><span class="nt">(vae, dataset, epochs, n_samples)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'Epochs'</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">233</span>   <span class="k">for</span> <span class="n">im</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">//</span> <span class="mi">250</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'Batches'</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>     <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/torch/_tensor.py:522,</span> in <span class="ni">Tensor.backward</span><span class="nt">(self, gradient, retain_graph, create_graph, inputs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">512</span> <span class="k">if</span> <span class="n">has_torch_function_unary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span>     <span class="k">return</span> <span class="n">handle_torch_function</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>         <span class="n">Tensor</span><span class="o">.</span><span class="n">backward</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">515</span>         <span class="p">(</span><span class="bp">self</span><span class="p">,),</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span>         <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">522</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">523</span>     <span class="bp">self</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/tqdm/notebook.py:250,</span> in <span class="ni">tqdm_notebook.__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="n">it</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">250</span>     <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="c1"># return super(tqdm...) will not catch exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="k">yield</span> <span class="n">obj</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="c1"># NB: except ... [ as ...] breaks IPython async KeyboardInterrupt</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/torch/autograd/__init__.py:266,</span> in <span class="ni">backward</span><span class="nt">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="n">retain_graph</span> <span class="o">=</span> <span class="n">create_graph</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="c1"># The reason we repeat the same comment below is that</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span> <span class="c1"># some Python versions print out the first line of a multi-line function</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="c1"># calls in the traceback and some print out the last line</span>
-<span class="ne">--&gt; </span><span class="mi">266</span> <span class="n">Variable</span><span class="o">.</span><span class="n">_execution_engine</span><span class="o">.</span><span class="n">run_backward</span><span class="p">(</span>  <span class="c1"># Calls into the C++ engine to run the backward pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span>     <span class="n">tensors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="n">grad_tensors_</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span>     <span class="n">retain_graph</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="n">create_graph</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">inputs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="n">allow_unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="n">accumulate_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span> <span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/tqdm/std.py:1181,</span> in <span class="ni">tqdm.__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span> <span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1181</span>     <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span>         <span class="k">yield</span> <span class="n">obj</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span>         <span class="c1"># Update and possibly print the progressbar.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span>         <span class="c1"># Note: does not call self.update(1) for speed optimisation.</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torch/utils/data/dataloader.py:631,</span> in <span class="ni">_BaseDataLoaderIter.__next__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">628</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">629</span>     <span class="c1"># TODO(https://github.com/pytorch/pytorch/issues/76750)</span>
+<span class="g g-Whitespace">    </span><span class="mi">630</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="ne">--&gt; </span><span class="mi">631</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span> <span class="ow">and</span> \
+<span class="g g-Whitespace">    </span><span class="mi">634</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+<span class="g g-Whitespace">    </span><span class="mi">635</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torch/utils/data/dataloader.py:675,</span> in <span class="ni">_SingleProcessDataLoaderIter._next_data</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span> <span class="k">def</span><span class="w"> </span><span class="nf">_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_index</span><span class="p">()</span>  <span class="c1"># may raise StopIteration</span>
+<span class="ne">--&gt; </span><span class="mi">675</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_fetcher</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># may raise StopIteration</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">pin_memory</span><span class="o">.</span><span class="n">pin_memory</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory_device</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">_MapDatasetFetcher.fetch</span><span class="nt">(self, possibly_batched_index)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torchvision/datasets/mnist.py:145,</span> in <span class="ni">MNIST.__getitem__</span><span class="nt">(self, index)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"L"</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>     <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_transform</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torchvision/transforms/transforms.py:137,</span> in <span class="ni">ToTensor.__call__</span><span class="nt">(self, pic)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pic</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="w">     </span><span class="sd">"""</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span><span class="sd">     Args:</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="sd">         pic (PIL Image or numpy.ndarray): Image to be converted to tensor.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="sd">         Tensor: Converted image.</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span><span class="sd">     """</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">to_tensor</span><span class="p">(</span><span class="n">pic</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/torchvision/transforms/functional.py:167,</span> in <span class="ni">to_tensor</span><span class="nt">(pic)</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span> <span class="c1"># handle PIL Image</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="n">mode_to_nptype</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"I"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="s2">"I;16"</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">byteorder</span> <span class="o">==</span> <span class="s2">"little"</span> <span class="k">else</span> <span class="s2">"I;16B"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">}</span>
+<span class="ne">--&gt; </span><span class="mi">167</span> <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pic</span><span class="p">,</span> <span class="n">mode_to_nptype</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pic</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="k">if</span> <span class="n">pic</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>     <span class="n">img</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">*</span> <span class="n">img</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -3554,25 +3598,25 @@ Size of ConvTranspose2D(Conv2D(image)) torch.Size([1, 1, 28, 28])
 <p><em>Recognition models and density networks</em></p>
 <p>Variational AutoEncoders (VAEs) are a lot like the classic AutoEncoders (AEs), but where we explicitly think about probability distributions. In the language of VAEs, the <strong>encoder</strong> is replaced with a <strong>recognition model</strong>, and the <strong>decoder</strong> is replaced with a <strong>density network</strong>.</p>
 <p>Where in a classic autoencoder the encoder maps from images to a single hidden vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5314cd0f-6ef8-4937-ac12-8dcad12f400a">
-<span class="eqno">(89)<a class="headerlink" href="#equation-5314cd0f-6ef8-4937-ac12-8dcad12f400a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-41c778c7-dd0d-4f34-a777-13bec379792c">
+<span class="eqno">(89)<a class="headerlink" href="#equation-41c778c7-dd0d-4f34-a777-13bec379792c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{AE}}{\longrightarrow} \mathbf{h} \, ,
 \end{equation}\]</div>
 <p>in a VAE we would say that a recognition model maps from inputs to entire <strong>distributions</strong> over hidden vectors,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3172ab6-add5-41de-8fd6-d7ba5636dd91">
-<span class="eqno">(90)<a class="headerlink" href="#equation-a3172ab6-add5-41de-8fd6-d7ba5636dd91" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0393ac0b-7e7e-4d64-841e-6025f70f3d72">
+<span class="eqno">(90)<a class="headerlink" href="#equation-0393ac0b-7e7e-4d64-841e-6025f70f3d72" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{VAE}}{\longrightarrow} q_{\mathbf{w_e}}(\mathbf{z}) \, ,
 \end{equation}\]</div>
 <p>which we will then sample from. Here <span class="math notranslate nohighlight">\(\mathbf{w_e}\)</span> refers to the weights of the recognition model, which parametarize our distribution generating network. We’ll say more in a moment about what kind of distribution <span class="math notranslate nohighlight">\(q_{\mathbf{w_e}}(\mathbf{z})\)</span> is.
 Part of what makes VAEs work is that the loss function will require good reconstructions of the input not just for a single <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, but <em>on average</em> from samples of <span class="math notranslate nohighlight">\(\mathbf{z} \sim q_{\mathbf{w_e}}(\mathbf{z})\)</span>.</p>
 <p>In the classic autoencoder, we had a decoder which maps from hidden vectors to reconstructions of the input:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b58ac0b-2e0f-42e5-b026-bb5e651906fc">
-<span class="eqno">(91)<a class="headerlink" href="#equation-0b58ac0b-2e0f-42e5-b026-bb5e651906fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e89d1db-9a3d-4e0d-90c9-768a70fad0c1">
+<span class="eqno">(91)<a class="headerlink" href="#equation-6e89d1db-9a3d-4e0d-90c9-768a70fad0c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{h} \overset{\text{AE}}{\longrightarrow} \mathbf{x'} \, .
 \end{equation}\]</div>
 <p>In a density network, reconstructions are expressed in terms of a distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5cbc56d-6373-4fad-8ebf-c4b5f0836beb">
-<span class="eqno">(92)<a class="headerlink" href="#equation-f5cbc56d-6373-4fad-8ebf-c4b5f0836beb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e4907497-8949-48ba-9b25-355a1982e44d">
+<span class="eqno">(92)<a class="headerlink" href="#equation-e4907497-8949-48ba-9b25-355a1982e44d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{z} \overset{\text{VAE}}{\longrightarrow} p_{\mathbf{w_d}}(\mathbf{x}|\mathbf{z})
 \end{equation}\]</div>
 <p>where, as above, <span class="math notranslate nohighlight">\(p_{\mathbf{w_d}}(\mathbf{x}|\mathbf{z})\)</span> is defined by mapping <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> through a density network then treating the resulting <span class="math notranslate nohighlight">\(f(\mathbf{z};\mathbf{w_d})\)</span> as the mean of a (Gaussian) distribution over <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. Similarly, our reconstruction distribution is parametarized by the weights of the density network.</p>
@@ -3580,13 +3624,13 @@ Part of what makes VAEs work is that the loss function will require good reconst
 <section id="section-4-2-generating-novel-images-from-the-decoder">
 <h2>Section 4.2: Generating novel images from the decoder<a class="headerlink" href="#section-4-2-generating-novel-images-from-the-decoder" title="Permalink to this heading">#</a></h2>
 <p>If we isolate the decoder part of the AutoEncoder, what we have is a neural network that takes as input a vector of size <span class="math notranslate nohighlight">\(K\)</span> and produces as output an image that looks something like our training data. Recall that in our earlier notation, we had an input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> that was mapped to a low-dimensional hidden representation <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> which was then decoded into a reconstruction of the input, <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5904768c-e44b-4c23-af74-a4a8e60d9a80">
-<span class="eqno">(93)<a class="headerlink" href="#equation-5904768c-e44b-4c23-af74-a4a8e60d9a80" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a919524c-f2f9-4c70-a6ec-440a9ce03da7">
+<span class="eqno">(93)<a class="headerlink" href="#equation-a919524c-f2f9-4c70-a6ec-440a9ce03da7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{encode}}{\longrightarrow} \mathbf{h} \overset{\text{decode}}{\longrightarrow} \mathbf{x'}\, .
 \end{equation}\]</div>
 <p>Partly as a matter of convention, and partly to distinguish where we are going next from the previous section, we’re going to introduce a new variable, <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^K\)</span>, which will take the place of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span>. The key difference is that while <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> is produced by the encoder for a particular <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> will be drawn out of thin air from a prior of our choosing:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0ecd28b-2ae3-4e12-a75b-0100a15c08dd">
-<span class="eqno">(94)<a class="headerlink" href="#equation-f0ecd28b-2ae3-4e12-a75b-0100a15c08dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4771d5f4-fdf3-4a5b-8ae9-c88a9caa08cd">
+<span class="eqno">(94)<a class="headerlink" href="#equation-4771d5f4-fdf3-4a5b-8ae9-c88a9caa08cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{z} \sim p(\mathbf{z})\\ \mathbf{z} \overset{\text{decode}}{\longrightarrow} \mathbf{x}\, .
 \end{equation}\]</div>
 <p>(Note that it is also common convention to drop the “prime” on <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> when it is no longer being thought of as a “reconstruction”).</p>
@@ -3595,7 +3639,7 @@ Part of what makes VAEs work is that the loss function will require good reconst
 <p>Complete the code below to generate some images from the VAE that we trained above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_images</span><span class="p">(</span><span class="n">autoencoder</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n_images</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_images</span><span class="p">(</span><span class="n">autoencoder</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n_images</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">"""</span>
 <span class="sd">  Generate n_images 'new' images from the decoder part of the given</span>
 <span class="sd">  autoencoder.</span>

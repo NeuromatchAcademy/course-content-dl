@@ -1024,6 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1559,25 +1560,25 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">tqdm</span>
-<span class="kn">import</span> <span class="nn">hashlib</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 
-<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
 
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">find_objects</span><span class="p">,</span> <span class="n">binary_fill_holes</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">generate_binary_structure</span><span class="p">,</span> <span class="n">label</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linear_sum_assignment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_filter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_objects</span><span class="p">,</span> <span class="n">binary_fill_holes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_binary_structure</span><span class="p">,</span> <span class="n">label</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_sum_assignment</span>
 </pre></div>
 </div>
 </div>
@@ -1664,7 +1665,7 @@ This Notebook was developed by Carsen Stringer. It borrows from:</p>
 <span class="c1"># we are going to normalize the images so their pixel values mostly fall between 0 and 1</span>
 <span class="c1"># this is helpful if you have images on a variety of scales</span>
 <span class="c1"># we will also return the images as float32 &lt;- the data type that is fast for GPU computation</span>
-<span class="k">def</span> <span class="nf">normalize99</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize99</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; normalize image so 0.0 is 1st percentile and 1.0 is 99th percentile &quot;&quot;&quot;</span>
   <span class="n">X</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
   <span class="n">x01</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1737,7 +1738,7 @@ The standard approach is to create a “not-cell” and a “cell” probability
 <p>adapted from <a class="reference external" href="https://github.com/MouseLand/cellpose/blob/master/cellpose/transforms.py">cellpose/transforms.py</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_rotate_and_resize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_range</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">random_rotate_and_resize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_range</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
                              <span class="n">do_flip</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Augmentation by random rotation and resizing</span>
@@ -1880,7 +1881,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>adapted from <a class="reference external" href="https://github.com/MouseLand/cellpose/blob/master/cellpose/resnet_torch.py">cellpose/resnet_torch.py</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
       <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">sz</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span>
       <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">),</span>
@@ -1888,8 +1889,8 @@ In addition to these downsampling and upsampling blocks, it has skip connections
       <span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">convdown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">convdown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
@@ -1904,14 +1905,14 @@ In addition to these downsampling and upsampling blocks, it has skip connections
                                            <span class="n">out_channels</span><span class="p">,</span>
                                            <span class="n">kernel_size</span><span class="p">))</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">class</span> <span class="nc">downsample</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">downsample</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">down</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">maxpool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1921,7 +1922,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
                                     <span class="n">nbase</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
                                     <span class="n">kernel_size</span><span class="p">))</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">xd</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">down</span><span class="p">)):</span>
       <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1932,8 +1933,8 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="k">return</span> <span class="n">xd</span>
 
 
-<span class="k">class</span> <span class="nc">convup</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">convup</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_0&#39;</span><span class="p">,</span> <span class="n">convbatchrelu</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span>
@@ -1943,14 +1944,14 @@ In addition to these downsampling and upsampling blocks, it has skip connections
                                                  <span class="n">out_channels</span><span class="p">,</span>
                                                  <span class="n">kernel_size</span><span class="p">))</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">class</span> <span class="nc">upsample</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">upsample</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">upsampling</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Upsample</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">up</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
@@ -1958,7 +1959,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
       <span class="bp">self</span><span class="o">.</span><span class="n">up</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_up_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
               <span class="n">convup</span><span class="p">(</span><span class="n">nbase</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">nbase</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">kernel_size</span><span class="p">))</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xd</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xd</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">xd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">up</span><span class="p">)):</span>
       <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1967,8 +1968,8 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">class</span> <span class="nc">Unet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">nout</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Unet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">nout</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">Unet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nbase</span> <span class="o">=</span> <span class="n">nbase</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nout</span> <span class="o">=</span> <span class="n">nout</span>
@@ -1980,16 +1981,16 @@ In addition to these downsampling and upsampling blocks, it has skip connections
     <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">nbase</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span>
                             <span class="n">padding</span><span class="o">=</span><span class="n">kernel_size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">T0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="n">T0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">upsample</span><span class="p">(</span><span class="n">T0</span><span class="p">)</span>
     <span class="n">T0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">T0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">T0</span>
 
-  <span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
     <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">filename</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">cpu</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">cpu</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">cpu</span><span class="p">:</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2027,7 +2028,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <p>Note we probably should be evaluating test performance throughout training – implement that yourself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># train the network</span>
 <span class="c1"># parameters related to training the network</span>
@@ -2154,7 +2155,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Padding code for test images</span>
 
-<span class="k">def</span> <span class="nf">pad_image_ND</span><span class="p">(</span><span class="n">img0</span><span class="p">,</span> <span class="n">div</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pad_image_ND</span><span class="p">(</span><span class="n">img0</span><span class="p">,</span> <span class="n">div</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; pad image for test-time so that its dimensions are a multiple of 16 (2D or 3D)</span>
 
 <span class="sd">  Parameters</span>
@@ -2252,7 +2253,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
 
 <span class="c1"># @markdown `fill_holes_and_remove_small_masks` function</span>
-<span class="k">def</span> <span class="nf">fill_holes_and_remove_small_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_holes_and_remove_small_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; fill holes in masks (2D/3D) and discard masks smaller than min_size (2D)</span>
 
 <span class="sd">  fill holes in each mask using scipy.ndimage.morphology.binary_fill_holes</span>
@@ -2293,7 +2294,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 
 
 <span class="c1"># @markdown `average_precision` function</span>
-<span class="k">def</span> <span class="nf">average_precision</span><span class="p">(</span><span class="n">masks_true</span><span class="p">,</span> <span class="n">masks_pred</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">average_precision</span><span class="p">(</span><span class="n">masks_true</span><span class="p">,</span> <span class="n">masks_pred</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; average precision estimation: AP = TP / (TP + FP + FN)</span>
 
 <span class="sd">  This function is based heavily on the *fast* stardist matching functions</span>
@@ -2339,7 +2340,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 
 
 <span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">_label_overlap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_label_overlap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; fast function to get pixel overlaps between masks in x and y</span>
 
 <span class="sd">  Parameters</span>
@@ -2363,7 +2364,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
   <span class="k">return</span> <span class="n">overlap</span>
 
 
-<span class="k">def</span> <span class="nf">_intersection_over_union</span><span class="p">(</span><span class="n">masks_true</span><span class="p">,</span> <span class="n">masks_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_intersection_over_union</span><span class="p">(</span><span class="n">masks_true</span><span class="p">,</span> <span class="n">masks_pred</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; intersection over union of all mask pairs</span>
 
 <span class="sd">  Parameters</span>
@@ -2387,7 +2388,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
   <span class="k">return</span> <span class="n">iou</span>
 
 
-<span class="k">def</span> <span class="nf">_true_positive</span><span class="p">(</span><span class="n">iou</span><span class="p">,</span> <span class="n">th</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_true_positive</span><span class="p">(</span><span class="n">iou</span><span class="p">,</span> <span class="n">th</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; true positive at threshold th</span>
 
 <span class="sd">  Parameters</span>
@@ -2416,7 +2417,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_masks_unet</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cell_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_masks_unet</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cell_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; create masks using NOT CELL probability and CELL probability</span>
 
 <span class="sd">  min_size: minimum number of pixels in the masks</span>
@@ -2542,7 +2543,7 @@ In addition to these downsampling and upsampling blocks, it has skip connections
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Download and load the data.</span>
-<span class="kn">from</span> <span class="nn">tifffile</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tifffile</span><span class="w"> </span><span class="kn">import</span> <span class="n">imread</span>
 
 <span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;gt1.tif&quot;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.suite2p.org/test_data/gt1.tif&quot;</span> <span class="c1"># This URL does not exist.</span>

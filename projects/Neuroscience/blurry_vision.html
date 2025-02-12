@@ -1026,6 +1026,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1564,28 +1565,28 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tqdm.notebook</span> <span class="k">as</span> <span class="nn">tqdm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageFilter</span>
-<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span><span class="p">,</span> <span class="n">rmtree</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageFilter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">copyfile</span><span class="p">,</span> <span class="n">rmtree</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
-<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">optim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 <span class="c1"># For getting output of intermediate layers in Pytorch</span>
-<span class="kn">from</span> <span class="nn">torch_intermediate_layer_getter</span> <span class="kn">import</span> <span class="n">IntermediateLayerGetter</span> <span class="k">as</span> <span class="n">LayerGetter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch_intermediate_layer_getter</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntermediateLayerGetter</span> <span class="k">as</span> <span class="n">LayerGetter</span>
 <span class="c1"># For interactive visualization</span>
-<span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.tensorboard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SummaryWriter</span>
 
-<span class="kn">import</span> <span class="nn">torchvision</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">transforms</span>
 
 <span class="o">%</span><span class="k">load_ext</span> tensorboard
 </pre></div>
@@ -1603,7 +1604,7 @@ title="Print to PDF"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helpers functions</span>
-<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">)</span>
   <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
@@ -1618,12 +1619,12 @@ title="Print to PDF"
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Random seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1"> has been set.&#39;</span><span class="p">)</span>
 
 <span class="c1"># In case that `DataLoader` is used</span>
-<span class="k">def</span> <span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
   <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
   <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
   <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">():</span>
   <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
   <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: For this notebook to perform best, &quot;</span>
@@ -1679,7 +1680,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 
 <span class="c1"># @markdown `dataset_blur_5` contains the images with a Gaussian Blur (radius = 5)</span>
 
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;catvdog_clear.zip&quot;</span><span class="p">,</span>
              <span class="s2">&quot;catvdog_blur_2.zip&quot;</span><span class="p">,</span>
@@ -1748,7 +1749,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <span class="p">)</span>
 
 <span class="c1"># function to apply a training-validation set split on a dataset</span>
-<span class="k">def</span> <span class="nf">validation_split</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">val_ratio</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">validation_split</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">val_ratio</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">):</span>
   <span class="n">train_indices</span><span class="p">,</span> <span class="n">val_indices</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)),</span>
                                                       <span class="n">train_data</span><span class="o">.</span><span class="n">targets</span><span class="p">,</span>
                                                       <span class="n">stratify</span><span class="o">=</span><span class="n">train_data</span><span class="o">.</span><span class="n">targets</span><span class="p">,</span>
@@ -1843,9 +1844,9 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define AlexNet with different modules representing different brain areas</span>
-<span class="k">class</span> <span class="nc">AlexNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AlexNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">downscale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">downscale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Args:</span>
 <span class="sd">      num_classes: int</span>
@@ -1891,7 +1892,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4096</span><span class="o">//</span><span class="n">downscale</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Args:</span>
 <span class="sd">      x: torch.Tensor</span>
@@ -1955,7 +1956,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define function for running some epochs of training</span>
-<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">train_batch</span><span class="p">,</span> <span class="n">val_batch</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">train_batch</span><span class="p">,</span> <span class="n">val_batch</span><span class="p">,</span>
           <span class="n">training_losses</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validation_losses</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span> <span class="c1">#Training</span>
 
   <span class="n">net</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -1993,7 +1994,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define function to calculate current accuracy with a given dataloader</span>
-<span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span> <span class="c1">#Get the accuracies</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">accuracy</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span> <span class="c1">#Get the accuracies</span>
   <span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
   <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2011,7 +2012,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 
 
 <span class="c1"># define function to evaluate and print training and test accuracy</span>
-<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
   <span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
   <span class="n">train_count</span><span class="p">,</span> <span class="n">train_acc</span> <span class="o">=</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">clear_train_batches</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
   <span class="n">test_count</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">clear_test_batches</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
@@ -2219,7 +2220,7 @@ Accuracy on the 2494 blurry testing samples after training: 77.19
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper Function to plot the 16 filters of the first layer</span>
-<span class="k">def</span> <span class="nf">plot_filter</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_filter</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
   <span class="n">layer</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
     <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
@@ -2322,7 +2323,7 @@ Accuracy on the 2494 blurry testing samples after training: 77.19
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions to get and plot intermediate layer output</span>
 
-<span class="k">def</span> <span class="nf">plot_intermediate_layers</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">return_layers</span><span class="o">=</span><span class="n">return_layers</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_intermediate_layers</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">return_layers</span><span class="o">=</span><span class="n">return_layers</span><span class="p">):</span>
   <span class="c1"># Get output for the image from the intermediate layers</span>
   <span class="n">intermediate_output</span> <span class="o">=</span> <span class="n">LayerGetter</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">return_layers</span><span class="o">=</span><span class="n">return_layers</span><span class="p">)(</span><span class="n">image</span><span class="p">)</span>
   <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
