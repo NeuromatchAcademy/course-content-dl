@@ -15,6 +15,7 @@ Schedule: https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutor
 
 ----
 
+
 # Licensing
 
 [![CC BY 4.0][cc-by-image]][cc-by]
