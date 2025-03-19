@@ -94,7 +94,7 @@ jobs:
         id: process_notebooks
         run: |
           branch=${{ github.event.pull_request.head.ref }}
-          nbs="tutorials/W1D*_*/*Tutorial1.ipynb";
+          nbs="tutorials/W1D*_*/*Tutorial2.ipynb";
           # nbs=`python ci/select_notebooks.py ${{ steps.changed-files.outputs.all_changed_files }}`
           if ${{ contains(env.COMMIT_MESSAGE, 'ci:execute') }}; then
             execflag="--execute";
