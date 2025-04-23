@@ -8,8 +8,6 @@ Portal: [https://portal.neuromatchacademy.org/](https://portal.neuromatchacademy
 
 Website: [https://neuromatch.io/deep-learning-course/](https://neuromatch.io/deep-learning-course/)
 
-Crowdcast: [https://www.crowdcast.io/e/neuromatch-academy-2022-](https://www.crowdcast.io/e/neuromatch-academy-2022-)
-
 Code of Conduct and Code of Conduct Violations Form: [https://github.com/NeuromatchAcademy/precourse/blob/main/CODE_OF_CONDUCT.md](https://github.com/NeuromatchAcademy/precourse/blob/main/CODE_OF_CONDUCT.md)
 
 Project Exemption Form: [https://airtable.com/shrubhlgsWJ8DuA7E](https://airtable.com/shrubhlgsWJ8DuA7E)
