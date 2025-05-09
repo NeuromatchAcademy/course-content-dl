@@ -36,7 +36,7 @@
     title: Tutorial 2
   tutorials: 2
 
-- day: W1D5
+- day: W1D4
   category: Fine Tuning
   name: Optimization
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OFLZiurcZA4FKvG-mjA8pw
@@ -45,6 +45,16 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ft2sz/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
   tutorials: 1
+
+- day: W1D5
+  category: 
+  name: 
+  playlist: 
+
+  slides:
+  - link: 
+    title: 
+  tutorials: 
 
 - day: W2D1
   category: Fine Tuning
