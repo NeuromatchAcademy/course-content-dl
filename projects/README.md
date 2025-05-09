@@ -6,7 +6,7 @@
 
 The definitive guide to project schedule and structure is in the [Daily Guide to Projects](./docs/project_guidance.md), but we include some overview information here.
 
-The NMA projects are conducted over 14 days: all of the course days except the final day. The projects are a core part of the Academyy, and will teach different skills from those you learn during the course work.
+The NMA projects are conducted over 14 days: all of the course days except the final day. The projects are a core part of the Academy, and will teach different skills from those you learn during the course work.
 
 Pods are organized around common interests in:
 
