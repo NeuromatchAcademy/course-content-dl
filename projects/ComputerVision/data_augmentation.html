@@ -1027,6 +1027,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modelingsteps/intro.html">Modeling Step-by-Step Guide</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../modelingsteps/ModelingSteps_1through2_DL.html">Modeling Steps 1 - 2</a></li>
@@ -1764,8 +1765,8 @@ GPU is enabled in this notebook.
 <section id="mixup">
 <h2>Mixup<a class="headerlink" href="#mixup" title="Permalink to this heading">#</a></h2>
 <p>Mixup is a data augmentation technique that combines pairs of examples via a convex combination of the images and the labels. Given images <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> with labels <span class="math notranslate nohighlight">\(y_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span>, respectively, and <span class="math notranslate nohighlight">\(\lambda \in [0, 1]\)</span>, mixup creates a new image <span class="math notranslate nohighlight">\(\hat{x}\)</span> with label <span class="math notranslate nohighlight">\(\hat{y}\)</span> the following way:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e02214d1-e57c-4823-ad64-cf48eb83290b">
-<span class="eqno">(128)<a class="headerlink" href="#equation-e02214d1-e57c-4823-ad64-cf48eb83290b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-baee64b5-5eea-422c-a9b0-4d13ba2d52c0">
+<span class="eqno">(128)<a class="headerlink" href="#equation-baee64b5-5eea-422c-a9b0-4d13ba2d52c0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \hat{x} &amp;= \lambda x_i + (1 - \lambda) x_j \\
 \hat{y} &amp;= \lambda y_i + (1 - \lambda) y_j
 \end{align}\]</div>
