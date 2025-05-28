@@ -1252,11 +1252,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry">
-<a class="reference internal nav-link" href="#daily-survey">
-   Daily survey
-  </a>
-</li>
-<li class="toc-h1 nav-item toc-entry">
 <a class="reference internal nav-link" href="#bonus-1-self-supervised-networks-learn-representation-invariance">
    Bonus 1: Self-supervised networks learn representation invariance
   </a>
@@ -1454,7 +1449,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "13ef7c1dcad145db8637913615356a8a"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8188415026fd41a48e8ab35ca9190ba7"}</script></div>
 </div>
 </section>
 <hr class="docutils"/>
@@ -1495,6 +1490,15 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">zipurl</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipresp</span><span class="p">:</span>
   <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">zipresp</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span> <span class="k">as</span> <span class="n">zfile</span><span class="p">:</span>
     <span class="n">zfile</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+
+<span class="c1"># Correct now-broken use of deprecated np.product method</span>
+<span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"data.py"</span><span class="p">,</span> <span class="s2">"load.py"</span><span class="p">,</span> <span class="s2">"models.py"</span><span class="p">]:</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"neuromatch_ssl_tutorial/modules/</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"np.product("</span><span class="p">,</span> <span class="s2">"np.prod("</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"neuromatch_ssl_tutorial/modules/</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+      <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Download completed!"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1924,7 +1928,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <h2>Video 0: Introduction<a class="headerlink" href="#video-0-introduction" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3634367b0dec42d0a8df4a7a043f6b63"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7ddf39e4534d43cd9cedf4606ba5b4fd"}</script></div>
 </div>
 </section>
 <section id="submit-your-feedback">
@@ -1943,7 +1947,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6412b8030ba84fe48e029afce2b8fc24"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "43e1dab164f646e7bc4d6de4ac7000e9"}</script></div>
 </div>
 </section>
 </section>
@@ -1955,7 +1959,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <h2>Video 1: Why do representations matter?<a class="headerlink" href="#video-1-why-do-representations-matter" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f6361aab3e88422db6418c867ffc5269"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c929fdb2764e40d4acdf54904712b68b"}</script></div>
 </div>
 </section>
 <section id="id1">
@@ -1974,7 +1978,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "033f15f9f39142d28181a5db8f857ae3"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "45cc1a7a48d44b09a67ee861ffcb1df9"}</script></div>
 </div>
 </section>
 <section id="section-1-1-introducing-the-dsprites-dataset">
@@ -2124,7 +2128,7 @@ Dataset size: 16000 training, 4000 test images
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c3f2c617566c42139150b51f08f628ff"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b8f81cc1c4074021a6bc9c468e712ecb"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2153,7 +2157,7 @@ Dataset size: 16000 training, 4000 test images
 Training a classifier directly on the images...
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "18714bf2e7e2469eb1c4f864186979fd"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Network performance after 25 classifier training epochs (chance: 33.33%):
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "11aab9cf22bf4d7c9e60557a0b310bc9"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Network performance after 25 classifier training epochs (chance: 33.33%):
     Training accuracy: 51.81%
     Testing accuracy: 39.55%
 </pre></div>
@@ -2275,7 +2279,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "cecb445bf8024c31b647230fb393650d"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a0ea298c9d44f7a93eb7295d065ab59"}</script></div>
 </div>
 <p>When the classifier is trained with an encoder network, however, it achieves very high classification accuracy (~98.70%) on the test set, after only 10 training epochs.</p>
 <p><b>Shape classification results using different feature encoders:</b></p>
@@ -2307,7 +2311,7 @@ Training a classifier directly on the images...
 <h2>Video 2: Supervised Learning and Invariance<a class="headerlink" href="#video-2-supervised-learning-and-invariance" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4d3d2d330a494cdc918735c9524b7788"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "be57d20f6afc4b0ab17c106a5239e236"}</script></div>
 </div>
 </section>
 <section id="id4">
@@ -2326,7 +2330,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0c30d3ba97c5439b8636938673bf0032"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4aac8ea1ffe7463abfcbeba410496964"}</script></div>
 </div>
 </section>
 <section id="section-2-1-examining-representational-similarity-matrices-rsms">
@@ -2443,7 +2447,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a9c45c943b3d42c29fbda239e834f516"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b26077154620456197c7dcfeb22077b7"}</script></div>
 </div>
 </section>
 </section>
@@ -2465,12 +2469,16 @@ Training a classifier directly on the images...
     <span class="n">sampler</span><span class="o">=</span><span class="n">test_sampler</span><span class="p">,</span>  <span class="c1"># We want to see the representations on the held out test set</span>
     <span class="n">titles</span><span class="o">=</span><span class="p">[</span><span class="s2">"Supervised network encoder RSM"</span><span class="p">],</span>  <span class="c1"># Plot title</span>
     <span class="n">sorting_latent</span><span class="o">=</span><span class="n">sorting_latent</span><span class="p">,</span>
-    <span class="n">RSM_fct</span><span class="o">=</span><span class="n">custom_torch_RSM_fct</span>
     <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting RSMs...
+</pre></div>
+</div>
+<img alt="../../../_images/6591ec26a87322a51ca7cae60fd4bd5f8925752f2381fdefe38e5e9779fa7220.png" src="../../../_images/6591ec26a87322a51ca7cae60fd4bd5f8925752f2381fdefe38e5e9779fa7220.png"/>
+</div>
 </div>
 <section id="id6">
 <h4>Submit your feedback<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
@@ -2488,7 +2496,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d429a161d4b844c1ad02bb80445aa27c"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6500aa37d4da4ad5a8d6cdb2658b23e6"}</script></div>
 </div>
 </section>
 </section>
@@ -2535,7 +2543,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "492ac1d3acca48dba7a179da63e9f61e"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3c4d3f9da15642739b0d4fee25f7d396"}</script></div>
 </div>
 </section>
 </section>
@@ -2549,7 +2557,7 @@ Training a classifier directly on the images...
 <h2>Video 3: Random Representations<a class="headerlink" href="#video-3-random-representations" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d5ca374edc8141808c11f4921956c70b"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b241e4d40349433eb39eb3980ce210d8"}</script></div>
 </div>
 </section>
 <section id="id8">
@@ -2568,7 +2576,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "349bf99256534ae1ae5207e41dbf0a56"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "cbfb31f21df2415884cc274bbe0b8959"}</script></div>
 </div>
 </section>
 <section id="section-3-1-examining-rsms-of-a-random-encoder">
@@ -2640,7 +2648,7 @@ Training a classifier directly on the images...
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/solutions/W3D3_Tutorial1_Solution_f066182b.py"><em>Click for solution</em></a></p>
 <p><em>Example output:</em></p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_f066182b_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_f066182b_1.png" style="width: 1032.0px; height: 522.0px;"/></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_f066182b_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_f066182b_1.png" style="width: 1021.0px; height: 522.0px;"/></a>
 <section id="id9">
 <h4>Submit your feedback<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
@@ -2657,7 +2665,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f2fd444e5e0d4b1ba64e1ef0f17383f7"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ad6ffeba61384cc49bfdc93c7bd0db60"}</script></div>
 </div>
 </section>
 </section>
@@ -2702,7 +2710,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e798653dc322481b9e1386dc0cc1efbf"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "895c06beb1904538bac2e4703faf768f"}</script></div>
 </div>
 </section>
 </section>
@@ -2781,7 +2789,7 @@ Training a classifier directly on the images...
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/solutions/W3D3_Tutorial1_Solution_16901ca7.py"><em>Click for solution</em></a></p>
 <p><em>Example output:</em></p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_16901ca7_3.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_16901ca7_3.png" style="width: 774.0px; height: 575.0px;"/></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_16901ca7_3.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_16901ca7_3.png" style="width: 774.0px; height: 574.0px;"/></a>
 <section id="id11">
 <h4>Submit your feedback<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
@@ -2798,7 +2806,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0f8757768fb24786b5d773d6a433cdfe"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f58ee5c13de2401385a344f26fdf869f"}</script></div>
 </div>
 <p>The network loss training is fairly stable by 25 epochs, at which point the classifier performs at 44.67% accuracy on the test dataset.</p>
 <p><b>Shape classification results using different feature encoders:</b></p>
@@ -2844,7 +2852,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ec57f7625884497e9b866b1783a579d1"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f7357711ff9149b6bdb77edcb17a10b1"}</script></div>
 </div>
 </section>
 </section>
@@ -2858,7 +2866,7 @@ Training a classifier directly on the images...
 <h2>Video 4: Generative models<a class="headerlink" href="#video-4-generative-models" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "34a014f17bb4427abfc8a7a401d509ea"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "88ef589f5363462c9c00da69bf889a13"}</script></div>
 </div>
 </section>
 <section id="id13">
@@ -2877,7 +2885,7 @@ Training a classifier directly on the images...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "537cf7d4e06147008e1cb29de64cefc6"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ffd93cf0799e4ee7aa66938227eb5f2a"}</script></div>
 </div>
 </section>
 <section id="section-4-1-examining-the-rsms-of-a-variational-autoencoder">
@@ -2946,7 +2954,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "721267518efa4efb9ace63c3ae6a96b2"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "cc7a977d5ce74872bdc69df2202d2225"}</script></div>
 </div>
 </section>
 </section>
@@ -2972,7 +2980,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "833c8c8f6cf84499b8f2002e5d532515"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0637eebbbe0c4343a01373c39e0f8d3f"}</script></div>
 </div>
 </section>
 </section>
@@ -3018,7 +3026,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "057c770877f7475ca493794d8bc307db"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2774f475e112421cac034a293a07bcc0"}</script></div>
 </div>
 </section>
 </section>
@@ -3066,7 +3074,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e3b136c8573c45b4b640baab4a748185"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f8ad55bf93454f27b2370ad9f8c4506e"}</script></div>
 </div>
 </section>
 </section>
@@ -3155,7 +3163,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/solutions/W3D3_Tutorial1_Solution_b605b4ed.py"><em>Click for solution</em></a></p>
 <p><em>Example output:</em></p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_b605b4ed_3.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_b605b4ed_3.png" style="width: 774.0px; height: 575.0px;"/></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_b605b4ed_3.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_b605b4ed_3.png" style="width: 774.0px; height: 574.0px;"/></a>
 <section id="id18">
 <h4>Submit your feedback<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
@@ -3172,7 +3180,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b2de3ad0cc2d47bfad4791b12d9f6981"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "38c329a5266145b8a526b3d70387ca9c"}</script></div>
 </div>
 <p>The network loss training is fairly stable by 25 epochs, at which point the classifier performs at 45.75% accuracy on the test dataset.</p>
 <p><b>Shape classification results using different feature encoders:</b></p>
@@ -3208,7 +3216,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 <h2>Video 5: Modern Approach in Self-supervised Learning<a class="headerlink" href="#video-5-modern-approach-in-self-supervised-learning" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2ad00b90a211447383c4626c1c804c8c"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ae72e24143d042b1a424deb0f94f73b8"}</script></div>
 </div>
 </section>
 <section id="id19">
@@ -3227,7 +3235,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a7399eba763f4e58a1d74fce46d97a56"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "98faff5648c74f3db30653afb6e1321b"}</script></div>
 </div>
 </section>
 <section id="section-5-1-examining-different-options-for-learning-invariant-representations">
@@ -3297,7 +3305,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "453545b9d7cc4d4ea425a34bfaceeeec"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c2c3285e59d04ec38d22e0bc749c7b6c"}</script></div>
 </div>
 </section>
 </section>
@@ -3311,7 +3319,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 <h2>Video 6: Data Transformations<a class="headerlink" href="#video-6-data-transformations" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "43abd59d7f414584bc0e6338f9b3fa5f"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "942e3cb0a91e463ca6317ef7ad1dc382"}</script></div>
 </div>
 </section>
 <section id="id21">
@@ -3330,7 +3338,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "92d443cc7ef94331bd2d43c1e653c86c"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "39d80f6ec490445f9d0f68d9c097595b"}</script></div>
 </div>
 </section>
 <section id="section-6-1-using-image-transformations-to-learn-feature-invariant-representations-in-a-self-supervised-learning-ssl-network">
@@ -3469,7 +3477,7 @@ Loading VAE decoder from 'neuromatch_ssl_tutorial/checkpoints/vae_decoder_300ep_
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4b763cd55dce4c7f835923c71a2b6d5c"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2a3917ad7129496cba28210e25531282"}</script></div>
 </div>
 <p>We can now train the SimCLR encoder with the custom contrastive loss for a few epochs.</p>
 <div class="cell docutils container">
@@ -3560,7 +3568,7 @@ with the following random affine transforms:
 Training a classifier on the pre-trained SimCLR encoder representations...
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1562700d1054498aa3ebd36b7f392197"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Network performance after 10 classifier training epochs (chance: 33.33%):
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b3122dda2e274840b17f03298056b242"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Network performance after 10 classifier training epochs (chance: 33.33%):
     Training accuracy: 97.83%
     Testing accuracy: 97.53%
 </pre></div>
@@ -3589,7 +3597,7 @@ Training a classifier on the pre-trained SimCLR encoder representations...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e0714c1fea0a4369ab96925cf1a05139"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6811053c96cb4d1db8baac8265c55f8f"}</script></div>
 </div>
 <p>The network (using the transforms proposed above) performs at 97.53% accuracy on the test dataset, after 15 classifier training epochs.</p>
 <p><b>Shape classification results using different feature encoders:</b></p>
@@ -3626,7 +3634,7 @@ Training a classifier on the pre-trained SimCLR encoder representations...
 <h2>Video 7: Un/Self-Supervised Learning<a class="headerlink" href="#video-7-un-self-supervised-learning" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "63f16d51fec5477392f854ca03a57042"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "98fbc77220cc45c48fa4f1b808f2a8f5"}</script></div>
 </div>
 </section>
 <section id="id24">
@@ -3645,7 +3653,7 @@ Training a classifier on the pre-trained SimCLR encoder representations...
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8ed1b5b2db9644b9819940b4e661506c"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "30689f360558464eb23cd0199861d489"}</script></div>
 </div>
 </section>
 <section id="section-7-1-the-consequences-of-training-models-on-biased-datasets">
@@ -3847,10 +3855,10 @@ Using the following default labelled fraction values: 0.05, 0.1, 0.2, 0.4, 0.75,
 Supervised encoder: training classifiers and encoders*...
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "edefd03e89734fc285d01191026051c2"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random encoder: training classifiers...
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "54c5f324497a47b2b3d04a87dacc0d6c"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random encoder: training classifiers...
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "edbfcc4740294de4b260de0c34e1ca44"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a0f3c8de01824f66a9b7df965d849e27"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">72</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">set_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
@@ -3956,10 +3964,17 @@ Supervised encoder: training classifiers and encoders*...
 <span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="k">try</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1523</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/torch/nn/modules/pooling.py:631,</span> in <span class="ni">AvgPool2d.forward</span><span class="nt">(self, input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span> <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">631</span>     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">avg_pool2d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">padding</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ceil_mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count_include_pad</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">divisor_override</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/torch/nn/modules/conv.py:460,</span> in <span class="ni">Conv2d.forward</span><span class="nt">(self, input)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">460</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conv_forward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/torch/nn/modules/conv.py:456,</span> in <span class="ni">Conv2d._conv_forward</span><span class="nt">(self, input, weight, bias)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">padding_mode</span> <span class="o">!=</span> <span class="s1">'zeros'</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reversed_padding_repeated_twice</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padding_mode</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>                     <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>                     <span class="n">_pair</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">456</span> <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">padding</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -4071,12 +4086,6 @@ In real-world applications, with more complex or difficult datasets,
 </details>
 </div>
 </section>
-</section>
-<hr class="docutils"/>
-<section class="tex2jax_ignore mathjax_ignore" id="daily-survey">
-<h1>Daily survey<a class="headerlink" href="#daily-survey" title="Permalink to this heading">#</a></h1>
-<p>Don’t forget to complete your reflections and content check in the daily survey! Please be patient after logging in as there is a small delay before you will be redirected to the survey.</p>
-<p><a href="https://portal.neuromatchacademy.org/api/redirect/to/c2c522fd-3361-4414-a019-d0d6a6325ebe"><img alt="button link to survey" src="https://github.com/NeuromatchAcademy/course-content-dl/blob/main/tutorials/static/SurveyButton.png?raw=1"/></a></p>
 </section>
 <hr class="docutils"/>
 <section class="tex2jax_ignore mathjax_ignore" id="bonus-1-self-supervised-networks-learn-representation-invariance">
@@ -4297,8 +4306,8 @@ In real-world applications, with more complex or difficult datasets,
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/solutions/W3D3_Tutorial1_Solution_8da89b74.py"><em>Click for solution</em></a></p>
 <p><em>Example output:</em></p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_1.png" style="width: 1519.0px; height: 530.0px;"/></a>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_2.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_2.png" style="width: 778.0px; height: 578.0px;"/></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_1.png" style="width: 1513.0px; height: 530.0px;"/></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_2.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W3D3_UnsupervisedAndSelfSupervisedLearning/static/W3D3_Tutorial1_Solution_8da89b74_2.png" style="width: 778.0px; height: 577.0px;"/></a>
 <section id="id32">
 <h4>Submit your feedback<a class="headerlink" href="#id32" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
@@ -5136,11 +5145,6 @@ In real-world applications, with more complex or difficult datasets,
     </a>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry">
-<a class="reference internal nav-link" href="#daily-survey">
-   Daily survey
-  </a>
 </li>
 <li class="toc-h1 nav-item toc-entry">
 <a class="reference internal nav-link" href="#bonus-1-self-supervised-networks-learn-representation-invariance">

@@ -1,11 +1,7 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
-    result = await obj
-  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/jupyter_client/channels.py", line 230, in get_msg
-    return res
-_queue.Empty
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
 
 During handling of the above exception, another exception occurred:
 
@@ -14,7 +10,7 @@ Traceback (most recent call last):
     executenb(
   File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
     return loop.run_until_complete(inner)
   File "/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
