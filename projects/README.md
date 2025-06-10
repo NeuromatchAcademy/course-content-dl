@@ -6,7 +6,7 @@
 
 The definitive guide to project schedule and structure is in the [Daily Guide to Projects](./docs/project_guidance.md), but we include some overview information here.
 
-The NMA projects are conducted over 14 days: all of the course days except the final day. The projects are a core part of the summer school, and will teach different skills from those you learn during the course work.
+The NMA projects are conducted over 14 days: all of the course days except the final day. The projects are a core part of the Academy, and will teach different skills from those you learn during the course work.
 
 Pods are organized around common interests in:
 
@@ -15,7 +15,7 @@ Pods are organized around common interests in:
 * natural language processing (advanced)
 * reinforcement learning (advanced)
 
-Each pod will split into two groups alphabetically: sort the pod based on the first letter of the first name, and then assign the first half of the students to group 1 and the second to group 2.
+Each pod will split into two groups. We recommend intentionally creating groups with diverse skill sets. Groups should have students who are very confident in Python and those who are just learning. Through the project, students can work together to strengthen each other’s skills. We want to make sure that all members of each group get a chance to do all parts of the project. We ask that folks who are good with Python share what they know and hand off tasks to peers who are learning so they can improve their skills.
 
 Note that reinforcement learning is an advanced topic at NMA, taught in week 3 just before the end. Also, NLP uses concepts from week 2, like recurrent neural networks and transformers. We also provide fewer project templates for these topics.
 
@@ -31,14 +31,10 @@ Week 3 is all about execution. Half of W3D2 is dedicated to working on projects 
 
 Detailed schedule about what to do every day is in the [Daily student guide for projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html). You should refer back to this document often.
 
-Daily project time is either:
- - Early — 3h before content (time slots 2,4)
- - Late  — 3h after content (time slots 1,3,5)
-
 
 # **Ten steps how to model materials**
 
-These materials (see [here](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html)) are a step-by-step guide to research which approximately aligns with the first two weeks of the projects schedule. They are similar to the comp-neuro materials.
+These materials (see [here](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html)) are a step-by-step guide to research which approximately aligns with the first two weeks of the projects schedule. They are similar to the comp neuro materials.
 
 # **Project Templates**
 
@@ -64,3 +60,5 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
 # **Impact Scholars**
 If you would like to continue working on your project after the three-week course, we encourage you to apply to the [Impact Scholars program](https://impact-scholars.neuromatch.io/impact-scholars/structure.html).
 
+# **Project Examples**
+You can find examples from previous years' students [here](https://airtable.com/appoh6RKyBvxgiJ89/shrbgXZYZ2YIEiCY8). 
