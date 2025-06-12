@@ -4,7 +4,7 @@
 
 This project plan explicitly encourages the iterative nature of research as a series of questions and answers that gradually refine your hypotheses. We have assigned you to pods based on your broad research interests (neuroscience, computer vision, natural language processing or reinforcement learning). Each pod will split into two groups alphabetically, with the goal of making well-balanced groups. If the split is not well-balanced (for example, all the coding experts in one group), then move one or two people around.
 
-Once you're in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will look for an appropriate dataset to answer your question, and try to process that dataset into a format that is good for modeling. Week 1 day 4 (W1D4) is entirely dedicated to projects.
+Once you're in groups, you will start brainstorming and searching the literature for interesting papers, with the goal of forming a project question. For the rest of week 1 you will look for an appropriate dataset to answer your question, and try to process that dataset into a format that is good for modeling. Week 1 day 5 (W1D5) is entirely dedicated to projects.
 
 In the second week you will experiment with different types of deep neural networks to try to answer your question. By W3D2, you will be able to write a short abstract about your project, which may or may not include results, but it should at least include a testable hypothesis. For the rest of the week, you will focus on getting evidence for/against your hypothesis.
 
@@ -30,7 +30,7 @@ Sometimes the project TAs might need to schedule meetings slightly earlier or la
 
 ## Week 1: Getting started
 
-Depending on your time slot, you may or may not have project time on the first day of the course. Regardless of whether your first project meeting is day 1 or day 2, spend your first session doing the following:
+On the first day of the course (W1D1), spend your project time doing the following:
 
 * Split into groups. We recommend intentionally creating groups with diverse skill sets. Groups should have students who are very confident in Python and those who are just learning. Through the project, students can work together to strengthen each other's skills. We want to make sure that all members of each group get a chance to do all parts of the project. We ask that folks who are good with Python share what they know and hand off tasks to peers who are learning so they can improve their skills.
 * Introductions (30 min = 2 min/student): say a few things about yourself, then about your research area or research interests. What are you really curious about, that you might explore in your NMA project?
@@ -41,15 +41,29 @@ Depending on your time slot, you may or may not have project time on the first d
 Tips:
 * No need to have a very concrete project after this day. You will determine the feasibility of your questions in the next few days, and you will likely change your question completely. That’s how research works!
 
-In your next sessions, watch the [Modeling Steps 1-2 tutorials](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html). Continue brainstorming ideas. In practice, brainstorming and looking through related work are intertwined. You might want to get a headstart on looking at some literature, because it can inform and change your question.
+In your next sessions, watch the [Modeling Steps 1-2 tutorials](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_1through2_DL.html). Continue brainstorming ideas. In practice, brainstorming and looking through related works are intertwined. You might want to get a headstart on looking at some literature, because it can inform and change your question.
 
 * You will need to use your own project for some of this content. If you don’t yet have concrete ideas, or you haven’t done a research project before, use one of the provided project templates.
 * If you are using a project template, your goal is to translate the information from the slide and colab notebook into the 10-steps format. Some information might not be readily available in the slide or notebook, and you might have to find it in your literature review later this day.
 * Try to write down a few sentences for each of the two steps applied to your project. Putting thoughts into well-defined sentences and paragraphs helps at all stages of a project.
 
-## W1D4: Projects Day!
+## W1D5: Project Wildcard Day!
 
-This is a full day dedicated to projects! The goals are threefold: perform a literature search, refine your question, and try to find a good dataset.
+This is a full day dedicated to projects! The goals are four-fold: study a tutorial related to your project, perform a literature search, refine your question, and try to find a good dataset.
+
+This means you’ll do a day of the curriculum from later in the course that will help you specifically with your project topic. When you reach the day of the curriculum you have already done, that will then become your dedicated Project Day. For example, if your pod is doing Reinforcement Learning for your project data set, on W1D5 you will complete tutorials scheduled for W3D4: Basic RL. Then, when W3D4 comes around later in the course, you will use that day as your dedicated Project Day, and you will not work on any formal tutorials. 
+
+The Project wildcard has been created to help students gain fundamental understanding of the project specialisation/area before beginning the project. The idea is to help students in a pod study the tutorial content that is most related to their project area to give them relevant foundational understanding of the project area.
+
+The following table specifies the tutorial content that your pod is assigned based on your project dataset on the Project Wildcard Day (W1D5).
+
+|   Assigned Project Dataset  |   Tutorial Content for W1D5     |     New Project Day     |
+|-----------------------------|---------------------------------|-------------------------|
+| Computer Vision             | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2 (Tue., 15 July)    |
+| Natural Language Processing | [W3D1: Time Series and NLP](https://deeplearning.neuromatch.io/tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html)       | W3D1 (Mon., 21 July)    |
+| Reinforcement Learning      | [W3D4: Basic RL](https://deeplearning.neuromatch.io/tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html)                  | W3D4: (Thur., 24 July)  |
+| Neuroscience                | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2: (Tue., 15 July)   |
+
 
 Start by watching the videos for [Modeling Steps 3-4](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_3through4_DL.html). It will help you define the ingredients for your project. In our case, this primarily involves finding a dataset. Finding a good dataset is a crucial step in all deep learning projects. It will make the rest of the project much easier, so you should spend a lot of time on this (both days). This goes hand in hand with formulating a hypothesis (step 4), because some datasets will naturally invite you to make a hypothesis, especially if you already have a well-defined question. Here's an example:
 
@@ -61,7 +75,7 @@ Notice that we didn't start with the dataset and that is important. It may seem 
 To find the dataset, you can rely on searches, especially using the keywords you identified in your literature review. You can also go to a few very well organized websites/repositories that have links to datasets (see [these ones](https://deeplearning.neuromatch.io/projects/docs/datasets_and_models.html) for example). When you find a dataset, make sure you can load it easily into google colab, either by downloading it locally and then uploading to your google drive, OR (and this is preferable/easier, especially if you don't have good internet) by directly downloading the dataset into google colab. You should then start working on the reformatting of the data, to put it into a format that you can apply deep learning on it (usually a multi-dimensional numpy array, or a set of images with a dataloader object in Pytorch). It's good to organize your dataset into a nice format early on, because that will save you time later and will make it easier to think about how to apply models to your data.
 
 
-## W1D5 and W2D1 (3h/day): Toolkits and models
+## W2D1 (3h/day): Toolkits and models
 
 You should now have a question, a dataset and a hypothesis. One or more of these could be shaky/vague, and that is ok! As you start testing you hypothesis, the weak points of your project will become clear and then you can update what needs updating (question, dataset or hypothesis).
 

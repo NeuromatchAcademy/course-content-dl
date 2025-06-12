@@ -7,8 +7,8 @@
    * Monday: Basics and Pytorch
    * Tuesday: Linear Deep Learning
    * Wednesday: Multilayer Perceptrons
-   * Thursday: Projects day
-   * Friday: Optimization
+   * Thursday: Optimization
+   * Friday: Projects Wildcard day
 
 * Week 2
    * Monday: Regularization
@@ -30,7 +30,7 @@
 #### See the [Time Slot Widget](https://neuromatchacademy.github.io/widgets/tz.html) for your full course schedule converted to your local time zone. 
 
 ### General schedule
-All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
+All days (except W1D5, W3D2, and W3D5) will follow this schedule for course time:
 
 |    Time (Hour)   |    Component                          |
 |------------------|---------------------------------------|
@@ -53,7 +53,7 @@ In addition to course time, each day will have 3 hours of project time that take
 ----
 ### Schedule of specific days
 
-#### W1D4: Project Day (Project Proposals)
+#### W1D5: Project Wildcard Day (Project Proposals)
 On this day, we will have a day entirely dedicated to projects! Make sure to coordinate a few breaks with your project group as needed. 
 
 |    Time (Hour)   |    Component                              |

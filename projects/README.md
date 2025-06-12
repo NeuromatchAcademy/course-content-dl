@@ -21,7 +21,8 @@ Note that reinforcement learning is an advanced topic at NMA, taught in week 3 j
 
 For groups working on neuroscience projects, we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). 
 
-In the first week, you will lay the foundation for your projects by finding an interesting question to ask and an appropriate dataset for answering the question. Week 1 Day 4 (W1D4) is a **Projects Day**, when you will perform a literature review and refine your project idea and question. We encourage you to be creative with your question! 
+In the first week, you will lay the foundation for your projects by finding an interesting question to ask and an appropriate dataset for answering the question. Week 1 Day 5 (W1D5) is a **Project Wildcard Day**, when you will study a day in the curriculum that is related to your project. When the day of the curriculum you have studied comes around, it will then be your **Project day**. In addition to studying a day in the curriculum on your Project wildcard day, you should conduct preliminary literature review and review/refine your research questions. When your Project day comes around, you could then use this to continue working on your project, depending on how far into the project you have gone at the time.
+
 
 During the second week, you will refine your question iteratively as you try things out. You will experiment with different types of deep neural networks to find one that works for your project. 
 
@@ -31,10 +32,7 @@ Week 3 is all about execution. Half of W3D2 is dedicated to working on projects 
 
 Detailed schedule about what to do every day is in the [Daily student guide for projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html). You should refer back to this document often.
 
-Daily project time is either:
- - Early — 3h before content (time slots 2,4)
- - Late  — 3h after content (time slots 1,3,5)
-
+This year, project time will come after the tutorial/content time for all 5 time slots.
 
 # **Ten steps how to model materials**
 
