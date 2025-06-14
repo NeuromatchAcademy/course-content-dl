@@ -39,8 +39,8 @@ gmm_samples, _, _ = gmm.sample(2500)
 with plt.xkcd():
   figh, axs = plt.subplots(1, 1, figsize=[6.5, 6])
   handles = []
-  kdeplot(x0_rev, "Samples from Reverse Diffusion", ax=axs, handles=handles)
-  kdeplot(gmm_samples, "Samples from original GMM", ax=axs, handles=handles)
+  kdeplot(x0_rev, "Samples from Reverse Diffusion", ax=axs, handles=handles, color="blue")
+  kdeplot(gmm_samples, "Samples from original GMM", ax=axs, handles=handles, color="orange")
   gmm_pdf_contour_plot(gmm, cmap="Greys", levels=20)  # the exact pdf contour of gmm
   plt.legend(handles=handles)
   figh.show()
