@@ -46,16 +46,6 @@
     title: Tutorial 1
   tutorials: 1
 
-- day: W1D5
-  category: 
-  name: 
-  playlist: 
-
-  slides:
-  - link: 
-    title: 
-  tutorials: 
-
 - day: W2D1
   category: Fine Tuning
   name: Regularization
