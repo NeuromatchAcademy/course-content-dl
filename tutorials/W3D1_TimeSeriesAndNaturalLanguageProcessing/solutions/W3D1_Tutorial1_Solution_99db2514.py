@@ -1,7 +1,6 @@
 class NeuralNet(nn.Module):
   """ A vanilla neural network. """
-  def __init__(self, output_size, hidden_size, vocab_size,
-               embedding_length, word_embeddings):
+  def __init__(self, output_size, hidden_size, embedding_length, word_embeddings):
     """
     Constructs a vanilla Neural Network Instance.
 
@@ -12,9 +11,6 @@ class NeuralNet(nn.Module):
         Specifies the size of output vector
       hidden_size: Integer
         Specifies the size of hidden layer
-      vocab_size: Integer
-        Specifies the size of the vocabulary
-        i.e. the number of tokens in the vocabulary
       embedding_length: Integer
         Specifies the size of the embedding vector
       word_embeddings
@@ -28,11 +24,9 @@ class NeuralNet(nn.Module):
 
     self.output_size = output_size
     self.hidden_size = hidden_size
-    self.vocab_size = vocab_size
     self.embedding_length = embedding_length
 
-    # self.word_embeddings = nn.EmbeddingBag(vocab_size, embedding_length, sparse=False)
-    self.word_embeddings = nn.EmbeddingBag.from_pretrained(embedding_fasttext.vectors)
+    self.word_embeddings = nn.EmbeddingBag.from_pretrained(word_embeddings)
     self.word_embeddings.weight.requiresGrad = False
     self.fc1 = nn.Linear(embedding_length, hidden_size)
     self.fc2 = nn.Linear(hidden_size, output_size)
@@ -40,7 +34,6 @@ class NeuralNet(nn.Module):
 
   def init_weights(self):
       initrange = 0.5
-      # self.word_embeddings.weight.data.uniform_(-initrange, initrange)
       self.fc1.weight.data.uniform_(-initrange, initrange)
       self.fc1.bias.data.zero_()
       self.fc2.weight.data.uniform_(-initrange, initrange)
