@@ -19,11 +19,12 @@ Each pod will split into two groups. We recommend intentionally creating groups 
 
 Note that reinforcement learning is an advanced topic at NMA, taught in week 3 just before the end. Also, NLP uses concepts from week 2, like recurrent neural networks and transformers. We also provide fewer project templates for these topics.
 
-For groups working on neuroscience projects, we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)). 
+For groups working on neuroscience projects, we have many curated datasets and materials available from the comp-neuro course ([here](https://compneuro.neuromatch.io/projects/docs/datasets_overview.html)).
 
-In the first week, you will lay the foundation for your projects by finding an interesting question to ask and an appropriate dataset for answering the question. Week 1 Day 4 (W1D4) is a **Projects Day**, when you will perform a literature review and refine your project idea and question. We encourage you to be creative with your question! 
+In the first week, you will lay the foundation for your projects by finding an interesting question to ask and an appropriate dataset for answering the question. Week 1 Day 5 (W1D5) is a **Project Wildcard Day**, when you will study a day in the curriculum that is related to your project. When the day of the curriculum you have studied comes around, it will then be your **Project day**. In addition to studying a day in the curriculum on your Project wildcard day, you should conduct preliminary literature review and review/refine your research questions. When your Project day comes around, you could then use this to continue working on your project, depending on how far into the project you have gone at the time.
 
-During the second week, you will refine your question iteratively as you try things out. You will experiment with different types of deep neural networks to find one that works for your project. 
+
+During the second week, you will refine your question iteratively as you try things out. You will experiment with different types of deep neural networks to find one that works for your project.
 
 Week 3 is all about execution. Half of W3D2 is dedicated to working on projects and writing an abstract. For the rest of the week, you will continue implementing your project and trying to get an answer to your question, culminating in a short presentation to your pod on the final day 15 (5 minutes, 3-5 slides, informal, take turns to present).
 
@@ -31,6 +32,7 @@ Week 3 is all about execution. Half of W3D2 is dedicated to working on projects 
 
 Detailed schedule about what to do every day is in the [Daily student guide for projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html). You should refer back to this document often.
 
+This year, project time will come after the tutorial/content time for all 5 time slots.
 
 # **Ten steps how to model materials**
 
@@ -42,8 +44,8 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
 
 # **Important deadlines**
 
-* W3D2:   by end of your project time, please submit your abstract via this [Airtable link](https://airtable.com/shrUeDqzGe8Cplk8u).  
-* W3D5:   by end of your project time, please submit your slides via this [Airtable link](https://airtable.com/shr5NJa397fSYNDsO).  
+* W3D2:   by end of your project time, please submit your abstract via this [Airtable link](https://airtable.com/shrUeDqzGe8Cplk8u).
+* W3D5:   by end of your project time, please submit your slides via this [Airtable link](https://airtable.com/shr5NJa397fSYNDsO).
 
 **Presentations** — Start preparing project presentation after W3D2
  * Groups make an approx five minute project presentation: 1 minute / 1 slide / 1 person
@@ -56,9 +58,9 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
   * Check the general schedule for precise timing of events on W3D5.
   * For each group, we will send an email invitation to the following people: TA, project TA and primary student contact.
   * More about scheduling and logistics in the [Student Guide to Projects](https://deeplearning.neuromatch.io/projects/docs/project_guidance.html)
-    
+
 # **Impact Scholars**
 If you would like to continue working on your project after the three-week course, we encourage you to apply to the [Impact Scholars program](https://impact-scholars.neuromatch.io/impact-scholars/structure.html).
 
 # **Project Examples**
-You can find examples from previous years' students [here](https://airtable.com/appoh6RKyBvxgiJ89/shrbgXZYZ2YIEiCY8). 
+You can find examples from previous years' students [here](https://airtable.com/appoh6RKyBvxgiJ89/shrbgXZYZ2YIEiCY8).
