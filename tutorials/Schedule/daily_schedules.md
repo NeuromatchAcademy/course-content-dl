@@ -1,14 +1,14 @@
 # General schedule
 
 ## Course overview
-### [For updated annual course dates please see our website.](https://neuromatch.io/courses/) 
+### [For updated annual course dates please see our website.](https://neuromatch.io/courses/)
 
 * Week 1
    * Monday: Basics and Pytorch
    * Tuesday: Linear Deep Learning
    * Wednesday: Multilayer Perceptrons
-   * Thursday: Projects day
-   * Friday: Optimization
+   * Thursday: Optimization
+   * Friday: Projects Wildcard day
 
 * Week 2
    * Monday: Regularization
@@ -27,10 +27,10 @@
 
 ## Daily coursework schedule
 
-#### See the [Time Slot Widget](https://neuromatchacademy.github.io/widgets/tz.html) for your full course schedule converted to your local time zone. 
+#### See the [Time Slot Widget](https://neuromatchacademy.github.io/widgets/tz.html) for your full course schedule converted to your local time zone.
 
 ### General schedule
-All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time:
+All days (except W1D5, W3D2, and W3D5) will follow this schedule for course time:
 
 |    Time (Hour)   |    Component                          |
 |------------------|---------------------------------------|
@@ -39,22 +39,22 @@ All days (except W1D4, W3D2, and W3D5) will follow this schedule for course time
 |    1:45-2:45     |    Big break                          |
 |    2:45-4:15     |    Tutorials II                       |
 |    4:15-4:25     |    Pod discussion II                  |
-|    4:25-4:30     |    Reflections & Survey               |    
-|    4:30-5:30     |    Break                              |   
-|    5:30-8:30     |    Project Time                       |  
+|    4:25-4:30     |    Reflections & Survey               |
+|    4:30-5:30     |    Break                              |
+|    5:30-8:30     |    Project Time                       |
 
 \* : Note that the synchronous coursework session starts at 0:00 with the first pod discussion.
 
 ### Project time
-In addition to course time, each day will have 3 hours of project time that takes place after course work time. 
+In addition to course time, each day will have 3 hours of project time that takes place after course work time.
 
-#### **Schedule Change for 2025:** For all time slots, projects will come *after* course work. 
+#### **Schedule Change for 2025:** For all time slots, projects will come *after* course work.
 
 ----
 ### Schedule of specific days
 
-#### W1D4: Project Day (Project Proposals)
-On this day, we will have a day entirely dedicated to projects! Make sure to coordinate a few breaks with your project group as needed. 
+#### W1D5: Project Wildcard Day (Project Proposals)
+On this day, we will have a day entirely dedicated to projects! Make sure to coordinate a few breaks with your project group as needed.
 
 |    Time (Hour)   |    Component                              |
 |------------------|-------------------------------------------|
@@ -74,7 +74,7 @@ You will spend both the standard coursework and projects time on projects today.
 |    1:45-2:45     |    Big Break                              |
 |    2:45-4:30     |    Abstract workshop                      |
 
-Project time: 
+Project time:
 
 |    Time (Hour)   |    Component                              |
 |------------------|-------------------------------------------|
@@ -98,11 +98,11 @@ Project time:
 |    4:25-4:30     |    Reflections & Survey                  |
 |    4:30-5:30     |    Break                                 |
 |    5:30-6:00     |    Post Course Survey & Feedback         |
-|    6:00-7:00     |    Project presentations                 | 
+|    6:00-7:00     |    Project presentations                 |
 |    7:00-7:30     |    Pod farewell                          |
 |    7:30-8:30     |    Closing Ceremony/Graduation           |
 
-**Course Review & Feedback:** We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final survey is required to access your certificate in the portal after the course. 
+**Course Review & Feedback:** We will have a post course survey for both students and TAs (will share the link in discord) - please fill it out during this time! Completion of the final survey is required to access your certificate in the portal after the course.
 
 **Pod farewell:** This is just a chance for your pod to say goodbye to each other. No structure imposed or requirements here!
 
