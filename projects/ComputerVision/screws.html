@@ -1133,14 +1133,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
-
-
-
-
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">Performance Analysis of DQN Algorithm on the Lunar Lander task</a></li>
 
 
@@ -1511,8 +1503,7 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/ComputerVision/screws.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/ComputerVision/screws.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="something-screwy-image-recognition-detection-and-classification-of-screws">
+  <section class="tex2jax_ignore mathjax_ignore" id="something-screwy-image-recognition-detection-and-classification-of-screws">
 <h1>Something Screwy - image recognition, detection, and classification of screws<a class="headerlink" href="#something-screwy-image-recognition-detection-and-classification-of-screws" title="Permalink to this heading">#</a></h1>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong> <a class="reference external" href="mailto:joe311&#37;&#52;&#48;gmail&#46;com">Joe Donovan</a></p>
@@ -1603,7 +1594,7 @@ You’ll start with simple networks, and potentially work up to larger pretained
 
 <span class="k">def</span><span class="w"> </span><span class="nf">rotbbox_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
   <span class="n">corner_points</span> <span class="o">=</span> <span class="n">rotcorners_from_coords</span><span class="p">(</span><span class="n">rot_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
-  <span class="n">rot_bbox</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">corner_points</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">corner_points</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+  <span class="n">rot_bbox</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">corner_points</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">corner_points</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
   <span class="c1">#constrain inside image</span>
   <span class="n">rot_bbox</span><span class="p">[</span><span class="n">rot_bbox</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -1619,7 +1610,7 @@ You’ll start with simple networks, and potentially work up to larger pretained
 
   <span class="n">subimg</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]:</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]:</span><span class="n">rot_bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
   <span class="n">rotated_im</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">subimg</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span>
-  <span class="n">newcenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rotated_im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+  <span class="n">newcenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rotated_im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
   <span class="n">rotated_im</span> <span class="o">=</span> <span class="n">rotated_im</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">newcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1">#drop alpha channel, if it&#39;s there</span>
 
   <span class="k">return</span> <span class="n">rotated_im</span>
@@ -2348,7 +2339,7 @@ Epoch:4 Train Loss:27.970 Test Losss:120.993 Percent correct: 98.38%
 <p>Download and inspect the dataset, then setup a network for classification of damaged or normal screw</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>import json, os
 # Here&#39;s a code snippet for downloading from kaggle
-dirname = &#39;~/.kaggle/&#39; 
+dirname = &#39;~/.kaggle/&#39;
 os.mkdir(dirname)
 
 file_path = f&quot;{dirname}{&#39;kaggle.json&#39;}&quot;

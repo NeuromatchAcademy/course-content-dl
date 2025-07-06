@@ -1135,14 +1135,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
-
-
-
-
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="../ReinforcementLearning/lunar_lander.html">Performance Analysis of DQN Algorithm on the Lunar Lander task</a></li>
 
 
@@ -1415,8 +1407,13 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-dependencies">
-     Install dependencies
+    <a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset">
+     Dataset
     </a>
    </li>
   </ul>
@@ -1457,8 +1454,7 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/projects/NaturalLanguageProcessing/sentiment_analysis.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/projects/NaturalLanguageProcessing/sentiment_analysis.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="twitter-sentiment-analysis">
+  <section class="tex2jax_ignore mathjax_ignore" id="twitter-sentiment-analysis">
 <h1>Twitter Sentiment Analysis<a class="headerlink" href="#twitter-sentiment-analysis" title="Permalink to this heading">#</a></h1>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong>  Juan Manuel Rodriguez, Salomey Osei, Gonzalo Uribarri</p>
@@ -1487,28 +1483,31 @@ title="Print to PDF"
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="step-3-load-and-explore-the-dataset">
 <h1>Step 3: Load and explore the dataset<a class="headerlink" href="#step-3-load-and-explore-the-dataset" title="Permalink to this heading">#</a></h1>
-<section id="install-dependencies">
-<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">#</a></h2>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>--quiet
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>torchtext<span class="w"> </span>--quiet
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>datasets<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>datasets<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">torchvision 0.14.0 requires torch==1.13.0, but you have torch 2.3.1 which is incompatible.</span>
-<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">torchvision 0.14.0 requires torch==1.13.0, but you have torch 2.3.1 which is incompatible.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/491.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">491.5/491.5 kB</span> <span class=" -Color -Color-Red">16.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/193.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">193.6/193.6 kB</span> <span class=" -Color -Color-Red">17.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">gcsfs 2025.3.2 requires fsspec==2025.3.2, but you have fsspec 2025.3.0 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cublas-cu12==12.4.5.8; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cublas-cu12 12.5.3.2 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-cupti-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-cupti-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-nvrtc-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-nvrtc-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-runtime-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-runtime-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cudnn-cu12==9.1.0.70; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cudnn-cu12 9.3.0.75 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cufft-cu12==11.2.1.3; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cufft-cu12 11.2.3.61 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-curand-cu12==10.3.5.147; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-curand-cu12 10.3.6.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusolver-cu12==11.6.1.9; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusolver-cu12 11.6.3.83 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusparse-cu12==12.3.1.170; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusparse-cu12 12.5.1.3 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-nvjitlink-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-nvjitlink-cu12 12.5.82 which is incompatible.</span>
 
 </pre></div>
 </div>
@@ -1530,10 +1529,9 @@ title="Print to PDF"
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchtext</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torchtext.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_tokenizer</span>
-
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shuffle</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -1542,20 +1540,153 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</div>
+<section id="helper-functions">
+<h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s2">&quot;\&#39;&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\.&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;&lt;br \/&gt;&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\(&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\!&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\?&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\;&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\:&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">]</span>
+
+<span class="n">_replacements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &#39;  &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot; . &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot; , &quot;</span><span class="p">,</span> <span class="s2">&quot; ( &quot;</span><span class="p">,</span> <span class="s2">&quot; ) &quot;</span><span class="p">,</span> <span class="s2">&quot; ! &quot;</span><span class="p">,</span> <span class="s2">&quot; ? &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+
+<span class="n">_patterns_dict</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">_patterns</span><span class="p">,</span> <span class="n">_replacements</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_basic_english_normalize</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Basic normalization for a line of text.</span>
+<span class="sd">    Normalization includes</span>
+<span class="sd">    - lowercasing</span>
+<span class="sd">    - complete some basic text normalization for English words as follows:</span>
+<span class="sd">        add spaces before and after &#39;\&#39;&#39;</span>
+<span class="sd">        remove &#39;\&quot;&#39;,</span>
+<span class="sd">        add spaces before and after &#39;.&#39;</span>
+<span class="sd">        replace &#39;&lt;br \/&gt;&#39;with single space</span>
+<span class="sd">        add spaces before and after &#39;,&#39;</span>
+<span class="sd">        add spaces before and after &#39;(&#39;</span>
+<span class="sd">        add spaces before and after &#39;)&#39;</span>
+<span class="sd">        add spaces before and after &#39;!&#39;</span>
+<span class="sd">        add spaces before and after &#39;?&#39;</span>
+<span class="sd">        replace &#39;;&#39; with single space</span>
+<span class="sd">        replace &#39;:&#39; with single space</span>
+<span class="sd">        replace multiple spaces with single space</span>
+
+<span class="sd">    Returns a list of tokens after splitting on whitespace.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">pattern_re</span><span class="p">,</span> <span class="n">replaced_str</span> <span class="ow">in</span> <span class="n">_patterns_dict</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">pattern_re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">replaced_str</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_tokenizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate tokenizer function for a string sentence.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        tokenizer: the name of tokenizer function. If None, it returns split()</span>
+<span class="sd">            function, which splits the string sentence by space.</span>
+<span class="sd">            If basic_english, it returns _basic_english_normalize() function,</span>
+<span class="sd">            which normalize the string first and split by space. If a callable</span>
+<span class="sd">            function, it will return the function. If a tokenizer library</span>
+<span class="sd">            (e.g. spacy, moses, toktok, revtok, subword), it returns the</span>
+<span class="sd">            corresponding library.</span>
+<span class="sd">        language: Default en</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; import torchtext</span>
+<span class="sd">        &gt;&gt;&gt; from torchtext.data import get_tokenizer</span>
+<span class="sd">        &gt;&gt;&gt; tokenizer = get_tokenizer(&quot;basic_english&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; tokens = tokenizer(&quot;You can now install TorchText using pip!&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; tokens</span>
+<span class="sd">        &gt;&gt;&gt; [&#39;you&#39;, &#39;can&#39;, &#39;now&#39;, &#39;install&#39;, &#39;torchtext&#39;, &#39;using&#39;, &#39;pip&#39;, &#39;!&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># default tokenizer is string.split(), added as a module function for serialization</span>
+
+
+    <span class="k">if</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s2">&quot;basic_english&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">language</span> <span class="o">!=</span> <span class="s1">&#39;en&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Basic normalization is only available for Enlish(en)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_basic_english_normalize</span>
+
+    <span class="c1"># simply return if a function is passed</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tokenizer</span>
+
+    <span class="k">if</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s2">&quot;spacy&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
+            <span class="n">spacy</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">partial</span><span class="p">(</span><span class="n">_spacy_tokenize</span><span class="p">,</span> <span class="n">spacy</span><span class="o">=</span><span class="n">spacy</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install SpaCy. &quot;</span>
+                  <span class="s2">&quot;See the docs at https://spacy.io for more information.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install SpaCy and the SpaCy </span><span class="si">{}</span><span class="s2"> tokenizer. &quot;</span>
+                  <span class="s2">&quot;See the docs at https://spacy.io for more &quot;</span>
+                  <span class="s2">&quot;information.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">))</span>
+            <span class="k">raise</span>
+    <span class="k">elif</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s2">&quot;moses&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">sacremoses</span><span class="w"> </span><span class="kn">import</span> <span class="n">MosesTokenizer</span>
+            <span class="n">moses_tokenizer</span> <span class="o">=</span> <span class="n">MosesTokenizer</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">moses_tokenizer</span><span class="o">.</span><span class="n">tokenize</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install SacreMoses. &quot;</span>
+                  <span class="s2">&quot;See the docs at https://github.com/alvations/sacremoses &quot;</span>
+                  <span class="s2">&quot;for more information.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="k">elif</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s2">&quot;toktok&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize.toktok</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToktokTokenizer</span>
+            <span class="n">toktok</span> <span class="o">=</span> <span class="n">ToktokTokenizer</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">toktok</span><span class="o">.</span><span class="n">tokenize</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install NLTK. &quot;</span>
+                  <span class="s2">&quot;See the docs at https://nltk.org  for more information.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="k">elif</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s1">&#39;revtok&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">revtok</span>
+            <span class="k">return</span> <span class="n">revtok</span><span class="o">.</span><span class="n">tokenize</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install revtok.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="k">elif</span> <span class="n">tokenizer</span> <span class="o">==</span> <span class="s1">&#39;subword&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">revtok</span>
+            <span class="k">return</span> <span class="n">partial</span><span class="p">(</span><span class="n">revtok</span><span class="o">.</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">decap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install revtok.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Requested tokenizer </span><span class="si">{}</span><span class="s2">, valid choices are a &quot;</span>
+                     <span class="s2">&quot;callable that takes a single string as input, &quot;</span>
+                     <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">revtok</span><span class="se">\&quot;</span><span class="s2"> for the revtok reversible tokenizer, &quot;</span>
+                     <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">subword</span><span class="se">\&quot;</span><span class="s2"> for the revtok caps-aware tokenizer, &quot;</span>
+                     <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">spacy</span><span class="se">\&quot;</span><span class="s2"> for the SpaCy English tokenizer, or &quot;</span>
+                     <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">moses</span><span class="se">\&quot;</span><span class="s2"> for the NLTK port of the Moses tokenization &quot;</span>
+                     <span class="s2">&quot;script.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">))</span>
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <p>You can find the dataset we are going to use in <a class="reference external" href="https://huggingface.co/datasets/stanfordnlp/sentiment140">this website</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
-
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;stanfordnlp/sentiment140&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;stanfordnlp/sentiment140&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cd6b527daf25440a8acc7a7645af679d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5b7c93b4ee524a01adec2669170ee097", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "19e6cbe3cb7648b4b5e0b2ce60c12d6b", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5bfc518fd6a48deb991309cec03facd", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "983915e475a747bd920d53cd924eb7ca", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "914605f142944a0aba34dfdc7ec8ff38"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e2b0f97806144114a8aeb861699c04b0"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3f9fea9e18c2429aacdc99f9682e4010"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ec0e3821969e41c497f94dcf638598d5"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "24e78e9a23404b48b90d04fed02fb939"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1565,11 +1696,20 @@ title="Print to PDF"
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sentiment&#39;</span><span class="p">:</span> <span class="s1">&#39;polarity&#39;</span><span class="p">})</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;polarity&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">DATASET_SIZE</span><span class="o">=</span><span class="mi">10000</span>
+
+<span class="c1"># Limit the dataset size</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="n">DATASET_SIZE</span><span class="p">]</span>
+
+<span class="c1"># Show the first few rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-c639ddb1-216a-4295-95bb-2cc6c87944b2" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1643,7 +1783,216 @@ title="Print to PDF"
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c639ddb1-216a-4295-95bb-2cc6c87944b2')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-c639ddb1-216a-4295-95bb-2cc6c87944b2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-c639ddb1-216a-4295-95bb-2cc6c87944b2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-18b9794d-1e35-4d03-aaff-fc9a84221acb">
+      <button class="colab-df-quickchart" onclick="quickchart('df-18b9794d-1e35-4d03-aaff-fc9a84221acb')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-18b9794d-1e35-4d03-aaff-fc9a84221acb button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+    </div>
+  </div>
+</div></div>
 </div>
 <p>For this project we will use only the text and the polarity of the tweet. Notice that polarity is 0 for negative tweets and 4 for positive tweet.</p>
 <div class="cell docutils container">
@@ -1669,11 +2018,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1: @paisleypaisley LOL why do i get ideas so far in advance? it&#39;s not even june yet! we need a third knitter to have our own summer group 
-0: worst headache ever 
-0: @ewaniesciuszko  i am so sad i wont see you! I miss you already. and yeah! that&#39;s perfect; i come back the 18th!
-1: doesn&#39;t know how to spell conked 
-0: &amp;quot;So we stand here now and no one knows us at all I won&#39;t get used to this I won&#39;t get used to being gone&amp;quot;...I miss home and everyone  -a
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0: equinux.com just crashed safari tks you! 
+0: tierd  whats pt swagger mean.. i love the sound of it
+0: @EstelleDarlings Honestly, you can only speak to urself because no 1 cares @the airport. Someone will always direct u 2 the next person 
+0: Site load rising again. Increased my capacity but it&#39;s going up still 
+0: @heidimontag just got done watching the hills! loved it! excited for the next episode! and im sad this is the last season! 
 </pre></div>
 </div>
 </div>
@@ -1689,8 +2038,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Tokenize:  worst headache ever 
-After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Tokenize:  tierd  whats pt swagger mean.. i love the sound of it
+After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#39;, &#39;mean&#39;, &#39;.&#39;, &#39;.&#39;, &#39;i&#39;, &#39;love&#39;, &#39;the&#39;, &#39;sound&#39;, &#39;of&#39;, &#39;it&#39;]
 </pre></div>
 </div>
 </div>
@@ -1703,7 +2052,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cd7802db570b408eb5f29af92ca95be1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "dcc80b45cf1c40769f49d27d96bbeaed", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a103539f6d7f4b75b721c56cfba9e213"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "bb87bbfa2de04627a03c28519339383d"}</script></div>
 </div>
 <p>We can count the words occurences and see how many different words are present in our dataset.</p>
 <div class="cell docutils container">
@@ -1721,8 +2070,8 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of different Tokens in our Dataset: 669284
-[&#39;.&#39;, &#39;i&#39;, &#39;!&#39;, &quot;&#39;&quot;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;, &#39;and&#39;, &#39;you&#39;, &#39;?&#39;, &#39;is&#39;, &#39;for&#39;, &#39;in&#39;, &#39;s&#39;, &#39;of&#39;, &#39;t&#39;, &#39;on&#39;, &#39;that&#39;, &#39;me&#39;, &#39;so&#39;, &#39;have&#39;, &#39;m&#39;, &#39;but&#39;, &#39;just&#39;, &#39;with&#39;, &#39;be&#39;, &#39;at&#39;, &#39;not&#39;, &#39;was&#39;, &#39;this&#39;, &#39;now&#39;, &#39;can&#39;, &#39;good&#39;, &#39;up&#39;, &#39;day&#39;, &#39;all&#39;, &#39;get&#39;, &#39;out&#39;, &#39;like&#39;, &#39;are&#39;, &#39;no&#39;, &#39;go&#39;, &#39;http&#39;, &#39;-&#39;, &#39;today&#39;, &#39;do&#39;, &#39;too&#39;, &#39;your&#39;, &#39;work&#39;, &#39;going&#39;, &#39;love&#39;, &#39;we&#39;, &#39;got&#39;, &#39;what&#39;, &#39;lol&#39;, &#39;time&#39;, &#39;back&#39;, &#39;from&#39;, &#39;u&#39;, &#39;one&#39;, &#39;will&#39;, &#39;know&#39;, &#39;about&#39;, &#39;im&#39;, &#39;really&#39;, &#39;don&#39;, &#39;am&#39;, &#39;had&#39;, &#39;)&#39;, &#39;see&#39;, &#39;some&#39;, &#39;there&#39;, &#39;its&#39;, &#39;&amp;amp&#39;, &#39;how&#39;, &#39;if&#39;, &#39;still&#39;, &#39;they&#39;, &#39;&amp;quot&#39;, &#39;night&#39;, &#39;(&#39;, &#39;well&#39;, &#39;want&#39;, &#39;new&#39;, &#39;think&#39;, &#39;2&#39;, &#39;home&#39;, &#39;thanks&#39;, &#39;ll&#39;, &#39;oh&#39;, &#39;when&#39;, &#39;as&#39;, &#39;he&#39;, &#39;more&#39;, &#39;here&#39;, &#39;much&#39;, &#39;off&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of different Tokens in our Dataset: 14815
+[&#39;.&#39;, &#39;i&#39;, &quot;&#39;&quot;, &#39;!&#39;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;, &#39;and&#39;, &#39;is&#39;, &#39;?&#39;, &#39;t&#39;, &#39;in&#39;, &#39;for&#39;, &#39;of&#39;, &#39;you&#39;, &#39;s&#39;, &#39;but&#39;, &#39;me&#39;, &#39;on&#39;, &#39;that&#39;, &#39;have&#39;, &#39;not&#39;, &#39;so&#39;, &#39;m&#39;, &#39;at&#39;, &#39;just&#39;, &#39;this&#39;, &#39;be&#39;, &#39;was&#39;, &#39;work&#39;, &#39;up&#39;, &#39;with&#39;, &#39;now&#39;, &#39;no&#39;, &#39;can&#39;, &#39;get&#39;, &#39;out&#39;, &#39;go&#39;, &#39;all&#39;, &#39;today&#39;, &#39;day&#39;, &#39;too&#39;, &#39;like&#39;, &#39;do&#39;, &#39;don&#39;, &#39;still&#39;, &#39;going&#39;, &#39;-&#39;, &#39;got&#39;, &#39;are&#39;, &#39;back&#39;, &#39;am&#39;, &#39;really&#39;, &#39;time&#39;, &#39;what&#39;, &#39;from&#39;, &#39;about&#39;, &#39;has&#39;, &#39;had&#39;, &#39;one&#39;, &#39;good&#39;, &#39;its&#39;, &#39;they&#39;, &#39;want&#39;, &#39;im&#39;, &#39;sad&#39;, &#39;we&#39;, &#39;why&#39;, &#39;need&#39;, &#39;home&#39;, &#39;http&#39;, &#39;sleep&#39;, &#39;your&#39;, &#39;know&#39;, &#39;night&#39;, &#39;when&#39;, &#39;there&#39;, &#39;some&#39;, &#39;will&#39;, &#39;more&#39;, &#39;oh&#39;, &#39;been&#39;, &#39;lol&#39;, &#39;last&#39;, &#39;feel&#39;, &#39;sick&#39;, &#39;miss&#39;, &#39;2&#39;, &#39;morning&#39;, &#39;much&#39;, &#39;again&#39;, &#39;off&#39;, &#39;sorry&#39;, &#39;as&#39;, &#39;think&#39;, &#39;wish&#39;, &#39;an&#39;]
 </pre></div>
 </div>
 </div>
@@ -1745,7 +2094,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 0.13970153178620734% most common words account for the 80.00532743602652% of the occurrences
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 5.190685116436044% most common words account for the 80.00869187309866% of the occurrences
 </pre></div>
 </div>
 </div>
@@ -1758,7 +2107,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/903ea4eafdfec9b01b1591c6b030e0967e82a9bc09fc4a838bfdc03f96c517d9.png" src="../../_images/903ea4eafdfec9b01b1591c6b030e0967e82a9bc09fc4a838bfdc03f96c517d9.png" />
+<img alt="../../_images/888270c0b48a6837962c4dfc5ca6f9dace66a405afb902afb9a29d88baab199e.png" src="../../_images/888270c0b48a6837962c4dfc5ca6f9dace66a405afb902afb9a29d88baab199e.png" />
 </div>
 </div>
 <p>It is very common to find this kind of distribution when analyzing corpus of text. This is referred to as the <a class="reference external" href="https://en.wikipedia.org/wiki/Zipf%27s_law">zipf’s law</a>.</p>
@@ -1806,7 +2155,7 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Vectorize:  doesn&#39;t know how to spell conked 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Vectorize:  Site load rising again. Increased my capacity but it&#39;s going up still 
 </pre></div>
 </div>
 </div>
@@ -1821,12 +2170,21 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Vectorize: 
-  (0, 528584)	1
-  (0, 165468)	1
-  (0, 300381)	1
-  (0, 242211)	1
-  (0, 489893)	1
-  (0, 134160)	1
+&lt;Compressed Sparse Row sparse matrix of dtype &#39;int64&#39;
+	with 12 stored elements and shape (1, 14159)&gt;
+  Coords	Values
+  (0, 6377)	1
+  (0, 11286)	1
+  (0, 7410)	1
+  (0, 10478)	1
+  (0, 655)	1
+  (0, 6190)	1
+  (0, 8422)	1
+  (0, 2199)	1
+  (0, 2086)	1
+  (0, 5251)	1
+  (0, 13169)	1
+  (0, 11819)	1
 </pre></div>
 </div>
 </div>
@@ -1840,429 +2198,36 @@ After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipython-input-23-2773398188.py</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_cv</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
+<span class="nn">/usr/local/lib/python3.11/dist-packages/sklearn/base.py</span> in <span class="ni">wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1388</span>             <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1389</span>                 <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1391</span>         <span class="k">return</span> <span class="n">wrapper</span>
 
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
+<span class="nn">/usr/local/lib/python3.11/dist-packages/sklearn/linear_model/_logistic.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="n">classes_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>         <span class="k">if</span> <span class="n">n_classes</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1301</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span>                 <span class="s2">&quot;This solver needs samples of at least 2 classes&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot; in the data, but the data contains only one&quot;</span>
 
-#sk-container-id-1 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-1 pre {
-  padding: 0;
-}
-
-#sk-container-id-1 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-1 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-1 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-1 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-1 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-1 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-1 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-1 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-1 label.sk-toggleable__label {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-1 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-1 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-1 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-1 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-1 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 1ex;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-1 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-1 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre></div> </div></div></div></div></div></div>
+<span class="nn">ValueError: This solver needs samples of at least 2 classes</span> in <span class="ni">the data, but the data contains only one class: np.int64</span><span class="nt">(0)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_cv</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
-
-           0       0.81      0.79      0.80    160000
-           1       0.79      0.81      0.80    160000
-
-    accuracy                           0.80    320000
-   macro avg       0.80      0.80      0.80    320000
-weighted avg       0.80      0.80      0.80    320000
 </pre></div>
 </div>
 </div>
@@ -2282,8 +2247,16 @@ weighted avg       0.80      0.80      0.80    320000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 589260)
-589260
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipython-input-24-3113506201.py</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">words_sk</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">words_sk</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]])</span>
+
+<span class="ne">AttributeError</span>: &#39;LogisticRegression&#39; object has no attribute &#39;coef_&#39;
 </pre></div>
 </div>
 </div>
@@ -2295,59 +2268,11 @@ weighted avg       0.80      0.80      0.80    320000
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roni: -3.8625743295204957
-inaperfectworld: -3.5734332703128837
-dontyouhate: -3.5001974848534263
-xbllygbsn: -3.4126706055950495
-anqju: -3.3363734662876445
-sad: -3.200515320038219
-pakcricket: -3.1949201520762647
-condolences: -3.1325044251779404
-heartbreaking: -3.066490736238656
-saddest: -3.0420206470077464
-sadd: -3.0290359193094782
-heartbroken: -3.028758057376751
-boohoo: -3.0225999274601483
-sadface: -2.9918433622017107
-rachelle_lefevr: -2.9250755659458325
-disappointing: -2.9025305172931777
-lvbu: -2.8947126358841744
-saddens: -2.885505898962137
-bummed: -2.8364963698917003
-neda: -2.792965453263205
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">words_sk</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]):</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iamsoannoyed: 2.849404979800149
-myfax: 2.7974231693128444
-jennamadison: 2.566709062644627
-yeyy: 2.4780376468589687
-tryout: 2.4383326853311327
-goldymom: 2.4374101525708456
-wooohooo: 2.4029624310379774
-thesupergirl: 2.3565547667359015
-iammaxathotspot: 2.3116516945468017
-londicreations: 2.3074597815514477
-smilin: 2.2991641364971334
-worries: 2.2899475148214545
-sinfulsignorita: 2.2798843862743605
-finchensnail: 2.264277870479377
-smackthis: 2.237665085200092
-kv: 2.215872609715896
-tojosan: 2.2117820541821733
-russmarshalek: 2.2095325084648705
-traciknoppe: 2.1768517653116426
-congratulations: 2.1715832459661644
 </pre></div>
 </div>
 </div>
@@ -2387,7 +2312,7 @@ congratulations: 2.1715832459661644
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: For this notebook to perform best, if possible, in the menu under `Runtime` -&gt; `Change runtime type.`  select `GPU` 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GPU is enabled in this notebook.
 </pre></div>
 </div>
 </div>
@@ -2401,7 +2326,7 @@ congratulations: 2.1715832459661644
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;i&#39;, &#39;!&#39;, &quot;&#39;&quot;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;i&#39;, &quot;&#39;&quot;, &#39;!&#39;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;]
 </pre></div>
 </div>
 </div>
@@ -2479,8 +2404,8 @@ congratulations: 2.1715832459661644
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before converting:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
-After converting:  [721, 458, 237]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before converting:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#39;, &#39;mean&#39;, &#39;.&#39;, &#39;.&#39;, &#39;i&#39;, &#39;love&#39;, &#39;the&#39;, &#39;sound&#39;, &#39;of&#39;, &#39;it&#39;]
+After converting:  [4880, 801, 2396, 4881, 391, 2, 2, 3, 120, 7, 631, 18, 11]
 </pre></div>
 </div>
 </div>
@@ -2496,8 +2421,8 @@ After converting:  [721, 458, 237]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max tweet word length:  229
-Mean tweet word length:  15.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max tweet word length:  62
+Mean tweet word length:  16.0
 99% percent under:  37.0
 </pre></div>
 </div>
@@ -2550,10 +2475,10 @@ Mean tweet word length:  15.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before padding:  [1, 3, 71, 24, 122, 3, 533, 74, 13, 4, 3, 102, 13, 209, 2, 12, 150, 4, 22, 5, 18, 667, 3, 138, 61, 7, 3296, 4]
-After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    1    3
-   71   24  122    3  533   74   13    4    3  102   13  209    2   12
-  150    4   22    5   18  667    3  138   61    7 3296    4]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before padding:  [4882, 1701, 8, 19, 39, 103, 765, 6, 3175, 196, 38, 249, 4883, 4884, 976, 2, 234, 83, 235, 1980, 123, 92, 7, 236, 911]
+After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0 4882 1701    8   19   39  103  765    6 3175  196   38  249 4883
+ 4884  976    2  234   83  235 1980  123   92    7  236  911]
 </pre></div>
 </div>
 </div>
@@ -2592,19 +2517,19 @@ After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample input size:  torch.Size([100, 40])
 Sample input: 
- tensor([[    0,     0,     0,  ...,    12,  4491,     2],
-        [    0,     0,     0,  ...,     0,     1,   383],
-        [    0,     0,     0,  ...,     6,   246,     2],
+ tensor([[    0,     0,     0,  ...,   303,   856, 14628],
+        [    0,     0,     0,  ...,  3102,    33,   111],
+        [    0,     0,     0,  ..., 10228,    22,    46],
         ...,
-        [    0,     0,     0,  ...,   108,    14,     4],
-        [    0,     0,     0,  ...,  2434,    29,     1],
-        [    0,     0,     0,  ...,  1150, 20247,     2]])
+        [    0,     0,     0,  ...,     6,    42,   128],
+        [    0,     0,     0,  ...,   350,  1305,  4700],
+        [    0,     0,     0,  ...,  7050,  7051,  7052]])
 Sample input: 
- tensor([1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1,
-        1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1,
-        1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0,
-        0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0,
-        0, 0, 1, 1])
+ tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -2772,8 +2697,6 @@ Sample input:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-</div>
 </div>
 <p>We are ready to train our model.</p>
 <div class="cell docutils container">
@@ -2872,29 +2795,29 @@ Sample input:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1
-train_loss : 0.4357354193425272 val_loss : 0.3897459434857592
-train_accuracy : 79.552578125 val_accuracy : 82.34125
-Validation loss decreased (inf --&gt; 0.389746).  Saving model ...
+train_loss : 0.12438914714439306 val_loss : 0.0018169824266806244
+train_accuracy : 99.9625 val_accuracy : 100.0
+Validation loss decreased (inf --&gt; 0.001817).  Saving model ...
 ==================================================
 Epoch 2
-train_loss : 0.3756973787629977 val_loss : 0.37125814022496345
-train_accuracy : 83.20953125 val_accuracy : 83.41875
-Validation loss decreased (0.389746 --&gt; 0.371258).  Saving model ...
+train_loss : 0.0015338497134507634 val_loss : 0.0009810010727960617
+train_accuracy : 100.0 val_accuracy : 100.0
+Validation loss decreased (0.001817 --&gt; 0.000981).  Saving model ...
 ==================================================
 Epoch 3
-train_loss : 0.35649536208133215 val_loss : 0.36528081766329706
-train_accuracy : 84.24179687499999 val_accuracy : 83.76593749999999
-Validation loss decreased (0.371258 --&gt; 0.365281).  Saving model ...
+train_loss : 0.0009141735477896873 val_loss : 0.0006214575550984591
+train_accuracy : 100.0 val_accuracy : 100.0
+Validation loss decreased (0.000981 --&gt; 0.000621).  Saving model ...
 ==================================================
 Epoch 4
-train_loss : 0.3434784019400831 val_loss : 0.361129659358412
-train_accuracy : 84.91164062499999 val_accuracy : 83.9671875
-Validation loss decreased (0.365281 --&gt; 0.361130).  Saving model ...
+train_loss : 0.0006109651429142104 val_loss : 0.000429066653305199
+train_accuracy : 100.0 val_accuracy : 100.0
+Validation loss decreased (0.000621 --&gt; 0.000429).  Saving model ...
 ==================================================
 Epoch 5
-train_loss : 0.33264520978555084 val_loss : 0.3602768037747592
-train_accuracy : 85.53132812499999 val_accuracy : 84.0209375
-Validation loss decreased (0.361130 --&gt; 0.360277).  Saving model ...
+train_loss : 0.00044310156408755574 val_loss : 0.00031149635469773784
+train_accuracy : 100.0 val_accuracy : 100.0
+Validation loss decreased (0.000429 --&gt; 0.000311).  Saving model ...
 ==================================================
 </pre></div>
 </div>
@@ -2922,7 +2845,7 @@ Validation loss decreased (0.361130 --&gt; 0.360277).  Saving model ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33d3011681e7d94ced32c6da525cf58b97e52769de18d8baa0742cd23f45b991.png" src="../../_images/33d3011681e7d94ced32c6da525cf58b97e52769de18d8baa0742cd23f45b991.png" />
+<img alt="../../_images/414f3417cb2a5916a701f58942064d535d9f28c19cfa90f7612a374909b11dee.png" src="../../_images/414f3417cb2a5916a701f58942064d535d9f28c19cfa90f7612a374909b11dee.png" />
 </div>
 </div>
 </section>
@@ -3023,8 +2946,13 @@ Validation loss decreased (0.361130 --&gt; 0.360277).  Saving model ...
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-dependencies">
-     Install dependencies
+    <a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset">
+     Dataset
     </a>
    </li>
   </ul>
