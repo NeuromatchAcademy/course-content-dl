@@ -18,8 +18,8 @@ Different categories of DL projects (in order of increasing expertise):
 [Kay natural images FMRI](https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_kay_images.ipynb)  
 [Bonner/Cichy etc FMRI](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI)  
 [ECoG](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/ECoG)  
-[Caltech social behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/behavior/Loading_CalMS21_data.ipynb)  
-[IBL mouse decision making](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/behavior)  
+[Caltech social behavior](https://github.com/NeuromatchAcademy/course-content/blob/master/projects/behavior_and_theory/Loading_CalMS21_data.ipynb)  
+[IBL mouse decision making](https://github.com/NeuromatchAcademy/course-content/tree/master/projects/behavior_and_theory)  
 
 ## [CRCNS](https://crcns.org/)
 [Visual cortex](https://crcns.org/data-sets/vc)  
