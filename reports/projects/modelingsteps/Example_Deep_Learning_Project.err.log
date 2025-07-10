@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/nbclient/client.py", line 1001, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+  File "/opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 720 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+["limb_sets = {'limbs only':['Left Leg', 'Right Leg', 'Left Arm', 'Right Arm'],", "             'limbs+torso+head':['Left Leg', 'Right Leg', 'Left Arm',", "                                 'Right Arm', 'Torso', 'Head']}", '', 'for limb_set in limb_sets.keys():']
+...
+['    limb_set_fit = testJointModel(joints=joints)', "    performances.append(limb_set_fit['performance'])", '    print(f"performance: {limb_set_fit[\'performance\']:.2f}%")', '', '  print(f"median performance: {(np.median(performances)):.2f}%")']
+-------------------
+
