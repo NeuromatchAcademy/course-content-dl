@@ -1546,8 +1546,8 @@ title="Print to PDF"
 <p><em>Part of step 5</em></p>
 <p>We chose to use a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2474742/">Drift-Diffusion Model (DDM)</a> because it is a well-established framework that allows us to model decision making in the case of 2 alternative choices (here: self-motion vs. other train motion).</p>
 <p>For our purposes simplest equation looks something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7e9fca1-b996-466d-99c4-deb152432595">
-<span class="eqno">(127)<a class="headerlink" href="#equation-b7e9fca1-b996-466d-99c4-deb152432595" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f391df6-f1cb-421b-a359-375077a82b3b">
+<span class="eqno">(127)<a class="headerlink" href="#equation-9f391df6-f1cb-421b-a359-375077a82b3b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot e = \frac{de}{dt}= -c \cdot e + v \, ,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> is the accumulated evidence and <span class="math notranslate nohighlight">\(v\)</span> is our vestibular input already containing the noise (so we don’t need to add more noise?). <span class="math notranslate nohighlight">\(c\)</span> is the leakage constant, i.e., <span class="math notranslate nohighlight">\(c=0\)</span> means perfect integration; <span class="math notranslate nohighlight">\(c=1\)</span> means no integration (perfect leakage).</p>
@@ -1623,7 +1623,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;vestibular signal (a.u.)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/1a312b50cc0995f011c946cd21da585207aceccddad1214703ef7f5eb22bf5a2.png" src="../../_images/1a312b50cc0995f011c946cd21da585207aceccddad1214703ef7f5eb22bf5a2.png" />
+<img alt="../../_images/566dd674782106cf32f3c771542bf671236ee01e966edc46ad8d5683ff4f2772.png" src="../../_images/566dd674782106cf32f3c771542bf671236ee01e966edc46ad8d5683ff4f2772.png" />
 </div>
 </div>
 </section>
@@ -1664,7 +1664,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0834e3434380bfd12d7adbc6f75db18295d70dba10f9735b3e2ba6021c9c97d7.png" src="../../_images/0834e3434380bfd12d7adbc6f75db18295d70dba10f9735b3e2ba6021c9c97d7.png" />
+<img alt="../../_images/2cb8212a02aadcf5a5033ae7c506db5249a6d8e61f9f2e14c588919d91b7045a.png" src="../../_images/2cb8212a02aadcf5a5033ae7c506db5249a6d8e61f9f2e14c588919d91b7045a.png" />
 </div>
 </div>
 </section>
@@ -1814,7 +1814,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c5561ca8b8814c6e329d63f6edaeb8ecdd30b227e47b32d2c38593b113d0c3ce.png" src="../../_images/c5561ca8b8814c6e329d63f6edaeb8ecdd30b227e47b32d2c38593b113d0c3ce.png" />
+<img alt="../../_images/29f0c50a8c949faae8833967afb1cfb2c14507a16bb4c5a30526ffe3ee7fa2c7.png" src="../../_images/29f0c50a8c949faae8833967afb1cfb2c14507a16bb4c5a30526ffe3ee7fa2c7.png" />
 </div>
 </div>
 <p>There seems to be some parameter redundancy, i.e., we could chose different parameter combinations to make the model do something sensible…</p>
@@ -1835,7 +1835,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion: 33.5% and motion: 62.0%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion: 31.2% and motion: 60.3%
 </pre></div>
 </div>
 </div>
@@ -1873,7 +1873,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7f38b24febc926c2a5859d08dbaf60fb022a8278031a5112b059f2d2f50df272.png" src="../../_images/7f38b24febc926c2a5859d08dbaf60fb022a8278031a5112b059f2d2f50df272.png" />
+<img alt="../../_images/85d09d76324231f931c737df9843379055dd8918c8fb2c28632980a1fa0c6b89.png" src="../../_images/85d09d76324231f931c737df9843379055dd8918c8fb2c28632980a1fa0c6b89.png" />
 </div>
 </div>
 <p>Our <strong>hypothesis</strong> of linear increase of illusion strength with noise only holds true in a limited range of noise… It’s monotonic but saturating of course…</p>
