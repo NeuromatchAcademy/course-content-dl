@@ -1493,27 +1493,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/491.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">491.5/491.5 kB</span> <span class=" -Color -Color-Red">16.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/193.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">193.6/193.6 kB</span> <span class=" -Color -Color-Red">17.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">gcsfs 2025.3.2 requires fsspec==2025.3.2, but you have fsspec 2025.3.0 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cublas-cu12==12.4.5.8; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cublas-cu12 12.5.3.2 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-cupti-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-cupti-cu12 12.5.82 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-nvrtc-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-nvrtc-cu12 12.5.82 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-runtime-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-runtime-cu12 12.5.82 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cudnn-cu12==9.1.0.70; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cudnn-cu12 9.3.0.75 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cufft-cu12==11.2.1.3; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cufft-cu12 11.2.3.61 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-curand-cu12==10.3.5.147; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-curand-cu12 10.3.6.82 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusolver-cu12==11.6.1.9; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusolver-cu12 11.6.3.83 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusparse-cu12==12.3.1.170; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusparse-cu12 12.5.1.3 which is incompatible.</span>
-<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-nvjitlink-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-nvjitlink-cu12 12.5.82 which is incompatible.</span>
-
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1682,26 +1661,47 @@ title="Print to PDF"
 <p>You can find the dataset we are going to use in <a class="reference external" href="https://huggingface.co/datasets/stanfordnlp/sentiment140">this website</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;stanfordnlp/sentiment140&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download dataset from Kaggle and extract/Unzip it.</span>
+<span class="o">!</span>kaggle<span class="w"> </span>datasets<span class="w"> </span>download<span class="w"> </span>-d<span class="w"> </span>kazanova/sentiment140
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span><span class="o">,</span><span class="w"> </span><span class="nn">io</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+<span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "914605f142944a0aba34dfdc7ec8ff38", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e2b0f97806144114a8aeb861699c04b0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3f9fea9e18c2429aacdc99f9682e4010", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec0e3821969e41c497f94dcf638598d5", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "24e78e9a23404b48b90d04fed02fb939", "version_major": 2, "version_minor": 0}</script></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/usr/local/bin/kaggle&quot;, line 10, in &lt;module&gt;
+    sys.exit(main())
+             ^^^^^^
+  File &quot;/usr/local/lib/python3.11/dist-packages/kaggle/cli.py&quot;, line 68, in main
+    out = args.func(**command_args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/dist-packages/kaggle/api/kaggle_api_extended.py&quot;, line 1741, in dataset_download_cli
+    with self.build_kaggle_client() as kaggle:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/dist-packages/kaggle/api/kaggle_api_extended.py&quot;, line 688, in build_kaggle_client
+    username=self.config_values[&#39;username&#39;],
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: &#39;username&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We load the dataset</span>
-<span class="n">train_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sentiment&#39;</span><span class="p">:</span> <span class="s1">&#39;polarity&#39;</span><span class="p">})</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;polarity&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">DATASET_SIZE</span><span class="o">=</span><span class="mi">10000</span>
+<span class="c1"># We load the dataset</span>
+<span class="n">header_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;polarity&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;training.1600000.processed.noemoticon.csv&#39;</span><span class="p">,</span>
+                 <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">header_list</span><span class="p">)</span>
 
 <span class="c1"># Limit the dataset size</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="n">DATASET_SIZE</span><span class="p">]</span>
+<span class="n">DATASET_SIZE</span><span class="o">=</span><span class="mi">10000</span>
+<span class="c1">#df = df[:DATASET_SIZE]</span>
 
 <span class="c1"># Show the first few rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1710,7 +1710,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c639ddb1-216a-4295-95bb-2cc6c87944b2" class="colab-df-container">
+  <div id="df-bfa1332f-c2df-490f-a5df-ac3c1c9110d1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1730,7 +1730,7 @@ title="Print to PDF"
     <tr style="text-align: right;">
       <th></th>
       <th>polarity</th>
-      <th>user</th>
+      <th>id</th>
       <th>date</th>
       <th>query</th>
       <th>user</th>
@@ -1741,7 +1741,7 @@ title="Print to PDF"
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>_TheSpecialOne_</td>
+      <td>1467810369</td>
       <td>Mon Apr 06 22:19:45 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>_TheSpecialOne_</td>
@@ -1750,7 +1750,7 @@ title="Print to PDF"
     <tr>
       <th>1</th>
       <td>0</td>
-      <td>scotthamilton</td>
+      <td>1467810672</td>
       <td>Mon Apr 06 22:19:49 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>scotthamilton</td>
@@ -1759,7 +1759,7 @@ title="Print to PDF"
     <tr>
       <th>2</th>
       <td>0</td>
-      <td>mattycus</td>
+      <td>1467810917</td>
       <td>Mon Apr 06 22:19:53 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>mattycus</td>
@@ -1768,7 +1768,7 @@ title="Print to PDF"
     <tr>
       <th>3</th>
       <td>0</td>
-      <td>ElleCTF</td>
+      <td>1467811184</td>
       <td>Mon Apr 06 22:19:57 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>ElleCTF</td>
@@ -1777,7 +1777,7 @@ title="Print to PDF"
     <tr>
       <th>4</th>
       <td>0</td>
-      <td>Karoli</td>
+      <td>1467811193</td>
       <td>Mon Apr 06 22:19:57 PDT 2009</td>
       <td>NO_QUERY</td>
       <td>Karoli</td>
@@ -1789,7 +1789,7 @@ title="Print to PDF"
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c639ddb1-216a-4295-95bb-2cc6c87944b2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bfa1332f-c2df-490f-a5df-ac3c1c9110d1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1841,12 +1841,12 @@ title="Print to PDF"
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c639ddb1-216a-4295-95bb-2cc6c87944b2 button.colab-df-convert');
+        document.querySelector('#df-bfa1332f-c2df-490f-a5df-ac3c1c9110d1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c639ddb1-216a-4295-95bb-2cc6c87944b2');
+        const element = document.querySelector('#df-bfa1332f-c2df-490f-a5df-ac3c1c9110d1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1866,8 +1866,8 @@ title="Print to PDF"
   </div>
 
 
-    <div id="df-18b9794d-1e35-4d03-aaff-fc9a84221acb">
-      <button class="colab-df-quickchart" onclick="quickchart('df-18b9794d-1e35-4d03-aaff-fc9a84221acb')"
+    <div id="df-e4e8ea71-c333-4376-865c-fcafc9bcad46">
+      <button class="colab-df-quickchart" onclick="quickchart('df-e4e8ea71-c333-4376-865c-fcafc9bcad46')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1986,12 +1986,13 @@ title="Print to PDF"
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-18b9794d-1e35-4d03-aaff-fc9a84221acb button');
+            document.querySelector('#df-e4e8ea71-c333-4376-865c-fcafc9bcad46 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
+
     </div>
   </div>
 </div></div>
@@ -2020,11 +2021,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0: equinux.com just crashed safari tks you! 
-0: tierd  whats pt swagger mean.. i love the sound of it
-0: @EstelleDarlings Honestly, you can only speak to urself because no 1 cares @the airport. Someone will always direct u 2 the next person 
-0: Site load rising again. Increased my capacity but it&#39;s going up still 
-0: @heidimontag just got done watching the hills! loved it! excited for the next episode! and im sad this is the last season! 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1: @paisleypaisley LOL why do i get ideas so far in advance? it&#39;s not even june yet! we need a third knitter to have our own summer group 
+0: worst headache ever 
+0: @ewaniesciuszko  i am so sad i wont see you! I miss you already. and yeah! that&#39;s perfect; i come back the 18th!
+1: doesn&#39;t know how to spell conked 
+0: &amp;quot;So we stand here now and no one knows us at all I won&#39;t get used to this I won&#39;t get used to being gone&amp;quot;...I miss home and everyone  -a
 </pre></div>
 </div>
 </div>
@@ -2040,8 +2041,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Tokenize:  tierd  whats pt swagger mean.. i love the sound of it
-After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#39;, &#39;mean&#39;, &#39;.&#39;, &#39;.&#39;, &#39;i&#39;, &#39;love&#39;, &#39;the&#39;, &#39;sound&#39;, &#39;of&#39;, &#39;it&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Tokenize:  worst headache ever 
+After Tokenize:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
 </pre></div>
 </div>
 </div>
@@ -2054,7 +2055,7 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a103539f6d7f4b75b721c56cfba9e213", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb87bbfa2de04627a03c28519339383d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "804118ce888a4b58b15165450dcaae25"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "515bc6f00e5f47489e7d14087ad2f059"}</script></div>
 </div>
 <p>We can count the words occurences and see how many different words are present in our dataset.</p>
 <div class="cell docutils container">
@@ -2072,8 +2073,8 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of different Tokens in our Dataset: 14815
-[&#39;.&#39;, &#39;i&#39;, &quot;&#39;&quot;, &#39;!&#39;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;, &#39;and&#39;, &#39;is&#39;, &#39;?&#39;, &#39;t&#39;, &#39;in&#39;, &#39;for&#39;, &#39;of&#39;, &#39;you&#39;, &#39;s&#39;, &#39;but&#39;, &#39;me&#39;, &#39;on&#39;, &#39;that&#39;, &#39;have&#39;, &#39;not&#39;, &#39;so&#39;, &#39;m&#39;, &#39;at&#39;, &#39;just&#39;, &#39;this&#39;, &#39;be&#39;, &#39;was&#39;, &#39;work&#39;, &#39;up&#39;, &#39;with&#39;, &#39;now&#39;, &#39;no&#39;, &#39;can&#39;, &#39;get&#39;, &#39;out&#39;, &#39;go&#39;, &#39;all&#39;, &#39;today&#39;, &#39;day&#39;, &#39;too&#39;, &#39;like&#39;, &#39;do&#39;, &#39;don&#39;, &#39;still&#39;, &#39;going&#39;, &#39;-&#39;, &#39;got&#39;, &#39;are&#39;, &#39;back&#39;, &#39;am&#39;, &#39;really&#39;, &#39;time&#39;, &#39;what&#39;, &#39;from&#39;, &#39;about&#39;, &#39;has&#39;, &#39;had&#39;, &#39;one&#39;, &#39;good&#39;, &#39;its&#39;, &#39;they&#39;, &#39;want&#39;, &#39;im&#39;, &#39;sad&#39;, &#39;we&#39;, &#39;why&#39;, &#39;need&#39;, &#39;home&#39;, &#39;http&#39;, &#39;sleep&#39;, &#39;your&#39;, &#39;know&#39;, &#39;night&#39;, &#39;when&#39;, &#39;there&#39;, &#39;some&#39;, &#39;will&#39;, &#39;more&#39;, &#39;oh&#39;, &#39;been&#39;, &#39;lol&#39;, &#39;last&#39;, &#39;feel&#39;, &#39;sick&#39;, &#39;miss&#39;, &#39;2&#39;, &#39;morning&#39;, &#39;much&#39;, &#39;again&#39;, &#39;off&#39;, &#39;sorry&#39;, &#39;as&#39;, &#39;think&#39;, &#39;wish&#39;, &#39;an&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of different Tokens in our Dataset: 669284
+[&#39;.&#39;, &#39;i&#39;, &#39;!&#39;, &quot;&#39;&quot;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;, &#39;and&#39;, &#39;you&#39;, &#39;?&#39;, &#39;is&#39;, &#39;for&#39;, &#39;in&#39;, &#39;s&#39;, &#39;of&#39;, &#39;t&#39;, &#39;on&#39;, &#39;that&#39;, &#39;me&#39;, &#39;so&#39;, &#39;have&#39;, &#39;m&#39;, &#39;but&#39;, &#39;just&#39;, &#39;with&#39;, &#39;be&#39;, &#39;at&#39;, &#39;not&#39;, &#39;was&#39;, &#39;this&#39;, &#39;now&#39;, &#39;can&#39;, &#39;good&#39;, &#39;up&#39;, &#39;day&#39;, &#39;all&#39;, &#39;get&#39;, &#39;out&#39;, &#39;like&#39;, &#39;are&#39;, &#39;no&#39;, &#39;go&#39;, &#39;http&#39;, &#39;-&#39;, &#39;today&#39;, &#39;do&#39;, &#39;too&#39;, &#39;your&#39;, &#39;work&#39;, &#39;going&#39;, &#39;love&#39;, &#39;we&#39;, &#39;got&#39;, &#39;what&#39;, &#39;lol&#39;, &#39;time&#39;, &#39;back&#39;, &#39;from&#39;, &#39;u&#39;, &#39;one&#39;, &#39;will&#39;, &#39;know&#39;, &#39;about&#39;, &#39;im&#39;, &#39;really&#39;, &#39;don&#39;, &#39;am&#39;, &#39;had&#39;, &#39;)&#39;, &#39;see&#39;, &#39;some&#39;, &#39;there&#39;, &#39;its&#39;, &#39;&amp;amp&#39;, &#39;how&#39;, &#39;if&#39;, &#39;still&#39;, &#39;they&#39;, &#39;&amp;quot&#39;, &#39;night&#39;, &#39;(&#39;, &#39;well&#39;, &#39;want&#39;, &#39;new&#39;, &#39;think&#39;, &#39;2&#39;, &#39;home&#39;, &#39;thanks&#39;, &#39;ll&#39;, &#39;oh&#39;, &#39;when&#39;, &#39;as&#39;, &#39;he&#39;, &#39;more&#39;, &#39;here&#39;, &#39;much&#39;, &#39;off&#39;]
 </pre></div>
 </div>
 </div>
@@ -2096,7 +2097,7 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 5.190685116436044% most common words account for the 80.00869187309866% of the occurrences
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 0.13970153178620734% most common words account for the 80.00532743602652% of the occurrences
 </pre></div>
 </div>
 </div>
@@ -2109,7 +2110,7 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/888270c0b48a6837962c4dfc5ca6f9dace66a405afb902afb9a29d88baab199e.png" src="../../_images/888270c0b48a6837962c4dfc5ca6f9dace66a405afb902afb9a29d88baab199e.png" />
+<img alt="../../_images/389789917e1c03b2e0377107834990fecfef82a41ee695d829721deefededb99.png" src="../../_images/389789917e1c03b2e0377107834990fecfef82a41ee695d829721deefededb99.png" />
 </div>
 </div>
 <p>It is very common to find this kind of distribution when analyzing corpus of text. This is referred to as the <a class="reference external" href="https://en.wikipedia.org/wiki/Zipf%27s_law">zipf’s law</a>.</p>
@@ -2157,7 +2158,7 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Vectorize:  Site load rising again. Increased my capacity but it&#39;s going up still 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before Vectorize:  doesn&#39;t know how to spell conked 
 </pre></div>
 </div>
 </div>
@@ -2173,20 +2174,14 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Vectorize: 
 &lt;Compressed Sparse Row sparse matrix of dtype &#39;int64&#39;
-	with 12 stored elements and shape (1, 14159)&gt;
+	with 6 stored elements and shape (1, 589260)&gt;
   Coords	Values
-  (0, 6377)	1
-  (0, 11286)	1
-  (0, 7410)	1
-  (0, 10478)	1
-  (0, 655)	1
-  (0, 6190)	1
-  (0, 8422)	1
-  (0, 2199)	1
-  (0, 2086)	1
-  (0, 5251)	1
-  (0, 13169)	1
-  (0, 11819)	1
+  (0, 528584)	1
+  (0, 165468)	1
+  (0, 300381)	1
+  (0, 242211)	1
+  (0, 489893)	1
+  (0, 134160)	1
 </pre></div>
 </div>
 </div>
@@ -2200,36 +2195,440 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipython-input-23-2773398188.py</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_cv</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="output text_html"><style>#sk-container-id-2 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
 
-<span class="nn">/usr/local/lib/python3.11/dist-packages/sklearn/base.py</span> in <span class="ni">wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1387</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1388</span>             <span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1389</span>                 <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1390</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1391</span>         <span class="k">return</span> <span class="n">wrapper</span>
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
 
-<span class="nn">/usr/local/lib/python3.11/dist-packages/sklearn/linear_model/_logistic.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="n">classes_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span>
-<span class="g g-Whitespace">   </span><span class="mi">1300</span>         <span class="k">if</span> <span class="n">n_classes</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1301</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1302</span>                 <span class="s2">&quot;This solver needs samples of at least 2 classes&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot; in the data, but the data contains only one&quot;</span>
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
 
-<span class="nn">ValueError: This solver needs samples of at least 2 classes</span> in <span class="ni">the data, but the data contains only one class: np.int64</span><span class="nt">(0)</span>
-</pre></div>
-</div>
-</div>
+#sk-container-id-2 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-2 pre {
+  padding: 0;
+}
+
+#sk-container-id-2 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-2 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-2 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-2 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-2 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-2 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-2 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-2 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-2 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-2 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-2 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label label.sk-toggleable__label,
+#sk-container-id-2 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-2 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-2 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-2 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-2 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-2 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-2 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(solver=&#x27;saga&#x27;)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_cv</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.81      0.79      0.80    160000
+           1       0.79      0.81      0.80    160000
+
+    accuracy                           0.80    320000
+   macro avg       0.80      0.80      0.80    320000
+weighted avg       0.80      0.80      0.80    320000
 </pre></div>
 </div>
 </div>
@@ -2249,16 +2648,8 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipython-input-24-3113506201.py</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">words_sk</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">words_sk</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]])</span>
-
-<span class="ne">AttributeError</span>: &#39;LogisticRegression&#39; object has no attribute &#39;coef_&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 589260)
+589260
 </pre></div>
 </div>
 </div>
@@ -2270,11 +2661,59 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roni: -3.8625729423108437
+inaperfectworld: -3.573436535149933
+dontyouhate: -3.50018864575806
+xbllygbsn: -3.4126444169876438
+anqju: -3.33639190943554
+sad: -3.2005178899429714
+pakcricket: -3.1949514941475265
+condolences: -3.1325477715388463
+heartbreaking: -3.066488097843163
+saddest: -3.04202643710585
+sadd: -3.0290349655468876
+heartbroken: -3.0287528279309472
+boohoo: -3.022618736852839
+sadface: -2.991860990999021
+rachelle_lefevr: -2.925044332630044
+disappointing: -2.902520133727237
+lvbu: -2.894710870236732
+saddens: -2.885528324770195
+bummed: -2.8364981435645125
+neda: -2.7929433619837467
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">words_sk</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]):</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">w</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iamsoannoyed: 2.8493948923058436
+myfax: 2.797439552983078
+jennamadison: 2.566723416915995
+yeyy: 2.478033441694672
+tryout: 2.4383289027354444
+goldymom: 2.4373983508455046
+wooohooo: 2.4029658440715362
+thesupergirl: 2.356535145844401
+iammaxathotspot: 2.3116504871129524
+londicreations: 2.3074490448672305
+smilin: 2.299187828028732
+worries: 2.289943832812244
+sinfulsignorita: 2.2798940404205106
+finchensnail: 2.264307480916936
+smackthis: 2.2376681054206737
+kv: 2.215880743716363
+tojosan: 2.211782439458094
+russmarshalek: 2.2094749498194886
+traciknoppe: 2.1768278036295006
+congratulations: 2.1715881819573886
 </pre></div>
 </div>
 </div>
@@ -2328,7 +2767,7 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;i&#39;, &quot;&#39;&quot;, &#39;!&#39;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.&#39;, &#39;i&#39;, &#39;!&#39;, &quot;&#39;&quot;, &#39;to&#39;, &#39;the&#39;, &#39;,&#39;, &#39;a&#39;, &#39;my&#39;, &#39;it&#39;]
 </pre></div>
 </div>
 </div>
@@ -2406,8 +2845,8 @@ After Tokenize:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before converting:  [&#39;tierd&#39;, &#39;whats&#39;, &#39;pt&#39;, &#39;swagger&#39;, &#39;mean&#39;, &#39;.&#39;, &#39;.&#39;, &#39;i&#39;, &#39;love&#39;, &#39;the&#39;, &#39;sound&#39;, &#39;of&#39;, &#39;it&#39;]
-After converting:  [4880, 801, 2396, 4881, 391, 2, 2, 3, 120, 7, 631, 18, 11]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before converting:  [&#39;worst&#39;, &#39;headache&#39;, &#39;ever&#39;]
+After converting:  [721, 458, 237]
 </pre></div>
 </div>
 </div>
@@ -2423,8 +2862,8 @@ After converting:  [4880, 801, 2396, 4881, 391, 2, 2, 3, 120, 7, 631, 18, 11]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max tweet word length:  62
-Mean tweet word length:  16.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max tweet word length:  229
+Mean tweet word length:  15.0
 99% percent under:  37.0
 </pre></div>
 </div>
@@ -2477,10 +2916,10 @@ Mean tweet word length:  16.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before padding:  [4882, 1701, 8, 19, 39, 103, 765, 6, 3175, 196, 38, 249, 4883, 4884, 976, 2, 234, 83, 235, 1980, 123, 92, 7, 236, 911]
-After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    0    0
-    0 4882 1701    8   19   39  103  765    6 3175  196   38  249 4883
- 4884  976    2  234   83  235 1980  123   92    7  236  911]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before padding:  [1, 3, 71, 24, 122, 3, 533, 74, 13, 4, 3, 102, 13, 209, 2, 12, 150, 4, 22, 5, 18, 667, 3, 138, 61, 7, 3296, 4]
+After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    1    3
+   71   24  122    3  533   74   13    4    3  102   13  209    2   12
+  150    4   22    5   18  667    3  138   61    7 3296    4]
 </pre></div>
 </div>
 </div>
@@ -2519,19 +2958,19 @@ After padding:  [   0    0    0    0    0    0    0    0    0    0    0    0    
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample input size:  torch.Size([100, 40])
 Sample input: 
- tensor([[    0,     0,     0,  ...,   303,   856, 14628],
-        [    0,     0,     0,  ...,  3102,    33,   111],
-        [    0,     0,     0,  ..., 10228,    22,    46],
+ tensor([[  0,   0,   0,  ...,   5,  18,   2],
+        [  0,   0,   0,  ...,   3, 169,   2],
+        [  0,   0,   0,  ...,  11, 871,   2],
         ...,
-        [    0,     0,     0,  ...,     6,    42,   128],
-        [    0,     0,     0,  ...,   350,  1305,  4700],
-        [    0,     0,     0,  ...,  7050,  7051,  7052]])
+        [  0,   0,   0,  ...,   2,   2,   2],
+        [  0,   0,   0,  ..., 999,  38,   4],
+        [  0,   0,   0,  ...,  11,  51,   2]])
 Sample input: 
- tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0])
+ tensor([1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0,
+        1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0,
+        1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0,
+        0, 1, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -2797,29 +3236,28 @@ Sample input:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1
-train_loss : 0.12438914714439306 val_loss : 0.0018169824266806244
-train_accuracy : 99.9625 val_accuracy : 100.0
-Validation loss decreased (inf --&gt; 0.001817).  Saving model ...
+train_loss : 0.43730544636258856 val_loss : 0.3884731814917177
+train_accuracy : 79.485703125 val_accuracy : 82.4503125
+Validation loss decreased (inf --&gt; 0.388473).  Saving model ...
 ==================================================
 Epoch 2
-train_loss : 0.0015338497134507634 val_loss : 0.0009810010727960617
-train_accuracy : 100.0 val_accuracy : 100.0
-Validation loss decreased (0.001817 --&gt; 0.000981).  Saving model ...
+train_loss : 0.3758809591725003 val_loss : 0.3710260963672772
+train_accuracy : 83.173828125 val_accuracy : 83.4796875
+Validation loss decreased (0.388473 --&gt; 0.371026).  Saving model ...
 ==================================================
 Epoch 3
-train_loss : 0.0009141735477896873 val_loss : 0.0006214575550984591
-train_accuracy : 100.0 val_accuracy : 100.0
-Validation loss decreased (0.000981 --&gt; 0.000621).  Saving model ...
+train_loss : 0.35697066453518345 val_loss : 0.3647595000592992
+train_accuracy : 84.176484375 val_accuracy : 83.816875
+Validation loss decreased (0.371026 --&gt; 0.364760).  Saving model ...
 ==================================================
 Epoch 4
-train_loss : 0.0006109651429142104 val_loss : 0.000429066653305199
-train_accuracy : 100.0 val_accuracy : 100.0
-Validation loss decreased (0.000621 --&gt; 0.000429).  Saving model ...
+train_loss : 0.34435121993068607 val_loss : 0.36194056073203684
+train_accuracy : 84.87468750000001 val_accuracy : 83.9553125
+Validation loss decreased (0.364760 --&gt; 0.361941).  Saving model ...
 ==================================================
 Epoch 5
-train_loss : 0.00044310156408755574 val_loss : 0.00031149635469773784
-train_accuracy : 100.0 val_accuracy : 100.0
-Validation loss decreased (0.000429 --&gt; 0.000311).  Saving model ...
+train_loss : 0.33361824998864903 val_loss : 0.3626910804538056
+train_accuracy : 85.44 val_accuracy : 84.038125
 ==================================================
 </pre></div>
 </div>
@@ -2847,7 +3285,7 @@ Validation loss decreased (0.000429 --&gt; 0.000311).  Saving model ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/414f3417cb2a5916a701f58942064d535d9f28c19cfa90f7612a374909b11dee.png" src="../../_images/414f3417cb2a5916a701f58942064d535d9f28c19cfa90f7612a374909b11dee.png" />
+<img alt="../../_images/e0b06bbf8522870bd9bc04bcdc00e71b411d99cb4da42c42fb180cfa6640091d.png" src="../../_images/e0b06bbf8522870bd9bc04bcdc00e71b411d99cb4da42c42fb180cfa6640091d.png" />
 </div>
 </div>
 </section>
