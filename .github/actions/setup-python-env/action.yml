@@ -1,0 +1,32 @@
+name: 'Setup Python Environment'
+description: 'Set up Python with caching and install base dependencies'
+
+inputs:
+  python-version:
+    description: 'Python version to install'
+    required: false
+    default: '3.9'
+
+outputs:
+  cache-hit:
+    description: 'Whether pip cache was hit'
+    value: ${{ steps.setup-python.outputs.cache-hit }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      id: setup-python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: 'pip'
+        cache-dependency-path: requirements.txt
+
+    - name: Upgrade pip
+      shell: bash
+      run: pip install --upgrade pip wheel
+
+    - name: Install requirements
+      shell: bash
+      run: pip install -r requirements.txt
