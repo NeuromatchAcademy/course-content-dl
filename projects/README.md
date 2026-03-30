@@ -63,4 +63,4 @@ Project templates ([here](https://deeplearning.neuromatch.io/projects/docs/proje
 If you would like to continue working on your project after the three-week course, we encourage you to apply to the [Impact Scholars program](https://impact-scholars.neuromatch.io/impact-scholars/structure.html).
 
 # **Project Examples**
-You can find examples from previous years' students [here](https://airtable.com/appoh6RKyBvxgiJ89/shrbgXZYZ2YIEiCY8).
+You can find examples from previous years' students [here](https://airtable.com/appoh6RKyBvxgiJ89/shrBzpLBrYD8AZRqr).
