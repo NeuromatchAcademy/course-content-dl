@@ -1,0 +1,53 @@
+name: 'Setup Rendering Dependencies'
+description: 'Install fonts, backend libraries, and graphviz for notebook rendering'
+
+inputs:
+  skip-fonts:
+    description: 'Skip XKCD font installation'
+    required: false
+    default: 'false'
+  skip-backend:
+    description: 'Skip backend libraries'
+    required: false
+    default: 'false'
+  skip-graphviz:
+    description: 'Skip graphviz installation'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache fonts
+      id: cache-fonts
+      if: ${{ inputs.skip-fonts != 'true' }}
+      uses: actions/cache@v4
+      with:
+        path: /usr/share/fonts/truetype/humor-sans
+        key: fonts-${{ runner.os }}-humor-sans-v1
+
+    - name: Install XKCD fonts
+      if: ${{ inputs.skip-fonts != 'true' }}
+      shell: bash
+      run: |
+        if [ ! -f /usr/share/fonts/truetype/humor-sans/Humor-Sans.ttf ]; then
+          sudo apt-get update -yq
+          wget -q http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-humor-sans/fonts-humor-sans_1.0-4_all.deb
+          sudo dpkg -i fonts-humor-sans_1.0-4_all.deb || true
+          sudo apt install -fy
+          rm -f fonts-humor-sans_1.0-4_all.deb $HOME/.matplotlib/fontList.cache
+        else
+          echo "XKCD fonts already cached"
+        fi
+
+    - name: Install backend libraries
+      if: ${{ inputs.skip-backend != 'true' }}
+      shell: bash
+      run: |
+        sudo apt-get update -yq || true
+        sudo apt-get install -y libglew-dev libglfw3 ffmpeg
+        echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+
+    - name: Install Graphviz
+      if: ${{ inputs.skip-graphviz != 'true' }}
+      uses: tlylt/install-graphviz@v1
