@@ -44,7 +44,9 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ft2sz/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  tutorials: 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
+  tutorials: 2
 
 - day: W2D1
   category: Fine Tuning
@@ -60,17 +62,15 @@
 
 - day: W2D2
   category: ConvNets and Generative Models
-  name: Convnets And Dl Thinking
+  name: Convnets
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/r9pjc/?direct%26mode=render%26action=download%26mode=render
     title: Bonus Lecture
-  tutorials: 2
+  tutorials: 1
 
 - day: W2D3
   category: ConvNets and Generative Models
