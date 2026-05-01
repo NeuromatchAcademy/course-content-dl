@@ -44,9 +44,7 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ft2sz/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  tutorials: 2
+  tutorials: 1
 
 - day: W2D1
   category: Fine Tuning
