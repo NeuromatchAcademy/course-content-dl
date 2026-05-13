@@ -59,10 +59,10 @@ The following table specifies the tutorial content that your pod is assigned bas
 
 |   Assigned Project Dataset  |   Tutorial Content for W1D5     |     New Project Day     |
 |-----------------------------|---------------------------------|-------------------------|
-| Computer Vision             | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2 (Tue., 15 July)    |
-| Natural Language Processing | [W3D1: Time Series and NLP](https://deeplearning.neuromatch.io/tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html)       | W3D1 (Mon., 21 July)    |
-| Reinforcement Learning      | [W3D4: Basic RL](https://deeplearning.neuromatch.io/tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html)                  | W3D4: (Thur., 24 July)  |
-| Neuroscience                | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2: (Tue., 15 July)   |
+| Computer Vision             | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2     |
+| Natural Language Processing | [W3D1: Time Series and NLP](https://deeplearning.neuromatch.io/tutorials/W3D1_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html)       | W3D1     |
+| Reinforcement Learning      | [W3D4: Basic RL](https://deeplearning.neuromatch.io/tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html)                  | W3D4   |
+| Neuroscience                | [W2D2: Convnets and DL Thinking](https://deeplearning.neuromatch.io/tutorials/W2D2_ConvnetsAndDlThinking/chapter_title.html)  | W2D2    |
 
 
 Start by watching the videos for [Modeling Steps 3-4](https://deeplearning.neuromatch.io/projects/modelingsteps/ModelingSteps_3through4_DL.html). It will help you define the ingredients for your project. In our case, this primarily involves finding a dataset. Finding a good dataset is a crucial step in all deep learning projects. It will make the rest of the project much easier, so you should spend a lot of time on this (both days). This goes hand in hand with formulating a hypothesis (step 4), because some datasets will naturally invite you to make a hypothesis, especially if you already have a well-defined question. Here's an example:
