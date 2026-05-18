@@ -68,9 +68,11 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/4r2dp/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2 (Bonus)
-  tutorials: 2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 3 (Bonus)
+  tutorials: 3
 
 - day: W2D3
   category: ConvNets and Generative Models
@@ -82,13 +84,13 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2 
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/r9pjc/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/gx84r/?direct%26mode=render%26action=download%26mode=render
     title: Bonus Lecture
   tutorials: 2
 
 - day: W2D4
   category: ConvNets and Generative Models
-  name: Diffusion Models
+  name: Diffusion Generative Models
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
   slides:
@@ -96,8 +98,6 @@
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/gx84r/?direct%26mode=render
-    title: Bonus Lecture
   tutorials: 2
   
 - day: W2D5
