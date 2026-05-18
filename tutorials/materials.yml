@@ -160,14 +160,17 @@
 
 - day: W3D5
   category: Unsupervised and Reinforcement Learning
-  name: DL Discussion
-  playlist: 
-  
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2f7ay/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
+  name: Advanced Reinforcement Learning And Deep Learning Discussion 3
+  playlist:
 
-  tutorials: 1
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2f7ay/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 3 (Bonus)
+  tutorials: 3
 
 - day: Bonus
   category: Deploy Models on the Web
