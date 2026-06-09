@@ -4,7 +4,7 @@
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MGF3aRYZ-Ya_lexek248qJ
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/wcjrv/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/dg4h7/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
   tutorials: 1
 
@@ -60,59 +60,45 @@
 
 - day: W2D2
   category: ConvNets and Generative Models
-  name: Convnets And Dl Thinking
+  name: Convnets
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x25tw/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/r9pjc/?direct%26mode=render%26action=download%26mode=render
-    title: Bonus Lecture
-  tutorials: 2
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uzjdk/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2 (Bonus)
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jtvy9/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 3 (Bonus)
+  tutorials: 3
 
 - day: W2D3
   category: ConvNets and Generative Models
-  name: Modern Convnets
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18OSKP06nW9tK4JVZZD6FTwX
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/4r2dp/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2 (Bonus)
-  tutorials: 2
-
-- day: W2D4
-  category: ConvNets and Generative Models
-  name: Generative Models
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
+  name: Generative Models And Deep Learning Discussion 1
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 3
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/gx84r/?direct%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2 
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/gx84r/?direct%26mode=render%26action=download%26mode=render
     title: Bonus Lecture
-  tutorials: 3
-
-- day: W2D5
-  category: Natural Language Processing
-  name: Attention And Transformers
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
-
-  slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6eudb/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2 (Bonus)
   tutorials: 2
 
-- day: W3D1
+- day: W2D4
+  category: ConvNets and Generative Models
+  name: Diffusion Generative Models
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18NKF9y_9OX5GQYBwyMgSFHB
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/4gtuy/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j8xp4/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
+  tutorials: 2
+  
+- day: W2D5
   category: Natural Language Processing
   name: Time Series And Natural Language Processing
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18NC6xWI8UE_0exZv2z0kgai
@@ -126,9 +112,21 @@
     title: Tutorial 3 (Bonus)
   tutorials: 3
 
+- day: W3D1
+  category: Natural Language Processing
+  name: Attention And Transformers
+  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18PpI7aDyCE4ScdhGQm-Buui
+
+  slides:
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/6eudb/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2 (Bonus)
+  tutorials: 2
+
 - day: W3D2
   category: Natural Language Processing
-  name: DL Case Study
+  name: DL Discussion
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18M6GYMqOSsswELhdxOUWQgR
 
   slides:
@@ -160,18 +158,16 @@
 
 - day: W3D5
   category: Unsupervised and Reinforcement Learning
-  name: Reinforcement Learning For Games And Dl Thinking3
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
+  name: Advanced Reinforcement Learning And Deep Learning Discussion 3
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2f7ay/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/h4utj/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3 (Bonus)
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/2wams/?direct%26mode=render
-    title: Bonus Lecture
   tutorials: 3
 
 - day: Bonus
