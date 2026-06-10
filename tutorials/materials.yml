@@ -44,9 +44,7 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ft2sz/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/szcjn/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
-  tutorials: 2
+  tutorials: 1
 
 - day: W2D1
   category: Fine Tuning
@@ -66,18 +64,18 @@
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/x25tw/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/s8xz5/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/uzjdk/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2 (Bonus)
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/tzfsn/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/jtvy9/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3 (Bonus)
   tutorials: 3
 
 - day: W2D3
   category: ConvNets and Generative Models
   name: Generative Models And Deep Learning Discussion 1
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18MYWrGf6xW2d8CRyF83m592
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
 
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/rd7ng/?direct%26mode=render%26action=download%26mode=render
@@ -91,12 +89,12 @@
 - day: W2D4
   category: ConvNets and Generative Models
   name: Diffusion Generative Models
-  playlist: https://youtube.com/playlist?list=PLkBQOLLbi18O-reP8ZJFN_utwMM_VfkTD
+  playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18NKF9y_9OX5GQYBwyMgSFHB
 
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/4gtuy/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j89qg/?direct%26mode=render%26action=download%26mode=render
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/j8xp4/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 2
   tutorials: 2
   
