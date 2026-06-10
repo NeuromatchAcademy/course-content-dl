@@ -11,4 +11,26 @@ dependencies:
   - ipywidgets
   - pathlib
   - tqdm
+  - pandas
+  - pillow
+  - imageio
+  - seaborn
+  - nltk
+  - tensorboard
+  - flask
+  - coloredlogs
   - pip
+  - pip:
+    - altair
+    - datasets
+    - diffusers
+    - evaluate
+    - fasttext
+    - flair
+    - flasgger
+    - flask-restful
+    - pytorch-pretrained-biggan
+    - textattack
+    - tokenizers
+    - transformers
+    - vibecheck
