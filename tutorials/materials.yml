@@ -128,7 +128,7 @@
 
 - day: W3D2
   category: Natural Language Processing
-  name: DL Discussion 2
+  name: DL Discussion
   playlist: https://youtube.com/playlist?list=PLkBQOLLbi18M6GYMqOSsswELhdxOUWQgR
 
   slides:
@@ -171,3 +171,8 @@
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 3 (Bonus)
   tutorials: 3
+
+- day: Bonus
+  category: Deploy Models on the Web
+  name: Deploy Models
+  tutorials: 1
