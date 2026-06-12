@@ -154,23 +154,22 @@
   slides:
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
     title: Tutorial 1
+  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
+    title: Tutorial 2
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/download/6zkbr/?direct%26mode=render
     title: Bonus Lecture
-  tutorials: 1
+  tutorials: 2
 
 - day: W3D5
   category: Unsupervised and Reinforcement Learning
   name: Advanced Reinforcement Learning And Deep Learning Discussion 3
   playlist: https://www.youtube.com/playlist?list=PLkBQOLLbi18MwHY-FXG6w2Uk6nZc2748X
-
   slides:
-  - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/ztgws/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/2f7ay/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 2
+    title: Tutorial 1
   - link: https://mfr.ca-1.osf.io/render?url=https://osf.io/3zn9w/?direct%26mode=render%26action=download%26mode=render
-    title: Tutorial 3 (Bonus)
-  tutorials: 3
+    title: Tutorial 2 (Bonus)
+  tutorials: 2
 
 - day: Bonus
   category: Deploy Models on the Web
