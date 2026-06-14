@@ -1,10 +1,5 @@
 # Requirements for Neuromatch Academy Deep Learning tutorials
-# These packages are pre-installed on Google Colab/Kaggle.
-# For local setup: pip install -r requirements_tutorials.txt
-#
-# Python >= 3.10 required
-# Tutorial-specific packages (e.g. transformers, diffusers, altair) are
-# installed at the top of the relevant tutorial notebooks.
+# Some of these packages are pre-installed on Google Colab/Kaggle.
 
 numpy>=2.0
 pandas>=2.2
