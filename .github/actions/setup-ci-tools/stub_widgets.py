@@ -92,3 +92,15 @@ sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
 
 print("ipywidgets stubbed for headless CI execution")
+
+# --- tqdm stub for headless execution ---
+# In headless CI, tqdm.notebook crashes because the Jupyter widget
+# container has no children. Force tqdm to use the standard
+# terminal implementation instead.
+try:
+    import tqdm.std
+    sys.modules["tqdm.notebook"] = tqdm.std
+    sys.modules["tqdm._tqdm_notebook"] = tqdm.std
+    print("tqdm.notebook stubbed: using std implementation")
+except Exception:
+    pass
