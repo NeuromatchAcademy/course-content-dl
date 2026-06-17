@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*July 7 - 25, 2025*
+### For annual updates on Neuromatch courses, please visit [neuromatch.io/courses](https://neuromatch.io/courses/)
 
 **Objectives**: Gain hands-on, code-first experience with deep learning theories, models, and skills that are useful for applications and for advancing science. We focus on how to decide which problems can be tackled with deep learning, how to determine what model is best, how to best implement a model, how to visualize / justify findings, and how neuroscience can inspire deep learning. And throughout we emphasize the ethical use of DL. 
 
