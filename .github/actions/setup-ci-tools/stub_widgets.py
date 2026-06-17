@@ -105,17 +105,33 @@ try:
 except Exception:
     pass
 
+
 # --- HTTP 308 redirect fix for Python < 3.11 ---
 # Python 3.10's urllib doesn't support 308 redirects (added in 3.11).
 # OSF uses 308 redirects. Add a handler so pd.read_json / urlopen works.
+#
+# Note: http_error_308 alone is not enough. On Python 3.10,
+# HTTPRedirectHandler.redirect_request raises HTTPError for any code not in
+# {301, 302, 303, 307}, so a 308 gets rejected even after we intercept it.
+# We remap 308 -> 307 in redirect_request (both preserve the request method)
+# so the redirect is actually followed.
+#
+# TODO: Remove this entire 308 block once CI runs on Python 3.11+,
+#       where urllib handles 308 redirects natively.
 import urllib.request
 
 
 class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
     """Handle 308 Permanent Redirect by following the Location header."""
-
+    
     def http_error_308(self, req, fp, code, msg, headers):
         return self.http_error_302(req, fp, code, msg, headers)
+    
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # 3.10's redirect_request rejects 308 outright; treat it as 307.
+        if code == 308:
+            code = 307
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 _default_opener = urllib.request.build_opener(_HTTP308Handler)
