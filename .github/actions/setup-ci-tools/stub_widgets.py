@@ -115,7 +115,7 @@ class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
     """Handle 308 Permanent Redirect by following the Location header."""
 
     def http_error_308(self, req, fp, code, msg, headers):
-        return self.http_error_307(req, fp, code, msg, headers)
+        return self.http_error_302(req, fp, code, msg, headers)
 
 
 _default_opener = urllib.request.build_opener(_HTTP308Handler)
