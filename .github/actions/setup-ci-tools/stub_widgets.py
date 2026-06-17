@@ -104,3 +104,19 @@ try:
     print("tqdm.notebook stubbed: using std implementation")
 except Exception:
     pass
+
+# --- HTTP 308 redirect fix for Python < 3.11 ---
+# Python 3.10's urllib doesn't support 308 redirects (added in 3.11).
+# OSF uses 308 redirects. Add a handler so pd.read_json / urlopen works.
+import urllib.request
+
+
+class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
+    """Handle 308 Permanent Redirect by following the Location header."""
+
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.http_error_307(req, fp, code, msg, headers)
+
+
+_default_opener = urllib.request.build_opener(_HTTP308Handler)
+urllib.request.install_opener(_default_opener)
