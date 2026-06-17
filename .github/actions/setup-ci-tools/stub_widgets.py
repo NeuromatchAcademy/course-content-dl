@@ -92,3 +92,31 @@ sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
 
 print("ipywidgets stubbed for headless CI execution")
+
+# --- tqdm stub for headless execution ---
+# In headless CI, tqdm.notebook crashes because the Jupyter widget
+# container has no children. Force tqdm to use the standard
+# terminal implementation instead.
+try:
+    import tqdm.std
+    sys.modules["tqdm.notebook"] = tqdm.std
+    sys.modules["tqdm._tqdm_notebook"] = tqdm.std
+    print("tqdm.notebook stubbed: using std implementation")
+except Exception:
+    pass
+
+# --- HTTP 308 redirect fix for Python < 3.11 ---
+# Python 3.10's urllib doesn't support 308 redirects (added in 3.11).
+# OSF uses 308 redirects. Add a handler so pd.read_json / urlopen works.
+import urllib.request
+
+
+class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
+    """Handle 308 Permanent Redirect by following the Location header."""
+
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.http_error_302(req, fp, code, msg, headers)
+
+
+_default_opener = urllib.request.build_opener(_HTTP308Handler)
+urllib.request.install_opener(_default_opener)
