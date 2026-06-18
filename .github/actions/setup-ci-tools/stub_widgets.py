@@ -105,10 +105,28 @@ try:
 except Exception:
     pass
 
-# --- HTTP 308 redirect fix for Python < 3.11 ---
-# Python 3.10's urllib doesn't support 308 redirects (added in 3.11).
-# OSF uses 308 redirects. Add a handler so pd.read_json / urlopen works.
+# --- Resilient URL fetching for CI ---
+# Two problems with fetching remote data (e.g. OSF) from CI on Python 3.10:
+#
+# 1. 308 redirects: Python 3.10's urllib doesn't support 308 (added in 3.11).
+#    OSF uses 308 redirects. http_error_308 alone is not enough — 3.10's
+#    HTTPRedirectHandler.redirect_request raises HTTPError for any code not in
+#    {301, 302, 303, 307}, so we also remap 308 -> 307 in redirect_request
+#    (both preserve the request method) so the redirect is actually followed.
+#
+# 2. Transient 5xx: OSF / its CDN occasionally returns 502/503/504, and bare
+#    connection errors happen. A single failed fetch flakes the whole CI run,
+#    so we wrap the opener to retry these with exponential backoff.
+#
+# TODO: Remove the 308 handler once CI runs on Python 3.11+ (308 is native there).
+#       The retry wrapper is still useful regardless of Python version.
+import time
 import urllib.request
+import urllib.error
+
+_RETRY_STATUSES = {502, 503, 504}
+_MAX_RETRIES = 3          # total attempts = _MAX_RETRIES + 1
+_BACKOFF_BASE = 1.0       # seconds; delay = _BACKOFF_BASE * 2**attempt
 
 
 class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
@@ -117,6 +135,47 @@ class _HTTP308Handler(urllib.request.HTTPRedirectHandler):
     def http_error_308(self, req, fp, code, msg, headers):
         return self.http_error_302(req, fp, code, msg, headers)
 
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # 3.10's redirect_request rejects 308 outright; treat it as 307.
+        if code == 308:
+            code = 307
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
-_default_opener = urllib.request.build_opener(_HTTP308Handler)
-urllib.request.install_opener(_default_opener)
+
+def _install_resilient_opener():
+    opener = urllib.request.build_opener(_HTTP308Handler)
+    _inner_open = opener.open
+
+    def _open_with_retry(fullurl, data=None,
+                         timeout=urllib.request.socket._GLOBAL_DEFAULT_TIMEOUT):
+        last_exc = None
+        for attempt in range(_MAX_RETRIES + 1):
+            try:
+                return _inner_open(fullurl, data, timeout)
+            except urllib.error.HTTPError as e:
+                if e.code not in _RETRY_STATUSES or attempt == _MAX_RETRIES:
+                    raise
+                last_exc = e
+                reason = f"HTTP {e.code}"
+            except urllib.error.URLError as e:
+                # Connection-level failure (DNS, refused, reset, timeout).
+                if attempt == _MAX_RETRIES:
+                    raise
+                last_exc = e
+                reason = f"URLError: {e.reason}"
+            delay = _BACKOFF_BASE * (2 ** attempt)
+            url_str = getattr(fullurl, "full_url", fullurl)
+            print(
+                f"[stub] fetch failed ({reason}) for {url_str} — "
+                f"retry {attempt + 1}/{_MAX_RETRIES} in {delay:.1f}s"
+            )
+            time.sleep(delay)
+        # Unreachable, but keep the contract explicit.
+        raise last_exc
+
+    opener.open = _open_with_retry
+    urllib.request.install_opener(opener)
+
+
+_install_resilient_opener()
+print("resilient URL opener installed (308 redirects + 5xx retry)")
