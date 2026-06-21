@@ -21,7 +21,7 @@ requests>=2.31
 accelerate
 altair
 coloredlogs
-datasets
+datasets<4.0
 diffusers
 evaluate
 facenet-pytorch

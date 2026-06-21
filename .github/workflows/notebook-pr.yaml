@@ -96,7 +96,7 @@ jobs:
     needs: setup
     if: needs.setup.outputs.skip_ci != 'true' && needs.setup.outputs.has_notebooks == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
     strategy:
       fail-fast: false
       matrix:
