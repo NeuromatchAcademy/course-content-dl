@@ -3,8 +3,8 @@
 
 numpy>=2.0
 pandas>=2.2
-matplotlib>=3.10
-torch>=2.0
+matplotlib>=3.9
+torch>=2.6
 torchvision>=0.15
 torchaudio>=2.0
 scikit-learn>=1.3
