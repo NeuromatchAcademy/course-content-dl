@@ -21,7 +21,7 @@ runs:
     - name: Cache fonts
       id: cache-fonts
       if: ${{ inputs.skip-fonts != 'true' }}
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: /usr/share/fonts/truetype/humor-sans
         key: fonts-${{ runner.os }}-humor-sans-v1
@@ -50,4 +50,4 @@ runs:
 
     - name: Install Graphviz
       if: ${{ inputs.skip-graphviz != 'true' }}
-      uses: tlylt/install-graphviz@v1
+      uses: tlylt/install-graphviz@v1.0.0
