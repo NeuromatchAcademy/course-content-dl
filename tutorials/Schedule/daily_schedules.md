@@ -12,17 +12,17 @@
 
 * Week 2
    * Monday: Regularization
-   * Tuesday: Convnets and DL Thinking 1
-   * Wednesday: Modern Convnets
-   * Thursday: Generative models (VAEs and Diffusion models)
-   * Friday: Attention and Transformers
+   * Tuesday: Convnets 
+   * Wednesday: Generative models and DL Discussion 1
+   * Thursday: Diffusion Generative models 
+   * Friday: Time Series and Natural Language Processing
 
 * Week 3: Advanced concepts
-   * Monday: Time Series and Natural Language Processing
-   * Tuesday: DL Thinking 2 & Half Projects Day (Abstract Writing)
+   * Monday: Attention and Transformers
+   * Tuesday: DL Discussion 2 & Half Projects Day (Abstract Writing)
    * Wednesday: Unsupervised and Self-supervised learning
    * Thursday: Basic Reinforcement Learning
-   * Friday: Reinforcement Learning for Games & DL Thinking 3
+   * Friday: Advanced Reinforcement Learning & DL Discussion 3
 ----
 
 ## Daily coursework schedule
