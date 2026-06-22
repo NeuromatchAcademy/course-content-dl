@@ -12,11 +12,10 @@ class MDPValueIteration(MDPToGo):
     super().__init__(grid_world)
     self.gamma = gamma
 
-  def computeQ(self, error_tolerance : float = 1e-5):
-    """Compute Q and V vectors via value iteration.
-
-    Args:
-      error_tolerance: How much error we tolerate between successive Q updates.
+  def computeQ(self, error_tolerance: float = 1e-5):
+    """Compute optimal Q and V via value iteration.
+       Args:
+          error_tolerance: How much error we tolerate between successive Q updates.
     """
     self.Q = np.zeros((self.num_states, self.num_actions))
     num_iterations = 0
@@ -29,8 +28,9 @@ class MDPValueIteration(MDPToGo):
       error = np.max(abs(new_Q - self.Q))
       self.Q = np.copy(new_Q)
       num_iterations += 1
+
     self.V = np.max(self.Q, axis=-1)
-    print(f'Q and V found in {num_iterations} iterations with an error tolerance of {error_tolerance}.')
+    print(f'Converged in {num_iterations} iterations (tolerance {error_tolerance}).')
 
   def plan(self):
     """Now planning is just doing an argmax over the Q-values!

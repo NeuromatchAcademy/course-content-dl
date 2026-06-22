@@ -14,9 +14,8 @@ class QLearnerExplorer(QLearner):
     super().__init__(grid_world, gamma)
     self.epsilon = epsilon
 
-  def pickAction(self):
-    """Pick the next action from the current state.
-    """
+  def pickAction(self) -> int:
+    """With probability epsilon pick a random action; otherwise be greedy."""
     if np.random.rand() < self.epsilon:
-      return np.random.choice(self.num_actions)
-    return np.argmax(self.Q[self.current_state, :])
+      return np.random.choice(self.num_actions)   # explore: random action
+    return np.argmax(self.Q[self.current_state, :])     # exploit: greedy action

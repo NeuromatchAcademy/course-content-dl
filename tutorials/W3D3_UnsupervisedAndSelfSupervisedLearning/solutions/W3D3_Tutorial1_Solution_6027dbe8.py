@@ -11,7 +11,7 @@ def custom_simclr_contrastive_loss(proj_feat1, proj_feat2, temperature=0.5):
         Projected features for second image with augmentations (size: batch_size x feat_size)
     Optional:
       temperature: Float
-        Relaxation temperature (default: 0.5)
+        relaxation temperature (default: 0.5)
         l2 normalization along with temperature effectively weights different
         examples, and an appropriate temperature can help the model learn from hard negatives.
   Returns:

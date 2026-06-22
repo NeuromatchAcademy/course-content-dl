@@ -13,42 +13,33 @@ class MDPPolicyIteration(MDPToGo):
     self.gamma = gamma
 
   def findPi(self):
-    """Find π policy.
-    """
-    self.Q = np.zeros((self.num_states, self.num_actions))
+    """Find the optimal policy via policy iteration."""
+    self.Q  = np.zeros((self.num_states, self.num_actions))
     self.pi = np.zeros(self.num_states, dtype=np.int32)
     num_iterations = 0
     new_pi = np.ones_like(self.pi)
     while np.any(new_pi != self.pi):
-      new_pi = self.pi  # initialize to ones
-      new_Q = np.zeros_like(self.Q)  # initialize to zeros
-      next_V = np.array([mdpVi.Q[i, x] for i, x in enumerate(mdpVi.pi)])
+      new_pi  = self.pi          # save the current policy before updating
+      new_Q   = np.zeros_like(self.Q)          # initialize to zeros
+      next_V  = np.array([mdpVi.Q[i, x] for i, x in enumerate(mdpVi.pi)])          # V under the current policy (hint: use mdpVi)
       for a in range(self.num_actions):
-        new_Q[:, a] = self.R[:, a] + self.gamma * np.matmul(self.P[:, a, :], next_V)
-      self.Q = np.copy(new_Q)
-      self.pi = np.argmax(self.Q, axis=-1)
+        new_Q[:, a] = self.R[:, a] + self.gamma * np.matmul(self.P[:, a, :], next_V)    # Bellman evaluation: R + γ P V
+      self.Q  = np.copy(new_Q)
+      self.pi = np.argmax(self.Q, axis=-1)          # greedy improvement
       num_iterations += 1
-    self.V = np.max(self.Q, axis=-1)
-    print(f'Q and V found in {num_iterations} iterations.')
 
+    self.V = np.max(self.Q, axis=-1)
+    print(f'Policy iteration converged in {num_iterations} iteration(s).')
   def _draw_v(self):
-    """Draw the V values."""
-    min_v = np.min(self.V)
-    max_v = np.max(self.V)
-    wall_v = 2 * min_v - max_v  # Creating a smaller value for walls.
+    min_v = np.min(self.V); max_v = np.max(self.V)
+    wall_v = 2 * min_v - max_v
     grid_values = np.ones_like(self.grid_world.world_spec, dtype=np.int32) * wall_v
-    # Fill in the V values in grid cells.
     for s in range(self.num_states):
       cell = self.state_to_cell[s]
       grid_values[cell[0], cell[1]] = self.V[s]
-
     fig, ax = plt.subplots()
-    ax.grid(False)
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-    grid = ax.matshow(grid_values)
-    grid.set_clim(wall_v, max_v)
-    fig.colorbar(grid)
+    ax.grid(False); ax.get_xaxis().set_visible(False); ax.get_yaxis().set_visible(False)
+    grid = ax.matshow(grid_values); grid.set_clim(wall_v, max_v); fig.colorbar(grid)
 
   def draw(self, draw_mode: str = 'grid'):
     """Draw the GridWorld according to specified mode.

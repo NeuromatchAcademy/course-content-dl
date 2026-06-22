@@ -12,28 +12,25 @@ class MDPToGo(MDPBase):
     self.Q = np.zeros((self.num_states, self.num_actions))
 
   def computeQ(self):
-    """Store steps-to-go in an SxA matrix called Q.
+    """Store discounted steps-to-go in an SxA matrix called Q.
 
     This matrix will then be used to extract the optimal policy.
-
-    ** Assignment:** Write this function!
     """
-    goal_queue = [(self.goal_state, 0)]
+    goal_queue = [(self.goal_state, 0)]  # (state, steps taken so far)
     goals_done = set()
     while goal_queue:
-      goal, steps_to_go = goal_queue.pop(0)  # pop from front of list
-      steps_to_go += 1  # Increase the number of steps to goal.
+      goal, steps_to_go = goal_queue.pop(0)
+      steps_to_go += 1
       nbr_states, nbr_actions = np.where(self.P[:, :, goal] > 0.)
       goals_done.add(goal)
+
       for s, a in zip(nbr_states, nbr_actions):
         if goal == self.goal_state and s == self.goal_state:
-          self.Q[s, a] = 0
+          self.Q[s, a] = 0        # action at goal that stays at goal
         elif s == goal:
-          # If (s, a) leads to itself then we have an infinite loop (since
-          # we're assuming deterministic transitions).
-          self.Q[s, a] = np.inf
+          self.Q[s, a] = np.inf        # If (s, a) leads to itself then we have an infinite loop
         else:
-          self.Q[s, a] = steps_to_go
+          self.Q[s, a] = steps_to_go        # normal: steps_to_go steps to goal
         if s not in goals_done:
           goal_queue.append((s, steps_to_go))
 
