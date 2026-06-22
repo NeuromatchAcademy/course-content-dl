@@ -88,8 +88,58 @@ class _StubModule(types.ModuleType):
 
 stub = _StubModule("ipywidgets")
 stub.widgets = stub  # support: from ipywidgets import widgets
+
+# --- Output widget stub that captures display() ---
+class _NoOpOutput:
+    """Stub for widgets.Output that captures display() calls."""
+    def __init__(self):
+        self.children = []
+        self._output_buffer = []
+
+    def __enter__(self):
+        _current_output_ref[0] = self
+        return self
+
+    def __exit__(self, *args):
+        # Store captured output in children so nbconvert picks it up
+        if self._output_buffer:
+            self.children = self._output_buffer
+        _current_output_ref[0] = None
+
+    def __repr__(self):
+        return f"<_NoOpOutput children={self.children}>"
+
+
+_current_output_ref = [None]
+
+
+def _patched_display(*objs, **kwargs):
+    """Capture display() calls into the current Output widget."""
+    current = _current_output_ref[0]
+    if current is not None:
+        current._output_buffer.extend(objs)
+    # Also call the real display so IPython renders it
+    try:
+        from IPython import display as ipy_display
+        ipy_display.display(*objs, **kwargs)
+    except Exception:
+        pass
+
+
+# Register Output class on the stub
+stub.Output = _NoOpOutput
+
 sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
+
+# Patch IPython.display.display to capture outputs
+try:
+    from IPython import display as ipy_display
+    _original_display = ipy_display.display
+    ipy_display.display = _patched_display
+    print("IPython.display.display patched for output capture")
+except Exception:
+    pass
 
 print("ipywidgets stubbed for headless CI execution")
 
