@@ -88,6 +88,39 @@ class _StubModule(types.ModuleType):
 
 stub = _StubModule("ipywidgets")
 stub.widgets = stub  # support: from ipywidgets import widgets
+
+# --- Output widget stub that captures display() ---
+class _NoOpOutput:
+    """Stub for widgets.Output that captures display() calls."""
+    def __init__(self):
+        self.children = []
+        self._output_buffer = []
+        self._original_display = None
+
+    def __enter__(self):
+        # Patch IPython.display.display temporarily to capture output
+        from IPython import display as ipy_display
+        self._original_display = ipy_display.display
+        def _capturing_display(*objs, **kwargs):
+            self._output_buffer.extend(objs)
+        ipy_display.display = _capturing_display
+        return self
+
+    def __exit__(self, *args):
+        # Restore original display and store captured output in children
+        from IPython import display as ipy_display
+        if self._original_display is not None:
+            ipy_display.display = self._original_display
+        if self._output_buffer:
+            self.children = list(self._output_buffer)
+
+    def __repr__(self):
+        return f"<_NoOpOutput children={self.children}>"
+
+
+# Register Output class on the stub
+stub.Output = _NoOpOutput
+
 sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
 

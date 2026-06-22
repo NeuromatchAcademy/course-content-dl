@@ -35,6 +35,6 @@ pyngrok
 pytorch-pretrained-biggan
 python-Levenshtein
 textattack
-tokenizers
+tokenizers==0.22.2
 transformers
 vibecheck
