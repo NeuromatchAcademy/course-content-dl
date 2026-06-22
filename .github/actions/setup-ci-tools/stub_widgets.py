@@ -95,35 +95,27 @@ class _NoOpOutput:
     def __init__(self):
         self.children = []
         self._output_buffer = []
+        self._original_display = None
 
     def __enter__(self):
-        _current_output_ref[0] = self
+        # Patch IPython.display.display temporarily to capture output
+        from IPython import display as ipy_display
+        self._original_display = ipy_display.display
+        def _capturing_display(*objs, **kwargs):
+            self._output_buffer.extend(objs)
+        ipy_display.display = _capturing_display
         return self
 
     def __exit__(self, *args):
-        # Store captured output in children so nbconvert picks it up
+        # Restore original display and store captured output in children
+        from IPython import display as ipy_display
+        if self._original_display is not None:
+            ipy_display.display = self._original_display
         if self._output_buffer:
-            self.children = self._output_buffer
-        _current_output_ref[0] = None
+            self.children = list(self._output_buffer)
 
     def __repr__(self):
         return f"<_NoOpOutput children={self.children}>"
-
-
-_current_output_ref = [None]
-
-
-def _patched_display(*objs, **kwargs):
-    """Capture display() calls into the current Output widget."""
-    current = _current_output_ref[0]
-    if current is not None:
-        current._output_buffer.extend(objs)
-    # Also call the real display so IPython renders it
-    try:
-        from IPython import display as ipy_display
-        ipy_display.display(*objs, **kwargs)
-    except Exception:
-        pass
 
 
 # Register Output class on the stub
@@ -131,15 +123,6 @@ stub.Output = _NoOpOutput
 
 sys.modules["ipywidgets"] = stub
 sys.modules["ipywidgets.widgets"] = stub
-
-# Patch IPython.display.display to capture outputs
-try:
-    from IPython import display as ipy_display
-    _original_display = ipy_display.display
-    ipy_display.display = _patched_display
-    print("IPython.display.display patched for output capture")
-except Exception:
-    pass
 
 print("ipywidgets stubbed for headless CI execution")
 
