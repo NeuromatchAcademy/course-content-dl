@@ -957,7 +957,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W3D5_AdvancedReinforcementLearningAndDeepLearningDiscussion3/chapter_title.html">Advanced Reinforcement Learning And Deep Learning Discussion 3 (W3D5)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_AdvancedReinforcementLearningAndDeepLearningDiscussion3/student/W3D5_Tutorial1.html">Tutorial 2: Deep Learning Discussion 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W3D5_AdvancedReinforcementLearningAndDeepLearningDiscussion3/student/W3D5_Tutorial1.html">Tutorial 1: Deep Learning Discussion 3</a></li>
 
 
 
@@ -1744,8 +1744,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>Previous literature predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2c9dfe7-91f7-4dca-9fde-b2ecac94e784">
-<span class="eqno">(119)<a class="headerlink" href="#equation-b2c9dfe7-91f7-4dca-9fde-b2ecac94e784" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-03d045b9-7782-4e2a-8166-4ae1dbba14fa">
+<span class="eqno">(119)<a class="headerlink" href="#equation-03d045b9-7782-4e2a-8166-4ae1dbba14fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 N &amp;= 40 \\
 M &amp;= 400
 \end{align}\]</div>
@@ -1796,7 +1796,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4f91f8431c2d902d4529bcec55d00f69fdbcd5ca8204e4b253813bebded37752.png" src="../../_images/4f91f8431c2d902d4529bcec55d00f69fdbcd5ca8204e4b253813bebded37752.png" />
+<img alt="../../_images/2a8aaa6b03e9f142e38e4bbc7fa335e7fcfd4c4066eb7a33a92e2c2bbf83d5f4.png" src="../../_images/2a8aaa6b03e9f142e38e4bbc7fa335e7fcfd4c4066eb7a33a92e2c2bbf83d5f4.png" />
 </div>
 </div>
 <p>Blue is the no-motion condition, and produces flat average spike counts across the 3 s time interval. The orange and green line do show a bell-shaped curve that corresponds to the acceleration profile. But there also seems to be considerable noise: exactly what we need. Let’s see what the spike trains for a single trial look like:</p>
@@ -1808,9 +1808,9 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/13337f7b15738539fac9062a7ada53d2e380c84097fb0fbd78ebabffeec3a8ff.png" src="../../_images/13337f7b15738539fac9062a7ada53d2e380c84097fb0fbd78ebabffeec3a8ff.png" />
-<img alt="../../_images/75e5274e814ad9adbca19122d2ba071b007991db971c328be98095f27a4ea9cc.png" src="../../_images/75e5274e814ad9adbca19122d2ba071b007991db971c328be98095f27a4ea9cc.png" />
-<img alt="../../_images/1c23588993e6420a63145817820556c3933c5ec77f4a0bcf9824381923169c8f.png" src="../../_images/1c23588993e6420a63145817820556c3933c5ec77f4a0bcf9824381923169c8f.png" />
+<img alt="../../_images/db198a3aee15a4826754958dba61a41b666d74bcd1b465b47ffe03d48e7d6cbb.png" src="../../_images/db198a3aee15a4826754958dba61a41b666d74bcd1b465b47ffe03d48e7d6cbb.png" />
+<img alt="../../_images/d125797a7eeddb7f1d3f809cc35beaefabb7810a0d8e2ebf0a48a9d25f83c1f0.png" src="../../_images/d125797a7eeddb7f1d3f809cc35beaefabb7810a0d8e2ebf0a48a9d25f83c1f0.png" />
+<img alt="../../_images/68eee20ac19801360f4ece3f3c3bf87d59707b693f06b63665eac855738a9801.png" src="../../_images/68eee20ac19801360f4ece3f3c3bf87d59707b693f06b63665eac855738a9801.png" />
 </div>
 </div>
 <p>You can change the trial number in the bit of code above to compare what the rasterplots look like in different trials. You’ll notice that they all look kind of the same: the 3 conditions are very hard (impossible?) to distinguish by eye-balling.</p>
@@ -1958,7 +1958,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/172d10637a6ba1ee7bb6224652a06eb694dd018c90c198c1a629d2d8c00c92ac.png" src="../../_images/172d10637a6ba1ee7bb6224652a06eb694dd018c90c198c1a629d2d8c00c92ac.png" />
+<img alt="../../_images/85e4649583eb1f4ce329710b13c358c04d63717828b993a4b0ec57bee168de01.png" src="../../_images/85e4649583eb1f4ce329710b13c358c04d63717828b993a4b0ec57bee168de01.png" />
 </div>
 </div>
 <p>We asked for 8 cross validations, which show up as the blue dots in the graph (two have the same accuracy). Prediction accuracy ranges from 56% to 72%, with the average at 65%, and the orange line is the median. Given the noisy data, that is not too bad actually.</p>
@@ -2009,7 +2009,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/172d10637a6ba1ee7bb6224652a06eb694dd018c90c198c1a629d2d8c00c92ac.png" src="../../_images/172d10637a6ba1ee7bb6224652a06eb694dd018c90c198c1a629d2d8c00c92ac.png" />
+<img alt="../../_images/85e4649583eb1f4ce329710b13c358c04d63717828b993a4b0ec57bee168de01.png" src="../../_images/85e4649583eb1f4ce329710b13c358c04d63717828b993a4b0ec57bee168de01.png" />
 </div>
 </div>
 <p>This is the exact same figure as before, so our function <code class="docutils literal notranslate"><span class="pre">classifyMotionFromSpikes()</span></code> also works as intended.</p>
@@ -2146,7 +2146,7 @@ M &amp;= 400
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e25151adfd13533649fbce42b47da6108ec94d74ce0b95cf77e0b8d972ada25.png" src="../../_images/1e25151adfd13533649fbce42b47da6108ec94d74ce0b95cf77e0b8d972ada25.png" />
+<img alt="../../_images/5990b26a31516e9cdb838c0037ec137a313747cc2df70055bfbfe6c87defa511.png" src="../../_images/5990b26a31516e9cdb838c0037ec137a313747cc2df70055bfbfe6c87defa511.png" />
 </div>
 </div>
 <p>Well, that’s interesting! The logistic regression doesn’t do a perfect job, but there is information in these results.</p>
