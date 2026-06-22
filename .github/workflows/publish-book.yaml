@@ -31,7 +31,7 @@ jobs:
           swap-storage: true
         
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -42,9 +42,9 @@ jobs:
           echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
-          python-version: 3.9
+          python-version: "3.11"
 
       - name: Install CI tools
         run: |
@@ -100,7 +100,7 @@ jobs:
           git checkout -f gh-pages
   
       - name: Publish to gh-pages
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@v1.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
