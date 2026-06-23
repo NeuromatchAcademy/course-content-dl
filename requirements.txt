@@ -5,9 +5,9 @@ numpy>=2.0
 pandas>=2.2
 matplotlib>=3.9
 torch>=2.6
-torchvision>=0.15
-torchaudio>=2.0
-scikit-learn>=1.7
+torchvision>=0.21
+torchaudio>=2.6
+scikit-learn>=1.6
 scipy>=1.13
 Pillow>=10.0
 imageio>=2.30
@@ -38,3 +38,4 @@ textattack
 tokenizers==0.22.2
 transformers
 vibecheck
+typing_extensions
