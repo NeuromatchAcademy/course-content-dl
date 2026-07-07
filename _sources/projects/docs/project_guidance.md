@@ -60,7 +60,7 @@ The following table specifies the tutorial content that your pod is assigned bas
 |   Assigned Project Dataset  |   Tutorial Content for W1D5     |     New Project Day     |
 |-----------------------------|---------------------------------|-------------------------|
 | Computer Vision             | [W2D2: Convnets](https://instructor.deeplearning.neuromatch.io/tutorials/W2D2_Convnets/chapter_title.html)  | W2D2     |
-| Natural Language Processing | [W2D5: Time Series and NLP](https://instructor.deeplearning.neuromatch.io/tutorials/W2D5_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html)       | W3D1     |
+| Natural Language Processing | [W2D5: Time Series and NLP](https://instructor.deeplearning.neuromatch.io/tutorials/W2D5_TimeSeriesAndNaturalLanguageProcessing/chapter_title.html)        | W2D5     |
 | Reinforcement Learning      | [W3D4: Basic RL](https://deeplearning.neuromatch.io/tutorials/W3D4_BasicReinforcementLearning/student/W3D4_Tutorial1.html)                  | W3D4   |
 | Neuroscience                | [W2D2: Convnets](https://instructor.deeplearning.neuromatch.io/tutorials/W2D2_Convnets/chapter_title.html)  | W2D2    |
 
