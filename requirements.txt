@@ -34,6 +34,7 @@ libsixel-python
 pyngrok
 pytorch-pretrained-biggan
 python-Levenshtein
+sentencepiece>=0.2.0
 textattack
 tokenizers==0.22.2
 transformers
