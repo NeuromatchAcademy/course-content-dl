@@ -5,7 +5,7 @@ inputs:
   python-version:
     description: 'Python version to install'
     required: false
-    default: '3.10'
+    default: '3.11'
 
 outputs:
   cache-hit:
