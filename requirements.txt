@@ -26,7 +26,7 @@ diffusers
 evaluate
 facenet-pytorch
 fasttext
-flair
+flair>=0.13
 flasgger
 flask
 flask-restful
@@ -34,6 +34,7 @@ libsixel-python
 pyngrok
 pytorch-pretrained-biggan
 python-Levenshtein
+sentencepiece>=0.2.0
 textattack
 tokenizers==0.22.2
 transformers
